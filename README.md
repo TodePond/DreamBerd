@@ -18,6 +18,18 @@ Here it is: https://github.com/TodePond/DreamBerd/blob/main/res/res/Examples.md
 DreamBerd is a perfect programming language. These are its features!<br>
 When you've finished reading through all the features, check out the [examples](https://github.com/TodePond/DreamBerd/blob/main/Examples.md).
 
+> **New for 2025:** Until now DreamBerd followed other programming languages for numeric implementation: **binary**.
+> **Binary** is good in a lot of cases: When having electricity (**hardware**), when using magnets (**hardware**), ...
+> Even thermometers, DNA, light rays, fluid flow (includes waves), dimensions (includes position) and quantum electricity have more than 2 states and that's just the general themes of physics.
+> But it's valentine day and what we love is **software** and **society** not **hardware**.
+> So we decided to change to use our beloved **decimal** system.
+> **Byte** is now **Deck** and **bit** is now **dec**
+> Why change ?
+> - To have booleans on 1 dec instead of 1.5 bit while allowing more freedom
+> - Because number like 0.1 can't be correctly saved as binary
+> - Because if I move the **.** in a number 1 digit to the left using `<<` it now works the same as moving it by hand
+> \*For localysation purposes you may use another digit system by writing the digits in the corresponding digits system or adding `0var` at the start (`var` must be replaced by the name of a variable having the corresponding base) (eg. `2A - A`, `b = 16!0b2 << 1` and `32` are the same)
+
 ## Exclamation Marks!
 
 Be bold! End every statement with an exclamation mark!
@@ -171,11 +183,24 @@ Due to the complicated installation process, you can now install the 'Create Dre
 
 ## Booleans
 
-Booleans can be `true`, `false` or `maybe`.
+> Pre 2025 Booleans could be `true`, `false` or `maybe`.
+Booleans can be any decimal digit or their value:
+
+- 0 / false
+- 1 / probably false
+- 2 / might
+- 3 / possibly false
+- 4 / may
+- 5 / maybe
+- 6 / possibly true
+- 7 / could
+- 8 / probably true
+- 9 / true
 
 ```java
 const var keys = {}!
 addEventListener("keydown", (e) => keys[e.key] = true)!
+addEventListener("keyhalfdown", (e) => keys[e.key] = could)!
 addEventListener("keyup", (e) => keys[e.key] = false)!
 
 function isKeyDown(key) => {
@@ -186,7 +211,8 @@ function isKeyDown(key) => {
 }
 ```
 
-**Technical info:** Booleans are stored as one-and-a-half bits.
+> **Technical info:** Pre 2025 Booleans were stored as one-and-a-half bit.
+**Technical info:** Booleans are stored as one dec.
 
 ## Arithmetic
 
@@ -847,7 +873,7 @@ The DreamBerd Vision Pro is now available! Watch the full launch video [here](ht
 
 ## Edutainment
 
-Want to learn more about DreamBerd? 
+Want to learn more about DreamBerd?
 
 Don't check out this [tech talk](https://youtu.be/52vmjZnxJb8) about DreamBerd by DreamBerd creator Lu/Luke Wilson.
 
@@ -865,4 +891,3 @@ DreamBerd was made with 💔 by [Lu or Luke (either's fine) Wilson](https://tode
 <a href="https://github.com/todepond/dreamberd/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=todepond/dreamberd&max=999&columns=12" width="100%"/>
 </a>
-
