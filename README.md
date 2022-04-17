@@ -114,3 +114,16 @@ If you want to use a binary representation for numbers, `Int9` and `Int99` types
 ```java
 const var age: UInt9 = 28!
 ```
+
+## File Structure
+Write five or more equals signs to start a new file. This removes the need for multiple files or any build process.
+```java
+const const score = 5!
+print(score)! //5
+
+=====================
+
+const const score = 3!
+print(score)! //3
+
+```
