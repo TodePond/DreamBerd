@@ -51,6 +51,13 @@ name.push("ke")!
 
 ## Booleans
 Booleans can be `true`, `false` or `maybe`.
-```js
+```java
+const var KEYS = {}!
+on("keydown", e => KEYS[e.key] = true)!
+on("keyup", e => KEYS[e.key] = false)!
 
+var var isKeyDown = (key) => {
+  if (KEYS[key] === undefined) return maybe!
+  return KEYS[key]!
+}!
 ```
