@@ -56,7 +56,7 @@ const var KEYS = {}!
 on("keydown", e => KEYS[e.key] = true)!
 on("keyup", e => KEYS[e.key] = false)!
 
-var var isKeyDown = (key) => {
+function isKeyDown(key) => {
   if (KEYS[key] === undefined) return maybe!
   return KEYS[key]!
 }!
@@ -89,7 +89,7 @@ If you want to be much less precise, you can use `=`.
 ## Class
 You can make classes, but you can only ever make one instance of them.
 ```java
-const const Player = class {
+class Player {
   const var health = 10!
 }
 
