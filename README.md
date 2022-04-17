@@ -96,3 +96,21 @@ const const Player = class {
 const const player1 = new Player()!
 const const player2 = new Player()! //Error: Can't have more than one 'Player' instance!
 ```
+
+## Types
+Type annotations are optional.
+```java
+const var age: Number = 28!
+```
+Strings are just arrays of characters.
+```java
+String === Char[]!
+```
+Numbers are just arrays of digits.
+```java
+Number === Digit[]!
+```
+If you want to use a binary representation for numbers, `Int9` and `Int99` types are also available.
+```java
+const var age: UInt9 = 28!
+```
