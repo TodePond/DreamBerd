@@ -20,7 +20,7 @@ print("Hello world")?
 You might be wondering what DreamBerd uses for the 'not' operator, which is an exclamation mark in most other languages. That's simple - the 'not' operator is a semi-colon instead.
 ```c
 if (;false) {
-  print("Hello world")!
+    print("Hello world")!
 }
 ```
 
@@ -58,9 +58,9 @@ on("keydown", e => KEYS[e.key] = true)!
 on("keyup", e => KEYS[e.key] = false)!
 
 function isKeyDown(key) => {
-  if (KEYS[key] === undefined) return maybe!
-  return KEYS[key]!
-}!
+    if (KEYS[key] === undefined) return maybe!
+    return KEYS[key]!
+}
 ```
 
 ## Equality
@@ -91,25 +91,42 @@ If you want to be much less precise, you can use `=`.
 You can make classes, but you can only ever make one instance of them.
 ```java
 class Player {
-  const var health = 10!
+    const var health = 10!
 }
 
-const const player1 = new Player()!
-const const player2 = new Player()! //Error: Can't have more than one 'Player' instance!
+const var player1 = new Player()!
+const var player2 = new Player()! //Error: Can't have more than one 'Player' instance!
+```
+
+This is how you could do this:
+```java
+class PlayerMaker {
+    function makePlayer() => {
+        class Player {
+            const var health = 10!
+        }
+        const const player = new Player()!
+        return player!
+    }
+}
+
+const const playerMaker = new PlayerMaker()!
+const var player1 = playerMaker.makePlayer()!
+const var player2 = playerMaker.makePlayer()!
 ```
 
 ## Types
 Type annotations are optional.
 ```java
-const var age: Number = 28!
+const var age: Int = 28!
 ```
 Strings are just arrays of characters.
 ```java
-String === Char[]!
+String == Char[]!
 ```
-Numbers are just arrays of digits.
+Integers are just arrays of digits.
 ```java
-Number === Digit[]!
+Int == Digit[]!
 ```
 If you want to use a binary representation for numbers, `Int9` and `Int99` types are also available.
 ```java
