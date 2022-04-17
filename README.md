@@ -83,5 +83,16 @@ print(3.14 ==== pi)! //false
 
 If you want to be much less precise, you can use `=`.
 ```java
-3 = 3.14 //true
+3 = 3.14! //true
+```
+
+## Class
+You can make classes, but you can only ever make one instance of them.
+```java
+const const Player = class {
+  const var health = 10!
+}
+
+const const player1 = new Player()!
+const const player2 = new Player()! //Error: Can't have more than one 'Player' instance!
 ```
