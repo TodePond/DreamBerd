@@ -1,5 +1,5 @@
 # DreamBerd
-DreamBerd is a perfect programming language!
+DreamBerd is a perfect programming language.
 
 # Exclamation Marks
 Be bold! End every statement with an exclamation mark!
@@ -7,9 +7,14 @@ Be bold! End every statement with an exclamation mark!
 print("Hello world")!
 ```
 
-If you're feeling extra-bold, you use even more!!!
+If you're feeling extra-bold, you can use even more!!!
 ```js
 print("Hello world")!!!
+```
+
+If you're unsure, that's ok. You can put a question mark at the end of a line instead. It prints debug information about that line to the console for you.
+```js
+print("Hello world")?
 ```
 
 You might be wondering what DreamBerd uses for the 'not' operator, which is an exclamation mark in most other languages. That's simple - the 'not' operator is a semi-colon instead.
@@ -17,9 +22,4 @@ You might be wondering what DreamBerd uses for the 'not' operator, which is an e
 if (;false) {
   print("Hello world")!
 }
-```
-
-If you're unsure, that's ok. You can put a question mark at the end of a line instead. It prints debug information about that line to the console for you.
-```js
-print("Hello world")?
 ```
