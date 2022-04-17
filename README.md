@@ -33,7 +33,8 @@ const const name = "Luke"!
 Constant variables can be edited, but not re-assigned.
 ```java
 const var name = "Luke"!
-name.remove(2, 3)!
+name.pop()!
+name.pop()!
 ```
 
 Variable constants can be re-assigned, but not edited.
