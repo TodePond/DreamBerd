@@ -87,33 +87,6 @@ If you want to be much less precise, you can use `=`.
 3 = 3.14! //true
 ```
 
-## Class
-You can make classes, but you can only ever make one instance of them.
-```java
-class Player {
-    const var health = 10!
-}
-
-const var player1 = new Player()!
-const var player2 = new Player()! //Error: Can't have more than one 'Player' instance!
-```
-
-This is how you could do this:
-```java
-class PlayerMaker {
-    function makePlayer() => {
-        class Player {
-            const var health = 10!
-        }
-        const const player = new Player()!
-        return player!
-    }
-}
-
-const const playerMaker = new PlayerMaker()!
-const var player1 = playerMaker.makePlayer()!
-const var player2 = playerMaker.makePlayer()!
-```
 
 ## Types
 Type annotations are optional.
@@ -167,4 +140,32 @@ export add to "main.db"!
 ===== main.db ==
 import add!
 add(3, 2)!
+```
+
+## Class
+You can make classes, but you can only ever make one instance of them. This shouldn't affect most people who write object-oriented code.
+```java
+class Player {
+    const var health = 10!
+}
+
+const var player1 = new Player()!
+const var player2 = new Player()! //Error: Can't have more than one 'Player' instance!
+```
+
+This is how you could do this:
+```java
+class PlayerMaker {
+    function makePlayer() => {
+        class Player {
+            const var health = 10!
+        }
+        const const player = new Player()!
+        return player!
+    }
+}
+
+const const playerMaker = new PlayerMaker()!
+const var player1 = playerMaker.makePlayer()!
+const var player2 = playerMaker.makePlayer()!
 ```
