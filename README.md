@@ -145,3 +145,26 @@ const const score = 3!
 print(score)! //3
 
 ```
+
+You can give files names.
+```java
+======= add.db =======
+function add(a, b) => {
+    return a + b!
+}
+```
+
+## Export
+You can export to specific files!
+```java
+===== add.db ==
+function add(a, b) => {
+    return a + b!
+}
+
+export add to "main.db"!
+
+===== main.db ==
+import add!
+add(3, 2)!
+```
