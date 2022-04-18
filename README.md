@@ -128,9 +128,9 @@ Integers are just arrays of digits.
 ```java
 Int == Digit[]!
 ```
-If you want to use a binary representation for numbers, `Int9` and `Int99` types are also available.
+If you want to use a binary representation for integers, `Int9` and `Int99` types are also available.
 ```java
-const var age: UInt9 = 28!
+const var age: Int9 = 28!
 ```
 
 ## File Structure
