@@ -155,7 +155,7 @@ function add(a, b) => {
 ```
 
 ## Export
-You can export to specific files!
+Many languages allow you to import things from specific files. In DreamBerd, importing is simpler. Instead, you export _to_ specific files!
 ```java
 ===== add.db ==
 function add(a, b) => {
