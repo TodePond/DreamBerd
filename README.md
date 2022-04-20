@@ -200,4 +200,4 @@ when (health = 0) {
 ```
 
 ## Examples
-For examples of DreamBerd in action, check out the [examples page](https://github.com/TodePond/DreamBerd/blob/main/test/lib.md)!
+For examples of DreamBerd in action, check out the [examples page](https://github.com/TodePond/DreamBerd/blob/main/test/Examples.md)!
