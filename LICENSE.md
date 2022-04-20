@@ -1,3 +1,7 @@
+# Examples
+
+Congratulations! You found the hidden examples page!
+
 These are some examples of DreamBerd in action! Sorry - there aren't many.
 
 ## Hello world
