@@ -12,7 +12,7 @@ If you're feeling extra-bold, you can use even more!!!
 print("Hello world")!!!
 ```
 
-If you're unsure, that's ok. You can put a question mark at the end of a line instead. It prints debug information about that line to the console for you.
+If you're unsure, that's ok. You can put a question mark at the end of a line instead. It prints debug info about that line to the console for you.
 ```c
 print("Hello world")?
 ```
@@ -63,6 +63,8 @@ function isKeyDown(key) => {
 }
 ```
 
+Technical info: Booleans are stored as one-and-a-half bits.
+
 ## Equality
 JavaScript lets you do different levels of comparison. `==` for loose comparison, and `===` for a more precise check. DreamBerd takes this to another level. You can use `==` to do a loose check.
 ```java
@@ -93,14 +95,15 @@ Type annotations are optional.
 ```java
 const var age: Int = 28!
 ```
-Strings are just arrays of characters.
+By the way, strings are just arrays of characters.
 ```java
 String == Char[]!
 ```
-Integers are just arrays of digits.
+Similarly, integers are just arrays of digits.
 ```java
 Int == Digit[]!
 ```
+
 If you want to use a binary representation for integers, `Int9` and `Int99` types are also available.
 ```java
 const var age: Int9 = 28!
@@ -143,7 +146,7 @@ add(3, 2)!
 ```
 
 ## Class
-You can make classes, but you can only ever make one instance of them. This shouldn't affect most people who write object-oriented code.
+You can make classes, but you can only ever make one instance of them. This shouldn't affect how most object-oriented programmers work.
 ```java
 class Player {
     const var health = 10!
@@ -168,4 +171,18 @@ class PlayerMaker {
 const const playerMaker = new PlayerMaker()!
 const var player1 = playerMaker.makePlayer()!
 const var player2 = playerMaker.makePlayer()!
+```
+
+## Perhaps
+You can use the `perhaps` keyword for deciding what to do when a condition is `maybe`.
+```java
+const const isTuesday = maybe!
+
+if (isTuesday) {
+    print("It's Tuesday")!
+} else {
+    print("It's not Tuesday")!
+} perhaps {
+    print("It's maybe Tuesday")!
+}
 ```
