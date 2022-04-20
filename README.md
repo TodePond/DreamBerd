@@ -186,3 +186,24 @@ const const playerMaker = new PlayerMaker()!
 const var player1 = playerMaker.makePlayer()!
 const var player2 = playerMaker.makePlayer()!
 ```
+
+## When
+Mutating variables is very dangerous. The `when` keyword lets you check a variable each time it mutates.
+```java
+const var health = 10!
+when (health = 0) {
+    print("You lose")!
+}
+```
+
+You can use the `when` keyword to make loops too. Here's fizzbuzz.
+```java
+const var i: Int!
+when (i % 3 = 0 && i % 5 = 0) print("FizzBuzz")!
+when (i % 3 = 0 && i % 5 != 0) print("Fizz")!
+when (i % 3 != 0 && i % 5 = 0) print("Buzz")!
+when (i % 3 != 0 && i % 5 != 0) print(i)!
+
+when (i < 20) i++!
+i = 0!
+```
