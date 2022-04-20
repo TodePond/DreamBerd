@@ -65,6 +65,20 @@ function isKeyDown(key) => {
 
 Technical info: Booleans are stored as one-and-a-half bits.
 
+## Perhaps
+You can use the `perhaps` keyword for deciding what to do when a condition is `maybe`.
+```java
+const const isTuesday = maybe!
+
+if (isTuesday) {
+    print("It's Tuesday")!
+} else {
+    print("It's not Tuesday")!
+} perhaps {
+    print("It's maybe Tuesday")!
+}
+```
+
 ## Equality
 JavaScript lets you do different levels of comparison. `==` for loose comparison, and `===` for a more precise check. DreamBerd takes this to another level. You can use `==` to do a loose check.
 ```java
@@ -171,18 +185,4 @@ class PlayerMaker {
 const const playerMaker = new PlayerMaker()!
 const var player1 = playerMaker.makePlayer()!
 const var player2 = playerMaker.makePlayer()!
-```
-
-## Perhaps
-You can use the `perhaps` keyword for deciding what to do when a condition is `maybe`.
-```java
-const const isTuesday = maybe!
-
-if (isTuesday) {
-    print("It's Tuesday")!
-} else {
-    print("It's not Tuesday")!
-} perhaps {
-    print("It's maybe Tuesday")!
-}
 ```
