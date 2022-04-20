@@ -1,5 +1,6 @@
 # DreamBerd
-DreamBerd is a perfect programming language.
+DreamBerd is a perfect programming language. These are its features!<br>
+When you've finished reading through all the features, check out the [examples](https://github.com/TodePond/DreamBerd/blob/main/Examples.md).
 
 ## Exclamation Marks!
 Be bold! End every statement with an exclamation mark!
