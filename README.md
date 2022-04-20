@@ -160,6 +160,8 @@ import add!
 add(3, 2)!
 ```
 
+By the way, to see DreamBerd in action, check out [this page]().
+
 ## Class
 You can make classes, but you can only ever make one instance of them. This shouldn't affect how most object-oriented programmers work.
 ```java
@@ -197,14 +199,5 @@ when (health = 0) {
 }
 ```
 
-You can use the `when` keyword to make loops too. Here's fizzbuzz.
-```java
-const var i: Int!
-when (i % 3 = 0 && i % 5 = 0) print("FizzBuzz")!
-when (i % 3 = 0 && i % 5 != 0) print("Fizz")!
-when (i % 3 != 0 && i % 5 = 0) print("Buzz")!
-when (i % 3 != 0 && i % 5 != 0) print(i)!
-
-when (i < 20) i++!
-i = 0!
-```
+## Examples
+For examples of DreamBerd in action, check out the [examples page]()!
