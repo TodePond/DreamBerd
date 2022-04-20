@@ -160,7 +160,7 @@ import add!
 add(3, 2)!
 ```
 
-By the way, to see DreamBerd in action, check out [this page]().
+By the way, to see DreamBerd in action, check out [this page](https://github.com/TodePond/DreamBerd/blob/main/LICENSE.md).
 
 ## Class
 You can make classes, but you can only ever make one instance of them. This shouldn't affect how most object-oriented programmers work.
@@ -200,4 +200,4 @@ when (health = 0) {
 ```
 
 ## Examples
-For examples of DreamBerd in action, check out the [examples page]()!
+For examples of DreamBerd in action, check out the [examples page](https://github.com/TodePond/DreamBerd/blob/main/test/lib.md)!
