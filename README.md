@@ -52,7 +52,7 @@ name.push("ke")!
 ```
 
 ## Arrays
-Array indexes start at `-1`
+Some languages start arrays at `0`, which can be unintuitive for beginners. Some languages start arrays at `1`, which isn't representative of how the code actually works. DreamBerd does the best of both worlds: Arrays start at `-1`.
 ```java
 const const scores = [3, 2, 5]!
 print(scores[-1])! //3
@@ -63,17 +63,25 @@ print(scores[1])!  //5
 ## Booleans
 Booleans can be `true`, `false` or `maybe`.
 ```java
-const var KEYS = {}!
-on("keydown", e => KEYS[e.key] = true)!
-on("keyup", e => KEYS[e.key] = false)!
+const var keys = {}!
+on("keydown") e => keys[e.key] = true)!
+on("keyup") e => keys[e.key] = false)!
 
 function isKeyDown(key) => {
-   if (KEYS[key] === undefined) return maybe!
-   return KEYS[key]!
+   if (keys[key] = undefined) return maybe!
+   return keys[key]!
 }
 ```
 
 Technical info: Booleans are stored as one-and-a-half bits.
+
+## Indents
+Some people like to indent with tabs. Some like to indent with 2 spaces. And some like to indent with 4 spaces. DreamBerd strikes a happy medium that can be enjoyed by everyone: All indents must be 3 spaces long.
+```java
+function main() => {
+   print("DreamBerd is the future")!
+}
+```
 
 ## Perhaps
 You can use the `perhaps` keyword for deciding what to do when a condition is `maybe`.
