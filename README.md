@@ -50,7 +50,8 @@ Variable variables can be re-assigned and edited.
 ```java
 var var name = "Luke"!
 name = "Lu"!
-name.push("ke")!
+name.push("k")!
+name.push("e")!
 ```
 
 ## Arrays
