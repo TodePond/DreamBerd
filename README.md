@@ -90,7 +90,9 @@ if (isTuesday) {
 ```
 
 ## Equality
-JavaScript lets you do different levels of comparison. `==` for loose comparison, and `===` for a more precise check. DreamBerd takes this to another level. You can use `==` to do a loose check.
+JavaScript lets you do different levels of comparison. `==` for loose comparison, and `===` for a more precise check. DreamBerd takes this to another level.
+
+So... you can use `==` to do a loose check.
 ```java
 3.14 == "3.14"! //true
 ```
@@ -100,7 +102,7 @@ You can use `===` to do a more precise check.
 3.14 === "3.14"! //false
 ```
 
-You can use `====` to be even more precise!
+You can use `====` to be EVEN MORE precise!
 ```java
 const const pi = 3.14!
 print(pi ==== pi)! //true
