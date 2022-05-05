@@ -51,6 +51,15 @@ name = "Lu"!
 name.push("ke")!
 ```
 
+## Array
+Array indexes start at `-1`
+```java
+const const scores = [3, 2, 5]!
+print(scores[-1])! //3
+print(scores[0])!  //2
+print(scores[1])!  //5
+```
+
 ## Booleans
 Booleans can be `true`, `false` or `maybe`.
 ```java
@@ -197,15 +206,6 @@ const var health = 10!
 when (health = 0) {
     print("You lose")!
 }
-```
-
-## Array
-Array indexes start at `-1`
-```java
-const const scores = [3, 2, 5]!
-print(scores[-1])! //3
-print(scores[0])!  //2
-print(scores[1])!  //5
 ```
 
 ## Examples
