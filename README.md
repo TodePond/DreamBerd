@@ -51,7 +51,7 @@ name = "Lu"!
 name.push("ke")!
 ```
 
-## Array
+## Arrays
 Array indexes start at `-1`
 ```java
 const const scores = [3, 2, 5]!
