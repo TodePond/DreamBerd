@@ -199,5 +199,14 @@ when (health = 0) {
 }
 ```
 
+## Array
+Array indexes start at `-1`
+```java
+const const scores = [3, 2, 5]!
+print(scores[-1])! //3
+print(scores[0])!  //2
+print(scores[1])!  //5
+```
+
 ## Examples
 For examples of DreamBerd in action, check out the [examples page](https://github.com/TodePond/DreamBerd/blob/main/test/Examples.md)!
