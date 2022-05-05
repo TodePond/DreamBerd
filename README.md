@@ -68,8 +68,8 @@ on("keydown", e => KEYS[e.key] = true)!
 on("keyup", e => KEYS[e.key] = false)!
 
 function isKeyDown(key) => {
-    if (KEYS[key] === undefined) return maybe!
-    return KEYS[key]!
+   if (KEYS[key] === undefined) return maybe!
+   return KEYS[key]!
 }
 ```
 
@@ -81,11 +81,11 @@ You can use the `perhaps` keyword for deciding what to do when a condition is `m
 const const isTuesday = maybe!
 
 if (isTuesday) {
-    print("It's Tuesday")!
+   print("It's Tuesday")!
 } else {
-    print("It's not Tuesday")!
+   print("It's not Tuesday")!
 } perhaps {
-    print("It's maybe Tuesday")!
+   print("It's maybe Tuesday")!
 }
 ```
 
@@ -152,7 +152,7 @@ You can give files names.
 ```java
 ======= add.db =======
 function add(a, b) => {
-    return a + b!
+   return a + b!
 }
 ```
 
@@ -161,7 +161,7 @@ Many languages allow you to import things from specific files. In DreamBerd, imp
 ```java
 ===== add.db ==
 function add(a, b) => {
-    return a + b!
+   return a + b!
 }
 
 export add to "main.db"!
@@ -177,7 +177,7 @@ By the way, to see DreamBerd in action, check out [this page](https://github.com
 You can make classes, but you can only ever make one instance of them. This shouldn't affect how most object-oriented programmers work.
 ```java
 class Player {
-    const var health = 10!
+   const var health = 10!
 }
 
 const var player1 = new Player()!
@@ -187,13 +187,13 @@ const var player2 = new Player()! //Error: Can't have more than one 'Player' ins
 This is how you could do this:
 ```java
 class PlayerMaker {
-    function makePlayer() => {
-        class Player {
-            const var health = 10!
-        }
-        const const player = new Player()!
-        return player!
-    }
+   function makePlayer() => {
+      class Player {
+         const var health = 10!
+      }
+      const const player = new Player()!
+      return player!
+   }
 }
 
 const const playerMaker = new PlayerMaker()!
@@ -206,7 +206,7 @@ Mutating variables is very dangerous. The `when` keyword lets you check a variab
 ```java
 const var health = 10!
 when (health = 0) {
-    print("You lose")!
+   print("You lose")!
 }
 ```
 
