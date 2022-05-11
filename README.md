@@ -67,8 +67,8 @@ print(scores[1])!  //5
 Booleans can be `true`, `false` or `maybe`.
 ```java
 const var keys = {}!
-on("keydown") e => keys[e.key] = true)!
-on("keyup") e => keys[e.key] = false)!
+on("keydown", e => keys[e.key] = true)!
+on("keyup", e => keys[e.key] = false)!
 
 function isKeyDown(key) => {
    if (keys[key] = undefined) return maybe!
