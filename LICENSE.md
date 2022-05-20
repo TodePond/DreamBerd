@@ -13,10 +13,10 @@ Here are some examples of DreamBerd in action! Sorry - there aren't many.
 ```java
 const var i: Int!
 
-when (i % 3 = 0 && i % 5 = 0) print("FizzBuzz")!
-else when (i % 3 = 0) print("Fizz")!
-else when (i % 5 = 0) print("Buzz")!
-else print(i)!
+when (i % 3 = 0 && i % 5 = 0) "FizzBuzz"?
+else when (i % 3 = 0) "Fizz"?
+else when (i % 5 = 0) "Buzz"?
+else i? 
 
 when (i < 20) i++!
 i = 0!
@@ -29,6 +29,6 @@ on ("keydown") e => keys[e.key] = true!
 on ("keyup") e => keys[e.key] = false!
 
 when (keys[" "] = true) {
-   print("You pressed the space bar!")!
+   "You pressed the space bar!"?
 }
 ```
