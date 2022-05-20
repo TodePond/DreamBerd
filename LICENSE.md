@@ -13,9 +13,9 @@ Here are some examples of DreamBerd in action! Sorry - there aren't many.
 ```java
 const var i: Int!
 
-when (i % 3 = 0 && i % 5 = 0) {"FizzBuzz"?}!
-else when (i % 3 = 0) {"Fizz"?}! 
-else when (i % 5 = 0) {"Buzz"?}!
+when (i % 3 = 0 && i % 5 = 0) "FizzBuzz"?
+else when (i % 3 = 0) "Fizz"?
+else when (i % 5 = 0) "Buzz"?
 else i? 
 
 when (i < 20) i++!
