@@ -146,6 +146,8 @@ If you want to use a binary representation for integers, `Int9` and `Int99` type
 const var age: Int9 = 28!
 ```
 
+Technical info: Type annotations don't do anything, but they help some people to feel more comfortable.
+
 ## File Structure
 Write five or more equals signs to start a new file. This removes the need for multiple files or any build process.
 ```java
