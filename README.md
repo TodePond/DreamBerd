@@ -174,7 +174,8 @@ const var age: Int9 = 28!
 **Technical info:** Type annotations don't do anything, but they help some people to feel more comfortable.
 
 ## Previous
-The `previous` keyword lets you see into the past! Use it to get the previous value of a variable.
+The `previous` keyword lets you see into the past!<br>
+Use it to get the previous value of a variable.
 ```java
 const var score = 5!
 score++!
