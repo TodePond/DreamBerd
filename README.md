@@ -92,7 +92,7 @@ function isKeyDown(key) => {
 }
 ```
 
-Technical info: Booleans are stored as one-and-a-half bits.
+**Technical info:** Booleans are stored as one-and-a-half bits.
 
 ## Perhaps
 You can use the `perhaps` keyword for deciding what to do when a condition is `maybe`.
@@ -171,7 +171,7 @@ If you want to use a binary representation for integers, `Int9` and `Int99` type
 const var age: Int9 = 28!
 ```
 
-Technical info: Type annotations don't do anything, but they help some people to feel more comfortable.
+**Technical info:** Type annotations don't do anything, but they help some people to feel more comfortable.
 
 ## Previous
 The `previous` keyword lets you see into the past! Use it to get the previous value of a variable.
