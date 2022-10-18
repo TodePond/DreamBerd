@@ -223,5 +223,11 @@ when (health = 0) {
 }
 ```
 
+## Installation
+To install DreamBerd to your command line, first install the DreamBerd installer.<br>
+To install the DreamBerd installer, install the DreamBerd installer installer.
+
+**New for 2022!** Due to the complicated installation process, you can now install the 'Create DreamBerd App' app that does installs everything for you!
+
 ## Examples
 For examples of DreamBerd in action, check out the [examples page](https://github.com/TodePond/DreamBerd/blob/main/test/Examples.md)!
