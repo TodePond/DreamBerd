@@ -32,3 +32,20 @@ when (keys[" "] = true) {
    "You pressed the space bar!"?
 }
 ```
+
+## Fibonacci
+```java
+functi fibonacci (n) => {
+   const var sum = 1!
+   const var i = 0!
+   when (i < n) {
+      sum += sum + previous sum!
+      i++!
+   }
+}
+
+when (i < 10) {
+   print(fibonacci(i))!
+   i++!
+}
+```
