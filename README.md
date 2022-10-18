@@ -63,6 +63,22 @@ print(scores[0])!  //2
 print(scores[1])!  //5
 ```
 
+## When
+Mutating variables is very dangerous. The `when` keyword lets you check a variable each time it mutates.
+```java
+const var health = 10!
+when (health = 0) {
+   print("You lose")!
+}
+```
+
+## Installation
+To install DreamBerd to your command line, first install the DreamBerd installer.<br>
+To install the DreamBerd installer, install the DreamBerd installer installer.
+
+**New for 2022!**<br>
+Due to the complicated installation process, you can now install the 'Create DreamBerd App' app that installs everything for you!
+
 ## Booleans
 Booleans can be `true`, `false` or `maybe`.
 ```java
@@ -78,14 +94,6 @@ function isKeyDown(key) => {
 
 Technical info: Booleans are stored as one-and-a-half bits.
 
-## Indents
-Some people like to indent with tabs. Some like to indent with 2 spaces. And some like to indent with 4 spaces. DreamBerd strikes a happy medium that can be enjoyed by everyone: All indents must be 3 spaces long.
-```java
-function main() => {
-   print("DreamBerd is the future")!
-}
-```
-
 ## Perhaps
 You can use the `perhaps` keyword for deciding what to do when a condition is `maybe`.
 ```java
@@ -97,6 +105,14 @@ if (isTuesday) {
    print("It's not Tuesday")!
 } perhaps {
    print("It's maybe Tuesday")!
+}
+```
+
+## Indents
+Some people like to indent with tabs. Some like to indent with 2 spaces. And some like to indent with 4 spaces. DreamBerd strikes a happy medium that can be enjoyed by everyone: All indents must be 3 spaces long.
+```java
+function main() => {
+   print("DreamBerd is the future")!
 }
 ```
 
@@ -126,6 +142,15 @@ If you want to be much less precise, you can use `=`.
 3 = 3.14! //true
 ```
 
+## Function
+To declare a function, you can use any letters from the word `function` (as long as they're in order):
+```java
+function add (a, b) => a + b!
+func multiply (a, b) => a * b!
+fun subtract (a, b) => a - b!
+fn divide (a, b) => a / b!
+functi power (a, b) => a ** b!
+```
 
 ## Types
 Type annotations are optional.
@@ -147,6 +172,23 @@ const var age: Int9 = 28!
 ```
 
 Technical info: Type annotations don't do anything, but they help some people to feel more comfortable.
+
+## Previous
+The `previous` keyword lets you see into the past! Use it to get the previous value of a variable.
+```java
+const var score = 5!
+score++!
+print(score)! //6
+print(previous score)! //5
+```
+
+Similarly, the `next` keyword lets you see into the future!
+```java
+const var score = 5!
+print(await next score)! //6 (when you click)
+
+on ("click") score++!
+```
 
 ## File Structure
 Write five or more equals signs to start a new file. This removes the need for multiple files or any build process.
@@ -213,22 +255,6 @@ const const playerMaker = new PlayerMaker()!
 const var player1 = playerMaker.makePlayer()!
 const var player2 = playerMaker.makePlayer()!
 ```
-
-## When
-Mutating variables is very dangerous. The `when` keyword lets you check a variable each time it mutates.
-```java
-const var health = 10!
-when (health = 0) {
-   print("You lose")!
-}
-```
-
-## Installation
-To install DreamBerd to your command line, first install the DreamBerd installer.<br>
-To install the DreamBerd installer, install the DreamBerd installer installer.
-
-**New for 2022!**<br>
-Due to the complicated installation process, you can now install the 'Create DreamBerd App' app that installs everything for you!
 
 ## Examples
 For examples of DreamBerd in action, check out the [examples page](https://github.com/TodePond/DreamBerd/blob/main/test/Examples.md)!
