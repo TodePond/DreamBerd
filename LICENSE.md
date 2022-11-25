@@ -25,8 +25,8 @@ i = 0!
 ## Keyboard
 ```java
 const var keys = {}!
-on ("keydown") e => keys[e.key] = true!
-on ("keyup") e => keys[e.key] = false!
+after ("keydown") e => keys[e.key] = true!
+after ("keyup") e => keys[e.key] = false!
 
 when (keys[" "] = true) {
    "You pressed the space bar!"?
