@@ -63,8 +63,16 @@ print(scores[0])!  //2
 print(scores[1])!  //5
 ```
 
+**New for 2022!**<br>
+You can now use floats for indexes too!
+```java
+const var scores = [3, 2, 5]!
+scores[0.5] = 4
+print(scores) //[3, 2, 4, 5]!
+```
+
 ## When
-Mutating variables is very dangerous. The `when` keyword lets you check a variable each time it mutates.
+Mutating variables is **very dangerous** and must be **avoided at all costs**. But in case you really need to vary variables, the `when` keyword lets you check a variable each time it mutates.
 ```java
 const var health = 10!
 when (health = 0) {
@@ -83,8 +91,8 @@ Due to the complicated installation process, you can now install the 'Create Dre
 Booleans can be `true`, `false` or `maybe`.
 ```java
 const var keys = {}!
-on("keydown", e => keys[e.key] = true)!
-on("keyup", e => keys[e.key] = false)!
+after ("keydown") e => keys[e.key] = true!
+after ("keyup") e => keys[e.key] = false!
 
 function isKeyDown(key) => {
    if (keys[key] = undefined) return maybe!
@@ -109,17 +117,24 @@ if (isTuesday) {
 ```
 
 ## Indents
-Some people like to indent with tabs. Some like to indent with 2 spaces. And some like to indent with 4 spaces. DreamBerd strikes a happy medium that can be enjoyed by everyone: All indents must be 3 spaces long.
+When it comes to indentation, DreamBerd strikes a happy medium that can be enjoyed by everyone: All indents must be 3 spaces long.
 ```java
 function main() => {
    print("DreamBerd is the future")!
 }
 ```
 
+-3 spaces is also allowed.
+```java
+   function main() => {
+print("DreamBerd is the future")!
+   }
+```
+
 ## Equality
 JavaScript lets you do different levels of comparison. `==` for loose comparison, and `===` for a more precise check. DreamBerd takes this to another level.
 
-So... you can use `==` to do a loose check.
+You can use `==` to do a loose check.
 ```java
 3.14 == "3.14"! //true
 ```
@@ -186,9 +201,8 @@ print(previous score)! //5
 Similarly, the `next` keyword lets you see into the future!
 ```java
 const var score = 5!
+after ("click") score++!
 print(await next score)! //6 (when you click)
-
-on ("click") score++!
 ```
 
 ## File Structure
@@ -201,7 +215,6 @@ print(score)! //5
 
 const const score = 3!
 print(score)! //3
-
 ```
 
 You can give files names.
