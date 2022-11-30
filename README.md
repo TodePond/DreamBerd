@@ -276,7 +276,7 @@ Use `Date.now()` to get the current date and time.
 Date.now()
 ```
 
-You can set the time!<br>
+By the way, you can set the time.<br>
 
 ```js
 // Move the clocks back one hour
@@ -285,6 +285,36 @@ Date.now() -= 3600000
 
 **Important!**<br>
 Please remember to do this when the clocks change.
+
+## Time Travel
+You can use this to your advantage!<br>
+Let's say you're keeping track of whether the space bar is down or up...
+```js
+let down = maybe!
+after ("keydown") e => {
+   if (e.key = " ") down = true!
+}
+
+after ("keyup") e => {
+   if (e.key = " ") down = false!
+}
+```
+
+You can check the state of the space bar in the past..
+```js
+Date.now() -= 5000
+if (down) {
+   print("5 seconds ago, the space bar was down")!
+}
+```
+
+Or the future!
+```js
+Date.now() += 3000
+if (down) {
+   print("3 seconds from now, the space bar will be down")!
+}
+```
 
 ## Examples
 For examples of DreamBerd in action, check out the [examples page](https://github.com/TodePond/DreamBerd/blob/main/test/Examples.md)!
