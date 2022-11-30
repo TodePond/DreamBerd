@@ -270,5 +270,21 @@ const var player1 = playerMaker.makePlayer()!
 const var player2 = playerMaker.makePlayer()!
 ```
 
+## Now
+Use `Date.now()` to get the current date and time.
+```js
+Date.now()
+```
+
+You can set the time!<br>
+
+```js
+// Move the clocks back one hour
+Date.now() -= 3600000
+```
+
+**Important!**<br>
+Please remember to do this when the clocks change.
+
 ## Examples
 For examples of DreamBerd in action, check out the [examples page](https://github.com/TodePond/DreamBerd/blob/main/test/Examples.md)!
