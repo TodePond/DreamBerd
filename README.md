@@ -316,5 +316,26 @@ if (down) {
 }
 ```
 
+## Delete
+To avoid confusion, the `delete` statement only works with primitive values like numbers, strings, and booleans.
+
+```js
+delete 3!
+print(2 + 1)! // Error: 3 has been deleted
+```
+
+DreamBerd is a multi-paradigm programming language, which means that you can `delete` the keywords and paradigms you don't like.
+
+```js
+delete class!
+class Player {} // Error: class was deleted
+```
+
+When perfection is achieved and there is nothing left to `delete`, you can do this:
+
+```js
+delete delete!
+```
+
 ## Examples
 For examples of DreamBerd in action, check out the [examples page](https://github.com/TodePond/DreamBerd/blob/main/test/Examples.md)!
