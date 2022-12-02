@@ -45,7 +45,12 @@ functi fibonacci (n) => {
 }
 
 when (i < 10) {
-   print(fibonacci(i))!
+   fibonacci(i)?
    i++!
 }
+```
+
+## The Billion Dollar Mistake
+```java
+delete null!
 ```
