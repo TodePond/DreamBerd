@@ -102,7 +102,7 @@ function isKeyDown(key) => {
 
 **Technical info:** Booleans are stored as one-and-a-half bits.
 
-## Perhaps
+## Conditionals
 You can use the `perhaps` keyword for deciding what to do when a condition is `maybe`.
 ```java
 const const isTuesday = maybe!
@@ -217,7 +217,8 @@ const const score = 3!
 print(score)! //3
 ```
 
-You can give files names.
+**New for 2022!**<br>
+Thanks to recent advances in technology, you can give files names.
 ```java
 ======= add.db =======
 function add(a, b) => {
