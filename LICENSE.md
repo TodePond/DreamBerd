@@ -22,14 +22,16 @@ when (i < 20) i++!
 i = 0!
 ```
 
-## Keyboard
+## Reactive Content
 ```java
 const var keys = {}!
 after ("keydown") e => keys[e.key] = true!
 after ("keyup") e => keys[e.key] = false!
 
+const var count = 0!
+
 when (keys[" "] = true) {
-   "You pressed the space bar!"?
+   "You've pressed the space bar {count} times"!
 }
 ```
 
