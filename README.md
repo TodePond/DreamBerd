@@ -338,5 +338,48 @@ When perfection is achieved and there is nothing left to `delete`, you can do th
 delete delete!
 ```
 
+## Memory Safety
+DreamBerd is a high-level language but sometimes you need to get low and work with memory. You can `remember` things with notes and `read` them later:
+
+```c
+const var note = remember "Luke"!
+print(read note)! // "Luke"
+```
+
+You can also write on your note if you want to remember something else.
+
+```c
+const var note = remember "Luke"!
+write note "Lu"!
+print(read note)! // "Lu"
+```
+
+You can always forget what you remembered:
+
+```c
+const var note = remember "Luke"!
+forget note!
+print(read note)! // "undefined"
+```
+
+But you can't forget what you forgot:
+
+```c
+const var note = remember "Luke"!
+forget note!
+forget note! // Error: already forgot note
+```
+
+If you really need to remember something important, do it with more emphasis so that you don't forget:
+
+```c
+const var forgetful = remember "Luke"!
+const var memorable = remember "Luke"!!!!
+forget forgetful!
+print(forgetful)! // undefined
+forget memorable!
+print(memorable)! // "Luke"
+```
+
 ## Examples
 For examples of DreamBerd in action, check out the [examples page](https://github.com/TodePond/DreamBerd/blob/main/test/Examples.md)!
