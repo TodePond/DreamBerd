@@ -243,6 +243,28 @@ add(3, 2)!
 
 By the way, to see DreamBerd in action, check out [this page](https://github.com/TodePond/DreamBerd/blob/main/LICENSE.md).
 
+## Loops
+
+Loops can be complicated. The `return` keyword simply returns you to the beginning.
+
+```js
+const var x = 1!
+function loop() => {
+   x++!
+   return!
+}
+```
+
+You might be used to something less intuitive, but don't worry. You can get a value from a function by `export`ing it!
+
+```js
+function hello() => {
+   export "Hello!"!
+}
+
+print(hello())! //Hello!
+```
+
 ## Class
 You can make classes, but you can only ever make one instance of them. This shouldn't affect how most object-oriented programmers work.
 ```java
@@ -339,4 +361,5 @@ delete delete!
 ```
 
 ## Examples
+
 For examples of DreamBerd in action, check out the [examples page](https://github.com/TodePond/DreamBerd/blob/main/test/Examples.md)!
