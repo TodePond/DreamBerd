@@ -391,5 +391,11 @@ It's worth noting that Github Copilot doesn't understand DreamBerd, which means 
 
 This is great for when you want to keep your open-sourced project closed-source.
 
+## Dividing by Zero
+Dividing by zero returns `undefined`.
+```c
+print(3 / 0) // undefined
+```
+
 ## Examples
 For examples of DreamBerd in action, check out the [examples page](https://github.com/TodePond/DreamBerd/blob/main/test/Examples.md)!
