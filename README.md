@@ -218,7 +218,7 @@ print(score)! //3
 ```
 
 **New for 2022!**<br>
-Thanks to recent advances in technology, you can give files names.
+Thanks to recent advances in technology, you can now give files names.
 ```java
 ======= add.db =======
 function add(a, b) => {
