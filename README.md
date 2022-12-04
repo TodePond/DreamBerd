@@ -359,23 +359,18 @@ print(name)! // "Lu or Luke (either is fine)"
 ## Memory
 DreamBerd is a high-level language, but sometimes you need to **get low** and work with memory.<br>
 
-DreamBerd can remember things (just like you):
+For ease-of-understanding, memory in DreamBerd works **just like you**!
+DreamBerd remembers things (just like you):
 ```c
 remember name "Luke"!
 ```
 
-DreamBerd can recall things (just like you):
+DreamBerd recalls things (just like you):
 ```c
 print(recall name)! //"Luke"
 ```
 
-DreamBerd can forget things (just like you):
-```c
-forget name!
-print(recall name)! // undefined
-```
-
-**Important:** DreamBerd can only remember around 5-9 things max (just like you):
+DreamBerd forgets things (just like you):
 ```c
 remember one 1!
 remember two 2!
