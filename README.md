@@ -338,47 +338,56 @@ When perfection is achieved and there is nothing left to `delete`, you can do th
 delete delete!
 ```
 
-## Memory Safety
-DreamBerd is a high-level language but sometimes you need to get low and work with memory. You can `remember` things with notes and `read` them later:
-
+## Overloading
+You can overload variables. The most recently defined variable gets used.
 ```c
-const var note = remember "Luke"!
-print(read note)! // "Luke"
+const const name = "Luke"!
+const const name = "Lu"!
+print(name) // "Lu"
 ```
 
-You can also write on your note if you want to remember something else.
-
+Variables with more exclamation marks get prioritised.
 ```c
-const var note = remember "Luke"!
-write note "Lu"!
-print(read note)! // "Lu"
+const const name = "Lu"!!
+const const name = "Luke"!
+print(name) // "Lu"
+
+const const name = "Lu or Luke (either is fine)"!!!!!!!!!
+print(name) // "Lu or Luke (either is fine)"
 ```
 
-You can always forget what you remembered:
+## Memory
+DreamBerd is a high-level language, but sometimes you need to **get low** and work with memory.<br>
 
+DreamBerd can remember things (just like you):
 ```c
-const var note = remember "Luke"!
-forget note!
-print(read note)! // "undefined"
+remember name "Luke"!
 ```
 
-But you can't forget what you forgot:
-
+DreamBerd can recall things (just like you):
 ```c
-const var note = remember "Luke"!
-forget note!
-forget note! // Error: already forgot note
+print(recall name)! //"Luke"
 ```
 
-If you really need to remember something important, do it with more emphasis so that you don't forget:
-
+DreamBerd can forget things (just like you):
 ```c
-const var forgetful = remember "Luke"!
-const var memorable = remember "Luke"!!!!
-forget forgetful!
-print(forgetful)! // undefined
-forget memorable!
-print(memorable)! // "Luke"
+forget name!
+print(recall name)! // undefined
+```
+
+**Important:** DreamBerd can only remember around 5-9 things max (just like you):
+```c
+remember one 1!
+remember two 2!
+remember three 3!
+remember four 4!
+remember five 5!
+remember six 6!
+remember seven 7!
+remember eight 8!
+
+print(recall eight)! // 8
+print(recall one)! // undefined
 ```
 
 ## Examples
