@@ -343,17 +343,17 @@ You can overload variables. The most recently defined variable gets used.
 ```c
 const const name = "Luke"!
 const const name = "Lu"!
-print(name) // "Lu"
+print(name)! // "Lu"
 ```
 
 Variables with more exclamation marks get prioritised.
 ```c
 const const name = "Lu"!!
 const const name = "Luke"!
-print(name) // "Lu"
+print(name)! // "Lu"
 
 const const name = "Lu or Luke (either is fine)"!!!!!!!!!
-print(name) // "Lu or Luke (either is fine)"
+print(name)! // "Lu or Luke (either is fine)"
 ```
 
 ## Memory
