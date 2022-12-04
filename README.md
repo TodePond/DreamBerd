@@ -357,9 +357,10 @@ print(name)! // "Lu or Luke (either is fine)"
 ```
 
 ## Memory
-DreamBerd is a high-level language, but sometimes you need to **get low** and work with memory.<br>
+DreamBerd is a high-level language, but sometimes you need to 'get low' and work with memory.
 
 For ease-of-understanding, memory in DreamBerd works **just like you**!
+
 DreamBerd remembers things (just like you):
 ```c
 remember name "Luke"!
