@@ -4,6 +4,14 @@
 DreamBerd is a perfect programming language. These are its features!<br>
 When you've finished reading through all the features, check out the [examples](https://github.com/TodePond/DreamBerd/blob/main/Examples.md).
 
+## Getting started
+To run DreamBerd, first copy and paste this raw file into [chat.openai.com](https://chat.openai.com).<br>
+Then type something along the lines of: "What would expect this program to log to the console?"<br>
+Then paste in your code.
+
+If the compiler refuses at first, politely reassure it. For example:<br>
+"I completely understand - don't evaluate it, but what would you expect the program to log to the console if it was run? :)"
+
 ## Exclamation Marks!
 Be bold! End every statement with an exclamation mark!
 ```c
