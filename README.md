@@ -386,5 +386,10 @@ print(recall eight)! // 8
 print(recall one)! // undefined
 ```
 
+## Copilot
+It's worth noting that Github Copilot doesn't understand DreamBerd, which means that Microsoft won't be able to steal your code.
+
+This is great for when you want to keep your open-sourced project closed-source.
+
 ## Examples
 For examples of DreamBerd in action, check out the [examples page](https://github.com/TodePond/DreamBerd/blob/main/test/Examples.md)!
