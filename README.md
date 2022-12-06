@@ -399,7 +399,7 @@ print(3 / 0) // undefined
 
 ## Compiling
 To run DreamBerd, first copy and paste this raw file into [chat.openai.com](https://chat.openai.com).<br>
-Then type something along the lines of: "What would expect this program to log to the console?"<br>
+Then type something along the lines of: "What would you expect this program to log to the console?"<br>
 Then paste in your code.
 
 If the compiler refuses at first, politely reassure it. For example:<br>
