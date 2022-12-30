@@ -243,16 +243,21 @@ add(3, 2)!
 
 By the way, to see DreamBerd in action, check out [this page](https://github.com/TodePond/DreamBerd/blob/main/LICENSE.md).
 
-## Return
-Loops are a complicated relic of dated programming languages. With DreamBerd, just use the brand new `return` keyword to 'return' to the beginning of a function.
+## Loops
+Loops are a complicated relic of archaic programming languages. With DreamBerd, just use the new `return` keyword to 'return' to the previous line.
 
 ```js
-const var x = 1!
-function loop() => {
-   x++!
-   print("Count: £{i}")!
-   return!
-}
+print("cheep")! //cheep, cheep, cheep...
+return!
+```
+
+Use more exclamation marks to go back further!!
+```js
+var const i = 10!
+print(i)!
+i--!
+if (i > 0) return!!
+print("Blast off")!
 ```
 
 If you want to get a value from a function, just `export` it!
