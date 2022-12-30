@@ -87,6 +87,32 @@ To install the DreamBerd installer, install the DreamBerd installer installer.
 **New for 2022!**<br>
 Due to the complicated installation process, you can now install the 'Create DreamBerd App' app that installs everything for you!
 
+## Loops
+Loops are a complicated relic of archaic programming languages. With DreamBerd, just use the new `return` keyword to 'return' to the previous line.
+
+```js
+print("cheep")! //cheep, cheep, cheep...
+return!
+```
+
+Use more exclamation marks to go back further!!
+```js
+var const i = 10!
+print(i)!
+i--!
+if (i > 0) return!!
+print("Blast off")!
+```
+
+If you want to get a value from a function, just `export` it!
+
+```js
+function add(a, b) => {
+   export a + b!
+}
+print(add(3, 2)! //5
+```
+
 ## Booleans
 Booleans can be `true`, `false` or `maybe`.
 ```java
@@ -95,8 +121,8 @@ after ("keydown") e => keys[e.key] = true!
 after ("keyup") e => keys[e.key] = false!
 
 function isKeyDown(key) => {
-   if (keys[key] = undefined) return maybe!
-   return keys[key]!
+   if (keys[key] = undefined) export maybe!
+   export keys[key]!
 }
 ```
 
@@ -222,7 +248,7 @@ Thanks to recent advances in technology, you can now give files names.
 ```java
 ======= add.db =======
 function add(a, b) => {
-   return a + b!
+   export a + b!
 }
 ```
 
@@ -231,7 +257,7 @@ Many languages allow you to import things from specific files. In DreamBerd, imp
 ```java
 ===== add.db ==
 function add(a, b) => {
-   return a + b!
+   export a + b!
 }
 
 export add to "main.db"!
@@ -262,7 +288,7 @@ class PlayerMaker {
          const var health = 10!
       }
       const const player = new Player()!
-      return player!
+      export player!
    }
 }
 
@@ -274,14 +300,14 @@ const var player2 = playerMaker.makePlayer()!
 ## Now
 Use `Date.now()` to get the current date and time.
 ```js
-Date.now()
+Date.now()!
 ```
 
 By the way, you can set the time.<br>
 
 ```js
 // Move the clocks back one hour
-Date.now() -= 3600000
+Date.now() -= 3600000!
 ```
 
 **Important!**<br>
@@ -406,4 +432,5 @@ If the compiler refuses at first, politely reassure it. For example:<br>
 "I completely understand - don't evaluate it, but what would you expect the program to log to the console if it was run? :)"
 
 ## Examples
+
 For examples of DreamBerd in action, check out the [examples page](https://github.com/TodePond/DreamBerd/blob/main/test/Examples.md)!
