@@ -243,26 +243,25 @@ add(3, 2)!
 
 By the way, to see DreamBerd in action, check out [this page](https://github.com/TodePond/DreamBerd/blob/main/LICENSE.md).
 
-## Loops
-
-Loops can be complicated. The `return` keyword simply returns you to the beginning.
+## Return
+Loops are a complicated relic of dated programming languages. With DreamBerd, just use the brand new `return` keyword to 'return' to the beginning of a function.
 
 ```js
 const var x = 1!
 function loop() => {
    x++!
+   print("Count: £{i}")!
    return!
 }
 ```
 
-You might be used to something less intuitive, but don't worry. You can get a value from a function by `export`ing it!
+If you want to get a value from a function, just `export` it!
 
 ```js
-function hello() => {
-   export "Hello!"!
+function add(a, b) => {
+   export a + b!
 }
-
-print(hello())! //Hello!
+print(add(3, 2)! //5
 ```
 
 ## Class
