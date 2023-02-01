@@ -54,6 +54,18 @@ name.push("k")!
 name.push("e")!
 ```
 
+## Naming
+Both variables and constants can be named with any Unicode character or string.
+```java
+const const firstAlphabetLetter = 'A'!
+var const 👍 = True!
+var var 1️⃣ = 1! 
+```
+
+This includes numbers, and other language constructs.
+const const 5 = 4!
+print(2 + 2 === 5)! //true
+
 ## Arrays
 Some languages start arrays at `0`, which can be unintuitive for beginners. Some languages start arrays at `1`, which isn't representative of how the code actually works. DreamBerd does the best of both worlds: Arrays start at `-1`.
 ```java
