@@ -127,6 +127,21 @@ function add(a, b) => {
 print(add(3, 2)! //5
 ```
 
+## Big O notation
+
+You've probably heard that of things like `O(1)`, `O(n)`, `O(n log n)`, and quite a few more. This is called "Big O notation" and it's helpful for seeing how well some algorithms perform as datasets grow larger and larger.
+
+But what about smaller and smaller? The principle still holds! (Especially in DreamBerd)
+
+Here's the graph of an `O(n log n)` sorting algorithm, such as Merge Sort, Heap Sort, or Bogo Sort on special occasions.
+
+![n log n graph - dark](./images/nlogn-dark.png#gh-dark-mode-only)
+![n log n graph - light](./images/nlogn-light.png#gh-light-mode-only)
+
+Now as you can see, there's a blue dot on this graph - this dot is the lowest point on the `n log n` line, it's at roughly 0.368, and has a value of -0.16. This means that, for an algorithm like this, you can make a sorting algorithm that takes -0.16 seconds to complete! Most other languages don't let you do this for some reason, but DreamBerd says yes! After all, why should the rule break here?
+
+DreamBerd lets you implement a sorting algorithm that takes negative time to complete! That's the fastest ever! All you need to do is run it in 0.368 steps, which should be pretty simple. I'll leave it down to you to try and figure it out, to get your career with DreamBerd started. It's a fun exercise, and it's how DreamBerd handles [time travel](#time-travel) under the hood!
+
 ## Booleans
 Booleans can be `true`, `false` or `maybe`.
 ```java
