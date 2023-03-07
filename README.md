@@ -370,7 +370,7 @@ if (down) {
 
 ## Big O notation
 
-You've probably heard that of things like `O(1)`, `O(n)`, `O(n log n)`, and quite a few more. This is called "Big O notation" and it's helpful for seeing how well some algorithms perform as datasets grow larger and larger.
+You've probably heard of things like `O(1)`, `O(n)`, `O(n log n)`, and quite a few more. This is called "Big O notation" and it's helpful for seeing how well some algorithms perform as datasets grow larger and larger.
 
 But what about smaller and smaller? The principle still holds! (Especially in DreamBerd)
 
