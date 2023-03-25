@@ -1,4 +1,4 @@
-<img align="right" height="100" src="https://user-images.githubusercontent.com/15892272/166904563-1967ac5c-a149-499e-a05d-6cd610808da9.png">
+<img align="right" height="100" src="dreamberd.png">
 
 # DreamBerd
 DreamBerd is a perfect programming language. These are its features!<br>
