@@ -145,6 +145,13 @@ function isKeyDown(key) => {
 
 **Technical info:** Booleans are stored as one-and-a-half bits.
 
+## Arithmetic
+DreamBerd has significant whitespace. Use spacing to specify the order of arithmetic operations.
+```js
+print(1 + 2*3)! //7
+print(1+2 * 3)! //9
+```
+
 ## Indents
 When it comes to indentation, DreamBerd strikes a happy medium that can be enjoyed by everyone: All indents must be 3 spaces long.
 ```js
