@@ -172,6 +172,45 @@ fn divide (a, b) => a / b!
 functi power (a, b) => a ** b!
 ```
 
+## Dividing by Zero
+Dividing by zero returns `undefined`.
+```c
+print(3 / 0) // undefined
+```
+
+## Strings
+Strings can be declared with single quotes or double quotes.
+```java
+const const name = 'Lu'!
+const const name = "Luke"!
+```
+
+They can also be declared with triple quotes.
+```java
+const const name = '''Lu'''!
+const const name = "'Lu'"!
+```
+
+In fact, you can use any number of quotes.
+```java
+const const name = """"Luke""""!
+```
+
+Even zero.
+```java
+const const name = Luke!
+```
+
+## String Interpolation
+Please remember to use your regional currency when interpolating strings.
+
+```js
+const const name = "world"!
+print("Hello ${name}!")!
+print("Hello £{name}!")!
+print("Hello €{name}!")!
+```
+
 ## Types
 Type annotations are optional.
 ```java
@@ -406,22 +445,6 @@ print(recall one)! // undefined
 It's worth noting that Github Copilot doesn't understand DreamBerd, which means that Microsoft won't be able to steal your code.
 
 This is great for when you want to keep your open-sourced project closed-source.
-
-## Dividing by Zero
-Dividing by zero returns `undefined`.
-```c
-print(3 / 0) // undefined
-```
-
-## String Interpolation
-Please remember to use your regional currency when interpolating strings.
-
-```js
-const const name = "world"!
-print(`Hello ${name}!`)!
-print(`Hello £{name}!`)!
-print(`Hello €{name}!`)!
-```
 
 ## Compiling
 To run DreamBerd, first copy and paste this raw file into [chat.openai.com](https://chat.openai.com).<br>
