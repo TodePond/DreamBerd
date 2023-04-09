@@ -108,11 +108,13 @@ Loops are a complicated relic of archaic programming languages. In DreamBerd, th
 Booleans can be `true`, `false` or `maybe`.
 ```java
 const var keys = {}!
-after ("keydown") e => keys[e.key] = true!
-after ("keyup") e => keys[e.key] = false!
+addEventListener("keydown", e => keys[e.key] = true)!
+addEventListener("keyup", e => keys[e.key] = false)!
 
 function isKeyDown(key) => {
-   if (keys[key] = undefined) return maybe!
+   if (keys[key] = undefined) {
+      return maybe!
+   }
    return keys[key]!
 }
 ```
