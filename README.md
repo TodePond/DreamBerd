@@ -102,30 +102,7 @@ To install the DreamBerd installer, install the DreamBerd installer installer.
 Due to the complicated installation process, you can now install the 'Create DreamBerd App' app that installs everything for you!
 
 ## Loops
-Loops are a complicated relic of archaic programming languages. With DreamBerd, just use the new `return` keyword to 'return' to the previous line.
-
-```js
-print("cheep")! //cheep, cheep, cheep...
-return!
-```
-
-Use more exclamation marks to go back further!!
-```js
-var const i = 10!
-print(i)!
-i--!
-if (i > 0) return!!
-print("Blast off")!
-```
-
-If you want to get a value from a function, just `export` it!
-
-```js
-function add(a, b) => {
-   export a + b!
-}
-print(add(3, 2)! //5
-```
+Loops are a complicated relic of archaic programming languages. In DreamBerd, there are no loops.
 
 ## Booleans
 Booleans can be `true`, `false` or `maybe`.
@@ -135,8 +112,8 @@ after ("keydown") e => keys[e.key] = true!
 after ("keyup") e => keys[e.key] = false!
 
 function isKeyDown(key) => {
-   if (keys[key] = undefined) export maybe!
-   export keys[key]!
+   if (keys[key] = undefined) return maybe!
+   return keys[key]!
 }
 ```
 
