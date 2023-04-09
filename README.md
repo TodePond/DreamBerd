@@ -250,7 +250,7 @@ Thanks to recent advances in technology, you can now give files names.
 ```java
 ======= add.db =======
 function add(a, b) => {
-   export a + b!
+   return a + b!
 }
 ```
 
@@ -259,7 +259,7 @@ Many languages allow you to import things from specific files. In DreamBerd, imp
 ```java
 ===== add.db ==
 function add(a, b) => {
-   export a + b!
+   return a + b!
 }
 
 export add to "main.db"!
@@ -290,7 +290,7 @@ class PlayerMaker {
          const var health = 10!
       }
       const const player = new Player()!
-      export player!
+      return player!
    }
 }
 
