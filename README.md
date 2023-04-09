@@ -100,6 +100,24 @@ when (health = 0) {
 }
 ```
 
+## Lifetime
+DreamBerd has a built-in garbage collector that will automatically clean up unused variables. However, if you want to be extra careful, you can specify a lifetime for a variable, with a variety of units.
+```js
+const const name<2> = "Luke"! //lasts for two lines
+const const name<20s> = "Luke"! //lasts for 20 seconds
+```
+
+By default, a variable will last until the end of the program. But you can make it last in between program-runs by specifying a longer lifetime.
+```js
+const const name<Infinity> = "Luke"! //lasts forever
+```
+
+Variable hoisting can be achieved with this neat trick. Specify a negative lifetime to make a variable exist before its creation, and disappear after its creation.
+```js
+print(name)! //Luke
+const const name<-1> = "Luke"!
+```
+
 ## Installation
 To install DreamBerd to your command line, first install the DreamBerd installer.<br>
 To install the DreamBerd installer, install the DreamBerd installer installer.
