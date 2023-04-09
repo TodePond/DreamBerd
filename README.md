@@ -6,22 +6,22 @@ When you've finished reading through all the features, check out the [examples](
 
 ## Exclamation Marks!
 Be bold! End every statement with an exclamation mark!
-```c
+```js
 print("Hello world")!
 ```
 
 If you're feeling extra-bold, you can use even more!!!
-```c
+```js
 print("Hello world")!!!
 ```
 
 If you're unsure, that's ok. You can put a question mark at the end of a line instead. It prints debug info about that line to the console for you.
-```c
+```js
 print("Hello world")?
 ```
 
 You might be wondering what DreamBerd uses for the 'not' operator, which is an exclamation mark in most other languages. That's simple - the 'not' operator is a semi-colon instead.
-```c
+```js
 if (;false) {
     print("Hello world")!
 }
@@ -29,25 +29,25 @@ if (;false) {
 
 ## Declarations
 There are four types of declaration. Constant constants can't be changed in any way.
-```java
+```js
 const const name = "Luke"!
 ```
 
 Constant variables can be edited, but not re-assigned.
-```java
+```js
 const var name = "Luke"!
 name.pop()!
 name.pop()!
 ```
 
 Variable constants can be re-assigned, but not edited.
-```java
+```js
 var const name = "Luke"!
 name = "Lu"!
 ```
 
 Variable variables can be re-assigned and edited.
-```java
+```js
 var var name = "Luke"!
 name = "Lu"!
 name.push("k")!
@@ -56,21 +56,21 @@ name.push("e")!
 
 ## Naming
 Both variables and constants can be named with any Unicode character or string.
-```java
+```js
 const const firstAlphabetLetter = 'A'!
 var const 👍 = True!
 var var 1️⃣ = 1! 
 ```
 
 This includes numbers, and other language constructs.
-```java
+```js
 const const 5 = 4!
 print(2 + 2 === 5)! //true
 ```
 
 ## Arrays
 Some languages start arrays at `0`, which can be unintuitive for beginners. Some languages start arrays at `1`, which isn't representative of how the code actually works. DreamBerd does the best of both worlds: Arrays start at `-1`.
-```java
+```js
 const const scores = [3, 2, 5]!
 print(scores[-1])! //3
 print(scores[0])!  //2
@@ -79,15 +79,21 @@ print(scores[1])!  //5
 
 **New for 2022!**<br>
 You can now use floats for indexes too!
-```java
+```js
 const var scores = [3, 2, 5]!
 scores[0.5] = 4
 print(scores) //[3, 2, 4, 5]!
 ```
 
+## Constant Constant
+Mutable data is an anti-pattern. Use the `const const const` keyword to make a constant constant constant. Its value will become constant and immutable, and will *never change*. Please be careful with this keyword, as it is very powerful, and will affect all users globally forever.
+```js
+const const const pi = 3.14!
+```
+
 ## When
-Mutating variables is **very dangerous** and must be **avoided at all costs**. But in case you really need to vary variables, the `when` keyword lets you check a variable each time it mutates.
-```java
+In case you really need to vary a variable, the `when` keyword lets you check a variable each time it mutates.
+```js
 const var health = 10!
 when (health = 0) {
    print("You lose")!
@@ -106,7 +112,7 @@ Loops are a complicated relic of archaic programming languages. In DreamBerd, th
 
 ## Booleans
 Booleans can be `true`, `false` or `maybe`.
-```java
+```js
 const var keys = {}!
 addEventListener("keydown", e => keys[e.key] = true)!
 addEventListener("keyup", e => keys[e.key] = false)!
@@ -123,14 +129,14 @@ function isKeyDown(key) => {
 
 ## Indents
 When it comes to indentation, DreamBerd strikes a happy medium that can be enjoyed by everyone: All indents must be 3 spaces long.
-```java
+```js
 function main() => {
    print("DreamBerd is the future")!
 }
 ```
 
 -3 spaces is also allowed.
-```java
+```js
    function main() => {
 print("DreamBerd is the future")!
    }
@@ -140,17 +146,17 @@ print("DreamBerd is the future")!
 JavaScript lets you do different levels of comparison. `==` for loose comparison, and `===` for a more precise check. DreamBerd takes this to another level.
 
 You can use `==` to do a loose check.
-```java
+```js
 3.14 == "3.14"! //true
 ```
 
 You can use `===` to do a more precise check.
-```java
+```js
 3.14 === "3.14"! //false
 ```
 
 You can use `====` to be EVEN MORE precise!
-```java
+```js
 const const pi = 3.14!
 print(pi ==== pi)! //true
 print(3.14 ==== 3.14)! //true
@@ -158,13 +164,13 @@ print(3.14 ==== pi)! //false
 ```
 
 If you want to be much less precise, you can use `=`.
-```java
+```js
 3 = 3.14! //true
 ```
 
 ## Function
 To declare a function, you can use any letters from the word `function` (as long as they're in order):
-```java
+```js
 function add (a, b) => a + b!
 func multiply (a, b) => a * b!
 fun subtract (a, b) => a - b!
@@ -174,30 +180,30 @@ functi power (a, b) => a ** b!
 
 ## Dividing by Zero
 Dividing by zero returns `undefined`.
-```c
+```js
 print(3 / 0) // undefined
 ```
 
 ## Strings
 Strings can be declared with single quotes or double quotes.
-```java
+```js
 const const name = 'Lu'!
 const const name = "Luke"!
 ```
 
 They can also be declared with triple quotes.
-```java
+```js
 const const name = '''Lu'''!
 const const name = "'Lu'"!
 ```
 
 In fact, you can use any number of quotes.
-```java
+```js
 const const name = """"Luke""""!
 ```
 
 Even zero.
-```java
+```js
 const const name = Luke!
 ```
 
@@ -213,20 +219,20 @@ print("Hello €{name}!")!
 
 ## Types
 Type annotations are optional.
-```java
+```js
 const var age: Int = 28!
 ```
 By the way, strings are just arrays of characters.
-```java
+```js
 String == Char[]!
 ```
 Similarly, integers are just arrays of digits.
-```java
+```js
 Int == Digit[]!
 ```
 
 If you want to use a binary representation for integers, `Int9` and `Int99` types are also available.
-```java
+```js
 const var age: Int9 = 28!
 ```
 
@@ -235,7 +241,7 @@ const var age: Int9 = 28!
 ## Regular Expressions
 You can use the regular expression type to narrow string values.
 
-```java
+```js
 const const email: RegExp<(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9]))\.){3}(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9])|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])> = "mymail@mail.com"!
 ```
 
@@ -246,7 +252,7 @@ For simplicity, all supported regular expressions match the regular expression `
 ## Previous
 The `previous` keyword lets you see into the past!<br>
 Use it to get the previous value of a variable.
-```java
+```js
 const var score = 5!
 score++!
 print(score)! //6
@@ -254,7 +260,7 @@ print(previous score)! //5
 ```
 
 Similarly, the `next` keyword lets you see into the future!
-```java
+```js
 const var score = 5!
 after ("click") score++!
 print(await next score)! //6 (when you click)
@@ -262,7 +268,7 @@ print(await next score)! //6 (when you click)
 
 ## File Structure
 Write five or more equals signs to start a new file. This removes the need for multiple files or any build process.
-```java
+```js
 const const score = 5!
 print(score)! //5
 
@@ -274,7 +280,7 @@ print(score)! //3
 
 **New for 2022!**<br>
 Thanks to recent advances in technology, you can now give files names.
-```java
+```js
 ======= add.db =======
 function add(a, b) => {
    return a + b!
@@ -283,7 +289,7 @@ function add(a, b) => {
 
 ## Export
 Many languages allow you to import things from specific files. In DreamBerd, importing is simpler. Instead, you export _to_ specific files!
-```java
+```js
 ===== add.db ==
 function add(a, b) => {
    return a + b!
@@ -300,7 +306,7 @@ By the way, to see DreamBerd in action, check out [this page](https://github.com
 
 ## Class
 You can make classes, but you can only ever make one instance of them. This shouldn't affect how most object-oriented programmers work.
-```java
+```js
 class Player {
    const var health = 10!
 }
@@ -310,7 +316,7 @@ const var player2 = new Player()! //Error: Can't have more than one 'Player' ins
 ```
 
 This is how you could do this:
-```java
+```js
 class PlayerMaker {
    function makePlayer() => {
       class Player {
@@ -365,14 +371,14 @@ delete delete!
 
 ## Overloading
 You can overload variables. The most recently defined variable gets used.
-```c
+```js
 const const name = "Luke"!
 const const name = "Lu"!
 print(name)! // "Lu"
 ```
 
 Variables with more exclamation marks get prioritised.
-```c
+```js
 const const name = "Lu"!!
 const const name = "Luke"!
 print(name)! // "Lu"
