@@ -121,20 +121,6 @@ function isKeyDown(key) => {
 
 **Technical info:** Booleans are stored as one-and-a-half bits.
 
-## Conditionals
-You can use the `perhaps` keyword for deciding what to do when a condition is `maybe`.
-```java
-const const isTuesday = maybe!
-
-if (isTuesday) {
-   print("It's Tuesday")!
-} else {
-   print("It's not Tuesday")!
-} perhaps {
-   print("It's maybe Tuesday")!
-}
-```
-
 ## Indents
 When it comes to indentation, DreamBerd strikes a happy medium that can be enjoyed by everyone: All indents must be 3 spaces long.
 ```java
