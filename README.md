@@ -419,14 +419,14 @@ This is great for when you want to keep your open-sourced project closed-source.
 
 ## Ownership
 
-Using the word 'DreamBerd' in your project name implies that DreamBerd does not own your project.
+Using the word 'DreamBerd' in your project name implies that the DreamBerd Foundation does not own your project.
 
-However, **not** using the word 'DreamBerd' in your project implies that DreamBerd **does** own your project. If you would like to keep ownership of your work, please always use the word 'DreamBerd' in it.
+However, **not** using the word 'DreamBerd' in your project implies that the DreamBerd Foundation **does** own your project. If you would like to keep ownership of your work, please always use the word 'DreamBerd' in it.
 
 Here are some examples:<br>
-✅ DreamBerdScript (not owned by DreamBerd - you are free to use this name)<br>
-❌ ECMAScript (owned by DreamBerd - please consider renaming)<br>
-❌ Rust Foundation (owned by DreamBerd - please consider renaming)
+✅ DreamBerdScript (not owned by the DreamBerd Foundation - you are free to use this name)<br>
+❌ ECMAScript (owned by the DreamBerd Foundation - please consider renaming)<br>
+❌ Rust Foundation (owned by the DreamBerd Foundation - please consider renaming)
 
 ## Compiling
 To run DreamBerd, first copy and paste this raw file into [chat.openai.com](https://chat.openai.com).<br>
