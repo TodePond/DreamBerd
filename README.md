@@ -490,7 +490,7 @@ score.value.value = 99!
 print(score.value.value.value)! // 99
 ```
 
-## Automatic Insertion
+## AI
 
 DreamBerd features AEMI, which stands for Automatic-Exclamation-Mark-Insertion.<br>
 If you forget to end a statement with an exclamation mark, DreamBerd will helpfully insert one for you!
