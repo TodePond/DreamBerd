@@ -490,6 +490,15 @@ score.value.value = 99!
 print(score.value.value.value)! // 99
 ```
 
+## Brackets
+
+DreamBerd features ABI, which stands for Automatic-Bracket-Insertion.<br>
+If you forget to close your brackets, DreamBerd will pop some in for you!
+
+```java
+print("Hello world!"! // This is fine
+```
+
 ## Copilot
 It's worth noting that Github Copilot doesn't understand DreamBerd, which means that Microsoft won't be able to steal your code.
 
