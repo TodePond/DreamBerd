@@ -412,6 +412,81 @@ const const name = "Lu or Luke (either is fine)"!!!!!!!!!
 print(name)! // "Lu or Luke (either is fine)"
 ```
 
+## Signal
+
+To make a signal, use `use`.
+
+```java
+const var score = use(0)
+```
+
+When it comes to signals, the most important thing to discuss is _syntax_.
+
+In DreamBerd, you can set (and get) signals with just one function:
+
+```java
+const var score = use(0)!
+
+score(9)! // Set the value
+score()?  // Get the value (and print it)
+```
+
+Alternatively, you can be more explicit with your signal syntax, by splitting it into a getter and setter.
+
+```java
+const var [getScore, setScore] = use(0)!
+
+setScore(9)! // Set the value
+getScore()?  // Get the value (and print it)
+```
+
+**Technical info:** This is pure syntax sugar. The split signal functions are exactly the same as before.
+
+```java
+const var [getScore, setScore] = use(0)!
+
+getScore(9)! // Set the value
+setScore()?  // Get the value (and print it)
+```
+
+Of course, this means that you can carry on splitting as much as you like...
+
+```java
+const var [getScore, setScore] = use(0)!
+const var [retrieveScore, updateScore] = getScore!
+const var [calculateScore, assignScore] = updateScore!
+```
+
+## Signal Sugar
+
+The great thing about signals is that they let you work in *real* DreamBerd, instead of relying on frameworks.<br>
+For this reason, there's some additional syntax sugar that gets compiled away in a build step.
+
+You can use signals as if they're just a value.
+
+```java
+const var score = use(0)!
+print(score)! // 0
+```
+
+If you want to be more explicit, you can use the `value` property instead.
+
+```java
+const var score = use(0)!
+print(score.value)! // 0
+```
+
+**Technical info:** The `value` property doesn't do anything. It just returns the signal again.
+
+```java
+const var score = use(0)!
+
+score.value(9)! // Set the value
+score.value()?  // Get the value (and print it)
+
+print(score.value.value.value)! // 0
+```
+
 ## Copilot
 It's worth noting that Github Copilot doesn't understand DreamBerd, which means that Microsoft won't be able to steal your code.
 
