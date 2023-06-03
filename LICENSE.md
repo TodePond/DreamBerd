@@ -6,7 +6,7 @@ Here are some examples of DreamBerd in action! Sorry - there aren't many.
 
 ## Hello world
 ```java
-"Hello world"?
+Hello world?
 ```
 
 ## FizzBuzz
