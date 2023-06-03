@@ -54,6 +54,13 @@ name.push("k")!
 name.push("e")!
 ```
 
+## Immutable Data
+**New for 2023!**<br>
+Mutable data is an anti-pattern. Use the `const const const` keyword to make a constant constant constant. Its value will become constant and immutable, and will *never change*. Please be careful with this keyword, as it is very powerful, and will affect all users globally forever.
+```java
+const const const pi = 3.14!
+```
+
 ## Naming
 Both variables and constants can be named with any Unicode character or string.
 ```java
@@ -83,12 +90,6 @@ You can now use floats for indexes too!
 const var scores = [3, 2, 5]!
 scores[0.5] = 4
 print(scores) //[3, 2, 4, 5]!
-```
-
-## Constant Constant
-Mutable data is an anti-pattern. Use the `const const const` keyword to make a constant constant constant. Its value will become constant and immutable, and will *never change*. Please be careful with this keyword, as it is very powerful, and will affect all users globally forever.
-```java
-const const const pi = 3.14!
 ```
 
 ## When
