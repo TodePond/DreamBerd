@@ -466,14 +466,16 @@ You can use signals as if they're just a value.
 
 ```java
 const var score = use(0)!
-print(score)! // 0
+score = 9!
+print(score)! // 9
 ```
 
 If you want to be more explicit, you can use the `value` property instead.
 
 ```java
 const var score = use(0)!
-print(score.value)! // 0
+score.value = 9!
+print(score.value)! // 9
 ```
 
 **Technical info:** The `value` property doesn't do anything. It just returns the signal again.
@@ -484,7 +486,8 @@ const var score = use(0)!
 score.value(9)! // Set the value
 score.value()?  // Get the value (and print it)
 
-print(score.value.value.value)! // 0
+score.value.value = 99!
+print(score.value.value.value)! // 99
 ```
 
 ## Copilot
