@@ -490,14 +490,47 @@ score.value.value = 99!
 print(score.value.value.value)! // 99
 ```
 
-## Brackets
+## Automatic Insertion
 
-DreamBerd features ABI, which stands for Automatic-Bracket-Insertion.<br>
+DreamBerd features AEMI, which stands for Automatic-Exclamation-Mark-Insertion.<br>
+If you forget to end a statement with an exclamation mark, DreamBerd will helpfully insert one for you!
+
+```java
+print("Hello world") // This is fine
+```
+
+Similarly... DreamBerd also features ABI, which stands for Automatic-Bracket-Insertion.<br>
 If you forget to close your brackets, DreamBerd will pop some in for you!
 
 ```java
-print("Hello world!"! // This is fine
+print("Hello world" // This is also fine
 ```
+
+Similarly.... DreamBerd also features AQMI, which stands for Automatic-Quotation-Marks-Insertion.<br>
+If you forget to close your string, DreamBerd will do it for you!
+
+```java
+print("Hello world // This is fine as well
+```
+
+This can be very helpful in callback hell situations!
+
+```java
+addEventListener("click", (e) => {
+    requestAnimationFrame(() => {
+        print("You clicked on the page
+```
+
+Similarly..... DreamBerd also features AI, which stands for Automatic-Insertion.<br>
+If you forget to finish your code, DreamBerd will auto-complete the whole thing!
+
+```java
+print( // This is probably fine
+```
+
+**Please note:** AI does not use AI. Instead, any incomplete code will be auto-emailed to Lu Wilson, who will get back to you with a completed line as soon as possible.
+
+**Now recruiting:** The backlog of unfinished programs has now grown unsustainably long. If you would like to volunteer to help with AI, please write an incomplete DreamBerd program, and leave your contact details somewhere in the source code.
 
 ## Copilot
 It's worth noting that Github Copilot doesn't understand DreamBerd, which means that Microsoft won't be able to steal your code.
