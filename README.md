@@ -417,7 +417,7 @@ print(name)! // "Lu or Luke (either is fine)"
 To make a signal, use `use`.
 
 ```java
-const var score = use(0)
+const var score = use(0)!
 ```
 
 When it comes to signals, the most important thing to discuss is _syntax_.
