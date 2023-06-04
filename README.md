@@ -566,3 +566,5 @@ If the compiler refuses at first, politely reassure it. For example:<br>
 ## Examples
 
 For examples of DreamBerd in action, check out the [examples page](https://github.com/TodePond/DreamBerd/blob/main/test/Examples.md)!
+
+> DreamBerd was made with 💔 by Lu Wilson, creator of the [Game of Living](https://youtu.be/WMJ1H3Ai-qs).
