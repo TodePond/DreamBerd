@@ -275,7 +275,7 @@ const const email: RegExp<(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?
 
 To avoid confusion, you can use any spelling that you want, such as 'Regex' or 'RegularExpression'.
 
-For simplicity, all supported regular expressions match the regular expression `/Reg(ular)?[eE]xp?(ression)?/`.
+For simplicity, all supported regular expressions match the regular expression `/Reg(ular)?[eE]x(pression|p)/`.
 
 ## Previous
 The `previous` keyword lets you see into the past!<br>
