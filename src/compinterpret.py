@@ -1,8 +1,10 @@
+from codecs import decode
 from io import TextIOWrapper
 import os
 
 tokens = ["QUOTE", ";", "!", "IF", 'ELSE', '(', ')', '[', ']', 'TRUE', 'FALSE', 'CONST', 'VAR', '<', '>', 'INT', 'REAL', 'INFINITY', 'FUNCTION', 'PREVIOUS',
-          'NEXT', 'AWAIT', 'NEW_FILE', 'EXPORT', 'TO', 'CLASS', 'NEW', '.', 'USE', 'PLUS', 'MINUS', 'MULTIPLY', 'DIVIDE', 'EQUAL', 'IDENTIFIER', 'INDENT', 'SPACE']
+          'NEXT', 'AWAIT', 'NEW_FILE', 'EXPORT', 'TO', 'CLASS', 'NEW', '.', 'USE', 'PLUS', 'MINUS', 'MULTIPLY', 'DIVIDE', 'EQUAL', 'IDENTIFIER', 'INDENT',
+           'SPACE', 'DELETE', 'EOF']
 
 class Token():
     def __init__(self, token: str, lexeme: str) -> None:
@@ -15,7 +17,9 @@ class Token():
 lex_states = ['BEGIN']
 
 def getNextToken(file: TextIOWrapper):
-    c = file.read(1)[0]
+    def readchar(i=1):
+        return decode(file.read(i))
+    c = readchar()
     lexeme = ''
 
     basic_mappings = {
@@ -32,39 +36,81 @@ def getNextToken(file: TextIOWrapper):
         '<': '<',
         '>': '>'
     }
+    operators = '+-*/<>=()[] '
 
-    while c != '':
-        if c == ' ':
-            if file.read(2) == '  ':
-                # 3-space indent
-                return Token('INDENT', '   ')
-            else:
-                file.seek(-2, 1)
-                return Token('SPACE', ' ')
-                
-        if c == '!':
-            marks = 0 #while loop will count one over
-            while c == '!':
-                c = file.read(1)
-                mark += 1
-            file.seek(-1, 1) #Push back a character
-            return Token('!', '!' * marks)       
+    if c == ' ':
+        if readchar(2) == '  ':
+            # 3-space indent
+            return Token('INDENT', '   ')
+        else:
+            file.seek(-2, 1)
+            return Token('SPACE', ' ')
+            
+    elif c == '!':
+        marks = 0 #while loop will count one over
+        while c == '!':
+            c = readchar()
+            marks += 1
+        file.seek(-1, 1) #Pushback
+        return Token('!', '!' * marks)       
 
-        if c in basic_mappings.keys():
-            return Token(basic_mappings[c], c)
-        
-        
-
-        c = file.read(1)
+    elif c in basic_mappings.keys():
+        return Token(basic_mappings[c], c)
     
-    #If it gets this far, the file has ended
-    return Token('EOF', lexeme)
+    #INT and REAL
+    elif c.isdigit():            
+        while c.isdigit():
+            lexeme += c
+            c = readchar()
+        file.seek(-1, 1) #Pushback
+        
+        if c == '.':
+            #REAL
+            lexeme += '.'
+            c = readchar()
+            if c.isdigit():
+                while c.isdigit():
+                    lexeme += c
+                    c = readchar()
+            elif c not in operators:
+                raise Exception('Tokenizer- Error: Letters are not real')
+
+            file.seek(-1, 1)
+
+            return Token('REAL', float(lexeme))
+
+        else:
+            #INT            
+            return Token('INT', int(lexeme))
+
+    while c != '' and not c.isspace():
+        lexeme += c       
+
+        c = readchar()
+    if len(lexeme) > 0:
+        tok = lexeme.upper()
+        if tok in tokens:
+            return Token(lexeme, lexeme)
+        
+        #check for function
+        
+
+        return Token('IDENTIFIER', lexeme)
+    elif c == '':        
+        #If it gets this far, the file has ended
+        return Token('EOF', lexeme)
+    else:
+        #character is space character like \n, \r, \t
+        return Token('SPACE', c)
 
 def tokenize_file(path):
-    with open(path, 'r') as reader:
+    with open(path, 'rb') as reader:
         token = getNextToken(reader)
         while token.token != 'EOF':
             yield token
             token = getNextToken(reader)
         yield token #yield EOF
         reader.close()
+
+for token in tokenize_file('test\\db\\db\\time_travel.db'):
+    print(f'Token: {token.token} | Lex: {token.lexeme}')
