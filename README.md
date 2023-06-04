@@ -330,6 +330,8 @@ import add!
 add(3, 2)!
 ```
 
+Note that due to the fact that it is impossible to export all functions of a file to all other DreamBerd files in existence, there is __no__ DreamBerd standard library.
+
 By the way, to see DreamBerd in action, check out [this page](https://github.com/TodePond/DreamBerd/blob/main/LICENSE.md).
 
 ## Class
