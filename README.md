@@ -1,4 +1,4 @@
-> Announcement: DreamBerd was recently featured on the [Future of Code podcast](https://futureofcoding.org/episodes/064). Please listen to 
+> Announcement: DreamBerd was recently featured on the [Future of Code podcast](https://futureofcoding.org/episodes/064).
 
 <img align="right" height="100" src="dreamberd.png">
 
