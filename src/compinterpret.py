@@ -14,6 +14,18 @@ class Token():
         self.token = token.upper()
         self.lexeme = lexeme
 
+def is_fn_subset(string):
+    target = "function"
+    i = 0
+
+    for char in string:
+        if char == target[i]:
+            i += 1
+            if i == len(target):
+                return True
+
+    return False
+
 lex_states = ['BEGIN']
 
 def getNextToken(file: TextIOWrapper):
@@ -93,11 +105,12 @@ def getNextToken(file: TextIOWrapper):
             return Token(lexeme, lexeme)
         
         #check for function
-        
-
-        return Token('IDENTIFIER', lexeme)
+        if is_fn_subset(tok):
+            return Token('FUNCTION', lexeme)
+        else:
+            return Token('IDENTIFIER', lexeme)
     elif c == '':        
-        #If it gets this far, the file has ended
+        #The file has ended
         return Token('EOF', lexeme)
     else:
         #character is space character like \n, \r, \t
