@@ -25,7 +25,7 @@ print("Hello world")?
 You might be wondering what DreamBerd uses for the 'not' operator, which is an exclamation mark in most other languages. That's simple - the 'not' operator is a semi-colon instead.
 ```java
 if (;false) {
-    print("Hello world")!
+   print("Hello world")!
 }
 ```
 
