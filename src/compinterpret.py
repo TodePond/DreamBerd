@@ -15,7 +15,7 @@ class Token():
         self.lexeme = lexeme
 
 def is_fn_subset(string):
-    target = "function"
+    target = "FUNCTION"
     i = 0
 
     for char in string:
