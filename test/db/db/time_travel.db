@@ -17,3 +17,7 @@ print(previous x)
 6
 5
 """
+
+fnc gaming() => {
+    print(previous x * x)
+}

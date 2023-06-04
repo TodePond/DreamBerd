@@ -4,7 +4,7 @@ import os
 
 tokens = ["QUOTE", ";", "!", "IF", 'ELSE', '(', ')', '[', ']', 'TRUE', 'FALSE', 'CONST', 'VAR', '<', '>', 'INT', 'REAL', 'INFINITY', 'FUNCTION', 'PREVIOUS',
           'NEXT', 'AWAIT', 'NEW_FILE', 'EXPORT', 'TO', 'CLASS', 'NEW', '.', 'USE', 'PLUS', 'MINUS', 'MULTIPLY', 'DIVIDE', 'EQUAL', 'IDENTIFIER', 'INDENT',
-           'SPACE', 'DELETE', 'EOF']
+           'SPACE', 'DELETE', 'EOF', 'NEWLINE', '{', '}']
 
 class Token():
     def __init__(self, token: str, lexeme: str) -> None:
@@ -32,6 +32,12 @@ def getNextToken(file: TextIOWrapper):
     def readchar(i=1):
         return decode(file.read(i))
     c = readchar()
+    print(c)
+
+    if c == '':        
+        #The file has ended
+        return Token('EOF', lexeme)
+
     lexeme = ''
 
     basic_mappings = {
@@ -46,7 +52,10 @@ def getNextToken(file: TextIOWrapper):
         ')': ')',
         '[': ']',
         '<': '<',
-        '>': '>'
+        '>': '>',
+        '{': '{',
+        '}': '}',
+        "\"": "QUOTE"
     }
     operators = '+-*/<>=()[] '
 
@@ -95,7 +104,7 @@ def getNextToken(file: TextIOWrapper):
             #INT            
             return Token('INT', int(lexeme))
 
-    while c != '' and not c.isspace():
+    while c.isalpha():
         lexeme += c       
 
         c = readchar()
@@ -109,12 +118,20 @@ def getNextToken(file: TextIOWrapper):
             return Token('FUNCTION', lexeme)
         else:
             return Token('IDENTIFIER', lexeme)
-    elif c == '':        
-        #The file has ended
-        return Token('EOF', lexeme)
     else:
-        #character is space character like \n, \r, \t
-        return Token('SPACE', c)
+        if c == '\n':
+            if readchar() != '\r':
+                file.seek(-1, 1)
+            return Token('NEWLINE', c)
+        elif c == '\r':
+            if readchar() != '\n':
+                file.seek(-1, 1)
+            return Token('NEWLINE', c)
+        elif c == '\t':
+            # Was very tempted to force you to only use the 3 spaces but this is complicated enough already
+            return Token('INDENT', c)
+        else:
+            return Token('SPACE', c)
 
 def tokenize_file(path):
     with open(path, 'rb') as reader:
@@ -125,5 +142,5 @@ def tokenize_file(path):
         yield token #yield EOF
         reader.close()
 
-for token in tokenize_file('test\\db\\db\\time_travel.db'):
-    print(f'Token: {token.token} | Lex: {token.lexeme}')
+for token in tokenize_file('time_travel.db'):
+    print(f'{token.token} | Lex: {repr(token.lexeme)}')
