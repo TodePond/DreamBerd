@@ -1,4 +1,4 @@
-> Announcement: DreamBerd was recently featured on the [Future of Code podcast](https://futureofcoding.org/episodes/064).
+> Just released: Version [v0.9.9.9.9.9.9.9.9c](https://github.com/TodePond/DreamBerd/releases/tag/v0.9.9.9.9.9.9.9.9c)
 
 <img align="right" height="100" src="dreamberd.png">
  
