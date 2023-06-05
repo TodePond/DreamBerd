@@ -20,20 +20,20 @@ class Token():
     def __str__(self) -> str:
         return f'{self.token}({repr(self.lexeme)})'
 
-class SimpleTextCrawler():
+class SimpleListCrawler():
     def __init__(self, raw) -> None:
         self.raw = raw
         self.cursor = 0
     
-    def pop(self) -> str:
+    def pop(self):
         if self.cursor == len(self.raw):
             return ''
         self.cursor += 1
         return self.raw[self.cursor-1]
     
-    def back(self, count=1):
+    def back(self, count=1):        
         self.cursor -= count
-
+        
     def peek(self, count=1):   
         if self.cursor == len(self.raw)-1:
             return ''     
@@ -72,7 +72,7 @@ class Tokenizer():
 
         return False
 
-    def getNextToken(self, file: SimpleTextCrawler):
+    def getNextToken(self, file: SimpleListCrawler):
         def readchar(i=1):
             return ''.join([file.pop() for _ in range(i)])
         
@@ -239,7 +239,7 @@ class Tokenizer():
     def tokenize_file(self, path):  
         crawler = None  
         with open(path, 'r') as reader:
-            crawler = SimpleTextCrawler(reader.read())
+            crawler = SimpleListCrawler(reader.read())
             reader.close()
 
         token = self.getNextToken(crawler)
@@ -268,3 +268,4 @@ if __name__ == '__main__':
         print('\n')
         print("Tokenizer reports L code, fix your code or I won't compile this garbage")
         exit(1)
+
