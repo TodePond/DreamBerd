@@ -148,15 +148,15 @@ class Tokenizer():
                 c = file.pop()
             file.back()
 
-            if c == '\n':
-                return Token('ERROR', 'Line breaks are probihibted within strings, use \\n to denote new lines in a string.')
-
             # check for end quotes
             if c == '':
-                # EOF reached; User probably forgot the closing quote
+                # EOF reached; User probably forgot a closing quote
                 # Due to ambiguity the rest of the file is now a string
                 # End quotes are presumed present, thus satisfying AI requirement
                 # Diagnosis: skill issue
+                return Token('STRING', quote)
+            elif c == '\n':
+                # Line breaks within strings are not allowed, so the string ends here
                 return Token('STRING', quote)
             else:
                 # If there are end quotes, they must match the quote format exactly            
