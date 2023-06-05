@@ -5,3 +5,5 @@ jobs:
   # green = "good" || "secure"
   action-which-doesnt-do-anything:
     runs-on: ubuntu-latest
+    steps:
+      - run: echo ""
