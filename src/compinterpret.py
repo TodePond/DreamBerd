@@ -65,7 +65,8 @@ class Tokenizer():
             '>': '>',
             '{': '{',
             '}': '}',
-            ":": ':' #bruh
+            ":": ':', #bruh
+            "!": "!"
         }    
 
         regional_currency = locale.localeconv()['currency_symbol']
@@ -105,19 +106,7 @@ class Tokenizer():
                 # 3-space indent
                 return Token('INDENT', '   ')
             else:
-                return Token('SPACE', ' ')
-                
-        elif c == '!':
-            marks = 0 #while loop will count one over
-            while c == '!':
-                c = readchar()
-                marks += 1
-            if file.peek() != '':
-                # File might end after a statment, we want to let it end if it does
-                # We can't just blindly push it back or we get an infinite loop
-                # TODO: Make sure this doesn't happen elsewhere
-                file.back() #Pushback
-            return Token('!', '!' * marks)       
+                return Token('SPACE', ' ')     
 
         elif c in '+-':
             next_char = readchar()
@@ -285,6 +274,9 @@ class Parser():
     def __init__(self, tokens) -> None:
         self.tokens = tokens
         self.file = SimpleListCrawler(tokens)
+        self.var_dict = {}
+
+    def PrimType(sel):
     
 
 if __name__ == '__main__':
