@@ -64,8 +64,8 @@ class Tokenizer():
 
         regional_currency = locale.localeconv()['currency_symbol']
         if regional_currency == '':
-            # Americentrisim, baby 😎🦅🔫🔫🦅🦅🦅🔫🦅 🦅🔫🔫🔫🦅🔫🦅🔫 🦅🔫🔫🔫🦅🦅🔫🔫 🦅🔫🔫🦅🔫🦅🦅🦅 🦅🦅🔫🦅🦅🦅🦅🦅 🦅🔫🔫🦅🦅🔫🦅🦅 🦅🔫🔫🦅🔫🦅🦅🔫 🦅🔫🔫🦅🦅🔫🦅🦅 🦅🦅🔫🦅🦅🦅🦅🦅 🦅🦅🔫🔫🔫🦅🦅🔫 🦅🦅🔫🦅🔫🔫🔫🔫 🦅🦅🔫🔫🦅🦅🦅🔫 🦅🦅🔫🔫🦅🦅🦅🔫😎
-            regional_currency = '$'
+            # For maximum international accessibility, the generic currency sign is used if there is no currency sign for the given locale
+            regional_currency = '¤'
         self.basic_mappings[regional_currency] = 'CURRENCY'
 
     def is_fn_subset(self, string):
