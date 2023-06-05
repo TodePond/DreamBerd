@@ -537,6 +537,71 @@ print( // This is probably fine
 
 **Now recruiting:** The backlog of unfinished programs has now grown unsustainably long. If you would like to volunteer to help with AI, please write an incomplete DreamBerd program, and leave your contact details somewhere in the source code.
 
+## Class Name
+
+For maximum compatibility with other languages, you can alternatively use the `className` keyword when making classes.
+
+This makes things less complicated.
+
+```java
+className Player {
+   const var health = 10!
+}
+```
+
+In response to some recent criticism about this design decision, we would like to remind you that this is part of the JavaScript specification, and out of our control.
+
+Please direct all criticism towards them.
+
+
+## DBX
+
+You can embed DBX in DreamBerd. It's just DreamBerd, and it's also just HTML.
+
+```java
+funct App() => {
+   return <div>Hello world!</div>
+}
+```
+
+**Warning:** As you know, `class` is already a keyword in DreamBerd, so you can't use it within DBX.
+
+```java
+funct App() => {
+   // This is not ok
+   return <div class="greeting">Hello world!</div>
+}
+```
+
+`className` is also a DreamBerd keyword, so you can't use that either.
+
+```java
+funct App() => {
+   // This is also not ok
+   return <div className="greeting">Hello world!</div>
+}
+```
+
+Instead, you can use the `htmlClassName` attribute.
+
+```java
+funct App() => {
+   // This is fine
+   return <div htmlClassName="greeting">Hello world!</div>
+}
+```
+
+**Please note:** Unlike JSX, you are free to freely use the `for` attribute - because DreamBerd doesn't have loops.
+
+```java
+funct App() => {
+   return (
+      <label for="name">Name</label>
+      <input id="name" />
+   )
+}
+```
+
 ## Copilot
 It's worth noting that Github Copilot doesn't understand DreamBerd, which means that Microsoft won't be able to steal your code.
 
