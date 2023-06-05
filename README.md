@@ -549,7 +549,7 @@ className Player {
 }
 ```
 
-In response to some recent criticism about this design decision, we would like to remind you that this is part of the JavaScript specification, and out of our control.
+In response to some recent criticism about this design decision, we would like to remind you that this is part of the JavaScript specification, and therefore - out of our control.
 
 
 
