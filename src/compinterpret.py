@@ -225,11 +225,11 @@ class Tokenizer():
             if c == '\n':
                 if readchar() != '\r':
                     file.back()
-                return Token('NEWLINE', c)
+                return Token('!', c)
             elif c == '\r':
                 if readchar() != '\n':
                     file.back()
-                return Token('NEWLINE', c)
+                return Token('!', c)
             elif c == '\t':
                 # Was very tempted to force you to only use the 3 spaces but this is complicated enough already
                 return Token('INDENT', c)
@@ -260,6 +260,10 @@ def catch_tokenizer_errors(tokens: list[Token]):
             has_errors = True
     return has_errors
 
+class Parser():
+    def __init__(self) -> None:
+        pass
+    
 
 if __name__ == '__main__':
     tokens = list(Tokenizer().tokenize_file('test\\db\\db\\time_travel.db'))
