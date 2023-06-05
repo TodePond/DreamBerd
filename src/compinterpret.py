@@ -7,7 +7,7 @@ import locale
 tokens = ["STRING", "NOT", "!", "IF", 'ELSE', '(', ')', '[', ']', 'TRUE', 'FALSE', 'CONST', 'VAR', '<', '>', 'INT', 'REAL', 'INFINITY', 'FUNCTION', 'PREVIOUS',
           'NEXT', 'AWAIT', 'NEW_FILE', 'EXPORT', 'TO', 'CLASS', 'NEW', '.', 'USE', 'PLUS', 'MINUS', 'MULTIPLY', 'DIVIDE', '=', 'IDENTIFIER', 'INDENT',
            'SPACE', 'DELETE', 'EOF', 'NEWLINE', '{', '}', 'INC', 'DEC', 'LOOSE_EQUALITY', 'PRECISE_EQUALITY', 'LITERAL_EQUALITY', 'ERROR', 'CURRENCY',
-           'WHEN', ":"]
+           'WHEN', ":", "AND", 'OR']
 
 locale.setlocale(locale.LC_ALL, '')
 
@@ -115,6 +115,14 @@ class Tokenizer():
             else:
                 file.back()
                 return Token('PLUS' if c == '+' else 'MINUS', c)
+            
+        elif c in '&|':
+            next_char = readchar()
+            if c == next_char:
+                return Token('AND' if c == '&' else 'OR', c*2)
+            else:
+                # Let em cook                
+                file.back()                
         
         elif c == '=':
             equals = 0 #while loop will count one over
