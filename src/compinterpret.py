@@ -1,10 +1,13 @@
 from codecs import decode
+import gettext
 from io import TextIOWrapper
 import os
+import locale
 
 tokens = ["STRING", "NOT", "!", "IF", 'ELSE', '(', ')', '[', ']', 'TRUE', 'FALSE', 'CONST', 'VAR', '<', '>', 'INT', 'REAL', 'INFINITY', 'FUNCTION', 'PREVIOUS',
           'NEXT', 'AWAIT', 'NEW_FILE', 'EXPORT', 'TO', 'CLASS', 'NEW', '.', 'USE', 'PLUS', 'MINUS', 'MULTIPLY', 'DIVIDE', '=', 'IDENTIFIER', 'INDENT',
-           'SPACE', 'DELETE', 'EOF', 'NEWLINE', '{', '}', 'INC', 'DEC', 'LOOSE_EQUALITY', 'PRECISE_EQUALITY', 'LITERAL_EQUALITY', 'ERROR']
+           'SPACE', 'DELETE', 'EOF', 'NEWLINE', '{', '}', 'INC', 'DEC', 'LOOSE_EQUALITY', 'PRECISE_EQUALITY', 'LITERAL_EQUALITY', 'ERROR', 'CURRENCY']
+locale.setlocale(locale.LC_ALL, '')
 
 class Token():
     def __init__(self, token: str, lexeme: str) -> None:
@@ -59,6 +62,11 @@ class Tokenizer():
             '}': '}'
         }    
 
+        regional_currency = locale.localeconv()['currency_symbol']
+        if regional_currency == '':
+            # Americentrisim, baby 😎🦅🔫🔫🦅🦅🦅🔫🦅 🦅🔫🔫🔫🦅🔫🦅🔫 🦅🔫🔫🔫🦅🦅🔫🔫 🦅🔫🔫🦅🔫🦅🦅🦅 🦅🦅🔫🦅🦅🦅🦅🦅 🦅🔫🔫🦅🦅🔫🦅🦅 🦅🔫🔫🦅🔫🦅🦅🔫 🦅🔫🔫🦅🦅🔫🦅🦅 🦅🦅🔫🦅🦅🦅🦅🦅 🦅🦅🔫🔫🔫🦅🦅🔫 🦅🦅🔫🦅🔫🔫🔫🔫 🦅🦅🔫🔫🦅🦅🦅🔫 🦅🦅🔫🔫🦅🦅🦅🔫😎
+            regional_currency = '$'
+        self.basic_mappings[regional_currency] = 'CURRENCY'
 
     def is_fn_subset(self, string):
         target = "FUNCTION"
