@@ -551,7 +551,7 @@ className Player {
 
 In response to some recent criticism about this design decision, we would like to remind you that this is part of the JavaScript specification, and out of our control.
 
-Please direct all criticism towards them.
+
 
 
 ## DBX
