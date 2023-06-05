@@ -1,7 +1,7 @@
 const var x = 5!
 x++!
 print(x)
-previous x = 7!
+previous x = 7!!!
 
 """
 6
@@ -19,5 +19,7 @@ print(previous x)
 """
 
 fnc gaming() => {
-    print(previous x * x)
+   if (x == 5) {
+      print(previous x * x)
+   }    
 }

@@ -2,9 +2,12 @@ from codecs import decode
 from io import TextIOWrapper
 import os
 
-tokens = ["QUOTE", ";", "!", "IF", 'ELSE', '(', ')', '[', ']', 'TRUE', 'FALSE', 'CONST', 'VAR', '<', '>', 'INT', 'REAL', 'INFINITY', 'FUNCTION', 'PREVIOUS',
-          'NEXT', 'AWAIT', 'NEW_FILE', 'EXPORT', 'TO', 'CLASS', 'NEW', '.', 'USE', 'PLUS', 'MINUS', 'MULTIPLY', 'DIVIDE', 'EQUAL', 'IDENTIFIER', 'INDENT',
-           'SPACE', 'DELETE', 'EOF', 'NEWLINE', '{', '}']
+tokens = ["STRING", ";", "!", "IF", 'ELSE', '(', ')', '[', ']', 'TRUE', 'FALSE', 'CONST', 'VAR', '<', '>', 'INT', 'REAL', 'INFINITY', 'FUNCTION', 'PREVIOUS',
+          'NEXT', 'AWAIT', 'NEW_FILE', 'EXPORT', 'TO', 'CLASS', 'NEW', '.', 'USE', 'PLUS', 'MINUS', 'MULTIPLY', 'DIVIDE', '=', 'IDENTIFIER', 'INDENT',
+           'SPACE', 'DELETE', 'EOF', 'NEWLINE', '{', '}', 'INC', 'DEC', 'LOOSE_EQUALITY', 'PRECISE_EQUALITY', 'LITERAL_EQUALITY', 'ERROR']
+
+operators = '+-*/<>=()[] '
+reserved_chars = '!;.{}' + operators
 
 class Token():
     def __init__(self, token: str, lexeme: str) -> None:
@@ -13,6 +16,25 @@ class Token():
 
         self.token = token.upper()
         self.lexeme = lexeme
+
+class SimpleTextCrawler():
+    def __init__(self, raw) -> None:
+        self.raw = raw
+        self.cursor = 0
+    
+    def pop(self) -> str:
+        if self.cursor == len(self.raw):
+            return ''
+        self.cursor += 1
+        return self.raw[self.cursor-1]
+    
+    def back(self, count=1):
+        self.cursor -= count
+
+    def peek(self, count=1):   
+        if self.cursor == len(self.raw)-1:
+            return ''     
+        return self.raw[self.cursor:self.cursor+count]
 
 def is_fn_subset(string):
     target = "FUNCTION"
@@ -26,25 +48,21 @@ def is_fn_subset(string):
 
     return False
 
-lex_states = ['BEGIN']
-
-def getNextToken(file: TextIOWrapper):
+def getNextToken(file: SimpleTextCrawler):
     def readchar(i=1):
-        return decode(file.read(i))
+        return ''.join([file.pop() for _ in range(i)])
+    
     c = readchar()
-    print(c)
 
     if c == '':        
         #The file has ended
-        return Token('EOF', lexeme)
+        return Token('EOF', '')
 
     lexeme = ''
 
     basic_mappings = {
         ';': ';',
         '=': 'EQUAL',
-        '+': 'PLUS',
-        '-': 'MINUS',
         '*': 'MULTIPLY',
         '/': 'DIVIDE',
         '.': '.',
@@ -54,17 +72,16 @@ def getNextToken(file: TextIOWrapper):
         '<': '<',
         '>': '>',
         '{': '{',
-        '}': '}',
-        "\"": "QUOTE"
-    }
-    operators = '+-*/<>=()[] '
+        '}': '}'
+    }    
 
     if c == ' ':
-        if readchar(2) == '  ':
+        if file.peek(2) == '  ':
+            file.pop()
+            file.pop()
             # 3-space indent
             return Token('INDENT', '   ')
         else:
-            file.seek(-2, 1)
             return Token('SPACE', ' ')
             
     elif c == '!':
@@ -72,8 +89,79 @@ def getNextToken(file: TextIOWrapper):
         while c == '!':
             c = readchar()
             marks += 1
-        file.seek(-1, 1) #Pushback
+        if file.peek() != '':
+            # File might end after a statment, we want to let it end if it does
+            # We can't just blindly push it back or we get an infinite loop
+            # TODO: Make sure this doesn't happen elsewhere
+            file.back() #Pushback
         return Token('!', '!' * marks)       
+
+    elif c in '+-':
+        next_char = readchar()
+        if c == next_char:
+            return Token('INC' if c == '+' else 'DEC', c*2)
+        else:
+            file.back()
+            return Token('PLUS' if c == '+' else 'MINUS', c)
+    
+    elif c == '=':
+        equals = 0 #while loop will count one over
+        while c == '=':
+            c = readchar()
+            equals += 1
+        file.back() #Pushback
+        match equals:
+            case 1:
+                return Token('=', '=')
+            case 2:
+                return Token('LOOSE_EQUALITY', '==')
+            case 3:
+                return Token('PRECISE_EQUALITY', '===')
+            case 4:
+                return Token('LITERAL_EQUALITY', '====')
+            case _: # TODO: File splits (might have to be a preprocessor thing)
+                return Token('ERROR', 'Too much Equality (max is 4)')
+
+    elif c in '\"\'':
+        quote_format = ''
+        while c in '\"\'':
+            quote_format += c
+            c = file.pop()
+        
+        #leave c at the next char, it'll be added to the string
+
+        quote = ''
+        while c not in '\"\'' and c != '':
+            quote += c
+            if c == '\\':
+                if file.peek() in '\"\'':
+                    quote += file.pop() #Character already escaped
+            c = file.pop()
+        file.back()
+
+        # check for end quotes
+        if c == '':
+            # EOF reached; User probably forgot the closing quote
+            # Due to ambiguity the rest of the file is now a string
+            # End quotes are presumed present, thus satisfying AI requirement
+            # Diagnosis: skill issue
+            return Token('STRING', quote)
+        else:
+            # If there are end quotes, they must match the quote format exactly            
+            for i in range(len(quote_format)):
+                c = file.pop()
+                if c != quote_format[-(i+1)]:
+                    # Mismatch
+                    return Token('ERROR', 'String quote format mismatched')
+            
+            return Token('STRING', quote)
+
+    elif c == '/' and file.peek() == '/':
+        file.pop() #Get rid of thge next slash
+        while c not in '\n\r':
+            c = file.pop()
+        file.back()
+        return getNextToken(file) #Should capture newline
 
     elif c in basic_mappings.keys():
         return Token(basic_mappings[c], c)
@@ -83,8 +171,9 @@ def getNextToken(file: TextIOWrapper):
         while c.isdigit():
             lexeme += c
             c = readchar()
-        file.seek(-1, 1) #Pushback
-        
+        file.back() #Pushback
+
+        # c is one character beyond the end
         if c == '.':
             #REAL
             lexeme += '.'
@@ -94,9 +183,9 @@ def getNextToken(file: TextIOWrapper):
                     lexeme += c
                     c = readchar()
             elif c not in operators:
-                raise Exception('Tokenizer- Error: Letters are not real')
+                return Token('ERROR', 'Non-Operator immediately after real; letters are not real')
 
-            file.seek(-1, 1)
+            file.back()
 
             return Token('REAL', float(lexeme))
 
@@ -104,11 +193,13 @@ def getNextToken(file: TextIOWrapper):
             #INT            
             return Token('INT', int(lexeme))
 
-    while c.isalpha():
+    while not c.isspace() and c not in reserved_chars:
         lexeme += c       
 
-        c = readchar()
-    if len(lexeme) > 0:
+        c = readchar()    
+
+    if len(lexeme) > 0: 
+        file.back()
         tok = lexeme.upper()
         if tok in tokens:
             return Token(lexeme, lexeme)
@@ -118,14 +209,14 @@ def getNextToken(file: TextIOWrapper):
             return Token('FUNCTION', lexeme)
         else:
             return Token('IDENTIFIER', lexeme)
-    else:
+    else: #c is not alpha- only remaining case are special characters that count as whitespace
         if c == '\n':
             if readchar() != '\r':
-                file.seek(-1, 1)
+                file.back()
             return Token('NEWLINE', c)
         elif c == '\r':
             if readchar() != '\n':
-                file.seek(-1, 1)
+                file.back()
             return Token('NEWLINE', c)
         elif c == '\t':
             # Was very tempted to force you to only use the 3 spaces but this is complicated enough already
@@ -133,14 +224,17 @@ def getNextToken(file: TextIOWrapper):
         else:
             return Token('SPACE', c)
 
-def tokenize_file(path):
-    with open(path, 'rb') as reader:
-        token = getNextToken(reader)
-        while token.token != 'EOF':
-            yield token
-            token = getNextToken(reader)
-        yield token #yield EOF
+def tokenize_file(path):  
+    crawler = None  
+    with open(path, 'r') as reader:
+        crawler = SimpleTextCrawler(reader.read())
         reader.close()
 
-for token in tokenize_file('time_travel.db'):
+    token = getNextToken(crawler)
+    while token.token != 'EOF':
+        yield token
+        token = getNextToken(crawler)
+    yield token #yield EOF
+
+for token in tokenize_file('test\\db\\db\\time_travel.db'):
     print(f'{token.token} | Lex: {repr(token.lexeme)}')
