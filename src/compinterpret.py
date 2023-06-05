@@ -6,7 +6,9 @@ import locale
 
 tokens = ["STRING", "NOT", "!", "IF", 'ELSE', '(', ')', '[', ']', 'TRUE', 'FALSE', 'CONST', 'VAR', '<', '>', 'INT', 'REAL', 'INFINITY', 'FUNCTION', 'PREVIOUS',
           'NEXT', 'AWAIT', 'NEW_FILE', 'EXPORT', 'TO', 'CLASS', 'NEW', '.', 'USE', 'PLUS', 'MINUS', 'MULTIPLY', 'DIVIDE', '=', 'IDENTIFIER', 'INDENT',
-           'SPACE', 'DELETE', 'EOF', 'NEWLINE', '{', '}', 'INC', 'DEC', 'LOOSE_EQUALITY', 'PRECISE_EQUALITY', 'LITERAL_EQUALITY', 'ERROR', 'CURRENCY']
+           'SPACE', 'DELETE', 'EOF', 'NEWLINE', '{', '}', 'INC', 'DEC', 'LOOSE_EQUALITY', 'PRECISE_EQUALITY', 'LITERAL_EQUALITY', 'ERROR', 'CURRENCY',
+           'WHEN', ":"]
+
 locale.setlocale(locale.LC_ALL, '')
 
 class Token():
@@ -40,12 +42,15 @@ class SimpleListCrawler():
     def peek(self, count=1):   
         if self.cursor == len(self.raw)-1:
             return ''     
-        return self.raw[self.cursor:self.cursor+count]
+        if count > 1: # QoL for Token iteration
+            return self.raw[self.cursor:self.cursor+count]
+        else:
+            return self.raw[self.cursor]
 
 class Tokenizer():
     def __init__(self) -> None:
         self.operators = '+-*/<>=()[] '
-        self.reserved_chars = '!;.{}' + self.operators
+        self.reserved_chars = '!;:.{}' + self.operators
 
         self.basic_mappings = {
             ';': 'NOT',
@@ -59,7 +64,8 @@ class Tokenizer():
             '<': '<',
             '>': '>',
             '{': '{',
-            '}': '}'
+            '}': '}',
+            ":": ':' #bruh
         }    
 
         regional_currency = locale.localeconv()['currency_symbol']
@@ -224,6 +230,13 @@ class Tokenizer():
             if tok in tokens:
                 return Token(lexeme, lexeme)
             
+            # Case sensitive for maximum user disgruntlement
+            if lexeme == 'className': 
+                return Token('CLASS', lexeme)
+            elif tok == 'CLASSNAME':
+                # Helpful error message to help insensitive users right their ways
+                return Token('ERROR', 'The className keyword is Case-Sensitive, you\'re hurting its feelings you monster')
+
             #check for function
             if self.is_fn_subset(tok):
                 return Token('FUNCTION', lexeme)
@@ -233,11 +246,11 @@ class Tokenizer():
             if c == '\n':
                 if readchar() != '\r':
                     file.back()
-                return Token('!', c)
+                return Token('NEWLINE', c)
             elif c == '\r':
                 if readchar() != '\n':
                     file.back()
-                return Token('!', c)
+                return Token('NEWLINE', c)
             elif c == '\t':
                 # Was very tempted to force you to only use the 3 spaces but this is complicated enough already
                 return Token('INDENT', c)
@@ -269,8 +282,9 @@ def catch_tokenizer_errors(tokens: list[Token]):
     return has_errors
 
 class Parser():
-    def __init__(self) -> None:
-        pass
+    def __init__(self, tokens) -> None:
+        self.tokens = tokens
+        self.file = SimpleListCrawler(tokens)
     
 
 if __name__ == '__main__':
