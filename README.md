@@ -98,7 +98,7 @@ print(scores) //[3, 2, 4, 5]!
 In case you really need to vary a variable, the `when` keyword lets you check a variable each time it mutates.
 ```java
 const var health = 10!
-when (health = 0) {
+when (health === 0) {
    print("You lose")!
 }
 ```
