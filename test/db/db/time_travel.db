@@ -3,20 +3,14 @@ x++!
 print(x)
 previous x = 7!!!
 
-"""
-6
-8
-"""
+"""6\n8\n"""
 
 const var x = 5!
 x++!
 print(x)
 print(previous x)
 
-"""
-6
-5
-"""
+"""6\n5\n"""
 
 fnc gaming() => {
    if (x == 5) {

@@ -2,7 +2,7 @@ from codecs import decode
 from io import TextIOWrapper
 import os
 
-tokens = ["STRING", ";", "!", "IF", 'ELSE', '(', ')', '[', ']', 'TRUE', 'FALSE', 'CONST', 'VAR', '<', '>', 'INT', 'REAL', 'INFINITY', 'FUNCTION', 'PREVIOUS',
+tokens = ["STRING", "NOT", "!", "IF", 'ELSE', '(', ')', '[', ']', 'TRUE', 'FALSE', 'CONST', 'VAR', '<', '>', 'INT', 'REAL', 'INFINITY', 'FUNCTION', 'PREVIOUS',
           'NEXT', 'AWAIT', 'NEW_FILE', 'EXPORT', 'TO', 'CLASS', 'NEW', '.', 'USE', 'PLUS', 'MINUS', 'MULTIPLY', 'DIVIDE', '=', 'IDENTIFIER', 'INDENT',
            'SPACE', 'DELETE', 'EOF', 'NEWLINE', '{', '}', 'INC', 'DEC', 'LOOSE_EQUALITY', 'PRECISE_EQUALITY', 'LITERAL_EQUALITY', 'ERROR']
 
@@ -13,6 +13,12 @@ class Token():
 
         self.token = token.upper()
         self.lexeme = lexeme
+
+    def __repr__(self) -> str:
+        return f'{self.token}({repr(self.lexeme)})'
+    
+    def __str__(self) -> str:
+        return f'{self.token}({repr(self.lexeme)})'
 
 class SimpleTextCrawler():
     def __init__(self, raw) -> None:
@@ -38,6 +44,22 @@ class Tokenizer():
         self.operators = '+-*/<>=()[] '
         self.reserved_chars = '!;.{}' + self.operators
 
+        self.basic_mappings = {
+            ';': 'NOT',
+            '=': 'EQUAL',
+            '*': 'MULTIPLY',
+            '/': 'DIVIDE',
+            '.': '.',
+            '(': '(',
+            ')': ')',
+            '[': ']',
+            '<': '<',
+            '>': '>',
+            '{': '{',
+            '}': '}'
+        }    
+
+
     def is_fn_subset(self, string):
         target = "FUNCTION"
         i = 0
@@ -61,21 +83,6 @@ class Tokenizer():
             return Token('EOF', '')
 
         lexeme = ''
-
-        basic_mappings = {
-            ';': ';',
-            '=': 'EQUAL',
-            '*': 'MULTIPLY',
-            '/': 'DIVIDE',
-            '.': '.',
-            '(': '(',
-            ')': ')',
-            '[': ']',
-            '<': '<',
-            '>': '>',
-            '{': '{',
-            '}': '}'
-        }    
 
         if c == ' ':
             if file.peek(2) == '  ':
@@ -133,13 +140,16 @@ class Tokenizer():
             #leave c at the next char, it'll be added to the string
 
             quote = ''
-            while c not in '\"\'' and c != '':
+            while c not in '\"\'\n' and c != '':
                 quote += c
                 if c == '\\':
                     if file.peek() in '\"\'':
                         quote += file.pop() #Character already escaped
                 c = file.pop()
             file.back()
+
+            if c == '\n':
+                return Token('ERROR', 'Line breaks are probihibted within strings, use \\n to denote new lines in a string.')
 
             # check for end quotes
             if c == '':
@@ -165,8 +175,8 @@ class Tokenizer():
             file.back()
             return self.getNextToken(file) #Should capture newline
 
-        elif c in basic_mappings.keys():
-            return Token(basic_mappings[c], c)
+        elif c in self.basic_mappings.keys():
+            return Token(self.basic_mappings[c], c)
         
         #INT and REAL
         elif c.isdigit():            
@@ -238,6 +248,23 @@ class Tokenizer():
             token = self.getNextToken(crawler)
         yield token #yield EOF
 
-tokenizer = Tokenizer()
-for token in tokenizer.tokenize_file('test\\db\\db\\time_travel.db'):
-    print(f'{token.token} | Lex: {repr(token.lexeme)}')
+
+def catch_tokenizer_errors(tokens: list[Token]):
+    line = 1
+    has_errors = False
+    for token in tokens:
+        if token.token == 'NEWLINE':
+            line += 1
+        elif token.token == 'ERROR':
+            print(f'-Tokenizer: ParseError on Line {line}: {token.lexeme}')
+            has_errors = True
+    return has_errors
+
+
+if __name__ == '__main__':
+    tokens = list(Tokenizer().tokenize_file('test\\db\\db\\time_travel.db'))
+
+    if catch_tokenizer_errors(tokens):
+        print('\n')
+        print("Tokenizer reports L code, fix your code or I won't compile this garbage")
+        exit(1)
