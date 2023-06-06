@@ -1,4 +1,4 @@
-const var x = 5!
+const var x<20s> = 5!
 x++!
 print(x)
 previous x = 7!!!

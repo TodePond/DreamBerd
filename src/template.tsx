@@ -1,0 +1,1 @@
+// For future use; will contain helper functions, structs, and the like
