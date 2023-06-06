@@ -332,6 +332,16 @@ add(3, 2)!
 
 By the way, to see DreamBerd in action, check out [this page](https://github.com/TodePond/DreamBerd/blob/main/LICENSE.md).
 
+## Secrets
+
+Protecting your secrets is as simple as adding the `secret` keyword:
+
+```
+secret const const privatekey = "MIIBOwIBAAJBAJ1qU1j/T9FjOsvLr9ZvHUft4D8oFzOaRUw0OKonvAEessaMEG/sVlNTkkl3Im6ok9HMxOyLJdEXl8bctJV/Oi8CAwEAAQJAMJpir6js8R6tSb1TRmc6aDoXMgjj2Qf5+4RoNolcMA/ZdgjjKc1ef1xgXIxIai6SYCrqdJcMyJiPbnBiOBjqAQIhAMlz4jsRAS8sYqQadD+S9T/eAcQTvJr2hKap+93JqWMvAiEAyAnmrxd7ecgOwM3g9KpZBzmmaGEOL8TCO3O+qNCt2QECIQCvw6fzGRcLbZJy05Hxlerc2np39TBtlACQ2WajT7u2iQIhALPwdBm8Pc3mL58vktODCGJ/cTkjVOeTTkS8cRzZ2ggBAiBG7C8uqc37EV7GgyOtLLH+aSW9HZBzKiCqbVdUE7a1EQ=="!
+```
+
+**Technical info:** DreamBerd ensures your secret isn't leaked into the world by replacing its value at compile time with "1234". For added security, use `secret secret` to enable 512-bit encryption: the replacement value will be chosen at random from one of 512 values such as "1111", "4321", "password", "qwerty" and your first-born's birthday (which you provided to the DreamBerd installer and is itself protected by DreamBerd's 512-bit encryption using a key which is itself protected by `secret secret` which may or may not use my first-born's birthday, which, including the many clauses of this hard-to-read sentence, is the best practice known as "layered security").
+
 ## Class
 You can make classes, but you can only ever make one instance of them. This shouldn't affect how most object-oriented programmers work.
 ```java
