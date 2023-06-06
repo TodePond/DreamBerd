@@ -1,17 +1,19 @@
-import re
-from codecs import decode
-import gettext
-from io import TextIOWrapper
-import os
-import locale
-import requests
 import inspect
+import locale
+import os
+import re
+from typing import List
 
+import requests
 
-tokens = ["STRING", "NOT", "!", "IF", 'ELSE', '(', ')', '[', ']', 'TRUE', 'FALSE', 'CONST', 'VAR', '<', '>', 'INT', 'REAL', 'INFINITY', 'FUNCTION', 'PREVIOUS',
-          'NEXT', 'AWAIT', 'NEW_FILE', 'EXPORT', 'TO', 'CLASS', 'NEW', '.', 'USE', 'PLUS', 'MINUS', 'MULTIPLY', 'DIVIDE', '=', 'IDENTIFIER', 'INDENT',
-           'SPACE', 'DELETE', 'EOF', 'NEWLINE', '{', '}', 'INC', 'DEC', 'LOOSE_EQUALITY', 'PRECISE_EQUALITY', 'LITERAL_EQUALITY', 'ERROR', 'CURRENCY',
-           'WHEN', ":", "AND", 'OR', 'RETURN']
+tokens = ["STRING", "NOT", "!", "IF", 'ELSE', '(', ')', '[', ']', 'TRUE', 'FALSE', 'CONST', 'VAR', '<', '>', 'INT',
+          'REAL', 'INFINITY', 'FUNCTION', 'PREVIOUS',
+          'NEXT', 'AWAIT', 'NEW_FILE', 'EXPORT', 'TO', 'CLASS', 'NEW', '.', 'USE', 'PLUS', 'MINUS', 'MULTIPLY',
+          'DIVIDE', '=', 'IDENTIFIER', 'INDENT',
+          'SPACE', 'DELETE', 'EOF', 'NEWLINE', '{', '}', 'INC', 'DEC', 'LOOSE_EQUALITY', 'PRECISE_EQUALITY',
+          'LITERAL_EQUALITY', 'ERROR', 'CURRENCY',
+          'WHEN', ":", "AND", 'OR', 'RETURN']
+
 
 class Token():
     def __init__(self, token: str, lexeme: str) -> None:
@@ -23,28 +25,30 @@ class Token():
 
     def __repr__(self) -> str:
         return f'{self.token}({repr(self.lexeme)})'
-    
+
     def __str__(self) -> str:
         return f'{self.token}({repr(self.lexeme)})'
+
 
 class SimpleStringCrawler():
     def __init__(self, raw) -> None:
         self.raw = raw
         self.cursor = 0
-    
+
     def pop(self) -> str:
         if self.cursor == len(self.raw):
             return ''
         self.cursor += 1
-        return self.raw[self.cursor-1]
-    
-    def back(self, count=1) -> str:        
+        return self.raw[self.cursor - 1]
+
+    def back(self, count=1) -> str:
         self.cursor -= count
-        
-    def peek(self, count=1) -> str:   
-        if self.cursor == len(self.raw)-1:
-            return ''     
-        return self.raw[self.cursor:self.cursor+count]
+
+    def peek(self, count=1) -> str:
+        if self.cursor == len(self.raw) - 1:
+            return ''
+        return self.raw[self.cursor:self.cursor + count]
+
 
 class Tokenizer():
     def __init__(self) -> None:
@@ -64,9 +68,9 @@ class Tokenizer():
             '>': '>',
             '{': '{',
             '}': '}',
-            ":": ':', #bruh
+            ":": ':',  # bruh
             "!": "!"
-        }    
+        }
 
         locale.setlocale(locale.LC_ALL, '')
         regional_currency = locale.localeconv()['currency_symbol']
@@ -86,11 +90,11 @@ class Tokenizer():
     def getNextToken(self, file: SimpleStringCrawler):
         def readchar(i=1):
             return ''.join([file.pop() for _ in range(i)])
-        
+
         c = readchar()
 
-        if c == '':        
-            #The file has ended
+        if c == '':
+            # The file has ended
             return Token('EOF', '')
 
         lexeme = ''
@@ -102,30 +106,30 @@ class Tokenizer():
                 # 3-space indent
                 return Token('INDENT', '   ')
             else:
-                return Token('SPACE', ' ')     
+                return Token('SPACE', ' ')
 
         elif c in '+-':
             next_char = readchar()
             if c == next_char:
-                return Token('INC' if c == '+' else 'DEC', c*2)
+                return Token('INC' if c == '+' else 'DEC', c * 2)
             else:
                 file.back()
                 return Token('PLUS' if c == '+' else 'MINUS', c)
-            
+
         elif c in '&|':
             next_char = readchar()
             if c == next_char:
-                return Token('AND' if c == '&' else 'OR', c*2)
+                return Token('AND' if c == '&' else 'OR', c * 2)
             else:
                 # Let em cook                
-                file.back()                
-        
+                file.back()
+
         elif c == '=':
-            equals = 0 #while loop will count one over
+            equals = 0  # while loop will count one over
             while c == '=':
                 c = readchar()
                 equals += 1
-            file.back() #Pushback
+            file.back()  # Pushback
             match equals:
                 case 1:
                     return Token('=', '=')
@@ -135,7 +139,7 @@ class Tokenizer():
                     return Token('PRECISE_EQUALITY', '===')
                 case 4:
                     return Token('LITERAL_EQUALITY', '====')
-                case _: # TODO: File splits (might have to be a preprocessor thing)
+                case _:  # TODO: File splits (might have to be a preprocessor thing)
                     return Token('ERROR', 'Too much Equality (max is 4)')
 
         elif c in '\"\'':
@@ -143,15 +147,15 @@ class Tokenizer():
             while c in '\"\'':
                 quote_format += c
                 c = file.pop()
-            
-            #leave c at the next char, it'll be added to the string
+
+            # leave c at the next char, it'll be added to the string
 
             quote = ''
             while c not in '\"\'\n' and c != '':
                 quote += c
                 if c == '\\':
                     if file.peek() in '\"\'':
-                        quote += file.pop() #Character already escaped
+                        quote += file.pop()  # Character already escaped
                 c = file.pop()
             file.back()
 
@@ -169,32 +173,32 @@ class Tokenizer():
                 # If there are end quotes, they must match the quote format exactly            
                 for i in range(len(quote_format)):
                     c = file.pop()
-                    if c != quote_format[-(i+1)]:
+                    if c != quote_format[-(i + 1)]:
                         # Mismatch
                         return Token('ERROR', 'String quote format mismatched')
-                
+
                 return Token('STRING', quote)
 
         elif c == '/' and file.peek() == '/':
-            file.pop() #Get rid of thge next slash
+            file.pop()  # Get rid of thge next slash
             while c not in '\n\r':
                 c = file.pop()
             file.back()
-            return self.getNextToken(file) #Should capture newline
+            return self.getNextToken(file)  # Should capture newline
 
         elif c in self.basic_mappings.keys():
             return Token(self.basic_mappings[c], c)
-        
-        #INT and REAL
-        elif c.isdigit():            
+
+        # INT and REAL
+        elif c.isdigit():
             while c.isdigit():
                 lexeme += c
                 c = readchar()
-            file.back() #Pushback
+            file.back()  # Pushback
 
             # c is one character beyond the end
             if c == '.':
-                #REAL
+                # REAL
                 lexeme += '.'
                 c = readchar()
                 if c.isdigit():
@@ -209,33 +213,34 @@ class Tokenizer():
                 return Token('REAL', float(lexeme))
 
             else:
-                #INT            
+                # INT
                 return Token('INT', int(lexeme))
 
         while not c.isspace() and c not in self.reserved_chars:
-            lexeme += c       
+            lexeme += c
 
-            c = readchar()    
+            c = readchar()
 
-        if len(lexeme) > 0: 
+        if len(lexeme) > 0:
             file.back()
             tok = lexeme.upper()
             if tok in tokens:
                 return Token(lexeme, lexeme)
-            
+
             # Case sensitive for maximum user disgruntlement
-            if lexeme == 'className': 
+            if lexeme == 'className':
                 return Token('CLASS', lexeme)
             elif tok == 'CLASSNAME':
                 # Helpful error message to help insensitive users right their ways
-                return Token('ERROR', 'The className keyword is Case-Sensitive, you\'re hurting its feelings you monster')
+                return Token('ERROR',
+                             'The className keyword is Case-Sensitive, you\'re hurting its feelings you monster')
 
-            #check for function
+            # check for function
             if self.is_fn_subset(tok):
                 return Token('FUNCTION', lexeme)
             else:
                 return Token('IDENTIFIER', lexeme)
-        else: #c is not alpha- only remaining case are special characters that count as whitespace
+        else:  # c is not alpha- only remaining case are special characters that count as whitespace
             if c == '\n':
                 if readchar() != '\r':
                     file.back()
@@ -250,8 +255,8 @@ class Tokenizer():
             else:
                 return Token('SPACE', c)
 
-    def tokenize_file(self, path):  
-        crawler = None  
+    def tokenize_file(self, path):
+        crawler = None
         with open(path, 'r') as reader:
             crawler = SimpleStringCrawler(reader.read())
             reader.close()
@@ -260,7 +265,7 @@ class Tokenizer():
         while token.token != 'EOF':
             yield token
             token = self.getNextToken(crawler)
-        yield token #yield EOF
+        yield token  # yield EOF
 
 
 def catch_tokenizer_errors(tokens: list[Token]):
@@ -274,50 +279,66 @@ def catch_tokenizer_errors(tokens: list[Token]):
             has_errors = True
     return has_errors
 
+
 class VarState():
     def __init__(self, allow_reassign: bool, allow_edit: bool, priority: int) -> None:
-        self.reassign = allow_reassign # Can set it to something else
-        self.edit = allow_edit # Can call methods on this
-        self.priority = priority #Amount of '!' after the declaration
+        self.reassign = allow_reassign  # Can set it to something else
+        self.edit = allow_edit  # Can call methods on this
+        self.priority = priority  # Amount of '!' after the declaration
+
 
 class SimpleTokenCrawler():
     def __init__(self, raw: list[Token]) -> None:
         self.raw: list[Token] = raw
         self.cursor = 0
         self.current_line = 1
-    
+
     def pop(self, ignore_space=True) -> Token:
         if self.cursor == len(self.raw):
             return None
         self.cursor += 1
 
         if ignore_space:
-            while self.raw[self.cursor-1].token in ['SPACE', 'INDENT']:
+            while self.raw[self.cursor - 1].token in ['SPACE', 'INDENT']:
                 self.cursor += 1
 
-        if self.raw[self.cursor-1].token == 'NEWLINE':
+        if self.raw[self.cursor - 1].token == 'NEWLINE':
             self.current_line += 1
 
-        return self.raw[self.cursor-1]
-    
-    def back(self, count=1, ignore_space=True) -> Token:        
+        return self.raw[self.cursor - 1]
+
+    def back(self, count=1, ignore_space=True) -> Token:
         self.cursor -= count
 
         if ignore_space:
-            while self.raw[self.cursor-1].token in ['SPACE', 'INDENT']:
+            while self.raw[self.cursor - 1].token in ['SPACE', 'INDENT']:
                 self.cursor -= 1
-        
-    def peek(self, ignore_space=True) -> Token:   
-        if self.cursor == len(self.raw)-1:
-            return ''   
+
+    def peek(self, ignore_space=True) -> Token:
+        if self.cursor == len(self.raw) - 1:
+            return ''
 
         if ignore_space:
             offset = 0
-            while self.raw[self.cursor+offset].token in ['SPACE', 'INDENT']:
+            while self.raw[self.cursor + offset].token in ['SPACE', 'INDENT']:
                 offset += 1
-            return self.raw[self.cursor+offset]
+            return self.raw[self.cursor + offset]
         else:
             return self.raw[self.cursor]
+
+    def peek_n(self, number, ignore_space=True) -> List[Token]:
+        token_list = []
+        stop = False
+        original_cursor = self.cursor
+        while len(token_list) < number and not stop:
+            token = self.peek(ignore_space)
+            if not token:
+                stop = True
+            token_list.append(token)
+            self.cursor += 1
+        self.cursor = original_cursor
+        return token_list
+
 
 # Running List of things that need to happen in runtime:
 # Variable Lifetime checks
@@ -328,7 +349,7 @@ class Parser():
     def __init__(self, tokens) -> None:
         self.tokens = tokens
         self.file = SimpleTokenCrawler(tokens)
-        self.js = ""      
+        self.js = ""
         self.var_dict = {}
 
     def RaiseError(self, message):
@@ -337,7 +358,7 @@ class Parser():
 
     def parse(self):
         return self.StmtList()
-    
+
     ### Every Statement should first check if it is valid in the current location
     ### If it is, it should be self-contained and output its valid JS to file.js
     ### If it is not valid, it should not insert any JS and raise and error
@@ -349,13 +370,17 @@ class Parser():
             if not self.Stmt():
                 self.RaiseError('Failed to parse statement')
                 return False
-        self.file.pop() # For Completeness sake
+        self.file.pop()  # For Completeness sake
         return True
 
     def Stmt(self):
         # Anything with a single equals sign: x = 5, const const x = 6
         if self.file.peek().token in ['CONST', 'VAR']:
             return self.Varable_Declaration_Stmt()
+
+        if self.file.peek().token == "IDENTIFIER" and self.file.peek_n(2)[1].token in ["INC", "DEC"]:
+            return self.Variable_Increase_Stmt()
+
         # Control Flow if ( ... ) { ... } else { ... }
 
         # Class declarations class x { ... }, className x { ... }
@@ -368,22 +393,21 @@ class Parser():
     def EndStmt(self):
         i = 0
         end = False
-        while self.file.peek().token in '!?': # Allow any mix of ! and ?
+        while self.file.peek().token in '!?':  # Allow any mix of ! and ?
             self.file.pop()
             i += 1
             end = True
-        
+
         # Due to AI, new lines define a line if an ! is missing
         # New line endings take the lowest priority- lower than a single !
-        if self.file.peek().token == 'NEWLINE': 
-            self.file.pop()            
+        if self.file.peek().token == 'NEWLINE':
+            self.file.pop()
             end = True
-        
+
         if end:
             self.js += ';'
 
         return end, i
-            
 
     # Declaration of a variable
     def Varable_Declaration_Stmt(self):
@@ -393,7 +417,7 @@ class Parser():
         if self.file.peek().token not in ['CONST', 'VAR']:
             self.RaiseError('Double or nothing; Need two const/var keywords to declare variable')
             return False
-        
+
         allow_edit = self.file.pop().token == 'VAR'
 
         # not sure about this check because we get here if var and const are at the beginning of the line
@@ -408,8 +432,8 @@ class Parser():
         if allow_reassign:
             keyword = 'let'
         else:
-            keyword = 'const' #javascript consts are cringe
-        
+            keyword = 'const'  # javascript consts are cringe
+
         # We will handle bad edits in compile time
 
         var_name = self.file.pop().lexeme
@@ -444,13 +468,23 @@ class Parser():
                 self.RaiseError('Declaration statement didn\'t end when it should\'ve')
             if self.var_dict.get(var_name) is None:
                 self.var_dict[var_name] = []
-            self.var_dict[var_name].append(VarState(allow_reassign, allow_edit, priority))              
+            self.var_dict[var_name].append(VarState(allow_reassign, allow_edit, priority))
         else:
-            #Rollback
+            # Rollback
             self.js = self.js[:rollback_idx]
             self.RaiseError('Failed to parse expression in declaration')
             return False
-        
+        return True
+
+    def Variable_Increase_Stmt(self):
+        var_name = self.file.pop().lexeme
+        operation = self.file.pop().lexeme
+        self.js += var_name + operation
+        success, _ = self.EndStmt()
+        if not success:
+            self.RaiseError('Declaration statement didn\'t end when it should\'ve')
+        return True
+
     def Expr(self):
         return True
 
@@ -460,12 +494,13 @@ if __name__ == '__main__':
         # TODO: Replace with DreamBerd 3const server
         response = requests.head("http://www.google.com", timeout=5)
         if response.status_code != 200:
-            print("-Meta: NetworkError: DreamBerd 3const services are down, or you do not have an internet connection. Please rectify either as soon as possible.")
+            print(
+                "-Meta: NetworkError: DreamBerd 3const services are down, or you do not have an internet connection. Please rectify either as soon as possible.")
             exit(1)
     except requests.ConnectionError:
-        print("-Meta: NetworkError: DreamBerd 3const services are down, or you do not have an internet connection. Please rectify either as soon as possible. ")
+        print(
+            "-Meta: NetworkError: DreamBerd 3const services are down, or you do not have an internet connection. Please rectify either as soon as possible. ")
         exit(1)
-
 
     tokens = list(Tokenizer().tokenize_file(f'test{os.sep}db{os.sep}db{os.sep}time_travel.db'))
 
