@@ -3,13 +3,12 @@ import gettext
 from io import TextIOWrapper
 import os
 import locale
+import requests
 
 tokens = ["STRING", "NOT", "!", "IF", 'ELSE', '(', ')', '[', ']', 'TRUE', 'FALSE', 'CONST', 'VAR', '<', '>', 'INT', 'REAL', 'INFINITY', 'FUNCTION', 'PREVIOUS',
           'NEXT', 'AWAIT', 'NEW_FILE', 'EXPORT', 'TO', 'CLASS', 'NEW', '.', 'USE', 'PLUS', 'MINUS', 'MULTIPLY', 'DIVIDE', '=', 'IDENTIFIER', 'INDENT',
            'SPACE', 'DELETE', 'EOF', 'NEWLINE', '{', '}', 'INC', 'DEC', 'LOOSE_EQUALITY', 'PRECISE_EQUALITY', 'LITERAL_EQUALITY', 'ERROR', 'CURRENCY',
            'WHEN', ":", "AND", 'OR']
-
-locale.setlocale(locale.LC_ALL, '')
 
 class Token():
     def __init__(self, token: str, lexeme: str) -> None:
@@ -69,6 +68,7 @@ class Tokenizer():
             "!": "!"
         }    
 
+        locale.setlocale(locale.LC_ALL, '')
         regional_currency = locale.localeconv()['currency_symbol']
         if regional_currency == '':
             # For maximum international accessibility, the generic currency sign is used if there is no currency sign for the given locale
@@ -285,9 +285,21 @@ class Parser():
         self.var_dict = {}
 
     def PrimType(sel):
-    
+        pass # Revolutionary
 
 if __name__ == '__main__':
+
+    try:
+        # TODO: Replace with DreamBerd 3const server
+        response = requests.head("http://www.google.com", timeout=5)
+        if response.status_code != 200:
+            print("-Meta: NetworkError: DreamBerd 3const services are down, or you do not have an internet connection. Please rectify either as soon as possible.")
+            exit(1)
+    except requests.ConnectionError:
+        print("-Meta: NetworkError: DreamBerd 3const services are down, or you do not have an internet connection. Please rectify either as soon as possible. ")
+        exit(1)
+
+
     tokens = list(Tokenizer().tokenize_file('test\\db\\db\\time_travel.db'))
 
     if catch_tokenizer_errors(tokens):
