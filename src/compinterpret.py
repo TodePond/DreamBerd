@@ -1,3 +1,4 @@
+import re
 from codecs import decode
 import gettext
 from io import TextIOWrapper
@@ -75,16 +76,12 @@ class Tokenizer():
         self.basic_mappings[regional_currency] = 'CURRENCY'
 
     def is_fn_subset(self, string):
-        target = "FUNCTION"
-        i = 0
-
-        for char in string:
-            if char == target[i]:
-                i += 1
-                if i == len(target):
-                    return True
-
-        return False
+        # to solve the function syntax I created this regex:
+        # if it doesn't get exactly one match then the word is invalid
+        function_regex = r"(?=.)(f{0,1}u{0,1}n{0,1}c{0,1}t{0,1}i{0,1}o{0,1}n{0,1})"
+        groups = re.findall(function_regex, string, re.IGNORECASE)
+        # the and is needed because if there is no match an empty string is the resulting group
+        return len(groups) == 1 and groups[0]
 
     def getNextToken(self, file: SimpleStringCrawler):
         def readchar(i=1):
@@ -399,9 +396,12 @@ class Parser():
         
         allow_edit = self.file.pop().token == 'VAR'
 
+        # not sure about this check because we get here if var and const are at the beginning of the line
+        """
         if self.file.peek().token != 'IDENTIFIER':
             self.RaiseError('Identify yourself NOW; Declaration requires variable to declare')
             return False
+        """
 
         # Nothing in native JS allows you to prevent edits, so we only worry about reassignments here
         # Bad reassignments will be caught by JS
@@ -414,6 +414,19 @@ class Parser():
 
         var_name = self.file.pop().lexeme
 
+        # lifetime detected
+        if self.file.peek().token == "<":
+            # remove opening lifetime identifier
+            self.file.pop()
+            lifetime = ""
+            extracted_token = self.file.pop().lexeme
+            # this can be improved by using valid lifetime characters
+            while extracted_token not in [">", os.linesep]:
+                lifetime += str(extracted_token)
+                extracted_token = self.file.pop().lexeme
+            if extracted_token != ">":
+                self.RaiseError("CLOSE YOUR LIFETIME DEFINITION")
+
         if self.file.peek().token != '=':
             self.RaiseError('PUT AN EQUALS SIGN IN YOUR DECLARATION')
             return False
@@ -421,12 +434,16 @@ class Parser():
 
         rollback_idx = len(self.js)
         self.js += f'{keyword} {var_name} = '
-        
-        if self.Expr():            
+        if self.file.peek().token in ["INT", "REAL", "STRING"]:
+            self.js += str(self.file.pop().lexeme)
+        else:
+            print(self.file.peek())
+        if self.Expr():
             success, priority = self.EndStmt()
             if not success:
                 self.RaiseError('Declaration statement didn\'t end when it should\'ve')
-            
+            if self.var_dict.get(var_name) is None:
+                self.var_dict[var_name] = []
             self.var_dict[var_name].append(VarState(allow_reassign, allow_edit, priority))              
         else:
             #Rollback
@@ -435,7 +452,7 @@ class Parser():
             return False
         
     def Expr(self):
-        pass
+        return True
 
 
 if __name__ == '__main__':
@@ -450,7 +467,7 @@ if __name__ == '__main__':
         exit(1)
 
 
-    tokens = list(Tokenizer().tokenize_file('test\\db\\db\\time_travel.db'))
+    tokens = list(Tokenizer().tokenize_file(f'test{os.sep}db{os.sep}db{os.sep}time_travel.db'))
 
     if catch_tokenizer_errors(tokens):
         print('\n')
