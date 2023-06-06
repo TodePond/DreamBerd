@@ -1,6 +1,6 @@
 > Just released: Version [v0.9.9.9.9.9.9.9.9c](https://github.com/TodePond/DreamBerd/releases/tag/v0.9.9.9.9.9.9.9.9c)
 
-<img align="right" height="100" src="dreamberd.png">
+[<img align="right" height="100" src="dreamberd.png">](a "Berd's feet were cold, so we gave it some Timbs.")
  
 # DreamBerd
 DreamBerd is a perfect programming language. These are its features!<br>
