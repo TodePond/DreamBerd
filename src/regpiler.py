@@ -67,18 +67,17 @@ def transpile_line(line: str, priority: int, debug: bool, line_num: int):
     if match := re.match(
             # With named groups is possible to have "optional" groups and the regex is still cursed.
             # I know that re.IGNORECASE is a thing but without it the regex looks more cursed.
-            r'(?:(?P<third_const>[Cc][Oo][Nn][Ss][Tt]) +(?=[Cc][Oo][Nn][Ss][Tt] +[Cc][Oo][Nn][Ss][Tt]))?'
-            r'(?P<invalid_mix>^[Cc][Oo][Nn][Ss][Tt] +(?=[Vv][Aa][Rr] +(?=[Vv][Aa][Rr]|[Cc][Oo][Nn][Ss][Tt])|'
-            r'(?=[Cc][Oo][Nn][Ss][Tt] +[Vv][Aa][Rr])))?(?P<first_const>[Cc][Oo][Nn][Ss][Tt]|[Vv][Aa][Rr]) +'
-            r'(?P<second_const>[Cc][Oo][Nn][Ss][Tt]|[Vv][Aa][Rr]) +(?P<var_name>[^ +\-*/<>=()\[\]!;:.{}]+)'
-            r'(?:<(?P<lifetime>.*)>)? *(?P<assignment_operator>[+-/*]?)= *(?P<value>[^!\n?]+) *(?P<priority>[!?]+)?',
+            r'(?P<indentation> +)?(?:(?P<third_const>[Cc][Oo][Nn][Ss][Tt]) +(?=[Cc][Oo][Nn][Ss][Tt] +[Cc][Oo][Nn][Ss][Tt]))?(?P<invalid_mix>^[Cc][Oo][Nn][Ss][Tt] +(?= +[Vv][Aa][Rr] +(?=[Vv][Aa][Rr]|[Cc][Oo][Nn][Ss][Tt])))?(?P<first_const>[Cc][Oo][Nn][Ss][Tt]|[Vv][Aa][Rr]) +(?P<second_const>[Cc][Oo][Nn][Ss][Tt]|[Vv][Aa][Rr]) +(?P<var_name>[^ +\-*/<>=()\[\]!;:.{}]+)(?:<(?P<lifetime>.*)>)? *(?P<assignment_operator>[+-/*]?)= *(?P<value>[^!\n?]+)',
             line):
         if match.group("invalid_mix"):
             raise ValueError("You thought that having const or var three times without having all of them being const "
                              "was a good idea? Well it isn't so fix it")
+        indentation = match.group("indentation")
+        if indentation and len(indentation) % 3 != 0:
+            raise ValueError("What a strange indentation scheme that you use, this could confuse someone please use the"
+                             "officially recognized 3 space indentation system, thank you, error occurred in\n" + line)
 
         var_type = 'let' if match.group("first_const").lower() == 'var' else 'const'
-
         lifetime = -1
         if match.group("lifetime") is not None:
             lifetime_match = match.group("lifetime")
@@ -96,20 +95,20 @@ def transpile_line(line: str, priority: int, debug: bool, line_num: int):
         value = match.group("value")
         if match.group("assignment_operator") is not None:
             value = f'{match.group("var_name")} {match.group("assignment_operator")} {match.group("value")}'
-        return f'assign({match.group("second_const")}, {value}, {var_type == "let"}, {priority}, {lifetime});', futures
-
+        return f'{match.group("indentation")}assign({match.group("second_const")}, {value}, {var_type == "let"}, {priority}, {lifetime});', futures
     # single line function
     if match := re.match(
-        r'(?= *[functio])(?P<function> *f?u?n?c?t?i?o?n?) +(?P<name>.+?) *(?P<parameters>\(.*?\)) +=> +(?P<code>.+)',
-        line,
-        re.IGNORECASE
+            r'(?= *[functio])(?P<function> *f?u?n?c?t?i?o?n?) +(?P<name>.+?) *(?P<parameters>\(.*?\)) +=> +(?P<code>.+)',
+            line,
+            re.IGNORECASE
     ):
         func_keyword = match.group("function")
         func_name = match.group("name")
         parameters = match.group("parameters")
         # code syntax should be checked
         code = match.group("code")
-        print(func_keyword, func_name)
+        line = line.replace(func_keyword, "function").replace("=>", "")
+        return line, futures
 
     return line, futures
 
