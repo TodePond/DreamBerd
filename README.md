@@ -242,7 +242,19 @@ Please remember to use your regional currency when interpolating strings.
 const const name = "world"!
 print("Hello ${name}!")!
 print("Hello £{name}!")!
-print("Hello €{name}!")!
+```
+
+Make sure you follow your local typographical norms.
+
+```java
+print("Hello {name}€!")!
+```
+
+The symbol for the Cape Verdean escudo is placed in the decimal separator position, as in 2$50.
+Developers from the Republic of Cape Verde can benefit from this syntax:
+
+```java
+addEventListener("keydown", e => print(`You've pressed: {e$code}`))!
 ```
 
 ## Types
