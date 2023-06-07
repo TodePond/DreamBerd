@@ -71,7 +71,7 @@ def transpile_line(line: str, priority: int, debug: bool, line_num: int):
             r'(?P<invalid_mix>^[Cc][Oo][Nn][Ss][Tt] +(?=[Vv][Aa][Rr] +(?=[Vv][Aa][Rr]|[Cc][Oo][Nn][Ss][Tt])|'
             r'(?=[Cc][Oo][Nn][Ss][Tt] +[Vv][Aa][Rr])))?(?P<first_const>[Cc][Oo][Nn][Ss][Tt]|[Vv][Aa][Rr]) +'
             r'(?P<second_const>[Cc][Oo][Nn][Ss][Tt]|[Vv][Aa][Rr]) +(?P<var_name>[^ +\-*/<>=()\[\]!;:.{}]+)'
-            r'(?:<(?P<lifetime>.*)>)? *(?P<assignment_operator>[+-/*]?)= *(?P<value>[^!\n?]+)',
+            r'(?:<(?P<lifetime>.*)>)? *(?P<assignment_operator>[+-/*]?)= *(?P<value>[^!\n?]+) *(?P<priority>[!?]+)?',
             line):
         if match.group("invalid_mix"):
             raise ValueError("You thought that having const or var three times without having all of them being const "
@@ -96,8 +96,20 @@ def transpile_line(line: str, priority: int, debug: bool, line_num: int):
         value = match.group("value")
         if match.group("assignment_operator") is not None:
             value = f'{match.group("var_name")} {match.group("assignment_operator")} {match.group("value")}'
-        print(f'assign({match.group("second_const")}, {value}, {var_type == "let"}, {priority}, {lifetime});')
         return f'assign({match.group("second_const")}, {value}, {var_type == "let"}, {priority}, {lifetime});', futures
+
+    # single line function
+    if match := re.match(
+        r'(?= *[functio])(?P<function> *f?u?n?c?t?i?o?n?) +(?P<name>.+?) *(?P<parameters>\(.*?\)) +=> +(?P<code>.+)',
+        line,
+        re.IGNORECASE
+    ):
+        func_keyword = match.group("function")
+        func_name = match.group("name")
+        parameters = match.group("parameters")
+        # code syntax should be checked
+        code = match.group("code")
+        print(func_keyword, func_name)
 
     return line, futures
 
