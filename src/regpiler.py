@@ -1,35 +1,38 @@
-import re
-import requests
 import os
-from compinterpret import Tokenizer, tokens
+import re
+
+import requests
+
+from compinterpret import Tokenizer
 
 reference_tokenizer = Tokenizer()
+
 
 def split_raw_file(path):
     with open(path, 'r') as file:
         content = file.read()
-    
+
     # Split the file content using the regex pattern
     split_content = re.split(r'={5,} *([^= ]*) *=+', content)
-    
+
     # Get the capture groups from the regex pattern
     capture_groups = re.findall(r'={5,} *([^= ]*) *=+', content)
-    
+
     if len(split_content) == 1:
         return split_content
     else:
         result = [(split_content[i], capture_groups[i]) for i in range(len(split_content))]
-        
+
         return result
 
 
 def transpile_subfile(subfile):
     # Split the file content using the regex pattern
     split_content = re.split(r'(!+|\n|\?)', subfile)
-    
+
     # Get the capture groups from the regex pattern
     capture_groups = re.findall(r'(!+|\n|\?)', subfile)
-    
+
     result = ""
 
     futures = {}
@@ -43,7 +46,8 @@ def transpile_subfile(subfile):
             result += '\n'.join(futures[i]) + '\n'
             futures[i] = []
 
-        line, new_futures = transpile_line(split_content[i], len(capture_groups[i+offset]), '?' in capture_groups[i+offset], i)
+        line, new_futures = transpile_line(split_content[i], len(capture_groups[i + offset]),
+                                           '?' in capture_groups[i + offset], i)
 
         result += line + '\n'
 
@@ -52,37 +56,51 @@ def transpile_subfile(subfile):
                 futures[k] = v
             else:
                 futures[k].extend(v)
-                
+
     return result
+
 
 def transpile_line(line: str, priority: int, debug: bool, line_num: int):
     futures = {}
 
     # Assignment
-    if match := re.match(r'([Cc][Oo][Nn][Ss][Tt]|[Vv][Aa][Rr]) +([Cc][Oo][Nn][Ss][Tt]|[Vv][Aa][Rr]) +([^ +\-*\/<>=()\[\]!;:.{}]+)(?:<(.*)>)? *([\+-\/\*]?)= *([^!\n?]+)',
-            line):      
-        
-        var_type = 'let' if match.groups()[0].lower() == 'var' else 'const'       
+    if match := re.match(
+            # With named groups is possible to have "optional" groups and the regex is still cursed.
+            # I know that re.IGNORECASE is a thing but without it the regex looks more cursed.
+            r'(?:(?P<third_const>[Cc][Oo][Nn][Ss][Tt]) +(?=[Cc][Oo][Nn][Ss][Tt] +[Cc][Oo][Nn][Ss][Tt]))?'
+            r'(?P<invalid_mix>^[Cc][Oo][Nn][Ss][Tt] +(?=[Vv][Aa][Rr] +(?=[Vv][Aa][Rr]|[Cc][Oo][Nn][Ss][Tt])|'
+            r'(?=[Cc][Oo][Nn][Ss][Tt] +[Vv][Aa][Rr])))?(?P<first_const>[Cc][Oo][Nn][Ss][Tt]|[Vv][Aa][Rr]) +'
+            r'(?P<second_const>[Cc][Oo][Nn][Ss][Tt]|[Vv][Aa][Rr]) +(?P<var_name>[^ +\-*/<>=()\[\]!;:.{}]+)'
+            r'(?:<(?P<lifetime>.*)>)? *(?P<assignment_operator>[+-/*]?)= *(?P<value>[^!\n?]+)',
+            line):
+        if match.group("invalid_mix"):
+            raise ValueError("You thought that having const or var three times without having all of them being const "
+                             "was a good idea? Well it isn't so fix it")
+
+        var_type = 'let' if match.group("first_const").lower() == 'var' else 'const'
 
         lifetime = -1
-        if match.groups()[3] != None:
-            if match.groups()[3][-1] != 's' and match.groups()[3].lower() != 'infinity':
-                futures[int(match.groups()[3])] = [f'{match.groups()[3]}.kill();']
-            elif match.groups()[3][-1] == 's':
-                lifetime = int(match.groups()[3][:-1])
+        if match.group("lifetime") is not None:
+            lifetime_match = match.group("lifetime")
+            if lifetime_match[-1] != 's' and lifetime_match.lower() != 'infinity':
+                futures[int(lifetime_match)] = [f'{lifetime_match}.kill();']
+            elif lifetime_match[-1] == 's':
+                lifetime = int(lifetime_match[:-1])
             else:
                 lifetime = 'infinity'
 
-        value = match.groups()[5]
-        if match.groups()[4] != None:
-            value = f'{match.groups()[2]} {match.groups()[4]} {match.groups()[5]}'
+        if match.group("third_const"):
+            # TODO implement const const const
+            pass
 
-        return f'assign({match.groups()[2]}, {value}, {var_type == "let"}, {priority}, {lifetime});', futures
-    
+        value = match.group("value")
+        if match.group("assignment_operator") is not None:
+            value = f'{match.group("var_name")} {match.group("assignment_operator")} {match.group("value")}'
+        print(f'assign({match.group("second_const")}, {value}, {var_type == "let"}, {priority}, {lifetime});')
+        return f'assign({match.group("second_const")}, {value}, {var_type == "let"}, {priority}, {lifetime});', futures
+
     return line, futures
-    
 
-        
 
 if __name__ == '__main__':
     try:
@@ -90,11 +108,13 @@ if __name__ == '__main__':
         response = requests.head("http://www.google.com", timeout=5)
         if response.status_code != 200:
             print(
-                "-Meta: NetworkError: DreamBerd 3const services are down, or you do not have an internet connection. Please rectify either as soon as possible.")
+                "-Meta: NetworkError: DreamBerd 3const services are down, or you do not have an internet connection. "
+                "Please rectify either as soon as possible.")
             exit(1)
     except requests.ConnectionError:
         print(
-            "-Meta: NetworkError: DreamBerd 3const services are down, or you do not have an internet connection. Please rectify either as soon as possible. ")
+            "-Meta: NetworkError: DreamBerd 3const services are down, or you do not have an internet connection. "
+            "Please rectify either as soon as possible. ")
         exit(1)
 
     files = split_raw_file(f'test{os.sep}db{os.sep}db{os.sep}time_travel.db')
@@ -102,13 +122,13 @@ if __name__ == '__main__':
     if not os.path.isdir('built'):
         os.mkdir('built')
 
-    for file in files:  
-        result = ""      
+    for file in files:
+        result = ""
         if isinstance(file, str):
             result = transpile_subfile(file)
         else:
             result = transpile_subfile(file[0])
-        
+
         filename = str(len(os.listdir('built'))) + '.tsx' if isinstance(file, str) else file[1]
 
         with open(f'src{os.sep}template.tsx', 'r') as reader:
