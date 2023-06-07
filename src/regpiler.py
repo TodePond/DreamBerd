@@ -72,7 +72,7 @@ def transpile_line(line: str, priority: int, debug: bool, line_num: int):
         if match.group("invalid_mix"):
             raise ValueError("You thought that having const or var three times without having all of them being const "
                              "was a good idea? Well it isn't so fix it")
-        indentation = match.group("indentation")
+        indentation = match.group("indentation") if match.group("indentation") else ""
         if indentation and len(indentation) % 3 != 0:
             raise ValueError("What a strange indentation scheme that you use, this could confuse someone please use the"
                              "officially recognized 3 space indentation system, thank you, error occurred in\n" + line)
@@ -95,7 +95,7 @@ def transpile_line(line: str, priority: int, debug: bool, line_num: int):
         value = match.group("value")
         if match.group("assignment_operator") is not None:
             value = f'{match.group("var_name")} {match.group("assignment_operator")} {match.group("value")}'
-        return f'{match.group("indentation")}assign({match.group("second_const")}, {value}, {var_type == "let"}, {priority}, {lifetime});', futures
+        return f'{indentation}assign({match.group("second_const")}, {value}, {var_type == "let"}, {priority}, {lifetime});', futures
     # single line function
     if match := re.match(
             r'(?= *[functio])(?P<function> *f?u?n?c?t?i?o?n?) +(?P<name>.+?) *(?P<parameters>\(.*?\)) +=> +(?P<code>.+)',
