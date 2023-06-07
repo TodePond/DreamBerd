@@ -7,7 +7,6 @@ from compinterpret import Tokenizer
 
 reference_tokenizer = Tokenizer()
 
-
 def split_raw_file(path):
     with open(path, 'r') as file:
         content = file.read()
@@ -93,12 +92,12 @@ def transpile_line(line: str, priority: int, debug: bool, line_num: int):
             pass
 
         value = match.group("value")
-        if match.group("assignment_operator") is not None:
+        if match.group("assignment_operator"):
             value = f'{match.group("var_name")} {match.group("assignment_operator")} {match.group("value")}'
-        return f'{indentation}assign({match.group("second_const")}, {value}, {var_type == "let"}, {priority}, {lifetime});', futures
-    # single line function
+        return f'{indentation}assign("{match.group("second_const")}", "{value}", {str(var_type == "let").lower()}, {priority}, {lifetime});', futures
+    # single line function, in the case of the multi-line one code is "{"
     if match := re.match(
-            r'(?= *[functio])(?P<function> *f?u?n?c?t?i?o?n?) +(?P<name>.+?) *(?P<parameters>\(.*?\)) +=> +(?P<code>.+)',
+            r'(?= *[functio])((?P<indentation> +)?(?P<function>f?u?n?c?t?i?o?n?) )+(?P<name>.+?) *(?P<parameters>\(.*?\)) +=> +(?P<code>.+)',
             line,
             re.IGNORECASE
     ):
@@ -109,6 +108,9 @@ def transpile_line(line: str, priority: int, debug: bool, line_num: int):
         code = match.group("code")
         line = line.replace(func_keyword, "function").replace("=>", "")
         return line, futures
+
+    # replace the previous keyword with the function call (not sure if this is right)
+    line = re.sub(r'previous +(?!=[()]*)([^?! ]*)', r'get_var("\1").previous()', line, 1, re.IGNORECASE)
 
     return line, futures
 
