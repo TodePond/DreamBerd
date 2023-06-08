@@ -1,40 +1,16 @@
-const var x<20s> += 5!
+const var x<20s> = 5!
+x += 7!!!
 x++!
-print(x)
-previous x = 7!!!
+print(x) 
 
 """6\n8\n"""
 
-const var x = 5!
+x = 5! // No effect
 x++!
 print(x)
 print(previous x)
 
-"""6\n5\n"""
-
-fnc gaming() => {
-   if (x == 5) {
-      print(previous x * x)
-   }    
-}
-
-class Player {
-   const var health = 10!
-}
-
-const var player1 = new Player()!
-const var player2 = new Player()! //Error: Can't have more than one 'Player' instance!
-
-class PlayerMaker {
-   function makePlayer() => {
-      class Player {
-         const var health = 10!
-      }
-      const const player = new Player()!
-      return player!
-   }
-}
-
 const const playerMaker = new PlayerMaker()!
 const var player1 = playerMaker.makePlayer()!
 const var player2 = playerMaker.makePlayer()!
+

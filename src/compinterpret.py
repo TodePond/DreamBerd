@@ -361,8 +361,9 @@ class Parser():
 
     ### Every Statement should first check if it is valid in the current location
     ### If it is, it should be self-contained and output its valid JS to file.js
-    ### If it is not valid, it should not insert any JS and raise and error
-    ### Functions should only be called if they should be true- do not use it to check if something is true
+    ### If it is not valid, it should raise an error
+    ### Functions should be committal- if you call a function, that means that it *should* be valid in that spot
+        ### Some Exceptions; For example EndStmt is non-comittal
     ### FUNCTION NAMES ARE PART OF THE USER DEBUG INFO
 
     def StmtList(self):
@@ -390,6 +391,7 @@ class Parser():
         # Floating expressions: print(x), x, x == 5
         pass
 
+    # Non-Comittal
     def EndStmt(self):
         i = 0
         end = False
@@ -421,11 +423,11 @@ class Parser():
         allow_edit = self.file.pop().token == 'VAR'
 
         # not sure about this check because we get here if var and const are at the beginning of the line
-        """
+        
         if self.file.peek().token != 'IDENTIFIER':
             self.RaiseError('Identify yourself NOW; Declaration requires variable to declare')
             return False
-        """
+        
 
         # Nothing in native JS allows you to prevent edits, so we only worry about reassignments here
         # Bad reassignments will be caught by JS
@@ -438,11 +440,31 @@ class Parser():
 
         var_name = self.file.pop().lexeme
 
+        lifetime = None
+
         # lifetime detected
         if self.file.peek().token == "<":
             # remove opening lifetime identifier
             self.file.pop()
-            lifetime = ""
+
+            # Lifetime can either be an INT, or an INT followed by and IDENTIFIER (the only valid identifier after INT is 's')
+            # Alternatively, it can be INFINITY, which turns the variable into an environment variable
+            # With no specified lifetime, the variable will kill itself whenever normal variables would
+
+            # If the lifetime is an INT, the variable lasts for that amount of lines
+            # If the lifetime is an INT followed by s, the variable lasts for that amount of seconds (or until the program dies)
+            # If the lifetime is INFINITY, it is a environment variable
+
+
+            # To get the value of the Expr we allow it to dump to the JS, and remove it afterward to process it properly
+            rollback_idx = len(self.js)
+            if not self.Expr():
+                self.RaiseError('Lifetime must be an Expression')
+                return False
+            
+            lifetime = self.js[rollback_idx:] #INFINITY or Expression
+            self.js = self.js[:rollback_idx]            
+
             extracted_token = self.file.pop().lexeme
             # this can be improved by using valid lifetime characters
             while extracted_token not in [">", os.linesep]:
@@ -456,22 +478,18 @@ class Parser():
             return False
         self.file.pop()
 
-        rollback_idx = len(self.js)
-        self.js += f'{keyword} {var_name} = '
-        if self.file.peek().token in ["INT", "REAL", "STRING"]:
-            self.js += str(self.file.pop().lexeme)
-        else:
-            print(self.file.peek())
-        if self.Expr():
+
+        self.js += f'assign(\"{var_name}\", '
+        if self.Expr(): #inserts expression
             success, priority = self.EndStmt()
             if not success:
                 self.RaiseError('Declaration statement didn\'t end when it should\'ve')
             if self.var_dict.get(var_name) is None:
                 self.var_dict[var_name] = []
             self.var_dict[var_name].append(VarState(allow_reassign, allow_edit, priority))
+
+            self.js += f', {keyword == "let"}, {priority}, {lifetime}'
         else:
-            # Rollback
-            self.js = self.js[:rollback_idx]
             self.RaiseError('Failed to parse expression in declaration')
             return False
         return True
