@@ -31,9 +31,12 @@ def preprocess_line(line):
     return line
 
 def process_expr(expr):
-    new_expr = re.sub(r'([^ +\\\-*\/<>=()\[\]!;:.{}\n0-9]+)', r'"\1"', expr)
+    new_expr, variable_count = re.sub(r'([^ +\\\-*\/<>=()\[\]!;:.{}\n0-9]+)', r'"\1"', expr)
+
+    # TODO: Space-based priority Logic
+
     new_expr = re.sub(r'([^ +\\\-*\/<>=()\[\]!;:.{}\n]+)', r'get_var(\1)', new_expr)
-    return new_expr
+    return f'get_var({new_expr})' # 2 + 1 -> get_var(get_var(2) + get_var(1)). Yes this is necessary.
 
 def transpile_subfile(subfile):
     # Split the file content using the regex pattern
