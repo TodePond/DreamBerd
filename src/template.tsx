@@ -2,24 +2,23 @@
 import { VarState } from "../built/helper"
 
 // Format: var_name -> VarState
-const variables = {}
-
-function set_var(name, value, priority) {
-    variables[name].assign(value, priority)
-}
+const variables = new Map<any, VarState>()
 
 function assign(name, value, allow_reassign, priority, lifetime=-1) {
-    if (variables[name] !== undefined) {
-        variables[name].assign(value, priority)
-    }
-    else {
-        variables[name] = new VarState(name, value, allow_reassign, priority, lifetime=-1)
+    const varState = variables.get(name);
+  
+    if (varState !== undefined) {
+      // Update the existing object properties
+      varState.assign(value, priority);
+    } else {
+      // Create a new object and store it in the map
+      variables.set(name, new VarState(name, value, allow_reassign, priority, lifetime));
     }
 }
 
 function get_var(name) {
-    if (variables[name] !== undefined) {
-        return variables[name].get()
+    if (variables.get(name) !== undefined) {
+        return variables.get(name)!.get()
     }
     else {
         // Check for infinite lifetime variables

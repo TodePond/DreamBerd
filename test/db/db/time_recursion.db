@@ -1,10 +1,10 @@
-const var x = 5!
+var var x = 5!
 x++!
-x -= 3!
-x = 8!
+
 if (x > 5) {
-    
+    previous x = previous x - 3!
 }
 else {
-    
+    print(x)!
 }
+
