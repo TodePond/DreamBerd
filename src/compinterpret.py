@@ -12,7 +12,7 @@ tokens = ["STRING", "NOT", "!", "IF", 'ELSE', '(', ')', '[', ']', 'TRUE', 'FALSE
           'DIVIDE', '=', 'IDENTIFIER', 'INDENT',
           'SPACE', 'DELETE', 'EOF', 'NEWLINE', '{', '}', 'INC', 'DEC', 'LOOSE_EQUALITY', 'PRECISE_EQUALITY',
           'LITERAL_EQUALITY', 'ERROR', 'CURRENCY',
-          'WHEN', ":", "AND", 'OR', 'RETURN']
+          'WHEN', ":", "AND", 'OR', 'RETURN', "ARROW"]
 
 
 class Token():
@@ -92,7 +92,6 @@ class Tokenizer():
             return ''.join([file.pop() for _ in range(i)])
 
         c = readchar()
-
         if c == '':
             # The file has ended
             return Token('EOF', '')
@@ -132,6 +131,10 @@ class Tokenizer():
             file.back()  # Pushback
             match equals:
                 case 1:
+                    if c == ">":
+                        # consume the ">"
+                        readchar()
+                        return Token('ARROW', '=>')
                     return Token('=', '=')
                 case 2:
                     return Token('LOOSE_EQUALITY', '==')
@@ -242,7 +245,8 @@ class Tokenizer():
                 return Token('IDENTIFIER', lexeme)
         else:  # c is not alpha- only remaining case are special characters that count as whitespace
             if c == '\n':
-                if readchar() != '\r':
+                # the second check is needed to avoid an infinite loop on linux (the newline is \n without \r)
+                if readchar() != '\r' and os.linesep[-1] == '\r':
                     file.back()
                 return Token('NEWLINE', c)
             elif c == '\r':
@@ -351,6 +355,8 @@ class Parser():
         self.file = SimpleTokenCrawler(tokens)
         self.js = ""
         self.var_dict = {}
+        # How much indent we are expecting to see at the moment
+        self.wanted_indent = 0
 
     def RaiseError(self, message):
         caller_name = inspect.currentframe().f_back.f_code.co_name
@@ -363,7 +369,7 @@ class Parser():
     ### If it is, it should be self-contained and output its valid JS to file.js
     ### If it is not valid, it should raise an error
     ### Functions should be committal- if you call a function, that means that it *should* be valid in that spot
-        ### Some Exceptions; For example EndStmt is non-comittal
+    ### Some Exceptions; For example EndStmt is non-comittal
     ### FUNCTION NAMES ARE PART OF THE USER DEBUG INFO
 
     def StmtList(self):
@@ -378,7 +384,6 @@ class Parser():
         # Anything with a single equals sign: x = 5, const const x = 6
         if self.file.peek().token in ['CONST', 'VAR']:
             return self.Varable_Declaration_Stmt()
-
         if self.file.peek().token == "IDENTIFIER" and self.file.peek_n(2)[1].token in ["INC", "DEC"]:
             return self.Variable_Increase_Stmt()
 
@@ -387,6 +392,8 @@ class Parser():
         # Class declarations class x { ... }, className x { ... }
 
         # Function declarations: fn(x) => { ... }
+        if self.file.pop().token == "FUNCTION":
+            return self.Function_Declaration_Stmt()
 
         # Floating expressions: print(x), x, x == 5
         pass
@@ -423,11 +430,10 @@ class Parser():
         allow_edit = self.file.pop().token == 'VAR'
 
         # not sure about this check because we get here if var and const are at the beginning of the line
-        
+
         if self.file.peek().token != 'IDENTIFIER':
             self.RaiseError('Identify yourself NOW; Declaration requires variable to declare')
             return False
-        
 
         # Nothing in native JS allows you to prevent edits, so we only worry about reassignments here
         # Bad reassignments will be caught by JS
@@ -455,15 +461,14 @@ class Parser():
             # If the lifetime is an INT followed by s, the variable lasts for that amount of seconds (or until the program dies)
             # If the lifetime is INFINITY, it is a environment variable
 
-
             # To get the value of the Expr we allow it to dump to the JS, and remove it afterward to process it properly
             rollback_idx = len(self.js)
             if not self.Expr():
                 self.RaiseError('Lifetime must be an Expression')
                 return False
-            
-            lifetime = self.js[rollback_idx:] #INFINITY or Expression
-            self.js = self.js[:rollback_idx]            
+
+            lifetime = self.js[rollback_idx:]  # INFINITY or Expression
+            self.js = self.js[:rollback_idx]
 
             extracted_token = self.file.pop().lexeme
             # this can be improved by using valid lifetime characters
@@ -477,10 +482,10 @@ class Parser():
             self.RaiseError('PUT AN EQUALS SIGN IN YOUR DECLARATION')
             return False
         self.file.pop()
-
-
+        # pop the value (this is temporary)
+        self.file.pop()
         self.js += f'assign(\"{var_name}\", '
-        if self.Expr(): #inserts expression
+        if self.Expr():  # inserts expression
             success, priority = self.EndStmt()
             if not success:
                 self.RaiseError('Declaration statement didn\'t end when it should\'ve')
@@ -494,6 +499,49 @@ class Parser():
             return False
         return True
 
+    def Function_Declaration_Stmt(self):
+        if self.file.peek().token != "IDENTIFIER":
+            self.RaiseError(
+                f'Something isn\'t right here after the function keyword there should be an identifier but I got a {self.file.peek().token}')
+            return False
+
+        function_name = self.file.pop()
+
+        if not self.file.pop().token == "(":
+            self.RaiseError("I think you tried to define a function but you forgot the parenthesis for the parameters")
+            return False
+        parameters = []
+        while self.file.peek().token != ")":
+            param = self.file.pop()
+            if param.token == "IDENTIFIER":
+                parameters.append(param)
+            else:
+                self.RaiseError(f"I was expecting a parameter but {param.lexeme} doesn't look like a valid IDENTIFIER")
+        # consume the closing parenthesis
+        self.file.pop()
+        if self.file.pop().token != "ARROW":
+            self.RaiseError(f'You say that you want a function and you give me the parenthesis but where is the "=>" ?')
+            return False
+        # At this point there is either a { for a multi-line function or a single line function without {
+        if self.file.peek().lexeme == "{":
+            self.file.pop()
+            if self.file.peek().token != "NEWLINE":
+                self.RaiseError(f'I see that you are writing more stuff after the {"{"}, if it is a single line then '
+                                f'you don\'t need the {"{"} if there are multiple lines then you should send this other'
+                                f' stuff to the new line')
+                return False
+            # from now until a } appears we should check that the code is indented
+            self.wanted_indent += 1
+        else:
+            # TODO decide how to handle this part
+            # this is temporary
+            instructions = []
+            while self.file.peek().token not in ["NEWLINE", "!"]:
+                instructions.append(self.file.pop())
+        # consume exclamation marks
+        self.file.pop()
+        return True
+
     def Variable_Increase_Stmt(self):
         var_name = self.file.pop().lexeme
         operation = self.file.pop().lexeme
@@ -501,6 +549,7 @@ class Parser():
         success, _ = self.EndStmt()
         if not success:
             self.RaiseError('Declaration statement didn\'t end when it should\'ve')
+            return False
         return True
 
     def Expr(self):
