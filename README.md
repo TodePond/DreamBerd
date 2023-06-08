@@ -1,4 +1,4 @@
-> DreamBerd was recently featured on the [Future of Code podcast](https://futureofcoding.org/episodes/064).
+> The [Future of Code podcast](https://futureofcoding.org/episodes/064) recently featured DreamBerd.
 
 [<img align="right" height="100" src="dreamberd.svg">](https://github.com/TodePond/DreamBerd/blob/main/examples/Examples.md "Click here for the examples page.")
  
