@@ -31,7 +31,7 @@ def preprocess_line(line):
     return line
 
 def process_expr(expr):
-    new_expr, variable_count = re.sub(r'([^ +\\\-*\/<>=()\[\]!;:.{}\n0-9]+)', r'"\1"', expr)
+    new_expr = re.sub(r'([^ +\\\-*\/<>=()\[\]!;:.{}\n0-9]+)', r'"\1"', expr)
 
     # TODO: Space-based priority Logic
 
