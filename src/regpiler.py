@@ -113,7 +113,12 @@ def transpile_line(line: str, priority: int, debug: bool, line_num: int):
         value = match.group("value")
         if match.group("assignment_operator"):
             value = f'{match.group("var_name")} {match.group("assignment_operator")} {match.group("value")}'
-        return f'{indentation}assign("{match.group("var_name")}", {process_expr(value)}, {str(allow_reassignment).lower()}, {priority}, {lifetime});', futures
+
+        name = match.group("var_name")
+        if not re.match('[0-9]*.?[0-9]+', name):
+            # Not a number
+            name = f"\"{name}\""
+        return f'{indentation}assign({name}, {process_expr(value)}, {str(allow_reassignment).lower()}, {priority}, {lifetime});', futures
     
     # Reassignment
     elif match := re.match(
@@ -132,7 +137,13 @@ def transpile_line(line: str, priority: int, debug: bool, line_num: int):
             # TODO: Time travel
             pass
         else:
-            return f'{indentation}assign(\"{match.group("variable")}\", {process_expr(value)}, undefined, {priority})', futures
+
+            name = match.group("variable")
+            if not re.match('[0-9]*.?[0-9]+', name):
+                # Not a number
+                name = f"\"{name}\""
+
+            return f'{indentation}assign({name}, {process_expr(value)}, undefined, {priority})', futures
 
     # single line function, in the case of the multi-line one code is "{"
     elif match := re.match(
