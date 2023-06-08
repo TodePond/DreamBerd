@@ -2,9 +2,9 @@ var var x = 5!
 x++!
 
 if (x > 5) {
-    previous x = previous x - 3!
+   previous x = previous x - 3!
 }
 else {
-    print(x)!
+   print(x)!
 }
 

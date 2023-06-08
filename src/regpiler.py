@@ -24,6 +24,16 @@ def split_raw_file(path):
 
         return result
 
+def preprocess_line(line):
+    if match := re.match(r'(?P<var_name>[^ +\\\-*\/<>=()\[\]!;:.{}\n]+)(?P<operator>\+\+|--)',
+                         line):
+        return f"{match.group('var_name')} {match.group('operator')[0]}= 1"
+    return line
+
+def process_expr(expr):
+    new_expr = re.sub(r'([^ +\\\-*\/<>=()\[\]!;:.{}\n0-9]+)', r'"\1"', expr)
+    new_expr = re.sub(r'([^ +\\\-*\/<>=()\[\]!;:.{}\n]+)', r'get_var(\1)', new_expr)
+    return new_expr
 
 def transpile_subfile(subfile):
     # Split the file content using the regex pattern
@@ -45,7 +55,8 @@ def transpile_subfile(subfile):
             result += '\n'.join(futures[i]) + '\n'
             futures[i] = []
 
-        line, new_futures = transpile_line(split_content[i], len(capture_groups[i + offset]),
+        result += f'// DB_DEBUG: {split_content[i]}{capture_groups[i + offset]}\n'
+        line, new_futures = transpile_line(preprocess_line(split_content[i]), len(capture_groups[i + offset]),
                                            '?' in capture_groups[i + offset], i)
 
         result += line + '\n'
@@ -72,7 +83,7 @@ def transpile_line(line: str, priority: int, debug: bool, line_num: int):
     if match := re.match(
             # With named groups is possible to have "optional" groups and the regex is still cursed.
             # I know that re.IGNORECASE is a thing but without it the regex looks more cursed.
-            r'(?P<indentation> +)?(?:(?P<third_const>[Cc][Oo][Nn][Ss][Tt]) +(?=[Cc][Oo][Nn][Ss][Tt] +[Cc][Oo][Nn][Ss][Tt]))?(?P<invalid_mix>^[Cc][Oo][Nn][Ss][Tt] +(?= +[Vv][Aa][Rr] +(?=[Vv][Aa][Rr]|[Cc][Oo][Nn][Ss][Tt])))?(?P<first_const>[Cc][Oo][Nn][Ss][Tt]|[Vv][Aa][Rr]) +(?P<second_const>[Cc][Oo][Nn][Ss][Tt]|[Vv][Aa][Rr]) +(?P<var_name>[^ +\\\-*\/<>=()\[\]!;:.{}]+)(?:<(?P<lifetime>.*)>)? *(?P<assignment_operator>[+\-\/*]?)= *(?P<value>[^!\n?]+)',
+            r'(?P<indentation> +)?(?:(?P<third_const>[Cc][Oo][Nn][Ss][Tt]) +(?=[Cc][Oo][Nn][Ss][Tt] +[Cc][Oo][Nn][Ss][Tt]))?(?P<invalid_mix>^[Cc][Oo][Nn][Ss][Tt] +(?= +[Vv][Aa][Rr] +(?=[Vv][Aa][Rr]|[Cc][Oo][Nn][Ss][Tt])))?(?P<first_const>[Cc][Oo][Nn][Ss][Tt]|[Vv][Aa][Rr]) +(?P<second_const>[Cc][Oo][Nn][Ss][Tt]|[Vv][Aa][Rr]) +(?P<var_name>[^ +\\\-*\/<>=()\[\]!;:.{}\n]+)(?:<(?P<lifetime>.*)>)? *(?P<assignment_operator>[+\-\/*]?)= *(?P<value>[^!\n?]+)',
             line
     ):
         if match.group("invalid_mix"):
@@ -81,7 +92,7 @@ def transpile_line(line: str, priority: int, debug: bool, line_num: int):
 
         indentation = check_indentation(match, line) #Convenience function because this is checked a lot    
 
-        var_type = 'let' if match.group("first_const").lower() == 'var' else 'const'
+        allow_reassignment = match.group("first_const").lower() == 'var'
         lifetime = -1
         if match.group("lifetime") is not None:
             lifetime_match = match.group("lifetime")
@@ -99,11 +110,11 @@ def transpile_line(line: str, priority: int, debug: bool, line_num: int):
         value = match.group("value")
         if match.group("assignment_operator"):
             value = f'{match.group("var_name")} {match.group("assignment_operator")} {match.group("value")}'
-        return f'{indentation}assign("{match.group("second_const")}", "{value}", {str(var_type == "let").lower()}, {priority}, {lifetime});', futures
+        return f'{indentation}assign("{match.group("var_name")}", {process_expr(value)}, {str(allow_reassignment).lower()}, {priority}, {lifetime});', futures
     
     # Reassignment
     elif match := re.match(
-            r'(?P<indentation> +)?(?P<prevs>(?:previous +)+)?(?P<variable>[^\n\+\-\*\/\<\>\=\(\)\[\] !;:.{}\\\.]+) *(?P<assignment_operator>[+\-\/*]?)= *(?P<value>[^!\n?]+)',
+            r'(?P<indentation> +)?(?P<prevs>(?:previous +)+)?(?P<variable>[^ +\\\-*\/<>=()\[\]!;:.{}\n]+) *(?P<assignment_operator>[+\-\/*]?)= *(?P<value>[^!\n?]+)',
             line,
             re.IGNORECASE
     ):
@@ -118,7 +129,7 @@ def transpile_line(line: str, priority: int, debug: bool, line_num: int):
             # TODO: Time travel
             pass
         else:
-            return f'{indentation}assign(\"{match.group("variable")}\", undefined, {priority})'
+            return f'{indentation}assign(\"{match.group("variable")}\", {process_expr(value)}, undefined, {priority})', futures
 
     # single line function, in the case of the multi-line one code is "{"
     elif match := re.match(
@@ -156,7 +167,7 @@ if __name__ == '__main__':
             "Please rectify either as soon as possible. ")
         exit(1)
 
-    files = split_raw_file(f'test{os.sep}db{os.sep}db{os.sep}time_travel.db')
+    files = split_raw_file(f'test{os.sep}db{os.sep}db{os.sep}time_recursion.db')
 
     if not os.path.isdir('built'):
         os.mkdir('built')
