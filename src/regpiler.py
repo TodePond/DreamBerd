@@ -58,6 +58,12 @@ def transpile_subfile(subfile):
 
     return result
 
+def check_indentation(match, line):
+    indentation = match.group("indentation") if match.group("indentation") else ""
+    if indentation and len(indentation) % 3 != 0:
+        raise ValueError("What a strange indentation scheme that you use, this could confuse someone! Please use the"
+                            "officially recognized 3 space indentation system, thank you. Error occurred in\n" + line)
+    return indentation
 
 def transpile_line(line: str, priority: int, debug: bool, line_num: int):
     futures = {}
@@ -66,15 +72,14 @@ def transpile_line(line: str, priority: int, debug: bool, line_num: int):
     if match := re.match(
             # With named groups is possible to have "optional" groups and the regex is still cursed.
             # I know that re.IGNORECASE is a thing but without it the regex looks more cursed.
-            r'(?P<indentation> +)?(?:(?P<third_const>[Cc][Oo][Nn][Ss][Tt]) +(?=[Cc][Oo][Nn][Ss][Tt] +[Cc][Oo][Nn][Ss][Tt]))?(?P<invalid_mix>^[Cc][Oo][Nn][Ss][Tt] +(?= +[Vv][Aa][Rr] +(?=[Vv][Aa][Rr]|[Cc][Oo][Nn][Ss][Tt])))?(?P<first_const>[Cc][Oo][Nn][Ss][Tt]|[Vv][Aa][Rr]) +(?P<second_const>[Cc][Oo][Nn][Ss][Tt]|[Vv][Aa][Rr]) +(?P<var_name>[^ +\-*/<>=()\[\]!;:.{}]+)(?:<(?P<lifetime>.*)>)? *(?P<assignment_operator>[+-/*]?)= *(?P<value>[^!\n?]+)',
-            line):
+            r'(?P<indentation> +)?(?:(?P<third_const>[Cc][Oo][Nn][Ss][Tt]) +(?=[Cc][Oo][Nn][Ss][Tt] +[Cc][Oo][Nn][Ss][Tt]))?(?P<invalid_mix>^[Cc][Oo][Nn][Ss][Tt] +(?= +[Vv][Aa][Rr] +(?=[Vv][Aa][Rr]|[Cc][Oo][Nn][Ss][Tt])))?(?P<first_const>[Cc][Oo][Nn][Ss][Tt]|[Vv][Aa][Rr]) +(?P<second_const>[Cc][Oo][Nn][Ss][Tt]|[Vv][Aa][Rr]) +(?P<var_name>[^ +\\\-*\/<>=()\[\]!;:.{}]+)(?:<(?P<lifetime>.*)>)? *(?P<assignment_operator>[+\-\/*]?)= *(?P<value>[^!\n?]+)',
+            line
+    ):
         if match.group("invalid_mix"):
             raise ValueError("You thought that having const or var three times without having all of them being const "
                              "was a good idea? Well it isn't so fix it")
-        indentation = match.group("indentation") if match.group("indentation") else ""
-        if indentation and len(indentation) % 3 != 0:
-            raise ValueError("What a strange indentation scheme that you use, this could confuse someone please use the"
-                             "officially recognized 3 space indentation system, thank you, error occurred in\n" + line)
+
+        indentation = check_indentation(match, line) #Convenience function because this is checked a lot    
 
         var_type = 'let' if match.group("first_const").lower() == 'var' else 'const'
         lifetime = -1
@@ -95,8 +100,28 @@ def transpile_line(line: str, priority: int, debug: bool, line_num: int):
         if match.group("assignment_operator"):
             value = f'{match.group("var_name")} {match.group("assignment_operator")} {match.group("value")}'
         return f'{indentation}assign("{match.group("second_const")}", "{value}", {str(var_type == "let").lower()}, {priority}, {lifetime});', futures
+    
+    # Reassignment
+    elif match := re.match(
+            r'(?P<indentation> +)?(?P<prevs>(?:previous +)+)?(?P<variable>[^\n\+\-\*\/\<\>\=\(\)\[\] !;:.{}\\\.]+) *(?P<assignment_operator>[+\-\/*]?)= *(?P<value>[^!\n?]+)',
+            line,
+            re.IGNORECASE
+    ):
+        indentation = check_indentation(match, line) #Convenience function because this is checked a lot    
+
+        if match.group('assignment_operator'):
+            value = f'{match.group("variable")} {match.group("assignment_operator")} ({match.group("value")})'
+        else:
+            value = match.group('value')
+
+        if match.group('prevs'):
+            # TODO: Time travel
+            pass
+        else:
+            return f'{indentation}assign(\"{match.group("variable")}\", undefined, {priority})'
+
     # single line function, in the case of the multi-line one code is "{"
-    if match := re.match(
+    elif match := re.match(
             r'(?= *[functio])((?P<indentation> +)?(?P<function>f?u?n?c?t?i?o?n?) )+(?P<name>.+?) *(?P<parameters>\(.*?\)) +=> +(?P<code>.+)',
             line,
             re.IGNORECASE
@@ -112,6 +137,7 @@ def transpile_line(line: str, priority: int, debug: bool, line_num: int):
     # replace the previous keyword with the function call (not sure if this is right)
     line = re.sub(r'previous +(?!=[()]*)([^?! ]*)', r'get_var("\1").previous()', line, 1, re.IGNORECASE)
 
+    # Only here for debugging, when completed this should return an error if execution reaches the end
     return line, futures
 
 
