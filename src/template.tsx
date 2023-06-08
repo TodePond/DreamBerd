@@ -30,7 +30,9 @@ function get_var(name) {
 
         // TODO: 3const server
 
-        return undefined
+
+        // Return literal value only if all other possibilities are ruled out
+        return name
     }
 }
 
