@@ -103,6 +103,22 @@ when (health = 0) {
 }
 ```
 
+## Else
+If you want to have a sequence of `when` statements, you might want to use the `else` statement:
+```java
+const var health = 10!
+when (health = 0) "You lose"?
+else when (health < 5) "Warning! Low health!"?
+```
+
+The `else` keyword doesn't actually do anything, mind you. It's just syntax sugar. Making the two `when` statements exclusive would go against DreamBerd's principles of inclusivity. The better way to accomplish this would be:
+
+```java
+const var health = 10!
+when (health = 0) "You lose"?
+when (health ;= 0 && health < 5) "Warning! Low health!"?
+```
+
 ## Lifetimes
 DreamBerd has a built-in garbage collector that will automatically clean up unused variables. However, if you want to be extra careful, you can specify a lifetime for a variable, with a variety of units.
 ```java
