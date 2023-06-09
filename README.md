@@ -636,7 +636,7 @@ If the compiler refuses at first, politely reassure it. For example:<br>
 
 ## Pure Fun
 **New for 2023!**<br>
-Impure functions are an anti-pattern. User the `pure` keyword to make a function pure. Pure functions never have side-effects, and return the same output given the same input.
+Impure functions are an anti-pattern. Use the `pure` keyword to make a function pure. Pure functions never have side-effects, and return the same output given the same input.
 ```java
 pure fun twice(x) => 2 * x!
 ```
