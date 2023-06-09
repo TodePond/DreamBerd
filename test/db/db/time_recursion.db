@@ -1,10 +1,13 @@
-var var x = 5!
+var var x<2> = 5!
 x++!
 
+const const 3 = 6
+print(2 + 1)
+
 if (x > 5) {
-    previous x = previous x - 3!
+   previous x = previous x - 3!
 }
 else {
-    print(x)!
+   print(x)!
 }
 
