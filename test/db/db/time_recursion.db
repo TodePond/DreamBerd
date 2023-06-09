@@ -1,4 +1,4 @@
-var var x = 5!
+var var x<2> = 5!
 x++!
 
 const const 3 = 6

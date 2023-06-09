@@ -21,6 +21,7 @@ export class VarState {
         if (lifetime != -1) {
             if (lifetime === Infinity) {
                 localStorage.setItem(name, variable);
+                this.expiry = -1
             }
             else {
                 this.expiry = Date.now() + (1000 * lifetime)
@@ -39,7 +40,7 @@ export class VarState {
     }
 
     dead() {
-        return Date.now() >= this.expiry
+        return this.expiry !== -1 && Date.now() >= this.expiry
     }
 
     kill() {
@@ -55,6 +56,9 @@ export class VarState {
             return false;
         } else {
             this.history.push(this.variable);
+            if (this.expiry == -1) {
+                localStorage.setItem(this.name, value);
+            }            
             this.variable = value;
             this.updateCount++;
 
@@ -80,7 +84,8 @@ export class VarState {
 
     previous(prev_iter = 1) {
         if (prev_iter > this.history.length) {
-            return undefined;
+            console.log(`Soft Error: Attempting to access prehistoric value of ${this.name}.`)
+            return Math.random() * Number.MAX_SAFE_INTEGER
         }
         return this.history[this.history.length - prev_iter];
     }

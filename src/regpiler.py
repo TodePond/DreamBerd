@@ -1,11 +1,88 @@
 import os
 import re
-
 import requests
-
-from compinterpret import Tokenizer
+from compinterpret import Tokenizer, SimpleStringCrawler
 
 reference_tokenizer = Tokenizer()
+
+# https://qph.cf2.quoracdn.net/main-qimg-8d58857bb87f14c8e1ce2f6686ef3e04
+operator_precedence = {
+    '(': 15,
+    ')': 15,
+    '[': 15,
+    ']': 15,
+    '.': 15,
+    '++': 14,
+    '--': 14,
+    ';': 14,
+    '**': 13,
+    '*': 12,
+    '/': 12,
+    '\\': 12,
+    '%': 12,
+    '+': 11,
+    '-': 11,
+    '<<': 10, # WHY DOES JAVASCRIPT HAVE THESE?
+    '>>': 10,
+    '>>>': 10,
+    '<=': 9,
+    '<': 9,
+    '>': 9,
+    '>=': 9,
+    '==': 8,
+    '===': 8,
+    '====': 8,
+    '&': 7,
+    '^': 6,
+    '|': 5,
+    '&&': 4,
+    '||': 3,
+}
+
+class RawToken():
+    def __init__(self, token: str, lexeme: str, priority = 0) -> None:
+        self.token = token
+        self.lexeme = lexeme
+        self.priority = priority
+
+    def __repr__(self) -> str:
+        return f'{self.token}({repr(self.lexeme)})'
+
+    def __str__(self) -> str:
+        return f'{self.token}({repr(self.lexeme)})'
+    
+    def compare(self, other):
+        #presume both are operators
+        if self.priority < other.priority:
+            return 1
+        elif self.priority > other.priority:
+            return -1
+        else:
+            if operator_precedence[self.lexeme] > operator_precedence[other.lexeme]:
+                return 1
+            elif operator_precedence[self.lexeme] < operator_precedence[other.lexeme]:
+                return -1
+            else:
+                return 0
+
+class RawTokenCrawler():
+    def __init__(self, raw) -> None:
+        self.raw = raw
+        self.cursor = 0
+
+    def pop(self) -> str:
+        if self.cursor == len(self.raw):
+            return None
+        self.cursor += 1
+        return self.raw[self.cursor - 1]
+
+    def back(self, count=1) -> RawToken:
+        self.cursor -= count
+
+    def peek(self) -> RawToken:
+        if self.cursor == len(self.raw) - 1:
+            return None
+        return self.raw[self.cursor]
 
 def split_raw_file(path):
     with open(path, 'r') as file:
@@ -25,18 +102,102 @@ def split_raw_file(path):
         return result
 
 def preprocess_line(line):
-    if match := re.match(r'(?P<var_name>[^ +\\\-*\/<>=()\[\]!;:.{}\n]+)(?P<operator>\+\+|--)',
+    re.sub(r'(.*) ==== \1')
+    if match := re.match(r'^(?P<var_name>[^ +\\\-*\/<>=()\[\]!;:.{}\n]+)(?P<operator>\+\+|--)$',
                          line):
-        return f"{match.group('var_name')} {match.group('operator')[0]}= 1"
+        return f"{match.group('var_name')} {match.group('operator')[0]}= 1"    
     return line
 
-def process_expr(expr):
-    new_expr = re.sub(r'([^ +\\\-*\/<>=()\[\]!;:.{}\n0-9]+)', r'"\1"', expr)
+def process_expr(expr: str):
+    tokens: list[RawToken] = []
+    crawler = SimpleStringCrawler(expr.strip())
 
-    # TODO: Space-based priority Logic
+    # 0 = Identifier / Number (same thing)
+    # 1 = Parenthetical
+    # 2 = Operator (anything else)
+    # 3 = Redirect
 
-    new_expr = re.sub(r'([^ +\\\-*\/<>=()\[\]!;:.{}\n]+)', r'get_var(\1)', new_expr)
-    return f'get_var({new_expr})' # 2 + 1 -> get_var(get_var(2) + get_var(1)). Yes this is necessary.
+    state = 1 if crawler.peek() in '([' else 0
+    
+    if crawler.peek() in '+\\-*/<>%=)]!;:.{}':
+        raise ValueError('Who starts an Expression like that? I just got here!')
+
+    while crawler.peek() != '':
+        match state:
+            case 0:
+                identifier = ''
+                while crawler.peek() not in '+\\-*/<>%=()[]!;&:{} \n\r\t':
+                    identifier += crawler.pop()
+                tokens.append(RawToken('IDENTIFIER', identifier))
+                state = 3
+            case 1:
+                # Deprecated
+                bracket = crawler.pop()
+                balance = 1
+                inner_expression = bracket
+                while balance != 0:
+                    if crawler.peek() in '([':
+                        balance += 1
+                    elif crawler.peek() in ')]':
+                        balance -= 1
+                    elif crawler.peek() == '':
+                        raise ValueError('Both your life and parentheses require balance')
+                    inner_expression += crawler.pop()
+                
+                tokens.append(RawToken('PARENTHETICAL', process_expr(inner_expression)))
+                state = 3
+            case 2:
+                spaces = 0
+                operator = ''
+                while crawler.peek() in '+\\-*/<>%=& \t':
+                    if crawler.peek() in ' \t':
+                        # Indents are 3 space
+                        spaces += 1 if crawler.pop() == ' ' else 3
+                    else:
+                        # &   & == &&
+                        operator += crawler.pop()
+                tokens.append(RawToken('OPERATION', operator, spaces))
+                state = 3
+            case 3:        
+                if crawler.peek() == '':
+                    # Valid spot to stop
+                    # We also have to stop
+                    break
+                # if crawler.peek() in '([':
+                #     state = 1
+                #     continue
+                if crawler.peek() in '+\\-*/<>%=& \t([])':
+                    state = 2
+                    continue
+                elif crawler.peek() in '\n\r{}:':
+                    raise ValueError('Malformed Expression')
+                else:
+                    state = 0
+                    continue
+                    
+    postfix_tokens = []
+    operator_stack = []
+
+    for token in token:
+        if token == 'OPERATION':
+            if token.compare(operator_stack[-1]) == 1:
+                operator_stack.append(token)
+            else:
+                while token.compare(operator_stack[-1]) <= 0:
+                    postfix_tokens.append(operator_stack.pop())
+                operator_stack.append(token)
+        else: # IDENTIFIER        
+            postfix_tokens.append(token)
+    
+    while len(operator_stack) > 0:
+        postfix_tokens.append(operator_stack.pop())
+    
+    raw_crawler = RawTokenCrawler(postfix_tokens)
+    
+    while raw_crawler.peek() != None:
+        # TODO: Reconstruct to Infix w/ Parentheticals
+        pass
+    
 
 def transpile_subfile(subfile):
     # Split the file content using the regex pattern
@@ -54,8 +215,8 @@ def transpile_subfile(subfile):
             offset -= 1
             continue
 
-        if i in futures:
-            result += '\n'.join(futures[i]) + '\n'
+        if i+offset in futures:
+            result += '\n'.join(futures[i+offset]) + '\n'
             futures[i] = []
 
         result += f'// DB_DEBUG: {split_content[i]}{capture_groups[i + offset]}\n'
@@ -64,8 +225,8 @@ def transpile_subfile(subfile):
 
         result += line + '\n'
 
-        for k, v in new_futures:
-            if k in futures:
+        for k, v in new_futures.items():
+            if k not in futures:
                 futures[k] = v
             else:
                 futures[k].extend(v)
@@ -100,7 +261,7 @@ def transpile_line(line: str, priority: int, debug: bool, line_num: int):
         if match.group("lifetime") is not None:
             lifetime_match = match.group("lifetime")
             if lifetime_match[-1] != 's' and lifetime_match.lower() != 'infinity':
-                futures[int(lifetime_match)] = [f'{lifetime_match}.kill();']
+                futures[int(lifetime_match)+line_num] = [f'variables.get({lifetime_match})!.kill();']
             elif lifetime_match[-1] == 's':
                 lifetime = int(lifetime_match[:-1])
             else:
