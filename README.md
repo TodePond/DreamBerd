@@ -1,4 +1,4 @@
-> Just released: Version [v0.9.9.9.9.9.9.9.9c](https://github.com/TodePond/DreamBerd/releases/tag/v0.9.9.9.9.9.9.9.9c)
+> The [Future of Code podcast](https://futureofcoding.org/episodes/064) recently featured DreamBerd.
 
 [<img align="right" height="100" src="dreamberd.svg">](https://github.com/TodePond/DreamBerd/blob/main/examples/Examples.md "Click here for the examples page.")
  
@@ -204,7 +204,7 @@ func multiply (a, b) => a * b!
 fun subtract (a, b) => a - b!
 fn divide (a, b) => a / b!
 functi power (a, b) => a ** b!
-union inverse (a) => 1/a
+union inverse (a) => 1/a!
 ```
 
 ## Dividing by Zero
