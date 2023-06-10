@@ -594,6 +594,18 @@ postfix operator !(a) => { ... }
 ```
 Now the statement `const const foo = 3!` will be parsed as `!(=(const("const", "foo"), 3))`. Neat, eh?
 
+You may have noticed that the examples above use `...` to represent the body of each function. This isn't pseudo-code.
+Instead, `...` is an operator that we've defined later on.
+```java
+postfix operator !(foo) => {
+    return ... // Factorial
+}
+unfix operator ...<-Infinity>() => {
+    const const code = email("Lu Wilson", "Subject: give me teh codez", getOuterFunction())!
+    exec(code)!
+}
+```
+
 Tired of people making too many operators? No worries, DreamBerd has a solution for that too!
 ```java
 unfix operator operator() => {
