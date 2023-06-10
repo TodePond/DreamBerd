@@ -567,6 +567,32 @@ This means that you can carry on splitting as much as you like.
 const var [[[getScore, setScore], setScore], setScore] = use(0)!
 ```
 
+## User-defined Operators
+
+DreamBerd is a highly flexible language and allows you to overload operators, as well as define your own operators.
+An operator can be any sequence of non-whitespace characters.
+
+```java
+operator +(a, b) {
+  return ...! // implementation of + here
+}
+bigInt(0) + bigInt(1)! // Now + works on your user-defined BigInt type!
+
+operator in(a, b) { return b.contains(a); }
+1 in myList; // You can define an "in" operator if you like Python
+
+operator <<(a, b) { print(b)! }
+cout << "foo"; // An important use case for operator overloading
+```
+
+You can define an operator named `const` or `=` or `!`!
+```java
+operator const(a, b) { ... }
+operator =(a, b) { ... }
+postfix operator !(a) { ... }
+```
+Now the statement `const const foo = 3!` will be parsed as `!(=(const("const", "foo"), 3))`. Neat, eh?
+
 ## AI
 
 DreamBerd features AEMI, which stands for Automatic-Exclamation-Mark-Insertion. If you forget to end a statement with an exclamation mark, DreamBerd will helpfully insert one for you!
