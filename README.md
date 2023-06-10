@@ -594,6 +594,13 @@ postfix operator !(a) => { ... }
 ```
 Now the statement `const const foo = 3!` will be parsed as `!(=(const("const", "foo"), 3))`. Neat, eh?
 
+Tired of people making too many operators? No worries, DreamBerd has a solution for that too!
+```java
+unfix operator operator() => {
+    throw new OperatorOverloadingShouldNotBeAbusedException()!!!!!!
+}
+```
+
 ## AI
 
 DreamBerd features AEMI, which stands for Automatic-Exclamation-Mark-Insertion. If you forget to end a statement with an exclamation mark, DreamBerd will helpfully insert one for you!
