@@ -590,16 +590,15 @@ You can define an operator named `const` or `=` or `!`!
 ```java
 infix(left-associative) operator const(a, b) => { ... }
 infix(right-associative) operator =(a, b) => { ... }
-postfix operator !(a) => { ... }
+postfix operator !(n) => {
+    return ... // Factorial
+}
 ```
 Now the statement `const const foo = 3!` will be parsed as `!(=(const("const", "foo"), 3))`. Neat, eh?
 
 You may have noticed that the examples above use `...` to represent the body of each function. This isn't pseudo-code.
-Instead, `...` is an operator that we've defined later on.
+Instead, `...` is an operator that we've defined later on that uses DreamBerd's [AI](#AI) feature.
 ```java
-postfix operator !(foo) => {
-    return ... // Factorial
-}
 unfix operator ...<-Infinity>() => {
     const const code = email("Lu Wilson", "Subject: give me teh codez", getOuterFunction())!
     exec(code)!
