@@ -3,6 +3,13 @@
 <img align="right" height="100" src="dreamberd.png">
 
 # DreamBerd
+![Badge](badges/build-passing.svg)
+![Badge](badges/push-passing.svg)
+![Badge](badges/oss-fuzzing.svg)
+![Badge](badges/cs-passing.svg)
+![Badge](badges/lint-passing.svg)
+![Badge](badges/lint-js-passing.svg)
+![Badge](badges/coverage-100.svg)
 DreamBerd is a perfect programming language. These are its features!<br>
 When you've finished reading through all the features, check out the [examples](https://github.com/TodePond/DreamBerd/blob/main/Examples.md).
 
