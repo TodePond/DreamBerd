@@ -1,3 +1,42 @@
+<!--
+
+If you're reading this then you might be looking for the hidden examples page...
+
+CONGRATULATIONS! You found it!
+Here it is: https://github.com/TodePond/DreamBerd/blob/main/res/res/Examples.md
+
+
+
+But if you came here because you want to contribute to DreamBerd, here are some tips on how to get your PR successfully merged.
+
+You must:
+- Always punch up.
+
+- Only poke fun at things you respect + admire.
+
+- Make us feel good.
+
+
+
+Separately...
+
+> Consider 'what am I saying' with the joke.
+
+On the whole, I try to say, "Programming languages can be anything we want them to be. A lot more is possible than we might expect."
+ 
+Consider your joke:
+- Is it saying anything at all? (it should)
+- Is it saying something fun + exciting? (it should)
+- Is it saying something depressing? (it shouldn't)
+- Is it saying something mean? (it shouldn't)
+
+There's a very fine line between these though, and sometimes I get it wrong. I avoid jokes that feel close to the boundaries of any of these requirements, because it's too risky. I try to stick with jokes that are firmly within one camp.
+
+
+
+
+-->
+
 > The [Future of Code podcast](https://futureofcoding.org/episodes/064) recently featured DreamBerd.
 
 [<img align="right" height="100" src="dreamberd.svg">](https://github.com/TodePond/DreamBerd/blob/main/examples/Examples.md "Click here for the examples page.")
