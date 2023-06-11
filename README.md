@@ -576,14 +576,14 @@ An operator can be any sequence of non-whitespace characters.
 infix(right-associative) operator -(a, b) => {
   return ...! // implementation of - here
 }
-// Now + works on your user-defined BigInt type, just the way you want it!
-bigInt(0) - bigInt(1) - bigInt(2)! // 1
+// Now - works on your user-defined BigInt type, just the way you want it!
+BigInt(0) - BigInt(1) - BigInt(2)! // -3
 
-infix(left-associative) operator in(a, b) => { return b.contains(a); }
-1 in myList; // You can define an "in" operator if you like Python
+infix(left-associative) operator in(a, b) => { return b.contains(a)! }
+1 in myList! // You can define an "in" operator if you like Python
 
 infix(left-associative) operator <<(a, b) => { print(b)! }
-cout << "foo"; // An important use case for operator overloading
+cout << "foo"! // An important use case for operator overloading
 ```
 
 You can define an operator named `const` or `=` or `!`!
