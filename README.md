@@ -605,12 +605,7 @@ unfix operator ...<-Infinity>() => {
 }
 ```
 
-Tired of people making too many operators? No worries, DreamBerd has a solution for that too!
-```java
-unfix operator operator() => {
-    throw new OperatorOverloadingShouldNotBeAbusedException()!!!!!!
-}
-```
+Tired of people making too many operators? No worries, just do `delete operator!` to stop people from making their own operators.
 
 ## AI
 
