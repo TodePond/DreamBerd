@@ -11,9 +11,7 @@ But if you came here because you want to contribute to DreamBerd, here are some 
 
 You must:
 - Always punch up.
-
 - Only poke fun at things you respect + admire.
-
 - Make us feel good.
 
 
