@@ -1,7 +1,7 @@
-> Announcement: DreamBerd was recently featured on the [Future of Code podcast](https://futureofcoding.org/episodes/064).
+> The [Future of Code podcast](https://futureofcoding.org/episodes/064) recently featured DreamBerd.
 
-<img align="right" height="100" src="dreamberd.png">
-
+[<img align="right" height="100" src="dreamberd.svg">](https://github.com/TodePond/DreamBerd/blob/main/examples/Examples.md "Click here for the examples page.")
+ 
 # DreamBerd
 ![Badge](badges/build-passing.svg)
 ![Badge](badges/push-passing.svg)
@@ -111,7 +111,7 @@ when (health = 0) {
 }
 ```
 
-## Lifetime
+## Lifetimes
 DreamBerd has a built-in garbage collector that will automatically clean up unused variables. However, if you want to be extra careful, you can specify a lifetime for a variable, with a variety of units.
 ```java
 const const name<2> = "Luke"! //lasts for two lines
@@ -129,15 +129,15 @@ print(name)! //Luke
 const const name<-1> = "Luke"!
 ```
 
+## Loops
+Loops are a complicated relic of archaic programming languages. In DreamBerd, there are no loops.
+
 ## Installation
 To install DreamBerd to your command line, first install the DreamBerd installer.<br>
 To install the DreamBerd installer, install the DreamBerd installer installer.
 
 **New for 2022!**<br>
 Due to the complicated installation process, you can now install the 'Create DreamBerd App' app that installs everything for you!
-
-## Loops
-Loops are a complicated relic of archaic programming languages. In DreamBerd, there are no loops.
 
 ## Booleans
 Booleans can be `true`, `false` or `maybe`.
@@ -204,7 +204,7 @@ If you want to be much less precise, you can use `=`.
 3 = 3.14! //true
 ```
 
-## Function
+## Functions
 To declare a function, you can use any letters from the word `function` (as long as they're in order):
 ```java
 function add (a, b) => a + b!
@@ -212,6 +212,7 @@ func multiply (a, b) => a * b!
 fun subtract (a, b) => a - b!
 fn divide (a, b) => a / b!
 functi power (a, b) => a ** b!
+union inverse (a) => 1/a!
 ```
 
 ## Dividing by Zero
@@ -233,7 +234,7 @@ const const name = '''Lu'''!
 const const name = "'Lu'"!
 ```
 
-In fact, you can use any number of quotes.
+In fact, you can use any number of quotes you want.
 ```java
 const const name = """"Luke""""!
 ```
@@ -250,7 +251,20 @@ Please remember to use your regional currency when interpolating strings.
 const const name = "world"!
 print("Hello ${name}!")!
 print("Hello £{name}!")!
-print("Hello €{name}!")!
+print("Hello ¥{name}!")!
+```
+
+And make sure to follow your local typographical norms.
+
+```java
+print("Hello {name}€!")!
+```
+
+The symbol for the Cape Verdean escudo is placed in the decimal separator position, as in 2$50.
+Developers from the Republic of Cape Verde can benefit from this syntax:
+
+```java
+addEventListener("keydown", e => print(`You've pressed: {e$code}`))!
 ```
 
 ## Types
@@ -323,7 +337,7 @@ function add(a, b) => {
 }
 ```
 
-## Export
+## Exporting
 Many languages allow you to import things from specific files. In DreamBerd, importing is simpler. Instead, you export _to_ specific files!
 ```java
 ===== add.db ==
@@ -340,7 +354,7 @@ add(3, 2)!
 
 By the way, to see DreamBerd in action, check out [this page](https://github.com/TodePond/DreamBerd/blob/main/LICENSE.md).
 
-## Class
+## Classes
 You can make classes, but you can only ever make one instance of them. This shouldn't affect how most object-oriented programmers work.
 ```java
 class Player {
@@ -368,7 +382,7 @@ const var player1 = playerMaker.makePlayer()!
 const var player2 = playerMaker.makePlayer()!
 ```
 
-## Now
+## Time
 Use `Date.now()` to get the current date and time.
 ```java
 Date.now()!
@@ -423,129 +437,7 @@ const const name = "Lu or Luke (either is fine)"!!!!!!!!!
 print(name)! // "Lu or Luke (either is fine)"
 ```
 
-## Signal
-
-To make a signal, use `use`.
-
-```java
-const var score = use(0)!
-```
-
-When it comes to signals, the most important thing to discuss is _syntax_.
-
-In DreamBerd, you can set (and get) signals with just one function:
-
-```java
-const var score = use(0)!
-
-score(9)! // Set the value
-score()?  // Get the value (and print it)
-```
-
-Alternatively, you can be more explicit with your signal syntax, by splitting it into a getter and setter.
-
-```java
-const var [getScore, setScore] = use(0)!
-
-setScore(9)! // Set the value
-getScore()?  // Get the value (and print it)
-```
-
-**Technical info:** This is pure syntax sugar. The split signal functions are exactly the same as before.
-
-```java
-const var [getScore, setScore] = use(0)!
-
-getScore(9)! // Set the value
-setScore()?  // Get the value (and print it)
-```
-
-Of course, this means that you can carry on splitting as much as you like...
-
-```java
-const var [getScore, setScore] = use(0)!
-const var [retrieveScore, updateScore] = getScore!
-const var [calculateScore, assignScore] = updateScore!
-```
-
-## Signal Sugar
-
-The great thing about signals is that they let you work in *real* DreamBerd, instead of relying on frameworks.<br>
-For this reason, there's some additional syntax sugar that gets compiled away in a build step.
-
-You can use signals as if they're just a value.
-
-```java
-const var score = use(0)!
-score = 9!
-print(score)! // 9
-```
-
-If you want to be more explicit, you can use the `value` property instead.
-
-```java
-const var score = use(0)!
-score.value = 9!
-print(score.value)! // 9
-```
-
-**Technical info:** The `value` property doesn't do anything. It just returns the signal again.
-
-```java
-const var score = use(0)!
-
-score.value(9)! // Set the value
-score.value()?  // Get the value (and print it)
-
-score.value.value = 99!
-print(score.value.value.value)! // 99
-```
-
-## AI
-
-DreamBerd features AEMI, which stands for Automatic-Exclamation-Mark-Insertion.<br>
-If you forget to end a statement with an exclamation mark, DreamBerd will helpfully insert one for you!
-
-```java
-print("Hello world") // This is fine
-```
-
-Similarly... DreamBerd also features ABI, which stands for Automatic-Bracket-Insertion.<br>
-If you forget to close your brackets, DreamBerd will pop some in for you!
-
-```java
-print("Hello world" // This is also fine
-```
-
-Similarly.... DreamBerd also features AQMI, which stands for Automatic-Quotation-Marks-Insertion.<br>
-If you forget to close your string, DreamBerd will do it for you!
-
-```java
-print("Hello world // This is fine as well
-```
-
-This can be very helpful in callback hell situations!
-
-```java
-addEventListener("click", (e) => {
-    requestAnimationFrame(() => {
-        print("You clicked on the page
-        
-        // This is fine
-```
-
-Similarly..... DreamBerd also features AI, which stands for Automatic-Insertion.<br>
-If you forget to finish your code, DreamBerd will auto-complete the whole thing!
-
-```java
-print( // This is probably fine
-```
-
-**Please note:** AI does not use AI. Instead, any incomplete code will be auto-emailed to Lu Wilson, who will get back to you with a completed line as soon as possible.
-
-**Now recruiting:** The backlog of unfinished programs has now grown unsustainably long. If you would like to volunteer to help with AI, please write an incomplete DreamBerd program, and leave your contact details somewhere in the source code.
-
-## Class Name
+## Class Names
 
 For maximum compatibility with other languages, you can alternatively use the `className` keyword when making classes.
 
@@ -558,9 +450,6 @@ className Player {
 ```
 
 In response to some recent criticism about this design decision, we would like to remind you that this is part of the JavaScript specification, and therefore - out of our control.
-
-
-
 
 ## DBX
 
@@ -609,6 +498,123 @@ funct App() => {
    )
 }
 ```
+
+## Asynchronous Functions
+
+Asynchronous functions synchronise with each other. They take turns running lines of code.
+
+```java
+async funct count() {
+   print(2)!
+   print(4)!
+}
+
+count()!
+print(1)!
+print(3)!
+print(5)!
+```
+
+You can use the `noop` keyword to wait for longer before taking your turn.
+
+```java
+async func count() {
+   print(2)
+   noop!
+   print(5)!
+}
+
+count()!
+print(1)!
+print(3)!
+print(4)!
+```
+
+**Note:** In the program above, the computer interprets `noop` as a string and its sole purpose is to take up an extra line. You can use any string you want.
+
+## Signals
+
+To use a signal, use `use`.
+
+```java
+const var score = use(0)!
+```
+
+When it comes to signals, the most important thing to discuss is _syntax_.
+
+In DreamBerd, you can set (and get) signals with just one function:
+
+```java
+const var score = use(0)!
+
+score(9)! // Set the value
+score()?  // Get the value (and print it)
+```
+
+Alternatively, you can be more explicit with your signal syntax, by splitting it into a getter and setter.
+
+```java
+const var [getScore, setScore] = use(0)!
+
+setScore(9)! // Set the value
+getScore()?  // Get the value (and print it)
+```
+
+**Technical info:** This is pure syntax sugar. The split signal functions are exactly the same as before.
+
+```java
+const var [getScore, setScore] = use(0)!
+
+getScore(9)! // Set the value
+setScore()?  // Get the value (and print it)
+```
+
+This means that you can carry on splitting as much as you like.
+
+```java
+const var [[[getScore, setScore], setScore], setScore] = use(0)!
+```
+
+## AI
+
+DreamBerd features AEMI, which stands for Automatic-Exclamation-Mark-Insertion. If you forget to end a statement with an exclamation mark, DreamBerd will helpfully insert one for you!
+
+```java
+print("Hello world") // This is fine
+```
+
+Similarly... DreamBerd also features ABI, which stands for Automatic-Bracket-Insertion. If you forget to close your brackets, DreamBerd will pop some in for you!
+
+```java
+print("Hello world" // This is also fine
+```
+
+Similarly.... DreamBerd also features AQMI, which stands for Automatic-Quotation-Marks-Insertion. If you forget to close your string, DreamBerd will do it for you!
+
+```java
+print("Hello world // This is fine as well
+```
+
+This can be very helpful in callback hell situations!
+
+```java
+addEventListener("click", (e) => {
+    requestAnimationFrame(() => {
+        print("You clicked on the page
+        
+        // This is fine
+```
+
+Similarly..... DreamBerd also features AI, which stands for Automatic-Insertion.<br>
+If you forget to finish your code, DreamBerd will auto-complete the whole thing!
+
+```java
+print( // This is probably fine
+```
+
+**Please note:** AI does not use AI. Instead, any incomplete code will be auto-emailed to Lu Wilson, who will get back to you with a completed line as soon as possible.
+
+**Now recruiting:** The backlog of unfinished programs has now grown unsustainably long. If you would like to volunteer to help with AI, please write an incomplete DreamBerd program, and leave your contact details somewhere in the source code.
 
 ## Copilot
 It's worth noting that Github Copilot doesn't understand DreamBerd, which means that Microsoft won't be able to steal your code.
