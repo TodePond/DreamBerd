@@ -121,6 +121,11 @@ scores[0.5] = 4
 print(scores) //[3, 2, 4, 5]!
 ```
 
+## Comments
+A few langauges use `//` for commends, some use `#`, and some use `<!--` and `-->` for some reason, DreamBerd uses a much more intuitive commenting syntax, to comment out code, simply strikethrough the code you want to comment out
+
+<s>`~~badCode()!~~`</s>
+
 ## When
 In case you really need to vary a variable, the `when` keyword lets you check a variable each time it mutates.
 ```java
