@@ -30,7 +30,7 @@ Have a bit of silly fun.
 [<img align="right" height="100" src="dreamberd.svg">](https://github.com/TodePond/DreamBerd/blob/main/examples/Examples.md "Click here for the examples page.")
  
 # DreamBerd
-DreamBerd is a perfect programming language. These are its features!<br>
+DreamBerd is a <span title="*esoteric*">perfect</span> programming language. These are its features!<br>
 When you've finished reading through all the features, check out the [examples](https://github.com/TodePond/DreamBerd/blob/main/Examples.md).
 
 ## Exclamation Marks!
