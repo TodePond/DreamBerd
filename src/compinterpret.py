@@ -244,15 +244,10 @@ class Tokenizer():
             else:
                 return Token('IDENTIFIER', lexeme)
         else:  # c is not alpha- only remaining case are special characters that count as whitespace
-            if c == '\n':
-                # the second check is needed to avoid an infinite loop on linux (the newline is \n without \r)
-                if readchar() != '\r' and os.linesep[-1] == '\r':
+            if c == os.linesep[0]:
+                if len(os.linesep) == 2 and readchar() != os.linesep[1]:
                     file.back()
-                return Token('NEWLINE', c)
-            elif c == '\r':
-                if readchar() != '\n':
-                    file.back()
-                return Token('NEWLINE', c)
+                return Token('NEWLINE', os.linesep)
             elif c == '\t':
                 # Was very tempted to force you to only use the 3 spaces but this is complicated enough already
                 return Token('INDENT', c)
@@ -326,9 +321,10 @@ class SimpleTokenCrawler():
             offset = 0
             while self.raw[self.cursor + offset].token in ['SPACE', 'INDENT']:
                 offset += 1
-            return self.raw[self.cursor + offset]
+            res = self.raw[self.cursor + offset]
         else:
-            return self.raw[self.cursor]
+            res = self.raw[self.cursor]
+        return res
 
     def peek_n(self, number, ignore_space=True) -> List[Token]:
         token_list = []
@@ -356,7 +352,21 @@ class Parser():
         self.js = ""
         self.var_dict = {}
         # How much indent we are expecting to see at the moment
-        self.wanted_indent = 0
+        self.wanted_indent = {}
+
+    def new_indent(self, source):
+        if not self.wanted_indent:
+            self.wanted_indent[0] = source
+        else:
+            index = len(self.wanted_indent)
+            self.wanted_indent[index] = source
+
+    def expected_indent(self):
+        expected = 0
+        for ind in self.wanted_indent:
+            if self.wanted_indent[ind]:
+                expected += 1 if self.wanted_indent[ind] == "+" else -1
+        return expected
 
     def RaiseError(self, message):
         caller_name = inspect.currentframe().f_back.f_code.co_name
@@ -382,6 +392,12 @@ class Parser():
 
     def Stmt(self):
         # Anything with a single equals sign: x = 5, const const x = 6
+        if self.wanted_indent:
+            self.file.peek(ignore_space=False)
+            indent_check = self.Check_Indent_Stmt()
+            if not indent_check:
+                return indent_check
+
         if self.file.peek().token in ['CONST', 'VAR']:
             return self.Varable_Declaration_Stmt()
         if self.file.peek().token == "IDENTIFIER" and self.file.peek_n(2)[1].token in ["INC", "DEC"]:
@@ -392,7 +408,8 @@ class Parser():
         # Class declarations class x { ... }, className x { ... }
 
         # Function declarations: fn(x) => { ... }
-        if self.file.pop().token == "FUNCTION":
+        if self.file.peek().token == "FUNCTION":
+            self.file.pop()
             return self.Function_Declaration_Stmt()
 
         # Floating expressions: print(x), x, x == 5
@@ -417,6 +434,21 @@ class Parser():
             self.js += ';'
 
         return end, i
+
+    # Indent checks
+    def Check_Indent_Stmt(self):
+        if self.file.peek().token == "}":
+            del self.wanted_indent[len(self.wanted_indent)-1]
+            self.file.pop()
+            self.EndStmt()
+            return True
+
+        while self.file.peek(ignore_space=False).token == "INDENT":
+            self.file.pop(ignore_space=False)
+        if self.file.peek(ignore_space=False).token == "SPACE":
+            self.RaiseError("Good try with the indentation but I think you did something wrong since it isn't a multiple of three.")
+            return False
+        return True
 
     # Declaration of a variable
     def Varable_Declaration_Stmt(self):
@@ -531,14 +563,14 @@ class Parser():
                                 f' stuff to the new line')
                 return False
             # from now until a } appears we should check that the code is indented
-            self.wanted_indent += 1
+            self.new_indent("function")
         else:
             # TODO decide how to handle this part
             # this is temporary
             instructions = []
             while self.file.peek().token not in ["NEWLINE", "!"]:
                 instructions.append(self.file.pop())
-        # consume exclamation marks
+        # consume exclamation marks or new_line
         self.file.pop()
         return True
 
