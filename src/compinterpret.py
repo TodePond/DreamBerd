@@ -129,21 +129,20 @@ class Tokenizer():
                 c = readchar()
                 equals += 1
             file.back()  # Pushback
-            match equals:
-                case 1:
-                    if c == ">":
-                        # consume the ">"
-                        readchar()
-                        return Token('ARROW', '=>')
-                    return Token('=', '=')
-                case 2:
-                    return Token('LOOSE_EQUALITY', '==')
-                case 3:
-                    return Token('PRECISE_EQUALITY', '===')
-                case 4:
-                    return Token('LITERAL_EQUALITY', '====')
-                case _:  # TODO: File splits (might have to be a preprocessor thing)
-                    return Token('ERROR', 'Too much Equality (max is 4)')
+            if equals == 1:
+                if c == ">":
+                    # consume the ">"
+                    readchar()
+                    return Token('ARROW', '=>')
+                return Token('=', '=')
+            elif equals == 2:
+                return Token('LOOSE_EQUALITY', '==')
+            elif equals == 3:
+                return Token('PRECISE_EQUALITY', '===')
+            elif equals == 4:
+                return Token('LITERAL_EQUALITY', '====')
+            else:  # TODO: File splits (might have to be a preprocessor thing)
+                return Token('ERROR', 'Too much Equality (max is 4)')
 
         elif c in '\"\'':
             quote_format = ''
@@ -438,7 +437,7 @@ class Parser():
     # Indent checks
     def Check_Indent_Stmt(self):
         if self.file.peek().token == "}":
-            del self.wanted_indent[len(self.wanted_indent)-1]
+            del self.wanted_indent[len(self.wanted_indent) - 1]
             self.file.pop()
             self.EndStmt()
             return True
@@ -446,7 +445,8 @@ class Parser():
         while self.file.peek(ignore_space=False).token == "INDENT":
             self.file.pop(ignore_space=False)
         if self.file.peek(ignore_space=False).token == "SPACE":
-            self.RaiseError("Good try with the indentation but I think you did something wrong since it isn't a multiple of three.")
+            self.RaiseError(
+                "Good try with the indentation but I think you did something wrong since it isn't a multiple of three.")
             return False
         return True
 
