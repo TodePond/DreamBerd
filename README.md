@@ -83,6 +83,13 @@ name.push("k")!
 name.push("e")!
 ```
 
+## Comments
+A few langauges use `//` for commends, some use `#`, and some use `<!--` and `-->` for some reason, DreamBerd uses a much more intuitive commenting syntax, to comment out code, simply strikethrough the code you want to comment out.
+
+(To use multiline comments, simply cross out each line)
+
+<s>`~~badCode()!~~`</s>
+
 ## Immutable Data
 **New for 2023!**<br>
 Mutable data is an anti-pattern. Use the `const const const` keyword to make a constant constant constant. Its value will become constant and immutable, and will *never change*. Please be careful with this keyword, as it is very powerful, and will affect all users globally forever.
@@ -101,16 +108,16 @@ var var 1️⃣ = 1!
 This includes numbers, and other language constructs.
 ```java
 const const 5 = 4!
-print(2 + 2 === 5)! //true
+print(2 + 2 === 5)! ~~true~~
 ```
 
 ## Arrays
 Some languages start arrays at `0`, which can be unintuitive for beginners. Some languages start arrays at `1`, which isn't representative of how the code actually works. DreamBerd does the best of both worlds: Arrays start at `-1`.
 ```java
 const const scores = [3, 2, 5]!
-print(scores[-1])! //3
-print(scores[0])!  //2
-print(scores[1])!  //5
+print(scores[-1])! ~~3~~
+print(scores[0])!  ~~2~~
+print(scores[1])!  ~~5~~
 ```
 
 **New for 2022!**<br>
@@ -118,13 +125,8 @@ You can now use floats for indexes too!
 ```java
 const var scores = [3, 2, 5]!
 scores[0.5] = 4
-print(scores) //[3, 2, 4, 5]!
+print(scores)! ~~[3, 2, 4, 5]~~
 ```
-
-## Comments
-A few langauges use `//` for commends, some use `#`, and some use `<!--` and `-->` for some reason, DreamBerd uses a much more intuitive commenting syntax, to comment out code, simply strikethrough the code you want to comment out
-
-<s>`~~badCode()!~~`</s>
 
 ## When
 In case you really need to vary a variable, the `when` keyword lets you check a variable each time it mutates.
@@ -183,8 +185,8 @@ function isKeyDown(key) => {
 ## Arithmetic
 DreamBerd has significant whitespace. Use spacing to specify the order of arithmetic operations.
 ```java
-print(1 + 2*3)! //7
-print(1+2 * 3)! //9
+print(1 + 2*3)! ~~7~~
+print(1+2 * 3)! ~~9~~
 ```
 
 ## Indents
@@ -207,25 +209,25 @@ JavaScript lets you do different levels of comparison. `==` for loose comparison
 
 You can use `==` to do a loose check.
 ```java
-3.14 == "3.14"! //true
+3.14 == "3.14"! ~~true~~
 ```
 
 You can use `===` to do a more precise check.
 ```java
-3.14 === "3.14"! //false
+3.14 === "3.14"! ~~false~~
 ```
 
 You can use `====` to be EVEN MORE precise!
 ```java
 const const pi = 3.14!
-print(pi ==== pi)! //true
-print(3.14 ==== 3.14)! //true
-print(3.14 ==== pi)! //false
+print(pi ==== pi)! ~~true~~
+print(3.14 ==== 3.14)! ~~true~~
+print(3.14 ==== pi)! ~~false~~
 ```
 
 If you want to be much less precise, you can use `=`.
 ```java
-3 = 3.14! //true
+3 = 3.14! ~~true~~
 ```
 
 ## Functions
@@ -242,7 +244,7 @@ union inverse (a) => 1/a!
 ## Dividing by Zero
 Dividing by zero returns `undefined`.
 ```java
-print(3 / 0) // undefined
+print(3 / 0) ~~undefined~~
 ```
 
 ## Strings
@@ -329,27 +331,27 @@ Use it to get the previous value of a variable.
 ```java
 const var score = 5!
 score++!
-print(score)! //6
-print(previous score)! //5
+print(score)! ~~6~~
+print(previous score)! ~~5~~
 ```
 
 Similarly, the `next` keyword lets you see into the future!
 ```java
 const var score = 5!
 after ("click") score++!
-print(await next score)! //6 (when you click)
+print(await next score)! ~~6 (when you click)~~
 ```
 
 ## File Structure
 Write five or more equals signs to start a new file. This removes the need for multiple files or any build process.
 ```java
 const const score = 5!
-print(score)! //5
+print(score)! ~~5~~
 
 =====================
 
 const const score = 3!
-print(score)! //3
+print(score)! ~~3~~
 ```
 
 **New for 2022!**<br>
@@ -386,7 +388,7 @@ class Player {
 }
 
 const var player1 = new Player()!
-const var player2 = new Player()! //Error: Can't have more than one 'Player' instance!
+const var player2 = new Player()! ~~Error: Can't have more than one 'Player' instance!~~
 ```
 
 This is how you could do this:
@@ -415,7 +417,7 @@ Date.now()!
 By the way, you can set the time.<br>
 
 ```java
-// Move the clocks back one hour
+~~Move the clocks back one hour~~
 Date.now() -= 3600000!
 ```
 
@@ -427,14 +429,14 @@ To avoid confusion, the `delete` statement only works with primitive values like
 
 ```java
 delete 3!
-print(2 + 1)! // Error: 3 has been deleted
+print(2 + 1)! ~~Error: 3 has been deleted~~
 ```
 
 DreamBerd is a multi-paradigm programming language, which means that you can `delete` the keywords and paradigms you don't like.
 
 ```java
 delete class!
-class Player {} // Error: class was deleted
+class Player {} ~~Error: class was deleted~~
 ```
 
 When perfection is achieved and there is nothing left to `delete`, you can do this:
@@ -448,17 +450,17 @@ You can overload variables. The most recently defined variable gets used.
 ```java
 const const name = "Luke"!
 const const name = "Lu"!
-print(name)! // "Lu"
+print(name)! ~~"Lu"~~
 ```
 
 Variables with more exclamation marks get prioritised.
 ```java
 const const name = "Lu"!!
 const const name = "Luke"!
-print(name)! // "Lu"
+print(name)! ~~"Lu"~~
 
 const const name = "Lu or Luke (either is fine)"!!!!!!!!!
-print(name)! // "Lu or Luke (either is fine)"
+print(name)! ~~"Lu or Luke (either is fine)"~~
 ```
 
 ## Class Names
@@ -489,7 +491,7 @@ funct App() => {
 
 ```java
 funct App() => {
-   // This is not ok
+   ~~This is not ok~~
    return <div class="greeting">Hello world!</div>
 }
 ```
@@ -498,7 +500,7 @@ funct App() => {
 
 ```java
 funct App() => {
-   // This is also not ok
+   ~~This is also not ok~~
    return <div className="greeting">Hello world!</div>
 }
 ```
@@ -507,7 +509,7 @@ Instead, you can use the `htmlClassName` attribute.
 
 ```java
 funct App() => {
-   // This is fine
+   ~~This is fine~~
    return <div htmlClassName="greeting">Hello world!</div>
 }
 ```
@@ -571,8 +573,8 @@ In DreamBerd, you can set (and get) signals with just one function:
 ```java
 const var score = use(0)!
 
-score(9)! // Set the value
-score()?  // Get the value (and print it)
+score(9)! ~~Set the value~~
+score()?  ~~Get the value (and print it)~~
 ```
 
 Alternatively, you can be more explicit with your signal syntax, by splitting it into a getter and setter.
@@ -580,8 +582,8 @@ Alternatively, you can be more explicit with your signal syntax, by splitting it
 ```java
 const var [getScore, setScore] = use(0)!
 
-setScore(9)! // Set the value
-getScore()?  // Get the value (and print it)
+setScore(9)! ~~Set the value~~
+getScore()?  ~~Get the value (and print it)~~
 ```
 
 **Technical info:** This is pure syntax sugar. The split signal functions are exactly the same as before.
@@ -589,8 +591,8 @@ getScore()?  // Get the value (and print it)
 ```java
 const var [getScore, setScore] = use(0)!
 
-getScore(9)! // Set the value
-setScore()?  // Get the value (and print it)
+getScore(9)! ~~Set the value~~
+setScore()?  ~~Get the value (and print it)~~
 ```
 
 This means that you can carry on splitting as much as you like.
@@ -604,19 +606,19 @@ const var [[[getScore, setScore], setScore], setScore] = use(0)!
 DreamBerd features AEMI, which stands for Automatic-Exclamation-Mark-Insertion. If you forget to end a statement with an exclamation mark, DreamBerd will helpfully insert one for you!
 
 ```java
-print("Hello world") // This is fine
+print("Hello world") ~~This is fine~~
 ```
 
 Similarly... DreamBerd also features ABI, which stands for Automatic-Bracket-Insertion. If you forget to close your brackets, DreamBerd will pop some in for you!
 
 ```java
-print("Hello world" // This is also fine
+print("Hello world" ~~This is also fine~~
 ```
 
 Similarly.... DreamBerd also features AQMI, which stands for Automatic-Quotation-Marks-Insertion. If you forget to close your string, DreamBerd will do it for you!
 
 ```java
-print("Hello world // This is fine as well
+print("Hello world ~~This is fine as well~~
 ```
 
 This can be very helpful in callback hell situations!
@@ -626,14 +628,14 @@ addEventListener("click", (e) => {
     requestAnimationFrame(() => {
         print("You clicked on the page
         
-        // This is fine
+        ~~This is fine~~
 ```
 
 Similarly..... DreamBerd also features AI, which stands for Automatic-Insertion.<br>
 If you forget to finish your code, DreamBerd will auto-complete the whole thing!
 
 ```java
-print( // This is probably fine
+print( ~~This is probably fine~~
 ```
 
 **Please note:** AI does not use AI. Instead, any incomplete code will be auto-emailed to Lu Wilson, who will get back to you with a completed line as soon as possible.
