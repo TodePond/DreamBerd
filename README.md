@@ -9,19 +9,9 @@ Here it is: https://github.com/TodePond/DreamBerd/blob/main/res/res/Examples.md
 
 But if you came here because you want to contribute to DreamBerd, here are some tips on how to get your PR successfully merged.
 
-You must:
 - Always punch up.
 - Only poke fun at things you respect + admire.
 - Make us feel good.
-
-
-and hey!
-Try to show us that programming languages can be anything we want them to be.
-Push the boundaries of what's possible!
-
-or at the very least...
-Have a bit of silly fun.
-
 
 -->
 
