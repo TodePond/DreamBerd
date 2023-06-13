@@ -102,11 +102,13 @@ def split_raw_file(path):
         return result
 
 def preprocess_line(line):
-    re.sub(r'(.*) ==== \1')
+    processed_line = line
+    processed_line = re.sub(r'(.*) ==== \1', 'true', processed_line) # True precise equalities
+    processed_line = re.sub(r'(.*) ==== (.*)', 'false', processed_line) # False precise equalities
     if match := re.match(r'^(?P<var_name>[^ +\\\-*\/<>=()\[\]!;:.{}\n]+)(?P<operator>\+\+|--)$',
-                         line):
+                         processed_line):
         return f"{match.group('var_name')} {match.group('operator')[0]}= 1"    
-    return line
+    return processed_line
 
 def process_expr(expr: str):
     tokens: list[RawToken] = []
@@ -363,8 +365,6 @@ def transpile_line(line: str, priority: int, debug: bool, line_num: int):
 
 
 if __name__ == '__main__':
-    process_expr('3 + 4  ×  2 ÷ ( 1 - 5 ) ^ 2 ^ 3')
-
     try:
         # TODO: Replace with DreamBerd 3const server
         response = requests.head("http://www.google.com", timeout=5)
