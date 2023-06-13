@@ -192,14 +192,38 @@ def process_expr(expr: str):
                     state = 0
                     continue
                     
-    out_str = ""
-    for token in tokens:
-        if token.token == 'IDENTIFIER':
-            out_str += f'get_var({token.lexeme})'
-        else:
-            out_str += token.lexeme
+    postfix_tokens = []
+    operator_stack = []
     
-    return out_str
+    for token in tokens:        
+        if token.token == 'OPERATION':
+            if ')' in token.lexeme:
+                while '(' not in operator_stack[-1].lexeme:
+                    postfix_tokens.append(operator_stack.pop())
+                operator_stack.pop() # Remove extra parentheses
+            elif '(' in token.lexeme:
+                operator_stack.append(token)
+            elif len(operator_stack) == 0 or '(' in operator_stack[-1].lexeme or token.compare(operator_stack[-1]) == 1:
+                operator_stack.append(token)
+            else:
+                while len(operator_stack) > 0 and token.compare(operator_stack[-1]) <= 0:
+                    postfix_tokens.append(operator_stack.pop())
+                operator_stack.append(token)
+        else: # IDENTIFIER        
+            postfix_tokens.append(token)
+
+    while len(operator_stack) > 0:
+        postfix_tokens.append(operator_stack.pop())
+    
+    reconstructed = []
+
+    for token in postfix_tokens:
+        if token.token == 'OPERATION':
+            op1 = reconstructed.pop()
+            op2 = reconstructed.pop()
+            reconstructed.append(RawToken('SYSTEM', f'({op2.lexeme}{token.lexeme.strip()}{op1.lexeme})'))
+        else:
+            reconstructed.append(token)
     
 
 def transpile_subfile(subfile):
