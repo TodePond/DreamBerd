@@ -9,8 +9,6 @@ reference_tokenizer = Tokenizer()
 operator_precedence = {
     '(': 15,
     ')': 15,
-    '[': 15,
-    ']': 15,
     '.': 15,
     '++': 14,
     '--': 14,
@@ -103,12 +101,6 @@ def split_raw_file(path):
 
 def preprocess_line(line):
     processed_line = line
-
-    # True precise equalities
-    processed_line = re.sub(r'(.*)====\1', 'true', processed_line) 
-    # False precise equalities (any precise equality not captured by the true condition)
-    processed_line = re.sub(r'(.*)====(.*)', 'false', processed_line) 
-
     # Convert ++ to += 1 and -- to -= 1
     processed_line = re.sub(r'^([^ +\\\-*\/<>=()\[\]!;:.{}\n]+)(\+\+|--)$', r'\1 \2\= 1', processed_line)
 
@@ -145,20 +137,7 @@ def process_expr(expr: str):
                 state = 3
             case 1:
                 # Deprecated
-                bracket = crawler.pop()
-                balance = 1
-                inner_expression = bracket
-                while balance != 0:
-                    if crawler.peek() in '([':
-                        balance += 1
-                    elif crawler.peek() in ')]':
-                        balance -= 1
-                    elif crawler.peek() == '':
-                        raise ValueError('Both your life and parentheses require balance')
-                    inner_expression += crawler.pop()
-                
-                tokens.append(RawToken('PARENTHETICAL', process_expr(inner_expression)))
-                state = 3
+                pass
             case 2:
                 spaces = 0
                 operator = ''
@@ -227,7 +206,15 @@ def process_expr(expr: str):
         if token.token == 'OPERATION':
             op1 = reconstructed.pop()
             op2 = reconstructed.pop()
-            reconstructed.append(RawToken('SYSTEM', f'get_var({op2.lexeme}{token.lexeme.strip()}{op1.lexeme})'))
+
+            if token.lexeme == '====':
+                # We do a little compile-time evaluation
+                if op2.lexeme == op1.lexeme:                    
+                    reconstructed.append('SYSTEM', 'true')
+                else:                              
+                    reconstructed.append('SYSTEM', 'false')
+            else:
+                reconstructed.append(RawToken('SYSTEM', f'get_var({op2.lexeme}{token.lexeme.strip()}{op1.lexeme})'))
         else:
             reconstructed.append(token)
 
