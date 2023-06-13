@@ -1,3 +1,20 @@
+<!--
+
+If you're reading this then you might be looking for the hidden examples page...
+
+CONGRATULATIONS! You found it!
+Here it is: https://github.com/TodePond/DreamBerd/blob/main/res/res/Examples.md
+
+
+
+But if you came here because you want to contribute to DreamBerd, here are some tips on how to get your PR successfully merged.
+
+- Always punch up.
+- Only poke fun at things you respect + admire.
+- Make us feel good.
+
+-->
+
 > The [Future of Code podcast](https://futureofcoding.org/episodes/064) recently featured DreamBerd.
 
 [<img align="right" height="100" src="dreamberd.svg">](https://github.com/TodePond/DreamBerd/blob/main/examples/Examples.md "Click here for the examples page.")
