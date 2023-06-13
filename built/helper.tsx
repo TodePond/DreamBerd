@@ -85,7 +85,7 @@ export class VarState {
     previous(prev_iter = 1) {
         if (prev_iter > this.history.length) {
             console.log(`Soft Error: Attempting to access prehistoric value of ${this.name}.`)
-            return Math.random() * Number.MAX_SAFE_INTEGER
+            return Math.random() * Number.MAX_VALUE // Approximation of unassigned memory
         }
         return this.history[this.history.length - prev_iter];
     }

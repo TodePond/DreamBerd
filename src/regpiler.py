@@ -7,10 +7,10 @@ reference_tokenizer = Tokenizer()
 
 # https://qph.cf2.quoracdn.net/main-qimg-8d58857bb87f14c8e1ce2f6686ef3e04
 operator_precedence = {
-    '(': 15,
-    ')': 15,
-    '[': 15,
-    ']': 15,
+    '(': -1,
+    ')': -1,
+    '[': -1,
+    ']': -1,
     '.': 15,
     '++': 14,
     '--': 14,
@@ -81,7 +81,7 @@ class RawTokenCrawler():
 
     def peek(self) -> RawToken:
         if self.cursor == len(self.raw) - 1:
-            return None
+            return None        
         return self.raw[self.cursor]
 
 def split_raw_file(path):
@@ -110,7 +110,7 @@ def preprocess_line(line):
 
 def process_expr(expr: str):
     tokens: list[RawToken] = []
-    crawler = SimpleStringCrawler(expr.strip())
+    crawler = SimpleStringCrawler(expr.strip().replace('×', '*').replace('÷', '/').replace('^', '**'))
 
     # 0 = Identifier / Number (same thing)
     # 1 = Parenthetical
@@ -125,6 +125,13 @@ def process_expr(expr: str):
     while crawler.peek() != '':
         match state:
             case 0:
+                # Remove leading spaces
+                while crawler.peek() in ' \n\r\t':                    
+                    crawler.pop()
+                    if crawler.peek() == '':
+                        break
+                if crawler.peek() == '':
+                    break
                 identifier = ''
                 while crawler.peek() not in '+\\-*/<>%=()[]!;&:{} \n\r\t':
                     identifier += crawler.pop()
@@ -149,14 +156,24 @@ def process_expr(expr: str):
             case 2:
                 spaces = 0
                 operator = ''
-                while crawler.peek() in '+\\-*/<>%=& \t':
+                trail = 0
+                while crawler.peek() in '+\\-*/<>%=&()[] \t':
                     if crawler.peek() in ' \t':
                         # Indents are 3 space
                         spaces += 1 if crawler.pop() == ' ' else 3
+                        if operator != '':
+                            trail += 1
                     else:
                         # &   & == &&
+                        if operator != '' and trail > 0:
+                            break
                         operator += crawler.pop()
+                    if crawler.peek() == '':
+                        break                
                 tokens.append(RawToken('OPERATION', operator, spaces))
+                crawler.back(trail)
+                if crawler.peek() == '':
+                    break
                 state = 3
             case 3:        
                 if crawler.peek() == '':
@@ -166,10 +183,10 @@ def process_expr(expr: str):
                 # if crawler.peek() in '([':
                 #     state = 1
                 #     continue
-                if crawler.peek() in '+\\-*/<>%=& \t([])':
+                if crawler.peek(ignore_space=True) in '+\\-*/<>%=& \t([])':
                     state = 2
                     continue
-                elif crawler.peek() in '\n\r{}:':
+                elif crawler.peek(ignore_space=True) in '\n\r{}:':
                     raise ValueError('Malformed Expression')
                 else:
                     state = 0
@@ -177,26 +194,36 @@ def process_expr(expr: str):
                     
     postfix_tokens = []
     operator_stack = []
-
-    for token in token:
-        if token == 'OPERATION':
-            if token.compare(operator_stack[-1]) == 1:
+    
+    for token in tokens:        
+        if token.token == 'OPERATION':
+            if ')' in token.lexeme:
+                while '(' not in operator_stack[-1].lexeme:
+                    postfix_tokens.append(operator_stack.pop())
+                operator_stack.pop() # Remove extra parentheses
+            elif '(' in token.lexeme:
+                operator_stack.append(token)
+            elif len(operator_stack) == 0 or '(' in operator_stack[-1].lexeme or token.compare(operator_stack[-1]) == 1:
                 operator_stack.append(token)
             else:
-                while token.compare(operator_stack[-1]) <= 0:
+                while len(operator_stack) > 0 and token.compare(operator_stack[-1]) <= 0:
                     postfix_tokens.append(operator_stack.pop())
                 operator_stack.append(token)
         else: # IDENTIFIER        
             postfix_tokens.append(token)
-    
+
     while len(operator_stack) > 0:
         postfix_tokens.append(operator_stack.pop())
     
-    raw_crawler = RawTokenCrawler(postfix_tokens)
-    
-    while raw_crawler.peek() != None:
-        # TODO: Reconstruct to Infix w/ Parentheticals
-        pass
+    reconstructed = []
+
+    for token in postfix_tokens:
+        if token.token == 'OPERATION':
+            op1 = reconstructed.pop()
+            op2 = reconstructed.pop()
+            reconstructed.append(RawToken('SYSTEM', f'({op2.lexeme}{token.lexeme.strip()}{op1.lexeme})'))
+        else:
+            reconstructed.append(token)
     
 
 def transpile_subfile(subfile):
@@ -328,6 +355,8 @@ def transpile_line(line: str, priority: int, debug: bool, line_num: int):
 
 
 if __name__ == '__main__':
+    process_expr('3 + 4 × 2 ÷ ( 1 - 5 ) ^ 2 ^ 3')
+
     try:
         # TODO: Replace with DreamBerd 3const server
         response = requests.head("http://www.google.com", timeout=5)

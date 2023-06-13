@@ -44,9 +44,14 @@ class SimpleStringCrawler():
     def back(self, count=1) -> str:
         self.cursor -= count
 
-    def peek(self, count=1) -> str:
-        if self.cursor == len(self.raw) - 1:
+    def peek(self, count=1, ignore_space=False) -> str:
+        if self.cursor == len(self.raw):
             return ''
+        if ignore_space:
+            effective_cursor = self.cursor
+            while self.raw[effective_cursor] in ' \n\t\r':
+                effective_cursor += 1
+            return self.raw[effective_cursor]
         return self.raw[self.cursor:self.cursor + count]
 
 
