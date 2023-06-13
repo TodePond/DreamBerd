@@ -103,11 +103,15 @@ def split_raw_file(path):
 
 def preprocess_line(line):
     processed_line = line
-    processed_line = re.sub(r'(.*) ==== \1', 'true', processed_line) # True precise equalities
-    processed_line = re.sub(r'(.*) ==== (.*)', 'false', processed_line) # False precise equalities
-    if match := re.match(r'^(?P<var_name>[^ +\\\-*\/<>=()\[\]!;:.{}\n]+)(?P<operator>\+\+|--)$',
-                         processed_line):
-        return f"{match.group('var_name')} {match.group('operator')[0]}= 1"    
+
+    # True precise equalities
+    processed_line = re.sub(r'([^+\\\-*\/<>=()\[\]!;:.{}\n]+)====\1', 'true', processed_line) 
+    # False precise equalities (any precise equality not captured by the true condition)
+    processed_line = re.sub(r'(.+)====(.*)', 'false', processed_line) 
+
+    # Convert ++ to += 1 and -- to -= 1
+    processed_line = re.sub(r'^([^ +\\\-*\/<>=()\[\]!;:.{}\n]+)(\+\+|--)$', r'\1 \2\= 1', processed_line)
+
     return processed_line
 
 def process_expr(expr: str):

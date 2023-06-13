@@ -1,8 +1,9 @@
 // Helper functions
-import { VarState } from "../built/helper"
+import { VarState, ConditionBlockManager } from "../built/helper"
 
 // Format: var_name -> VarState
 const variables = new Map<any, VarState>()
+const WHEN_BLOCK_MANAGER = new ConditionBlockManager();
 
 function assign(name, value, allow_reassign, priority, lifetime=-1) {
     const varState = variables.get(name);

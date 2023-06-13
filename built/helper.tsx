@@ -112,3 +112,43 @@ export interface UpdatePromise {
     targetCount: number;
     resolve: Function;
 }
+/// USED FOR WHEN BLOCKS
+class ConditionBlockPair {
+    condition: () => boolean;
+    codeBlock: () => void;
+
+    constructor(condition: () => boolean, codeBlock: () => void) {
+        this.condition = condition;
+        this.codeBlock = codeBlock;
+    }
+}
+
+// Define a class to manage the conditions and code blocks
+export class ConditionBlockManager {
+    pairs: ConditionBlockPair[];
+
+    constructor() {
+        this.pairs = [];
+    }
+
+    addPair(condition: () => boolean, codeBlock: () => void) {
+        const pair = new ConditionBlockPair(condition, codeBlock);
+        this.pairs.push(pair);
+    }
+
+    checkConditions() {
+        this.pairs = this.pairs.filter((pair) => {
+            if (pair.condition()) {
+                pair.codeBlock();
+                return false; // Remove the pair from the list
+            }
+            return true; // Keep the pair in the list
+        });
+      }
+
+    startCheckingRegularly(interval: number) {
+        setInterval(() => {
+        this.checkConditions();
+        }, interval);
+    }
+}
