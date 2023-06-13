@@ -7,10 +7,10 @@ reference_tokenizer = Tokenizer()
 
 # https://qph.cf2.quoracdn.net/main-qimg-8d58857bb87f14c8e1ce2f6686ef3e04
 operator_precedence = {
-    '(': -1,
-    ')': -1,
-    '[': -1,
-    ']': -1,
+    '(': 15,
+    ')': 15,
+    '[': 15,
+    ']': 15,
     '.': 15,
     '++': 14,
     '--': 14,
@@ -224,6 +224,13 @@ def process_expr(expr: str):
             reconstructed.append(RawToken('SYSTEM', f'({op2.lexeme}{token.lexeme.strip()}{op1.lexeme})'))
         else:
             reconstructed.append(token)
+
+    out_str = ""
+
+    for token in reconstructed:
+        out_str += token.lexeme
+    
+    return out_str
     
 
 def transpile_subfile(subfile):
