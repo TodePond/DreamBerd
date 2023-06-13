@@ -105,9 +105,9 @@ def preprocess_line(line):
     processed_line = line
 
     # True precise equalities
-    processed_line = re.sub(r'([^+\\\-*\/<>=()\[\]!;:.{}\n]+)====\1', 'true', processed_line) 
+    processed_line = re.sub(r'(.*)====\1', 'true', processed_line) 
     # False precise equalities (any precise equality not captured by the true condition)
-    processed_line = re.sub(r'(.+)====(.*)', 'false', processed_line) 
+    processed_line = re.sub(r'(.*)====(.*)', 'false', processed_line) 
 
     # Convert ++ to += 1 and -- to -= 1
     processed_line = re.sub(r'^([^ +\\\-*\/<>=()\[\]!;:.{}\n]+)(\+\+|--)$', r'\1 \2\= 1', processed_line)
