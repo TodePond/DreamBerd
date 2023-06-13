@@ -152,3 +152,60 @@ export class ConditionBlockManager {
         }, interval);
     }
 }
+
+export class Scope {
+    parent?: Scope
+    variables: Map<any, VarState>
+
+    constructor(parent=undefined) {
+        this.variables = new Map<any, VarState>;        
+        this.parent = parent
+    }
+    assign(name, value, allow_reassign, priority, lifetime=-1) {
+        const varState = this.variables.get(name);
+      
+        if (varState !== undefined) {
+          // Update the existing object properties
+          varState.assign(value, priority);
+        }
+        else if (this.parent && this.parent.has_var(name)) {
+            // Only run if variable already exists
+            // RECUSRION RECUSRION RECUSRION RECUSRION RECUSRION RECUSRION RECUSRION RECUSRION RECUSRION 
+            this.parent.assign(name, value, allow_reassign, priority, lifetime)
+        } else {            
+            // Create a new object and store it in the map
+            this.variables.set(name, new VarState(name, value, allow_reassign, priority, lifetime));
+        }
+    }
+    
+    has_var(name) {
+        if (this.variables.get(name) !== undefined) {
+            return true
+        }
+        else {
+            return this.parent && this.parent.has_var(name)
+        }
+    }
+
+    get_var(name) {
+        if (this.variables.get(name) !== undefined) {
+            return this.variables.get(name)!.get()
+        }        
+        else if (this.parent) {
+            return this.parent.get_var(name)
+        }
+        else { // Will only go here if this scope is an orphan
+            // Check for infinite lifetime variables
+            let local_var = localStorage.getItem(name)
+            if (local_var != null) {
+                return local_var;
+            }
+    
+            // TODO: 3const server
+    
+    
+            // Return literal value only if all other possibilities are ruled out
+            return name
+        }
+    }
+}

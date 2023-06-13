@@ -224,7 +224,7 @@ def process_expr(expr: str):
                 else:                              
                     reconstructed.append('SYSTEM', 'false')
             else:
-                reconstructed.append(RawToken('SYSTEM', f'get_var(get_var({varify(op2.lexeme)}){token.lexeme.strip()}get_var({varify(op1.lexeme)}))'))
+                reconstructed.append(RawToken('SYSTEM', f'current_scope.get_var(current_scope.get_var({varify(op2.lexeme)}){token.lexeme.strip()}current_scope.get_var({varify(op1.lexeme)}))'))
         else:
             reconstructed.append(token)
 
@@ -287,7 +287,7 @@ def transpile_line(line: str, priority: int, debug: bool, line_num: int):
     if match := re.match(
             # With named groups is possible to have "optional" groups and the regex is still cursed.
             # I know that re.IGNORECASE is a thing but without it the regex looks more cursed.
-            r'"(?P<indentation> +)?(?:(?P<third_const>[Cc][Oo][Nn][Ss][Tt]) +(?=[Cc][Oo][Nn][Ss][Tt] +[Cc][Oo][Nn][Ss][Tt]))?(?P<invalid_mix>^[Cc][Oo][Nn][Ss][Tt] +(?= *([Vv][Aa][Rr]|[Cc][Oo][Nn][Ss][Tt]) +(?=[Vv][Aa][Rr]|[Cc][Oo][Nn][Ss][Tt])))?(?P<first_const>[Cc][Oo][Nn][Ss][Tt]|[Vv][Aa][Rr]) +(?P<second_const>[Cc][Oo][Nn][Ss][Tt]|[Vv][Aa][Rr]) +(?P<var_name>[^ +\\\-*\/<>=()\[\]!;:.{}\n]+)(?:<(?P<lifetime>.*)>)? *(?P<assignment_operator>[+\-/*]?)= *(?P<value>[^!\n?]+)"g',
+            r'(?P<indentation> +)?(?:(?P<third_const>[Cc][Oo][Nn][Ss][Tt]) +(?=[Cc][Oo][Nn][Ss][Tt] +[Cc][Oo][Nn][Ss][Tt]))?(?P<invalid_mix>^[Cc][Oo][Nn][Ss][Tt] +(?= *([Vv][Aa][Rr]|[Cc][Oo][Nn][Ss][Tt]) +(?=[Vv][Aa][Rr]|[Cc][Oo][Nn][Ss][Tt])))?(?P<first_const>[Cc][Oo][Nn][Ss][Tt]|[Vv][Aa][Rr]) +(?P<second_const>[Cc][Oo][Nn][Ss][Tt]|[Vv][Aa][Rr]) +(?P<var_name>[^ +\\\-*\/<>=()\[\]!;:.{}\n]+)(?:<(?P<lifetime>.*)>)? *(?P<assignment_operator>[+\-\/*]?)= *(?P<value>[^!\n?]+)',
             line
     ):
         if match.group("invalid_mix"):
@@ -319,7 +319,7 @@ def transpile_line(line: str, priority: int, debug: bool, line_num: int):
         if not re.match('[0-9]*.?[0-9]+', name):
             # Not a number
             name = f"\"{name}\""
-        return f'{indentation}assign({name}, {process_expr(value)}, {str(allow_reassignment).lower()}, {priority}, {lifetime});', futures
+        return f'{indentation}current_scope.assign({name}, {process_expr(value)}, {str(allow_reassignment).lower()}, {priority}, {lifetime});', futures
     
     # Reassignment
     elif match := re.match(
@@ -344,7 +344,7 @@ def transpile_line(line: str, priority: int, debug: bool, line_num: int):
                 # Not a number
                 name = f"\"{name}\""
 
-            return f'{indentation}assign({name}, {process_expr(value)}, undefined, {priority})', futures
+            return f'{indentation}current_scope.assign({name}, {process_expr(value)}, undefined, {priority})', futures
 
     # single line function, in the case of the multi-line one code is "{"
     elif match := re.match(
@@ -361,7 +361,7 @@ def transpile_line(line: str, priority: int, debug: bool, line_num: int):
         return line, futures
 
     # replace the previous keyword with the function call (not sure if this is right)
-    line = re.sub(r'previous +(?!=[()]*)([^?! ]*)', r'get_var("\1").previous()', line, 1, re.IGNORECASE)
+    line = re.sub(r'previous +(?!=[()]*)([^?! ]*)', r'current_scope.get_var("\1").previous()', line, 1, re.IGNORECASE)
 
     # Only here for debugging, when completed this should return an error if execution reaches the end
     return line, futures
