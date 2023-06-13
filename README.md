@@ -661,6 +661,9 @@ If the compiler refuses at first, politely reassure it. For example:<br>
 
 **Note: As of 2023, the compiler is no longer functional due to the DreamBerd language being too advanced for the current state of AI.**
 
+## Code highlight
+To help people understand dreamberd we added a configuration file to highlight dreamberd syntax, it was tested with the `fabiospampinato.vscode-highlight` vscode extension. The configuration file is the `settings.json` inside `.vscode_folder` folder
+
 ## Examples
 
 For examples of DreamBerd in action, check out the [examples page](https://github.com/TodePond/DreamBerd/blob/main/test/Examples.md)!
