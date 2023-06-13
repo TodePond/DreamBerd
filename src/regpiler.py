@@ -287,7 +287,7 @@ def transpile_line(line: str, priority: int, debug: bool, line_num: int):
     if match := re.match(
             # With named groups is possible to have "optional" groups and the regex is still cursed.
             # I know that re.IGNORECASE is a thing but without it the regex looks more cursed.
-            r'(?P<indentation> +)?(?:(?P<third_const>[Cc][Oo][Nn][Ss][Tt]) +(?=[Cc][Oo][Nn][Ss][Tt] +[Cc][Oo][Nn][Ss][Tt]))?(?P<invalid_mix>^[Cc][Oo][Nn][Ss][Tt] +(?= +[Vv][Aa][Rr] +(?=[Vv][Aa][Rr]|[Cc][Oo][Nn][Ss][Tt])))?(?P<first_const>[Cc][Oo][Nn][Ss][Tt]|[Vv][Aa][Rr]) +(?P<second_const>[Cc][Oo][Nn][Ss][Tt]|[Vv][Aa][Rr]) +(?P<var_name>[^ +\\\-*\/<>=()\[\]!;:.{}\n]+)(?:<(?P<lifetime>.*)>)? *(?P<assignment_operator>[+\-\/*]?)= *(?P<value>[^!\n?]+)',
+            r'"(?P<indentation> +)?(?:(?P<third_const>[Cc][Oo][Nn][Ss][Tt]) +(?=[Cc][Oo][Nn][Ss][Tt] +[Cc][Oo][Nn][Ss][Tt]))?(?P<invalid_mix>^[Cc][Oo][Nn][Ss][Tt] +(?= *([Vv][Aa][Rr]|[Cc][Oo][Nn][Ss][Tt]) +(?=[Vv][Aa][Rr]|[Cc][Oo][Nn][Ss][Tt])))?(?P<first_const>[Cc][Oo][Nn][Ss][Tt]|[Vv][Aa][Rr]) +(?P<second_const>[Cc][Oo][Nn][Ss][Tt]|[Vv][Aa][Rr]) +(?P<var_name>[^ +\\\-*\/<>=()\[\]!;:.{}\n]+)(?:<(?P<lifetime>.*)>)? *(?P<assignment_operator>[+\-/*]?)= *(?P<value>[^!\n?]+)"g',
             line
     ):
         if match.group("invalid_mix"):
