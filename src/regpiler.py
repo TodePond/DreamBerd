@@ -102,7 +102,7 @@ def split_raw_file(path):
 def preprocess_line(line):
     processed_line = line
     # Convert ++ to += 1 and -- to -= 1
-    processed_line = re.sub(r'^([^ +\\\-*\/<>=()\[\]!;:.{}\n]+)(\+\+|--)$', r'\1 \2\= 1', processed_line)
+    processed_line = re.sub(r'^([^ +\\\-*\/<>=()\[\]!;:.{}\n]+)(\+|-)\2$', r'\1 \2= 1', processed_line)
 
     return processed_line
 
@@ -202,6 +202,16 @@ def process_expr(expr: str):
     
     reconstructed = []
 
+    def varify(identifier: str):
+        if re.match(r'^[0-9]+(?:\.[0-9]+)?', identifier):
+            return identifier
+        elif re.match(r'^\".*\"$', identifier):
+            # String object
+            # This is so stupid
+            return f"\\\"{identifier}\\\""
+        else:
+            return f'\"{identifier}\"'
+
     for token in postfix_tokens:
         if token.token == 'OPERATION':
             op1 = reconstructed.pop()
@@ -214,7 +224,7 @@ def process_expr(expr: str):
                 else:                              
                     reconstructed.append('SYSTEM', 'false')
             else:
-                reconstructed.append(RawToken('SYSTEM', f'get_var({op2.lexeme}{token.lexeme.strip()}{op1.lexeme})'))
+                reconstructed.append(RawToken('SYSTEM', f'get_var(get_var({varify(op2.lexeme)}){token.lexeme.strip()}get_var({varify(op1.lexeme)}))'))
         else:
             reconstructed.append(token)
 
@@ -252,6 +262,8 @@ def transpile_subfile(subfile):
                                            '?' in capture_groups[i + offset], i)
 
         result += line + '\n'
+
+        result += 'WHEN_BLOCK_MANAGER.checkConditions(); // Check all pending when statements in case the above line changed something\n'
 
         for k, v in new_futures.items():
             if k not in futures:
