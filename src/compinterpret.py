@@ -607,7 +607,7 @@ if __name__ == '__main__':
             "-Meta: NetworkError: DreamBerd 3const services are down, or you do not have an internet connection. Please rectify either as soon as possible. ")
         exit(1)
 
-    tokens = list(Tokenizer().tokenize_file(f'test{os.sep}db{os.sep}db{os.sep}time_travel.db'))
+    tokens = list(Tokenizer().tokenize_file(f'test{os.sep}db{os.sep}db{os.sep}functions.db'))
 
     if catch_tokenizer_errors(tokens):
         print('\n')

@@ -107,6 +107,12 @@ def preprocess_line(line):
     return processed_line
 
 def process_expr(expr: str):
+    expr_split = expr.split('{')[-1].split('}')[0]
+    if expr_split == '':
+        return expr # Wasn't an expression
+    else:
+        expr = expr_split
+    
     tokens: list[RawToken] = []
     crawler = SimpleStringCrawler(expr.strip().replace('×', '*').replace('÷', '/').replace('^', '**'))
 
@@ -151,6 +157,8 @@ def process_expr(expr: str):
                     else:
                         # &   & == &&
                         if operator != '' and trail > 0:
+                            break
+                        if crawler.peek() in ')]}' and operator in '([{' and operator != '':
                             break
                         operator += crawler.pop()
                     if crawler.peek() == '':
@@ -237,10 +245,18 @@ def process_expr(expr: str):
     return out_str
     
 def preprocess_subfile(subfile):
+    # Remove comments
+    subfile = re.sub(r'//[^\n\r]*', '', subfile)
+
+    # Convert all functions to common syntax
     subfile = re.sub(r'=> *([^\s{}][^\n\r!?{}]+)([!?]*)', r'=> {return \1}', subfile)
     subfile = re.sub(r'([^ +\\\-*\/<>=()\[\]!;:.{}\n,]+) =>', r'(\1) =>', subfile)
-    subfile = re.sub(r'[functio]u?n?c?t?i?o?n? +\(([^ +\\\-*\/<>=()\[\]!;:.{}\n,]+(?:, *[^ +\\\-*\/<>=()\[\]!;:.{}\n,]+)*)\)', r'(\1) =>', subfile)
-    subfile = re.sub(r'[functio]u?n?c?t?i?o?n? +([^ +\\\-*\/<>=()\[\]!;:.{}\n,]+)\(([^ +\\\-*\/<>=()\[\]!;:.{}\n,]+(?:, *[^ +\\\-*\/<>=()\[\]!;:.{}\n,]+)*)\)', r'const const \1 = (\2) =>', subfile)
+    subfile = re.sub(r'[functio]u?n?c?t?i?o?n? +\(([^ +\\\-*\/<>=()\[\]!;:.{}\n,]+(?:, *[^ +\\\-*\/<>=()\[\]!;:.{}\n,]+)*)?\) *(?:=>)?', r'(\1) =>', subfile)
+    subfile = re.sub(r'[functio]u?n?c?t?i?o?n? +([^ +\\\-*\/<>=()\[\]!;:.{}\n,]+)\(([^ +\\\-*\/<>=()\[\]!;:.{}\n,]+(?:, *[^ +\\\-*\/<>=()\[\]!;:.{}\n,]+)*)?\) *(?:=>)?', r'const const \1 = (\2) =>', subfile)
+
+    # Regularize how code blocks are formatted for easier parsing
+    subfile = re.sub(r'[\n\r]*{', r'{\n', subfile, re.DOTALL)
+    subfile = subfile.replace('}', '\n}')
 
     return subfile
 
@@ -264,6 +280,9 @@ def transpile_subfile(subfile):
         if i+offset in futures:
             result += '\n'.join(futures[i+offset]) + '\n'
             futures[i] = []
+
+        if split_content[i].strip() == '':
+            continue
 
         result += f'// DB_DEBUG: {split_content[i]}{capture_groups[i + offset]}\n'
         line, new_futures = transpile_line(preprocess_line(split_content[i]), len(capture_groups[i + offset]),
@@ -331,7 +350,7 @@ def transpile_line(line: str, priority: int, debug: bool, line_num: int):
     
     # Reassignment
     elif match := re.match(
-            r'(?P<indentation> +)?(?P<prevs>(?:previous +)+)?(?P<variable>[^ +\\\-*\/<>=()\[\]!;:.{}\n]+) *(?P<assignment_operator>[+\-\/*]?)= *(?P<value>[^!\n?]+)',
+            r'^(?P<indentation> +)?(?P<prevs>(?:previous +)+)?(?P<variable>[^ +\\\-*\/<>=()\[\]!;:.{}\n]+) *(?P<assignment_operator>[+\-\/*]?)= *(?P<value>[^!\n?]+)',
             line,
             re.IGNORECASE
     ):
