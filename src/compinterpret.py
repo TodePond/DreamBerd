@@ -352,6 +352,7 @@ class Parser():
         self.var_dict = {}
         # How much indent we are expecting to see at the moment
         self.wanted_indent = {}
+        self.DEBUG = True
 
     def new_indent(self, source):
         if not self.wanted_indent:
@@ -369,6 +370,8 @@ class Parser():
 
     def RaiseError(self, message):
         caller_name = inspect.currentframe().f_back.f_code.co_name
+        if self.DEBUG:
+            print(self.js)
         print(f"Parser- ParseError on Line {self.file.current_line} from '{caller_name}': {message}")
 
     def parse(self):
@@ -396,7 +399,6 @@ class Parser():
             indent_check = self.Check_Indent_Stmt()
             if not indent_check:
                 return indent_check
-
         if self.file.peek().token in ['CONST', 'VAR']:
             return self.Varable_Declaration_Stmt()
         if self.file.peek().token == "IDENTIFIER" and self.file.peek_n(2)[1].token in ["INC", "DEC"]:
@@ -485,12 +487,14 @@ class Parser():
             # remove opening lifetime identifier
             self.file.pop()
 
-            # Lifetime can either be an INT, or an INT followed by and IDENTIFIER (the only valid identifier after INT is 's')
+            # Lifetime can either be an INT, or an INT followed by and IDENTIFIER (the only valid identifier
+            # after INT is 's')
             # Alternatively, it can be INFINITY, which turns the variable into an environment variable
             # With no specified lifetime, the variable will kill itself whenever normal variables would
 
             # If the lifetime is an INT, the variable lasts for that amount of lines
-            # If the lifetime is an INT followed by s, the variable lasts for that amount of seconds (or until the program dies)
+            # If the lifetime is an INT followed by s, the variable lasts for that amount of seconds (or until
+            # the program dies)
             # If the lifetime is INFINITY, it is a environment variable
 
             # To get the value of the Expr we allow it to dump to the JS, and remove it afterward to process it properly
@@ -525,7 +529,7 @@ class Parser():
                 self.var_dict[var_name] = []
             self.var_dict[var_name].append(VarState(allow_reassign, allow_edit, priority))
 
-            self.js += f', {keyword == "let"}, {priority}, {lifetime}'
+            self.js += f', {keyword == "let"}, {priority}, {lifetime})'
         else:
             self.RaiseError('Failed to parse expression in declaration')
             return False
@@ -564,14 +568,11 @@ class Parser():
                 return False
             # from now until a } appears we should check that the code is indented
             self.new_indent("function")
+            # consume exclamation marks or new_line
+            self.file.pop()
         else:
-            # TODO decide how to handle this part
-            # this is temporary
-            instructions = []
-            while self.file.peek().token not in ["NEWLINE", "!"]:
-                instructions.append(self.file.pop())
-        # consume exclamation marks or new_line
-        self.file.pop()
+            # it should be handled by the other functions
+            pass
         return True
 
     def Variable_Increase_Stmt(self):
