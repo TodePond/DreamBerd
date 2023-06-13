@@ -221,12 +221,13 @@ def process_expr(expr: str):
         if token.token == 'OPERATION':
             op1 = reconstructed.pop()
             op2 = reconstructed.pop()
-            reconstructed.append(RawToken('SYSTEM', f'({op2.lexeme}{token.lexeme.strip()}{op1.lexeme})'))
+            reconstructed.append(RawToken('SYSTEM', f'get_var({op2.lexeme}{token.lexeme.strip()}{op1.lexeme})'))
         else:
             reconstructed.append(token)
 
     out_str = ""
 
+    # This being a loop is only really a formality because it should always parse to a single token
     for token in reconstructed:
         out_str += token.lexeme
     
@@ -362,7 +363,7 @@ def transpile_line(line: str, priority: int, debug: bool, line_num: int):
 
 
 if __name__ == '__main__':
-    process_expr('3 + 4 × 2 ÷ ( 1 - 5 ) ^ 2 ^ 3')
+    process_expr('3 + 4  ×  2 ÷ ( 1 - 5 ) ^ 2 ^ 3')
 
     try:
         # TODO: Replace with DreamBerd 3const server
