@@ -1,0 +1,12 @@
+function add(a, b) {
+   return a + b!
+}
+const const sum = function (a, b) {
+   return a + b!
+}
+const const product = (a, b) => {
+    return a * b!
+}
+const const power = (a, b) => a ** b!
+
+const const square = a => a * a

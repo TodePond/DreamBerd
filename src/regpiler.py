@@ -115,7 +115,7 @@ def process_expr(expr: str):
     # 2 = Operator (anything else)
     # 3 = Redirect
 
-    state = 1 if crawler.peek() in '([' else 0
+    state = 3
     
     if crawler.peek() in '+\\-*/<>%=)]!;:.{}':
         raise ValueError('Who starts an Expression like that? I just got here!')
@@ -236,8 +236,16 @@ def process_expr(expr: str):
     
     return out_str
     
+def preprocess_subfile(subfile):
+    subfile = re.sub(r'=> *([^\s{}][^\n\r!?{}]+)([!?]*)', r'=> {return \1}', subfile)
+    subfile = re.sub(r'([^ +\\\-*\/<>=()\[\]!;:.{}\n,]+) =>', r'(\1) =>', subfile)
+    subfile = re.sub(r'[functio]u?n?c?t?i?o?n? +\(([^ +\\\-*\/<>=()\[\]!;:.{}\n,]+(?:, *[^ +\\\-*\/<>=()\[\]!;:.{}\n,]+)*)\)', r'(\1) =>', subfile)
+    subfile = re.sub(r'[functio]u?n?c?t?i?o?n? +([^ +\\\-*\/<>=()\[\]!;:.{}\n,]+)\(([^ +\\\-*\/<>=()\[\]!;:.{}\n,]+(?:, *[^ +\\\-*\/<>=()\[\]!;:.{}\n,]+)*)\)', r'const const \1 = (\2) =>', subfile)
+
+    return subfile
 
 def transpile_subfile(subfile):
+    subfile = preprocess_subfile(subfile)
     # Split the file content using the regex pattern
     split_content = re.split(r'(!+|\n|\?)', subfile)
 
@@ -287,7 +295,7 @@ def transpile_line(line: str, priority: int, debug: bool, line_num: int):
     if match := re.match(
             # With named groups is possible to have "optional" groups and the regex is still cursed.
             # I know that re.IGNORECASE is a thing but without it the regex looks more cursed.
-            r'(?P<indentation> +)?(?:(?P<third_const>[Cc][Oo][Nn][Ss][Tt]) +(?=[Cc][Oo][Nn][Ss][Tt] +[Cc][Oo][Nn][Ss][Tt]))?(?P<invalid_mix>^[Cc][Oo][Nn][Ss][Tt] +(?= *([Vv][Aa][Rr]|[Cc][Oo][Nn][Ss][Tt]) +(?=[Vv][Aa][Rr]|[Cc][Oo][Nn][Ss][Tt])))?(?P<first_const>[Cc][Oo][Nn][Ss][Tt]|[Vv][Aa][Rr]) +(?P<second_const>[Cc][Oo][Nn][Ss][Tt]|[Vv][Aa][Rr]) +(?P<var_name>[^ +\\\-*\/<>=()\[\]!;:.{}\n]+)(?:<(?P<lifetime>.*)>)?(?: *: *[A-Za-z]+)? *(?P<assignment_operator>[+\-\/*]?)= *(?P<value>[^!\n?]+)',
+            r'^(?P<indentation> +)?(?:(?P<third_const>[Cc][Oo][Nn][Ss][Tt]) +(?=[Cc][Oo][Nn][Ss][Tt] +[Cc][Oo][Nn][Ss][Tt]))?(?P<invalid_mix>^[Cc][Oo][Nn][Ss][Tt] +(?= *([Vv][Aa][Rr]|[Cc][Oo][Nn][Ss][Tt]) +(?=[Vv][Aa][Rr]|[Cc][Oo][Nn][Ss][Tt])))?(?P<first_const>[Cc][Oo][Nn][Ss][Tt]|[Vv][Aa][Rr]) +(?P<second_const>[Cc][Oo][Nn][Ss][Tt]|[Vv][Aa][Rr]) +(?P<var_name>[^ +\\\-*\/<>=()\[\]!;:.{}\n]+)(?:<(?P<lifetime>.*)>)?(?: *: *[A-Za-z]+)? *(?P<assignment_operator>[+\-\/*]?)= *(?P<value>[^!\n?]+)',
             line
     ):
         if match.group("invalid_mix"):
@@ -364,7 +372,7 @@ def transpile_line(line: str, priority: int, debug: bool, line_num: int):
     line = re.sub(r'previous +(?!=[()]*)([^?! ]*)', r'current_scope.get_var("\1").previous()', line, 1, re.IGNORECASE)
 
     # Only here for debugging, when completed this should return an error if execution reaches the end
-    return line, futures
+    return f"{line} // TODO", futures
 
 
 if __name__ == '__main__':
@@ -382,7 +390,7 @@ if __name__ == '__main__':
             "Please rectify either as soon as possible. ")
         exit(1)
 
-    files = split_raw_file(f'test{os.sep}db{os.sep}db{os.sep}time_recursion.db')
+    files = split_raw_file(f'test{os.sep}db{os.sep}db{os.sep}functions.db')
 
     if not os.path.isdir('built'):
         os.mkdir('built')
