@@ -748,7 +748,7 @@ const const name = "Luke"!
 print(name)! // "Luke"
 ```
 
-**Please note:** The above code will only demonstrate the syntax highlighting if you have the extension installed.
+**Please note:** The above code will only demonstrate syntax highlighting if you have the extension installed.
 
 ## Examples
 
