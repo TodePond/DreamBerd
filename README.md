@@ -466,7 +466,7 @@ print(res)! //8
 
 Declaring a function that exposes a variable will also declare that variable in the upper scope. These can, in turn, also be exposed even further outside.
 
-```
+```java
 func outerFunc() => {
   func innerFunc() => { 
     var const a = 10!
