@@ -729,16 +729,16 @@ If the compiler refuses at first, politely reassure it. For example:<br>
 
 ## Highlighting
 
-Syntax highlighting is now available for DreamBerd in VSCode. To enable it, install the `fabiospampinato.vscode-highlight` extension, and then use the [DreamBerd configration file](https://github.com/TodePond/DreamBerd/blob/main/.vscode/settings.json).
+Syntax highlighting is now available for DreamBerd in VSCode. To enable it, install a [highlighting extension](https://marketplace.visualstudio.com/items?itemName=fabiospampinato.vscode-highlight) and then use the [DreamBerd configration file](https://github.com/TodePond/DreamBerd/blob/main/.vscode/settings.json).
 
 This is what it looks like:
 
-```java
+```
 const const name = "Luke"!
 print(name)! // "Luke"
 ```
 
-**Please note:** The above code will only demonstrate syntax highlighting if you have the extension installed.
+**Please note:** The above code will only highlight correctly if you have the extension installed.
 
 ## Examples
 
