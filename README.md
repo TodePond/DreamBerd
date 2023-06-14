@@ -727,6 +727,12 @@ Here are some examples:<br>
 ❌ ECMAScript (owned by the DreamBerd Foundation - please consider renaming)<br>
 ❌ Rust Foundation (owned by the DreamBerd Foundation - please consider renaming)
 
+## Contributing
+
+Contributions are welcomed to DreamBerd!
+
+The most helpful way you can help is by donating to the [Stonewall charity](https://www.stonewall.org.uk/). This will help to prevent the DreamBerd creator from losing their human rights.
+
 ## Compiling
 
 To run DreamBerd, first copy and paste this raw file into [chat.openai.com](https://chat.openai.com).<br>
