@@ -669,6 +669,29 @@ This means that you can carry on splitting as much as you like.
 const var [[[getScore, setScore], setScore], setScore] = use(0)!
 ```
 
+## Performance Optimization
+
+DreamBerd includes a state-of-the-art optimization system, now accessible using the `vroom` keyword. This special keyword can be spelled with additional o's if more optimization is required.
+
+```java
+fn is_prime (num) => {
+   var var return = true
+   var const i = 2!
+   when (i === num ** .5 + 1) {
+      break!!!
+   }
+   if (num % i === 0) {
+      print("${num} is not prime!")
+      return = false!
+      break!!!
+   }
+   i++!
+   return!
+}
+```
+
+This function will normally run very slow, however using `vroooom is_prime(...)` we can rapidly check the primality of numbers with thousands of digits (>95% accurate!).
+
 ## AI
 
 DreamBerd features AEMI, which stands for Automatic-Exclamation-Mark-Insertion. If you forget to end a statement with an exclamation mark, DreamBerd will helpfully insert one for you!
