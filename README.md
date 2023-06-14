@@ -469,7 +469,7 @@ Declaring a function that exposes a variable will also declare that variable in 
 ```
 func outerFunc() => {
   func innerFunc() => { 
-  var a = 10!
+    var const a = 10!
     print(a)! //10
     a = a * 2!
     expose a! // same as expose a to outerFunc
