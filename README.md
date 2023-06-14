@@ -520,6 +520,17 @@ const const name = "Lu or Luke (either is fine)"!!!!!!!!!
 print(name)! // "Lu or Luke (either is fine)"
 ```
 
+## Reversing
+
+You can reverse the direction of your code.
+
+```java
+const const message = "Hello"!
+print(message)!
+const const message = "world"!
+reverse!
+```
+
 ## Class Names
 
 For maximum compatibility with other languages, you can alternatively use the `className` keyword when making classes.
