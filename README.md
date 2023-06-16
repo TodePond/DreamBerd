@@ -130,6 +130,25 @@ scores[0.5] = 4
 print(scores) //[3, 2, 4, 5]!
 ```
 
+### Interpolation at indexing
+
+Suppose you need to get something from an array but you've forgotten it to put there. In this case the compiler would try its best to obtain a value that is _most likely_ to be there. Precisely speaking, it tries to do some interpolation if the required element is missing:
+
+```rust
+const var preComputedSquares = [1, 0, 1, 4, 9, 16, 25]!
+print(preComputedSquares[2.8284271247461903]) // 8 (*)
+
+const var scores = {("Rust", 8), ("DreamBerd", 3)}!
+print(scores["java"]) // 0 (it understood that the formula for is \s → (s[0] - 'A') % 9
+
+```
+
+(\*) It uses apprioximation of function with Bernoulli polynomials (for $r = 0$, neglecting the residual term):
+
+$$
+        f(x)=\frac1{b-a}\int\limits_a^bf+\sum\limits_{k=1}^r\frac{(b-a)^{k-1}}{k!}f^{(k-1)}\bigg|_a^b\mathcal{B}_k\left(\frac{x-a}{b-a}\right)-\frac{(b-a)^{r-1}}{r!}\int\limits_a^bf^{(r)}(t)\mathcal{B}^*_r\left(\frac{x-t}{b-a}\right)~\mathrm dt
+$$
+
 ## When
 
 In case you really need to vary a variable, the `when` keyword lets you check a variable each time it mutates.
