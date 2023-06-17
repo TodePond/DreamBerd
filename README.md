@@ -136,10 +136,10 @@ Suppose you need to get something from an array but you've forgotten it to put t
 
 ```rust
 const var preComputedSquares = [1, 0, 1, 4, 9, 16, 25]!
-print(preComputedSquares[2.8284271247461903]) // outputs 8 (*)
+print(preComputedSquares[2.8284271247461903])! // outputs 8 (*)
 
 const var scores = {("Rust", 8), ("DreamBerd", 3)}!
-print(scores["java"]) // 0 (it understood that the formula is `\s → (s[0] - 'A') % 9`
+print(scores["java"])! // 0 (it understood that the formula is `\s → (s[0] - 'A') % 9`
 
 ```
 
@@ -148,6 +148,16 @@ print(scores["java"]) // 0 (it understood that the formula is `\s → (s[0] - 'A
 $$
         f(x)=\frac1{b-a}\int\limits_a^bf+\sum\limits_{k=1}^r\frac{(b-a)^{k-1}}{k!}f^{(k-1)}\bigg|_a^b\mathcal{B}_k\left(\frac{x-a}{b-a}\right)-\frac{(b-a)^{r-1}}{r!}\int\limits_a^bf^{(r)}(t)\mathcal{B}^*_r\left(\frac{x-t}{b-a}\right)~\mathrm dt
 $$
+
+Moreover, interpolation over time is also supported:
+
+```rust
+const var values = [1, 2]!
+values[0.5] = 7!
+del values[0.5]!
+print(values[0.5])! // At this partucular moment, the value doesn't exist, but given the time context, we can output the most reasonable value: `8`
+values[0.5] = 9!
+```
 
 ## When
 
