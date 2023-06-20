@@ -673,7 +673,7 @@ const var [[[getScore, setScore], setScore], setScore] = use(0)!
 
 Being a perfect language, DreamBerd features two not-so-harmful control flow structures: ```GOTO``` and  ```COMEFROM```
 
-With the 'goto' keyword, you can instantly jump execution to any given line or label.
+With the 'goto' keyword, you can instantly jump execution to any given line, label, or variable declaration.
 ```java
 fuci goto() {
    goto label!! // Execution will jump to the 'label' label
@@ -682,6 +682,16 @@ fuci goto() {
 
    label:
       print("Lu")!
+}
+```
+```java
+var const message = "Hello"!
+
+print(message)!
+
+if (message === "Hello") {
+   message = "world"!
+   goto message!!
 }
 ```
 
@@ -705,7 +715,7 @@ These control flow statements can also work asynchronously.
 
 ```java
 funct count(){
-   goto count!
+   goto count!!
    print(1)!
    print(3)!
    print(5)!
