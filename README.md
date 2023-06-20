@@ -691,7 +691,7 @@ var const name = "Luke"!
 
 funct comefrom(){
    comefrom 9!!
-   print(name); // Prints "Lu"
+   print(name)! // Prints "Lu"
 }
 
 funct assign(){
