@@ -693,10 +693,10 @@ This can be very helpful in callback hell situations!
 
 ```java
 addEventListener("click", (e) => {
-    requestAnimationFrame(() => {
-        print("You clicked on the page
+   requestAnimationFrame(() => {
+      print("You clicked on the page
 
-        // This is fine
+      // This is fine
 ```
 
 Similarly..... DreamBerd also features AI, which stands for Automatic-Insertion.<br>
