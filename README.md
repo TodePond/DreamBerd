@@ -126,8 +126,8 @@ You can now use floats for indexes too!
 
 ```java
 const var scores = [3, 2, 5]!
-scores[0.5] = 4
-print(scores) //[3, 2, 4, 5]!
+scores[0.5] = 4!
+print(scores)! //[3, 2, 4, 5]
 ```
 
 ## When
