@@ -1,8 +1,10 @@
 import os
 import re
-import requests
 from typing import Sequence
-from compinterpret import Tokenizer, SimpleStringCrawler
+
+import requests
+
+from compinterpret import SimpleStringCrawler, Tokenizer
 
 reference_tokenizer = Tokenizer()
 
