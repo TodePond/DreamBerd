@@ -125,7 +125,7 @@ class Tokenizer():
             if c == next_char:
                 return Token('AND' if c == '&' else 'OR', c * 2)
             else:
-                # Let em cook                
+                # Let em cook
                 file.back()
 
         elif c == '=':
@@ -177,7 +177,7 @@ class Tokenizer():
                 # Line breaks within strings are not allowed, so the string ends here
                 return Token('STRING', quote)
             else:
-                # If there are end quotes, they must match the quote format exactly            
+                # If there are end quotes, they must match the quote format exactly
                 for i in range(len(quote_format)):
                     c = file.pop()
                     if c != quote_format[-(i + 1)]:
@@ -318,7 +318,7 @@ class SimpleTokenCrawler():
                 self.cursor -= 1
 
     def peek(self, ignore_space=True) -> Token:
-        if self.cursor == len(self.raw) - 1:
+        if self.cursor >= len(self.raw):
             return ''
 
         if ignore_space:
@@ -380,7 +380,8 @@ class Parser():
         print(f"Parser- ParseError on Line {self.file.current_line} from '{caller_name}': {message}")
 
     def parse(self):
-        return self.StmtList()
+        self.StmtList()
+        return self.js
 
     ### Every Statement should first check if it is valid in the current location
     ### If it is, it should be self-contained and output its valid JS to file.js
@@ -422,7 +423,7 @@ class Parser():
         pass
 
     # Non-Comittal
-    def EndStmt(self):
+    def EndStmt(self, format_template=''):
         i = 0
         end = False
         while self.file.peek().token in '!?':  # Allow any mix of ! and ?
@@ -437,7 +438,7 @@ class Parser():
             end = True
 
         if end:
-            self.js += ';'
+            self.js += f'{format_template.format(i)};' if format_template else ';'
 
         return end, i
 
@@ -527,14 +528,12 @@ class Parser():
         self.file.pop()
         self.js += f'assign(\"{var_name}\", '
         if self.Expr():  # inserts expression
-            success, priority = self.EndStmt()
+            success, priority = self.EndStmt(f'{keyword == "let"}, {{}}, {lifetime})')
             if not success:
                 self.RaiseError('Declaration statement didn\'t end when it should\'ve')
             if self.var_dict.get(var_name) is None:
                 self.var_dict[var_name] = []
             self.var_dict[var_name].append(VarState(allow_reassign, allow_edit, priority))
-
-            self.js += f', {keyword == "let"}, {priority}, {lifetime})'
         else:
             self.RaiseError('Failed to parse expression in declaration')
             return False
@@ -614,4 +613,5 @@ if __name__ == '__main__':
         print("Tokenizer reports L code, fix your code or I won't compile this garbage")
         exit(1)
 
-    parse = Parser(tokens).parse()
+    js = Parser(tokens).parse()
+    print(js)
