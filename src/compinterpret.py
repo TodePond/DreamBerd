@@ -2,7 +2,7 @@ import inspect
 import locale
 import os
 import re
-from typing import List
+from typing import Generator, Iterable, Sequence
 
 import requests
 
@@ -15,8 +15,9 @@ tokens = ["STRING", "NOT", "!", "IF", 'ELSE', '(', ')', '[', ']', 'TRUE', 'FALSE
           'WHEN', ":", "AND", 'OR', 'RETURN', "ARROW"]
 
 
-class Token():
-    def __init__(self, token: str, lexeme: str) -> None:
+class Token:
+    __slots__ = ("token", "lexeme")
+    def __init__(self, token: str, lexeme: str | int | float) -> None:
         global tokens
         assert token.upper() in tokens
 
@@ -30,8 +31,9 @@ class Token():
         return f'{self.token}({repr(self.lexeme)})'
 
 
-class SimpleStringCrawler():
-    def __init__(self, raw) -> None:
+class SimpleStringCrawler:
+    __slots__ = ("raw", "cursor")
+    def __init__(self, raw: str) -> None:
         self.raw = raw
         self.cursor = 0
 
@@ -41,10 +43,10 @@ class SimpleStringCrawler():
         self.cursor += 1
         return self.raw[self.cursor - 1]
 
-    def back(self, count=1) -> str:
+    def back(self, count: int = 1) -> None:
         self.cursor -= count
 
-    def peek(self, count=1, ignore_space=False) -> str:
+    def peek(self, count: int = 1, ignore_space: bool = False) -> str:
         if self.cursor == len(self.raw):
             return ''
         if ignore_space:
@@ -55,7 +57,8 @@ class SimpleStringCrawler():
         return self.raw[self.cursor:self.cursor + count]
 
 
-class Tokenizer():
+class Tokenizer:
+    __slots__ = ("operators", "reserved_chars", "basic_mappings")
     def __init__(self) -> None:
         self.operators = '+-*/<>=()[] '
         self.reserved_chars = '!;:.{}' + self.operators
@@ -78,13 +81,13 @@ class Tokenizer():
         }
 
         locale.setlocale(locale.LC_ALL, '')
-        regional_currency = locale.localeconv()['currency_symbol']
+        regional_currency = str(locale.localeconv()['currency_symbol'])
         if regional_currency == '':
             # For maximum international accessibility, the generic currency sign is used if there is no currency sign for the given locale
             regional_currency = '¤'
         self.basic_mappings[regional_currency] = 'CURRENCY'
 
-    def is_fn_subset(self, string):
+    def is_fn_subset(self, string: str) -> bool:
         # to solve the function syntax I created this regex:
         # if it doesn't get exactly one match then the word is invalid
         function_regex = r"(?=.)(f{0,1}u{0,1}n{0,1}c{0,1}t{0,1}i{0,1}o{0,1}n{0,1})"
@@ -92,9 +95,9 @@ class Tokenizer():
         # the and is needed because if there is no match an empty string is the resulting group
         return len(groups) == 1 and groups[0]
 
-    def getNextToken(self, file: SimpleStringCrawler):
-        def readchar(i=1):
-            return ''.join([file.pop() for _ in range(i)])
+    def getNextToken(self, file: SimpleStringCrawler) -> Token:
+        def readchar(i: int = 1) -> str:
+            return ''.join(file.pop() for _ in range(i))
 
         c = readchar()
         if c == '':
@@ -258,7 +261,7 @@ class Tokenizer():
             else:
                 return Token('SPACE', c)
 
-    def tokenize_file(self, path):
+    def tokenize_file(self, path: str) -> Generator[Token, None, None]:
         crawler = None
         with open(path, 'r') as reader:
             crawler = SimpleStringCrawler(reader.read())
@@ -271,7 +274,7 @@ class Tokenizer():
         yield token  # yield EOF
 
 
-def catch_tokenizer_errors(tokens: list[Token]):
+def catch_tokenizer_errors(tokens: Iterable[Token]) -> bool:
     line = 1
     has_errors = False
     for token in tokens:
@@ -283,22 +286,24 @@ def catch_tokenizer_errors(tokens: list[Token]):
     return has_errors
 
 
-class VarState():
+class VarState:
+    __slots__ = ("reassign", "edit", "priority")
     def __init__(self, allow_reassign: bool, allow_edit: bool, priority: int) -> None:
         self.reassign = allow_reassign  # Can set it to something else
         self.edit = allow_edit  # Can call methods on this
         self.priority = priority  # Amount of '!' after the declaration
 
 
-class SimpleTokenCrawler():
-    def __init__(self, raw: list[Token]) -> None:
-        self.raw: list[Token] = raw
+class SimpleTokenCrawler:
+    __slots__ = ("raw", "cursor", "current_line")
+    def __init__(self, raw: Sequence[Token]) -> None:
+        self.raw = raw
         self.cursor = 0
         self.current_line = 1
 
-    def pop(self, ignore_space=True) -> Token:
+    def pop(self, ignore_space: bool = True) -> Token:
         if self.cursor == len(self.raw):
-            return None
+            return Token('EOF', '')
         self.cursor += 1
 
         if ignore_space:
@@ -310,7 +315,7 @@ class SimpleTokenCrawler():
 
         return self.raw[self.cursor - 1]
 
-    def back(self, count=1, ignore_space=True) -> Token:
+    def back(self, count: int = 1, ignore_space: bool = True) -> None:
         self.cursor -= count
 
         if ignore_space:
@@ -319,7 +324,7 @@ class SimpleTokenCrawler():
 
     def peek(self, ignore_space=True) -> Token:
         if self.cursor >= len(self.raw):
-            return ''
+            return Token('EOF', '')
 
         if ignore_space:
             offset = 0
@@ -330,13 +335,13 @@ class SimpleTokenCrawler():
             res = self.raw[self.cursor]
         return res
 
-    def peek_n(self, number, ignore_space=True) -> List[Token]:
-        token_list = []
+    def peek_n(self, number: int, ignore_space: bool = True) -> Sequence[Token]:
+        token_list: list[Token] = []
         stop = False
         original_cursor = self.cursor
         while len(token_list) < number and not stop:
             token = self.peek(ignore_space)
-            if not token:
+            if token.token == 'EOF':
                 stop = True
             token_list.append(token)
             self.cursor += 1
@@ -349,32 +354,42 @@ class SimpleTokenCrawler():
 # `When` control flow
 # Variable assignment priority
 
-class Parser():
-    def __init__(self, tokens) -> None:
+class Parser:
+    __slots__ = ("tokens", "file", "js", "var_dict", "wanted_indent", "DEBUG")
+    def __init__(self, tokens: Sequence[Token]) -> None:
         self.tokens = tokens
         self.file = SimpleTokenCrawler(tokens)
         self.js = ""
-        self.var_dict = {}
+        self.var_dict: dict[str | int | float, list[VarState]] = {}
         # How much indent we are expecting to see at the moment
-        self.wanted_indent = {}
+        self.wanted_indent: dict[int, str] = {}
         self.DEBUG = True
+    
+    def get_javascript(self) -> str:
+        return self.js
 
-    def new_indent(self, source):
+    def new_indent(self, source: str) -> None:
         if not self.wanted_indent:
             self.wanted_indent[0] = source
         else:
             index = len(self.wanted_indent)
             self.wanted_indent[index] = source
 
-    def expected_indent(self):
+    def expected_indent(self) -> int:
         expected = 0
         for ind in self.wanted_indent:
             if self.wanted_indent[ind]:
                 expected += 1 if self.wanted_indent[ind] == "+" else -1
         return expected
 
-    def RaiseError(self, message):
-        caller_name = inspect.currentframe().f_back.f_code.co_name
+    def RaiseError(self, message: str) -> None:
+        cur_frame = inspect.currentframe()
+        assert cur_frame is not None
+        last_frame = cur_frame.f_back
+        assert last_frame is not None
+        last_code = last_frame.f_code
+        assert last_code is not None
+        caller_name = last_code.co_name
         if self.DEBUG:
             print(self.js)
         print(f"Parser- ParseError on Line {self.file.current_line} from '{caller_name}': {message}")
@@ -390,7 +405,7 @@ class Parser():
     ### Some Exceptions; For example EndStmt is non-comittal
     ### FUNCTION NAMES ARE PART OF THE USER DEBUG INFO
 
-    def StmtList(self):
+    def StmtList(self) -> bool:
         while self.file.peek().token != 'EOF':
             if not self.Stmt():
                 self.RaiseError('Failed to parse statement')
@@ -398,7 +413,7 @@ class Parser():
         self.file.pop()  # For Completeness sake
         return True
 
-    def Stmt(self):
+    def Stmt(self) -> bool:
         # Anything with a single equals sign: x = 5, const const x = 6
         if self.wanted_indent:
             self.file.peek(ignore_space=False)
@@ -420,10 +435,10 @@ class Parser():
             return self.Function_Declaration_Stmt()
 
         # Floating expressions: print(x), x, x == 5
-        pass
+        return False
 
     # Non-Comittal
-    def EndStmt(self, format_template=''):
+    def EndStmt(self, format_template='') -> tuple[bool, int]:
         i = 0
         end = False
         while self.file.peek().token in '!?':  # Allow any mix of ! and ?
@@ -443,7 +458,7 @@ class Parser():
         return end, i
 
     # Indent checks
-    def Check_Indent_Stmt(self):
+    def Check_Indent_Stmt(self) -> bool:
         if self.file.peek().token == "}":
             del self.wanted_indent[len(self.wanted_indent) - 1]
             self.file.pop()
@@ -459,7 +474,7 @@ class Parser():
         return True
 
     # Declaration of a variable
-    def Varable_Declaration_Stmt(self):
+    def Varable_Declaration_Stmt(self) -> bool:
         # Declaration
         allow_reassign = self.file.pop().token == 'VAR'
 
@@ -539,7 +554,7 @@ class Parser():
             return False
         return True
 
-    def Function_Declaration_Stmt(self):
+    def Function_Declaration_Stmt(self) -> bool:
         if self.file.peek().token != "IDENTIFIER":
             self.RaiseError(
                 f'Something isn\'t right here after the function keyword there should be an identifier but I got a {self.file.peek().token}')
@@ -579,21 +594,21 @@ class Parser():
             pass
         return True
 
-    def Variable_Increase_Stmt(self):
+    def Variable_Increase_Stmt(self) -> bool:
         var_name = self.file.pop().lexeme
         operation = self.file.pop().lexeme
-        self.js += var_name + operation
+        self.js += f'{var_name}{operation}'
         success, _ = self.EndStmt()
         if not success:
             self.RaiseError('Declaration statement didn\'t end when it should\'ve')
             return False
         return True
 
-    def Expr(self):
+    def Expr(self) -> bool:
         return True
 
 
-if __name__ == '__main__':
+def transpile(file_path: str) -> str:
     try:
         # TODO: Replace with DreamBerd 3const server
         response = requests.head("http://www.google.com", timeout=5)
@@ -606,12 +621,30 @@ if __name__ == '__main__':
             "-Meta: NetworkError: DreamBerd 3const services are down, or you do not have an internet connection. Please rectify either as soon as possible. ")
         exit(1)
 
-    tokens = list(Tokenizer().tokenize_file(f'test{os.sep}db{os.sep}db{os.sep}functions.db'))
+    tokens = tuple(Tokenizer().tokenize_file(file_path))
 
     if catch_tokenizer_errors(tokens):
         print('\n')
         print("Tokenizer reports L code, fix your code or I won't compile this garbage")
         exit(1)
 
-    js = Parser(tokens).parse()
-    print(js)
+    parser = Parser(tokens)
+    if parser.parse():
+        # If succeeded parsing
+        return parser.get_javascript()
+    raise RuntimeError("Somehow token error was not caught")
+
+
+def transpile_and_save(read_file_path: str, write_file_path: str | None = None) -> None:
+    if write_file_path is None:
+        directory, filename = os.path.split(read_file_path)
+        head, _ = filename.rsplit(".", 1)
+        write_file_path = os.path.join(directory, f'{head}.js')
+    javascript = transpile(read_file_path)
+    with open(write_file_path, "w", encoding="utf-8") as write_file:
+        write_file.write(javascript)
+
+
+if __name__ == '__main__':
+    transpile_and_save(os.path.join('test', 'db', 'db', 'functions.db'))
+

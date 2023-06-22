@@ -1,7 +1,10 @@
 import os
 import re
+from typing import Sequence
+
 import requests
-from compinterpret import Tokenizer, SimpleStringCrawler
+
+from compinterpret import SimpleStringCrawler, Tokenizer
 
 reference_tokenizer = Tokenizer()
 
@@ -37,8 +40,9 @@ operator_precedence = {
     '||': 3,
 }
 
-class RawToken():
-    def __init__(self, token: str, lexeme: str, priority = 0) -> None:
+class RawToken:
+    __slots__ = ("token", "lexeme", "priority")
+    def __init__(self, token: str, lexeme: str, priority: int = 0) -> None:
         self.token = token
         self.lexeme = lexeme
         self.priority = priority
@@ -49,7 +53,7 @@ class RawToken():
     def __str__(self) -> str:
         return f'{self.token}({repr(self.lexeme)})'
     
-    def compare(self, other):
+    def compare(self, other: "RawToken") -> int:
         #presume both are operators
         if self.priority < other.priority:
             return 1
@@ -63,27 +67,27 @@ class RawToken():
             else:
                 return 0
 
-class RawTokenCrawler():
-    def __init__(self, raw) -> None:
+class RawTokenCrawler:
+    def __init__(self, raw: Sequence[RawToken]) -> None:
         self.raw = raw
         self.cursor = 0
 
-    def pop(self) -> str:
+    def pop(self) -> RawToken | None:
         if self.cursor == len(self.raw):
             return None
         self.cursor += 1
         return self.raw[self.cursor - 1]
 
-    def back(self, count=1) -> RawToken:
+    def back(self, count: int = 1) -> None:
         self.cursor -= count
 
-    def peek(self) -> RawToken:
+    def peek(self) -> RawToken | None:
         if self.cursor == len(self.raw) - 1:
             return None        
         return self.raw[self.cursor]
 
-def split_raw_file(path):
-    with open(path, 'r') as file:
+def split_raw_file(path: str) -> list[str] | list[tuple[str, str]]:
+    with open(path, 'r', encoding="utf-8") as file:
         content = file.read()
 
     # Split the file content using the regex pattern
@@ -99,14 +103,14 @@ def split_raw_file(path):
 
         return result
 
-def preprocess_line(line):
+def preprocess_line(line: str) -> str:
     processed_line = line
     # Convert ++ to += 1 and -- to -= 1
     processed_line = re.sub(r'^([^ +\\\-*\/<>=()\[\]!;:.{}\n]+)(\+|-)\2$', r'\1 \2= 1', processed_line)
 
     return processed_line
 
-def process_expr(expr: str):
+def process_expr(expr: str) -> str:
     expr_split = expr.split('{')[-1].split('}')[0]
     if expr_split == '':
         return expr # Wasn't an expression
@@ -186,7 +190,7 @@ def process_expr(expr: str):
                     continue
                     
     postfix_tokens = []
-    operator_stack = []
+    operator_stack: list[RawToken] = []
     
     for token in tokens:        
         if token.token == 'OPERATION':
@@ -208,9 +212,9 @@ def process_expr(expr: str):
     while len(operator_stack) > 0:
         postfix_tokens.append(operator_stack.pop())
     
-    reconstructed = []
+    reconstructed: list[RawToken] = []
 
-    def varify(identifier: str):
+    def varify(identifier: str) -> str:
         if re.match(r'^[0-9]+(?:\.[0-9]+)?', identifier):
             return identifier
         elif re.match(r'^\".*\"$', identifier):
@@ -228,9 +232,9 @@ def process_expr(expr: str):
             if token.lexeme == '====':
                 # We do a little compile-time evaluation
                 if op2.lexeme == op1.lexeme:                    
-                    reconstructed.append('SYSTEM', 'true')
+                    reconstructed.append(RawToken('SYSTEM', 'true'))
                 else:                              
-                    reconstructed.append('SYSTEM', 'false')
+                    reconstructed.append(RawToken('SYSTEM', 'false'))
             else:
                 reconstructed.append(RawToken('SYSTEM', f'current_scope.get_var(current_scope.get_var({varify(op2.lexeme)}){token.lexeme.strip()}current_scope.get_var({varify(op1.lexeme)}))'))
         else:
@@ -244,7 +248,7 @@ def process_expr(expr: str):
     
     return out_str
     
-def preprocess_subfile(subfile):
+def preprocess_subfile(subfile: str) -> str:
     # Remove comments
     subfile = re.sub(r'//[^\n\r]*', '', subfile)
 
@@ -260,7 +264,7 @@ def preprocess_subfile(subfile):
 
     return subfile
 
-def transpile_subfile(subfile):
+def transpile_subfile(subfile: str) -> str:
     subfile = preprocess_subfile(subfile)
     # Split the file content using the regex pattern
     split_content = re.split(r'(!+|\n|\?)', subfile)
@@ -270,7 +274,7 @@ def transpile_subfile(subfile):
 
     result = ""
 
-    futures = {}
+    futures: dict[int, list[str]] = {}
     offset = 0
     for i in range(len(split_content)):
         if split_content[i] in '!?\n':
@@ -300,14 +304,14 @@ def transpile_subfile(subfile):
 
     return result
 
-def check_indentation(match, line):
+def check_indentation(match: re.Match[str], line: str) -> str:
     indentation = match.group("indentation") if match.group("indentation") else ""
     if indentation and len(indentation) % 3 != 0:
         raise ValueError("What a strange indentation scheme that you use, this could confuse someone! Please use the"
                             "officially recognized 3 space indentation system, thank you. Error occurred in\n" + line)
     return indentation
 
-def transpile_line(line: str, priority: int, debug: bool, line_num: int):
+def transpile_line(line: str, priority: int, debug: bool, line_num: int) -> tuple[str, dict[int, list[str]]]:
     futures = {}
 
     # Assignment
@@ -324,7 +328,7 @@ def transpile_line(line: str, priority: int, debug: bool, line_num: int):
         indentation = check_indentation(match, line) #Convenience function because this is checked a lot    
 
         allow_reassignment = match.group("first_const").lower() == 'var'
-        lifetime = -1
+        lifetime: str | int = -1
         if match.group("lifetime") is not None:
             lifetime_match = match.group("lifetime")
             if lifetime_match[-1] != 's' and lifetime_match.lower() != 'infinity':
@@ -394,7 +398,7 @@ def transpile_line(line: str, priority: int, debug: bool, line_num: int):
     return f"{line} // TODO", futures
 
 
-if __name__ == '__main__':
+def regpile() -> None:
     try:
         # TODO: Replace with DreamBerd 3const server
         response = requests.head("http://www.google.com", timeout=5)
@@ -409,7 +413,7 @@ if __name__ == '__main__':
             "Please rectify either as soon as possible. ")
         exit(1)
 
-    files = split_raw_file(f'test{os.sep}db{os.sep}db{os.sep}functions.db')
+    files = split_raw_file(os.path.join('test', 'db', 'db', 'functions.db'))
 
     if not os.path.isdir('built'):
         os.mkdir('built')
@@ -423,9 +427,13 @@ if __name__ == '__main__':
 
         filename = str(len(os.listdir('built'))) + '.tsx' if isinstance(file, str) else file[1]
 
-        with open(f'src{os.sep}template.tsx', 'r') as reader:
+        with open(f'src{os.sep}template.tsx', 'r', encoding="utf-8") as reader:
             template = reader.read()
             result = template.replace('// USER CODE HERE //', result)
 
-        with open(os.path.join('built', filename), 'w') as writer:
+        with open(os.path.join('built', filename), 'w', encoding="utf-8") as writer:
             writer.write(result)
+
+
+if __name__ == '__main__':
+    regpile()
