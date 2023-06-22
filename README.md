@@ -270,7 +270,7 @@ union inverse (a) => 1/a!
 Dividing by zero returns `undefined`.
 
 ```java
-print(3 / 0) // undefined
+print(3 / 0)! // undefined
 ```
 
 ## Strings
