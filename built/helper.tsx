@@ -48,9 +48,9 @@ export class VarState {
         this.variable = undefined        
     }
 
-    assign(value, priority) {
+    assign(value, priority) {        
         if (this.dead()) {
-            this.kill()            
+            this.kill()
         }
         if (!this.allow_reassign || priority < this.priority) {
             return false;
