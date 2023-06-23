@@ -2,6 +2,7 @@ import inspect
 import locale
 import os
 import re
+import sys
 from typing import Generator, Iterable, Sequence
 
 import requests
@@ -364,7 +365,7 @@ class Parser:
         # How much indent we are expecting to see at the moment
         self.wanted_indent: dict[int, str] = {}
         self.DEBUG = True
-    
+
     def get_javascript(self) -> str:
         return self.js
 
@@ -646,5 +647,5 @@ def transpile_and_save(read_file_path: str, write_file_path: str | None = None) 
 
 
 if __name__ == '__main__':
-    transpile_and_save(os.path.join('test', 'db', 'db', 'functions.db'))
-
+    file_path = sys.argv[1] if len(sys.argv) > 1 else os.path.join('test', 'db', 'db', 'functions.db')
+    transpile_and_save(file_path)
