@@ -4,11 +4,12 @@ from typing import Sequence
 
 import requests
 
-from compinterpret import SimpleStringCrawler, Tokenizer, Token as BaseToken
+from compinterpret import SimpleStringCrawler, Tokenizer
 
+reference_tokenizer = Tokenizer()
 
 # https://qph.cf2.quoracdn.net/main-qimg-8d58857bb87f14c8e1ce2f6686ef3e04
-OPERATOR_PRECEDENCE = {
+operator_precedence = {
     '(': 15,
     ')': 15,
     '.': 15,
@@ -39,31 +40,50 @@ OPERATOR_PRECEDENCE = {
     '||': 3,
 }
 
-class RawToken(BaseToken):
+class RawToken:
     __slots__ = ("token", "lexeme", "priority")
     def __init__(self, token: str, lexeme: str, priority: int = 0) -> None:
         self.token = token
         self.lexeme = lexeme
         self.priority = priority
 
+    def __repr__(self) -> str:
+        return f'{self.token}({repr(self.lexeme)})'
+
+    def __str__(self) -> str:
+        return f'{self.token}({repr(self.lexeme)})'
+    
     def compare(self, other: "RawToken") -> int:
         #presume both are operators
         if self.priority < other.priority:
             return 1
         elif self.priority > other.priority:
             return -1
-        if OPERATOR_PRECEDENCE[self.lexeme] > OPERATOR_PRECEDENCE[other.lexeme]:
-            return 1
-        elif OPERATOR_PRECEDENCE[self.lexeme] < OPERATOR_PRECEDENCE[other.lexeme]:
-            return -1
-        return 0
+        else:
+            if operator_precedence[self.lexeme] > operator_precedence[other.lexeme]:
+                return 1
+            elif operator_precedence[self.lexeme] < operator_precedence[other.lexeme]:
+                return -1
+            else:
+                return 0
 
-class RawTokenCrawler(Crawler[RawToken]):
-    __slots__ = ()
+class RawTokenCrawler:
+    def __init__(self, raw: Sequence[RawToken]) -> None:
+        self.raw = raw
+        self.cursor = 0
+
+    def pop(self) -> RawToken | None:
+        if self.cursor == len(self.raw):
+            return None
+        self.cursor += 1
+        return self.raw[self.cursor - 1]
+
+    def back(self, count: int = 1) -> None:
+        self.cursor -= count
 
     def peek(self) -> RawToken | None:
-        if self.cursor >= len(self.raw) - 1:
-            return None
+        if self.cursor == len(self.raw) - 1:
+            return None        
         return self.raw[self.cursor]
 
 def split_raw_file(path: str) -> list[str] | list[tuple[str, str]]:
@@ -78,7 +98,10 @@ def split_raw_file(path: str) -> list[str] | list[tuple[str, str]]:
 
     if len(split_content) == 1:
         return split_content
-    return list(zip(split_content, capture_groups))
+    else:
+        result = [(split_content[i], capture_groups[i]) for i in range(len(split_content))]
+
+        return result
 
 def preprocess_line(line: str) -> str:
     processed_line = line
@@ -93,7 +116,7 @@ def process_expr(expr: str) -> str:
         return expr # Wasn't an expression
     else:
         expr = expr_split
-
+    
     tokens: list[RawToken] = []
     crawler = SimpleStringCrawler(expr.strip().replace('×', '*').replace('÷', '/').replace('^', '**'))
 
@@ -103,7 +126,7 @@ def process_expr(expr: str) -> str:
     # 3 = Redirect
 
     state = 3
-
+    
     if crawler.peek() in '+\\-*/<>%=)]!;:.{}':
         raise ValueError('Who starts an Expression like that? I just got here!')
 
@@ -111,7 +134,7 @@ def process_expr(expr: str) -> str:
         match state:
             case 0:
                 # Remove leading spaces
-                while crawler.peek() in ' \n\r\t':
+                while crawler.peek() in ' \n\r\t':                    
                     crawler.pop()
                     if crawler.peek() == '':
                         break
@@ -143,13 +166,13 @@ def process_expr(expr: str) -> str:
                             break
                         operator += crawler.pop()
                     if crawler.peek() == '':
-                        break
+                        break                
                 tokens.append(RawToken('OPERATION', operator, spaces))
                 crawler.back(trail)
                 if crawler.peek() == '':
                     break
                 state = 3
-            case 3:
+            case 3:        
                 if crawler.peek() == '':
                     # Valid spot to stop
                     # We also have to stop
@@ -165,11 +188,11 @@ def process_expr(expr: str) -> str:
                 else:
                     state = 0
                     continue
-
+                    
     postfix_tokens = []
     operator_stack: list[RawToken] = []
-
-    for token in tokens:
+    
+    for token in tokens:        
         if token.token == 'OPERATION':
             if ')' in token.lexeme:
                 while '(' not in operator_stack[-1].lexeme:
@@ -183,12 +206,12 @@ def process_expr(expr: str) -> str:
                 while len(operator_stack) > 0 and token.compare(operator_stack[-1]) <= 0:
                     postfix_tokens.append(operator_stack.pop())
                 operator_stack.append(token)
-        else: # IDENTIFIER
+        else: # IDENTIFIER        
             postfix_tokens.append(token)
 
     while len(operator_stack) > 0:
         postfix_tokens.append(operator_stack.pop())
-
+    
     reconstructed: list[RawToken] = []
 
     def varify(identifier: str) -> str:
@@ -208,9 +231,9 @@ def process_expr(expr: str) -> str:
 
             if token.lexeme == '====':
                 # We do a little compile-time evaluation
-                if op2.lexeme == op1.lexeme:
+                if op2.lexeme == op1.lexeme:                    
                     reconstructed.append(RawToken('SYSTEM', 'true'))
-                else:
+                else:                              
                     reconstructed.append(RawToken('SYSTEM', 'false'))
             else:
                 reconstructed.append(RawToken('SYSTEM', f'current_scope.get_var(current_scope.get_var({varify(op2.lexeme)}){token.lexeme.strip()}current_scope.get_var({varify(op1.lexeme)}))'))
@@ -222,9 +245,9 @@ def process_expr(expr: str) -> str:
     # This being a loop is only really a formality because it should always parse to a single token
     for token in reconstructed:
         out_str += token.lexeme
-
+    
     return out_str
-
+    
 def preprocess_subfile(subfile: str) -> str:
     # Remove comments
     subfile = re.sub(r'//[^\n\r]*', '', subfile)
@@ -302,7 +325,7 @@ def transpile_line(line: str, priority: int, debug: bool, line_num: int) -> tupl
             raise ValueError("You thought that having const or var three times without having all of them being const "
                              "was a good idea? Well it isn't so fix it")
 
-        indentation = check_indentation(match, line) #Convenience function because this is checked a lot
+        indentation = check_indentation(match, line) #Convenience function because this is checked a lot    
 
         allow_reassignment = match.group("first_const").lower() == 'var'
         lifetime: str | int = -1
@@ -328,14 +351,14 @@ def transpile_line(line: str, priority: int, debug: bool, line_num: int) -> tupl
             # Not a number
             name = f"\"{name}\""
         return f'{indentation}current_scope.assign({name}, {process_expr(value)}, {str(allow_reassignment).lower()}, {priority}, {lifetime});', futures
-
+    
     # Reassignment
     elif match := re.match(
             r'^(?P<indentation> +)?(?P<prevs>(?:previous +)+)?(?P<variable>[^ +\\\-*\/<>=()\[\]!;:.{}\n]+) *(?P<assignment_operator>[+\-\/*]?)= *(?P<value>[^!\n?]+)',
             line,
             re.IGNORECASE
     ):
-        indentation = check_indentation(match, line) #Convenience function because this is checked a lot
+        indentation = check_indentation(match, line) #Convenience function because this is checked a lot    
 
         if match.group('assignment_operator'):
             value = f'{match.group("variable")} {match.group("assignment_operator")} ({match.group("value")})'

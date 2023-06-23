@@ -2,68 +2,49 @@ import inspect
 import locale
 import os
 import re
-from typing import Generator, Iterable, Sequence, NamedTuple, TypeVar, Generic, Any
+from typing import Generator, Iterable, Sequence
 
 import requests
 
-TOKENS = {"STRING", "NOT", "!", "IF", 'ELSE', '(', ')', '[', ']', 'TRUE', 'FALSE', 'CONST', 'VAR', '<', '>', 'INT',
+tokens = ["STRING", "NOT", "!", "IF", 'ELSE', '(', ')', '[', ']', 'TRUE', 'FALSE', 'CONST', 'VAR', '<', '>', 'INT',
           'REAL', 'INFINITY', 'FUNCTION', 'PREVIOUS',
           'NEXT', 'AWAIT', 'NEW_FILE', 'EXPORT', 'TO', 'CLASS', 'NEW', '.', 'USE', 'PLUS', 'MINUS', 'MULTIPLY',
           'DIVIDE', '=', 'IDENTIFIER', 'INDENT',
           'SPACE', 'DELETE', 'EOF', 'NEWLINE', '{', '}', 'INC', 'DEC', 'LOOSE_EQUALITY', 'PRECISE_EQUALITY',
           'LITERAL_EQUALITY', 'ERROR', 'CURRENCY',
-          'WHEN', ":", "AND", 'OR', 'RETURN', "ARROW"}
+          'WHEN', ":", "AND", 'OR', 'RETURN', "ARROW"]
 
 
 class Token:
     __slots__ = ("token", "lexeme")
-    valid_token_names = TOKENS
     def __init__(self, token: str, lexeme: str | int | float) -> None:
+        global tokens
+        assert token.upper() in tokens
+
         self.token = token.upper()
-
-        assert self.token in self.valid_token_names
-
         self.lexeme = lexeme
 
     def __repr__(self) -> str:
-        return str(self)
+        return f'{self.token}({repr(self.lexeme)})'
 
     def __str__(self) -> str:
-        return f'{self.token}({self.lexeme!r})'
+        return f'{self.token}({repr(self.lexeme)})'
 
 
-T = TypeVar("T")
-
-
-class Crawler(Generic[T]):
+class SimpleStringCrawler:
     __slots__ = ("raw", "cursor")
-    def __init__(self, raw: Sequence[T], cursor: int = 0) -> None:
+    def __init__(self, raw: str) -> None:
         self.raw = raw
-        self.cursor = cursor
+        self.cursor = 0
 
-    def __repr__(self) -> str:
-        return f'{self.__class__.__name__}({self.raw!r}, {self.cursor!r})'
-
-    def pop(self) -> T | None:
-        if self.cursor >= len(self.raw):
-            return None
+    def pop(self) -> str:
+        if self.cursor == len(self.raw):
+            return ''
         self.cursor += 1
         return self.raw[self.cursor - 1]
 
     def back(self, count: int = 1) -> None:
         self.cursor -= count
-
-    def peek(self, count: int = 1) -> Sequence[T] | None:
-        if self.cursor >= len(self.raw):
-            return None
-        return self.raw[self.cursor:self.cursor + count]
-
-
-class SimpleStringCrawler(Crawler[str]):
-    __slots__ = ()
-
-    def pop(self) -> str:
-        return super().pop() or ''
 
     def peek(self, count: int = 1, ignore_space: bool = False) -> str:
         if self.cursor == len(self.raw):
@@ -73,44 +54,38 @@ class SimpleStringCrawler(Crawler[str]):
             while self.raw[effective_cursor] in ' \n\t\r':
                 effective_cursor += 1
             return self.raw[effective_cursor]
-        prev = super().peek()
-        assert isinstance(prev, str)
-        return prev
-
-Token_co = TypeVar("Token_co", bound=Token, covariant=True)
-
-class BaseTokenizer(Generic[Token_co]):
-    __slots__ = ("token_class",)
-    basic_mappings = {
-        ';': 'NOT',
-        '=': 'EQUAL',
-        '*': 'MULTIPLY',
-        '/': 'DIVIDE',
-        '.': '.',
-        '(': '(',
-        ')': ')',
-        '[': ']',
-        '<': '<',
-        '>': '>',
-        '{': '{',
-        '}': '}',
-        ":": ':',  # bruh
-        "!": "!"
-    }
-    operators = '+-*/<>=()[] '
-    reserved_chars = '!;:.{}' + operators
+        return self.raw[self.cursor:self.cursor + count]
 
 
-    def __init__(self, token_class: type[Token_co]) -> None:
-        self.token_class = token_class
+class Tokenizer:
+    __slots__ = ("operators", "reserved_chars", "basic_mappings")
+    def __init__(self) -> None:
+        self.operators = '+-*/<>=()[] '
+        self.reserved_chars = '!;:.{}' + self.operators
+
+        self.basic_mappings = {
+            ';': 'NOT',
+            '=': 'EQUAL',
+            '*': 'MULTIPLY',
+            '/': 'DIVIDE',
+            '.': '.',
+            '(': '(',
+            ')': ')',
+            '[': ']',
+            '<': '<',
+            '>': '>',
+            '{': '{',
+            '}': '}',
+            ":": ':',  # bruh
+            "!": "!"
+        }
 
         locale.setlocale(locale.LC_ALL, '')
-        # For maximum international accessibility, the generic currency sign is used if there is no currency sign for the given locale
-        regional_currency = str(locale.localeconv()['currency_symbol']) or '¤'
+        regional_currency = str(locale.localeconv()['currency_symbol'])
+        if regional_currency == '':
+            # For maximum international accessibility, the generic currency sign is used if there is no currency sign for the given locale
+            regional_currency = '¤'
         self.basic_mappings[regional_currency] = 'CURRENCY'
-
-    def __repr__(self) -> str:
-        return f'{self.__class__.__name__}()'
 
     def is_fn_subset(self, string: str) -> bool:
         # to solve the function syntax I created this regex:
@@ -120,46 +95,38 @@ class BaseTokenizer(Generic[Token_co]):
         # the and is needed because if there is no match an empty string is the resulting group
         return len(groups) == 1 and groups[0]
 
-    def _token(self, name: str, lexeme: str | int | float, *args: Any, **kwargs: Any) -> Token_co:
-        return self.token_class(name, lexeme, *args, **kwargs)
-
-    def getNextToken(self, file: SimpleStringCrawler) -> Token_co:
+    def getNextToken(self, file: SimpleStringCrawler) -> Token:
         def readchar(i: int = 1) -> str:
-            # types: misc error: Generator has incompatible item type "Optional[str]"; expected "str"
             return ''.join(file.pop() for _ in range(i))
 
         c = readchar()
         if c == '':
             # The file has ended
-            return self._token('EOF', '')
+            return Token('EOF', '')
 
         lexeme = ''
 
         if c == ' ':
             if file.peek(2) == '  ':
-                # types: operator error: Unsupported operand types for + ("str" and "None")
-                # types: note: Right operand is of type "Optional[str]"
-                c += file.pop()
-                # types: operator error: Unsupported operand types for + ("str" and "None")
-                # types: note: Right operand is of type "Optional[str]"
-                c += file.pop()
+                file.pop()
+                file.pop()
                 # 3-space indent
-                return self._token('INDENT', c)
+                return Token('INDENT', '   ')
             else:
-                return self._token('SPACE', c)
+                return Token('SPACE', ' ')
 
         elif c in '+-':
             next_char = readchar()
             if c == next_char:
-                return self._token('INC' if c == '+' else 'DEC', c * 2)
+                return Token('INC' if c == '+' else 'DEC', c * 2)
             else:
                 file.back()
-                return self._token('PLUS' if c == '+' else 'MINUS', c)
+                return Token('PLUS' if c == '+' else 'MINUS', c)
 
         elif c in '&|':
             next_char = readchar()
             if c == next_char:
-                return self._token('AND' if c == '&' else 'OR', c * 2)
+                return Token('AND' if c == '&' else 'OR', c * 2)
             else:
                 # Let em cook
                 file.back()
@@ -174,22 +141,21 @@ class BaseTokenizer(Generic[Token_co]):
                 if c == ">":
                     # consume the ">"
                     readchar()
-                    return self._token('ARROW', '=>')
-                return self._token('=', '=')
+                    return Token('ARROW', '=>')
+                return Token('=', '=')
             elif equals == 2:
-                return self._token('LOOSE_EQUALITY', '==')
+                return Token('LOOSE_EQUALITY', '==')
             elif equals == 3:
-                return self._token('PRECISE_EQUALITY', '===')
+                return Token('PRECISE_EQUALITY', '===')
             elif equals == 4:
-                return self._token('LITERAL_EQUALITY', '====')
+                return Token('LITERAL_EQUALITY', '====')
             else:  # TODO: File splits (might have to be a preprocessor thing)
-                return self._token('ERROR', 'Too much Equality (max is 4)')
+                return Token('ERROR', 'Too much Equality (max is 4)')
 
         elif c in '\"\'':
             quote_format = ''
             while c in '\"\'':
                 quote_format += c
-                # types: assignment error: Incompatible types in assignment (expression has type "Optional[str]", variable has type "str")
                 c = file.pop()
 
             # leave c at the next char, it'll be added to the string
@@ -199,10 +165,7 @@ class BaseTokenizer(Generic[Token_co]):
                 quote += c
                 if c == '\\':
                     if file.peek() in '\"\'':
-                        # types: operator error: Unsupported operand types for + ("str" and "None")
-                        # types: note: Right operand is of type "Optional[str]"
                         quote += file.pop()  # Character already escaped
-                # types: assignment error: Incompatible types in assignment (expression has type "Optional[str]", variable has type "str")
                 c = file.pop()
             file.back()
 
@@ -212,31 +175,29 @@ class BaseTokenizer(Generic[Token_co]):
                 # Due to ambiguity the rest of the file is now a string
                 # End quotes are presumed present, thus satisfying AI requirement
                 # Diagnosis: skill issue
-                return self._token('STRING', quote)
+                return Token('STRING', quote)
             elif c == '\n':
                 # Line breaks within strings are not allowed, so the string ends here
-                return self._token('STRING', quote)
+                return Token('STRING', quote)
             else:
                 # If there are end quotes, they must match the quote format exactly
                 for i in range(len(quote_format)):
-                    # types: assignment error: Incompatible types in assignment (expression has type "Optional[str]", variable has type "str")
                     c = file.pop()
                     if c != quote_format[-(i + 1)]:
                         # Mismatch
-                        return self._token('ERROR', 'String quote format mismatched')
+                        return Token('ERROR', 'String quote format mismatched')
 
-                return self._token('STRING', quote)
+                return Token('STRING', quote)
 
         elif c == '/' and file.peek() == '/':
             file.pop()  # Get rid of thge next slash
             while c not in '\n\r':
-                # types: assignment error: Incompatible types in assignment (expression has type "Optional[str]", variable has type "str")
                 c = file.pop()
             file.back()
             return self.getNextToken(file)  # Should capture newline
 
         elif c in self.basic_mappings.keys():
-            return self._token(self.basic_mappings[c], c)
+            return Token(self.basic_mappings[c], c)
 
         # INT and REAL
         elif c.isdigit():
@@ -255,15 +216,15 @@ class BaseTokenizer(Generic[Token_co]):
                         lexeme += c
                         c = readchar()
                 elif c not in self.operators:
-                    return self._token('ERROR', 'Non-Operator immediately after real; letters are not real')
+                    return Token('ERROR', 'Non-Operator immediately after real; letters are not real')
 
                 file.back()
 
-                return self._token('REAL', float(lexeme))
+                return Token('REAL', float(lexeme))
 
             else:
                 # INT
-                return self._token('INT', int(lexeme))
+                return Token('INT', int(lexeme))
 
         while not c.isspace() and c not in self.reserved_chars:
             lexeme += c
@@ -273,36 +234,36 @@ class BaseTokenizer(Generic[Token_co]):
         if len(lexeme) > 0:
             file.back()
             tok = lexeme.upper()
-            if tok in TOKENS:
-                return self._token(lexeme, lexeme)
+            if tok in tokens:
+                return Token(lexeme, lexeme)
 
             # Case sensitive for maximum user disgruntlement
             if lexeme == 'className':
-                return self._token('CLASS', lexeme)
+                return Token('CLASS', lexeme)
             elif tok == 'CLASSNAME':
                 # Helpful error message to help insensitive users right their ways
-                return self._token('ERROR',
+                return Token('ERROR',
                              'The className keyword is Case-Sensitive, you\'re hurting its feelings you monster')
 
             # check for function
             if self.is_fn_subset(tok):
-                return self._token('FUNCTION', lexeme)
+                return Token('FUNCTION', lexeme)
             else:
-                return self._token('IDENTIFIER', lexeme)
+                return Token('IDENTIFIER', lexeme)
         else:  # c is not alpha- only remaining case are special characters that count as whitespace
             if c == os.linesep[0]:
                 if len(os.linesep) == 2 and readchar() != os.linesep[1]:
                     file.back()
-                return self._token('NEWLINE', os.linesep)
+                return Token('NEWLINE', os.linesep)
             elif c == '\t':
                 # Was very tempted to force you to only use the 3 spaces but this is complicated enough already
-                return self._token('INDENT', c)
+                return Token('INDENT', c)
             else:
-                return self._token('SPACE', c)
+                return Token('SPACE', c)
 
-    def tokenize_file(self, path: str) -> Generator[Token_co, None, None]:
+    def tokenize_file(self, path: str) -> Generator[Token, None, None]:
         crawler = None
-        with open(path, 'r', encoding="utf-8") as reader:
+        with open(path, 'r') as reader:
             crawler = SimpleStringCrawler(reader.read())
             reader.close()
 
@@ -311,12 +272,6 @@ class BaseTokenizer(Generic[Token_co]):
             yield token
             token = self.getNextToken(crawler)
         yield token  # yield EOF
-
-
-class Tokenizer(BaseTokenizer[Token]):
-    __slots__ = ()
-    def __init__(self) -> None:
-        super().__init__(Token)
 
 
 def catch_tokenizer_errors(tokens: Iterable[Token]) -> bool:
@@ -331,20 +286,22 @@ def catch_tokenizer_errors(tokens: Iterable[Token]) -> bool:
     return has_errors
 
 
-class VarState(NamedTuple):
-    reassign: bool  # Can set it to something else
-    edit: bool  # Can call methods on this
-    priority: int  # Amount of '!' after the declaration
+class VarState:
+    __slots__ = ("reassign", "edit", "priority")
+    def __init__(self, allow_reassign: bool, allow_edit: bool, priority: int) -> None:
+        self.reassign = allow_reassign  # Can set it to something else
+        self.edit = allow_edit  # Can call methods on this
+        self.priority = priority  # Amount of '!' after the declaration
 
 
-class SimpleTokenCrawler(Generic[Token_co]):
+class SimpleTokenCrawler:
     __slots__ = ("raw", "cursor", "current_line")
-    def __init__(self, raw: Sequence[Token_co]) -> None:
+    def __init__(self, raw: Sequence[Token]) -> None:
         self.raw = raw
         self.cursor = 0
         self.current_line = 1
 
-    def pop(self, ignore_space: bool = True) -> Token_co | Token:
+    def pop(self, ignore_space: bool = True) -> Token:
         if self.cursor == len(self.raw):
             return Token('EOF', '')
         self.cursor += 1
@@ -365,7 +322,7 @@ class SimpleTokenCrawler(Generic[Token_co]):
             while self.raw[self.cursor - 1].token in ['SPACE', 'INDENT']:
                 self.cursor -= 1
 
-    def peek(self, ignore_space: bool = True) -> Token_co | Token:
+    def peek(self, ignore_space=True) -> Token:
         if self.cursor >= len(self.raw):
             return Token('EOF', '')
 
@@ -378,8 +335,8 @@ class SimpleTokenCrawler(Generic[Token_co]):
             res = self.raw[self.cursor]
         return res
 
-    def peek_n(self, number: int, ignore_space: bool = True) -> Sequence[Token_co | Token]:
-        token_list: list[Token_co | Token] = []
+    def peek_n(self, number: int, ignore_space: bool = True) -> Sequence[Token]:
+        token_list: list[Token] = []
         stop = False
         original_cursor = self.cursor
         while len(token_list) < number and not stop:
@@ -407,7 +364,7 @@ class Parser:
         # How much indent we are expecting to see at the moment
         self.wanted_indent: dict[int, str] = {}
         self.DEBUG = True
-
+    
     def get_javascript(self) -> str:
         return self.js
 
@@ -437,7 +394,7 @@ class Parser:
             print(self.js)
         print(f"Parser- ParseError on Line {self.file.current_line} from '{caller_name}': {message}")
 
-    def parse(self) -> str:
+    def parse(self):
         self.StmtList()
         return self.js
 
@@ -481,7 +438,7 @@ class Parser:
         return False
 
     # Non-Comittal
-    def EndStmt(self, format_template: str = '') -> tuple[bool, int]:
+    def EndStmt(self, format_template='') -> tuple[bool, int]:
         i = 0
         end = False
         while self.file.peek().token in '!?':  # Allow any mix of ! and ?
@@ -690,3 +647,4 @@ def transpile_and_save(read_file_path: str, write_file_path: str | None = None) 
 
 if __name__ == '__main__':
     transpile_and_save(os.path.join('test', 'db', 'db', 'functions.db'))
+
