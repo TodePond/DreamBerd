@@ -124,21 +124,20 @@ class Tokenizer:
                 print(f"   -2   {c}")
                 return Token('SPACE', c)
 
-        elif c in '+-*/\\<>%;':
-            if file.peek() == '=':
-                file.pop()
-                token_map = {
-                    '+': 'ADD_ASSIGN',
-                    '-': 'SUBTRACT_ASSIGN',
-                    '*': 'MULT_ASSIGN',
-                    '/': 'DIV_ASSIGN',
-                    '\\': 'DIV_ASSIGN',
-                    '<': 'LEQUAL',
-                    '>': 'GEQUAL',
-                    '%': 'MOD_ASSIGN',
-                    ';': 'NOT_EQUAL'
-                }
-                return Token(token_map[c], c + '=')
+        elif c in '+-*/\\<>%;' and file.peek() == '=':
+            file.pop()
+            token_map = {
+                '+': 'ADD_ASSIGN',
+                '-': 'SUBTRACT_ASSIGN',
+                '*': 'MULT_ASSIGN',
+                '/': 'DIV_ASSIGN',
+                '\\': 'DIV_ASSIGN',
+                '<': 'LEQUAL',
+                '>': 'GEQUAL',
+                '%': 'MOD_ASSIGN',
+                ';': 'NOT_EQUAL'
+            }
+            return Token(token_map[c], c + '=')
             # Let it continue if not followed by equal sign
 
 
@@ -325,7 +324,6 @@ class Tokenizer:
         while token.token != 'EOF':
             yield token
             token = self.getNextToken(crawler)
-            print(token)
         yield token  # yield EOF
 
 
@@ -342,5 +340,11 @@ def catch_tokenizer_errors(tokens: Iterable[Token]) -> bool:
 
 if __name__ == "__main__":
     tokens = list(Tokenizer().tokenize_file(os.path.join('test', 'db', 'db', 'functions.db')))
-    #[print(token) for token in tokens]
+    out = ""
+    for token in tokens:
+        if token.token == 'NEWLINE':
+            out += '\n'
+        else:
+            out += token.token + ' '
+    print(out)
     
