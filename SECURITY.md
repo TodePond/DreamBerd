@@ -13,4 +13,4 @@ currently being supported with security updates.~~
 reported vulnerability, what to expect if the vulnerability is accepted or
 declined, etc.~~
 
-I saw that github has a security tab and a button in it that says suggest a policy so I clicked it and now I'm here.
+I saw that GitHub has a security tab and a button in it that says suggest a policy so I clicked it and now I'm here.
