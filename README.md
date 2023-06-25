@@ -310,6 +310,7 @@ const const name = "world"!
 print("Hello ${name}!")!
 print("Hello £{name}!")!
 print("Hello ¥{name}!")!
+print("Hello €{name}!")!
 ```
 
 And make sure to follow your local typographical norms.
