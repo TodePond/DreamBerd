@@ -613,7 +613,7 @@ You can use the `noop` keyword to wait for longer before taking your turn.
 
 ```java
 async func count() {
-   print(2)
+   print(2)!
    noop!
    print(5)!
 }
