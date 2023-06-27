@@ -112,7 +112,7 @@ const const 5 = 4!
 print(2 + 2 === 5)! //true
 ```
 
-The main reason the common whitespace symbol specifically is not allowed is that it would make parsing hard. The main reason other blank characters are allowed is that it allows us to port a *whitespace* codebase de DreamBerd seamlessly. DreamBerd being perfect, it has to be compatible with other programming languages.
+The main reason the common whitespace symbol specifically is not allowed is that it would make parsing hard. The main reason other blank characters are allowed is that it allows us to port a *whitespace* codebase to DreamBerd seamlessly. DreamBerd being perfect, it has to be compatible with other programming languages.
 
 ```java
 const const   = func1!
