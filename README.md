@@ -526,7 +526,6 @@ Similarly, you can use an inverted exclamation mark for negative priority.
 const const name = "Lu"!
 const const name = "Luke"¡
 print(name)! // "Lu"
-
 ```
 
 ## Reversing
