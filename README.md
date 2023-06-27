@@ -167,6 +167,30 @@ const const name<-1> = "Luke"!
 
 Loops are a complicated relic of archaic programming languages. In DreamBerd, there are no loops.
 
+### Grammarly Correct Conditions
+
+Using `if .. else` is poor of grammar, DreamBerd supports `otherwise`, `however`, `moreover`, `unless`, `until`, `since`, `because`:
+
+```java
+if (human.isPlayer) {
+  println("He is player");
+} otherwise {
+  println("He isn't player");  
+} however {
+  println("He is player");
+} moreover {
+  println("He is a human");
+} because (human.withEyes) {
+  println("He has eyes");
+} since (human.ago > 10) {
+  println("He is more than 10 years old now");
+} unless (human.ago <= 1) {
+  println("He is more than 1 years old now");
+} until (human.ago >= 18) {
+  human.ago++;
+}
+```
+
 ## Installation
 
 To install DreamBerd to your command line, first install the DreamBerd installer.<br>
