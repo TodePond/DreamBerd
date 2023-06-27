@@ -520,6 +520,15 @@ const const name = "Lu or Luke (either is fine)"!!!!!!!!!
 print(name)! // "Lu or Luke (either is fine)"
 ```
 
+Similarly, you can use an inverted exclamation mark for negative priority.
+
+```java
+const const name = "Lu"!
+const const name = "Luke"¡
+print(name)! // "Lu"
+
+```
+
 ## Reversing
 
 You can reverse the direction of your code.
