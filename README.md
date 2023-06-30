@@ -761,7 +761,7 @@ Compiling is version sensitive. If it errors, try using an older version of Drea
 ```bash
 dream install installer --0.9
 
-# Negetive numbers also work
+# Negative numbers also work
 dream install installer ---0.1
 
 # Arbitrary reals also work, it rounds to the nearest version
