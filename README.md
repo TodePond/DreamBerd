@@ -163,6 +163,23 @@ print(name)! //Luke
 const const name<-1> = "Luke"!
 ```
 
+## Line Count Macro
+
+Sometime it's unclear wether you should use absolute or relative line number.
+We created this compiler-time macro to help you referring to the correct line.
+Make sure you give it higher priority (annotate with most exclamation marks) or other macros may interference with the line count.
+
+```java
+21 | print(name)! //Luke
+22 | const const name<Relative(-1)!!>= "Luke"! // relative to current line
+```
+
+```java
+13 | print(name)! //Luke
+...
+22 | const const name<Absolute(13)!!>= "Luke"! // calculate absolute line count
+```
+
 ## Loops
 
 Loops are a complicated relic of archaic programming languages. In DreamBerd, there are no loops.
