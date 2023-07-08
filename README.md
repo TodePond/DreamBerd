@@ -93,6 +93,31 @@ Mutable data is an anti-pattern. Use the `const const const` keyword to make a c
 const const const pi = 3.14!
 ```
 
+## Variable variable variables
+
+Variable variable variables are the opposite constant constant constants. Instead of never changing their value, variable variable variables **always** change it.
+
+```java
+var var var name = "Lu"!
+print(name == "Lu")! // True
+print(name == "Hotdog")! // True
+print(name == 3)! // True
+print(name)! // [7, 4, 8]
+```
+
+This allows you to write more efficient code when a value needs to change really often.
+
+For example, you need to poll an API every minute. Without variable variable variables you'd have to do this manually. With this feature, you can simply write
+
+```
+var var var result = ""!!!! 
+when (result) {
+  print(result)!
+}
+```
+
+**Technical info:** variable variable variables are stored as qubits.
+
 ## Naming
 
 Both variables and constants can be named with any Unicode character or string.
