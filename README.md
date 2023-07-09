@@ -95,7 +95,7 @@ const const const pi = 3.14!
 
 ## Variable variable variables
 
-Variable variable variables are the opposite constant constant constants. Instead of never changing their value, variable variable variables **always** change it.
+Variable variable variables are the opposite of constant constant constants. Instead of never changing their value, variable variable variables **always** change it.
 
 ```java
 var var var name = "Lu"!
