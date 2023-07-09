@@ -107,7 +107,7 @@ print(name)! // [7, 4, 8]
 
 This allows you to write more efficient code when a value needs to change really often.
 
-For example, you need to poll an API every minute. Without variable variable variables you'd have to do this manually. With this feature, you can simply write
+For example, consider you need to poll an API every minute. Without variable variable variables you'd have to do this manually. With this feature, you can simply write
 
 ```
 var var var result = ""!!!! 
