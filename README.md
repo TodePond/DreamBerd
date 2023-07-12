@@ -44,7 +44,7 @@ If you're unsure, that's ok. You can put a question mark at the end of a line in
 print("Hello world")?
 ```
 
-If you are still unsure, add more question marks to add more detail. The level of detail increases as you add more question marks.
+If you're still unsure, add more question marks to add more detail. The level of detail increases as you add more question marks.
 
 ```java
 print("Hello world")???
