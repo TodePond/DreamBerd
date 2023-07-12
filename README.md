@@ -755,6 +755,33 @@ If the compiler refuses at first, politely reassure it. For example:<br>
 
 **Note: As of 2023, the compiler is no longer functional due to the DreamBerd language being too advanced for the current state of AI.**
 
+### Version Control
+Compiling is version sensitive. If it errors, try using an older version of DreamBerd. DreamBerd toolchain will by default install the `latest` version of DreamBerd as `1.0`. Each new release will be marked as `1.0` and every version before that will be downgraded decrementally. To try the previous version of DreamBerd (0.9), run:
+
+```bash
+dream install installer --0.9
+
+# Negative numbers also work
+dream install installer ---0.1
+
+# Arbitrary reals also work, it rounds to the nearest version
+# the both below commands are equivalent
+dream install installer --0.5783
+dream install installer --0.6
+
+# please run install after installing the installer
+```
+
+**Note**: If we now release a new version, your version `0.9` will be automatically upgraded to the NEW `0.9` version. To prevent this, you can add a `dreamberd.lock` file with the word `lock` somewhere in it, allowing the compiler to now mark it as `0.8.lock` instead (and subsequently `0.7.lock`... etc)
+
+This intuitive system of version control (Called *InVer*) allows us to avoid all the [complexity](https://github.com/graphql/graphql-js/releases?page=7) of SemVer, and keeping things simple since it's always at version `1.0`.
+
+> **Backwards Compatibility:** You can always export from old versions to new versions of DreamBerd. This however only goes back to a point where we had a major breaking change where the `?` operator changed from a [statement to a function](https://docs.python.org/3/whatsnew/3.0.html#print-is-a-function)
+
+> **Forwards Compatibility:** You can try the nightly, fortnightly and other canaries too by building from compiler for versions `1.1`, `1.2` etc. These usually don't help you in any way but are useful in writing blog posts to create hype about the future of the language
+
+> **Caveat:** Github uses primitive SCM methods, The latest release IS always `1.0` irrespective of the actual version
+
 ## Highlighting
 
 Syntax highlighting is now available for DreamBerd in VSCode. To enable it, install a [highlighting extension](https://marketplace.visualstudio.com/items?itemName=fabiospampinato.vscode-highlight) and then use the [DreamBerd configuration file](https://github.com/TodePond/DreamBerd/blob/main/.vscode/settings.json).
