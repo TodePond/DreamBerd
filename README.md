@@ -44,6 +44,7 @@ If you're unsure, that's ok. You can put a question mark at the end of a line in
 print("Hello world")?
 ```
 
+**New for 2023**<br>
 If you're still unsure, add more question marks to add more detail. The level of detail increases as you add more question marks.
 
 ```java
