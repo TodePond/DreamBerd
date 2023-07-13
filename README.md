@@ -15,7 +15,7 @@ But if you came here because you want to contribute to DreamBerd, here are some 
 
 -->
 
-> TheDreamBerdagen recently featured DreamBerd. Watch it [here](https://youtu.be/tDexugp8EmM).
+> **New!** Read the Dreamberd release notes [here](https://github.com/TodePond/DreamBerd/releases/tag/v.release.notes).
 
 [<img align="right" height="100" src="dreamberd.svg">](https://github.com/TodePond/DreamBerd/blob/main/examples/Examples.md "Click here for the examples page.")
 
