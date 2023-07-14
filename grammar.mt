@@ -1,26 +1,44 @@
+
+//======
+let _ = Primitive.Whitespace
+let - = Primitive.Gap
+
+let Primitive = {
+    let Space = " "
+    let Tab = "	"
+    let LineBreak = "\n"
+
+    let Gap = {Tab | Space}
+    let Whitespace = {Gap | LineBreak}
+}
+
+//======
 match Program
-- = {tab | space}
-_ = {tab | space | newline}
+let Program = File 
 
-Program = File { Break File }
-
-File = { Line }
-
-Line = {
-    match Explicit | Implicit
-    Explicit = Expression - Terminator
-    Implicit = todo
-}
-
-Terminator = ("!" | "?")+
-
-Expression = {
-    match todo
-}
-
-Break = {
+let Break = {
     match Named | Anonymous
-    Anonymous = "=====" {"="}
-    Named = Anonymous - Name - [Anonymous]
-    Name = any+ ".db"
+    
+    let Anonymous = "=====" {"="}
+    let Named = Anonymous - Name - [Anonymous]
+    
+    let Name = any+ ".db"
+}
+
+//=== FILE ===
+let File = {
+    match {Statement.Loose _} Statement.Strict
+}
+
+//=== STATEMENT ===
+let Statement = {
+    let Loose = todo
+    let Strict = todo
+    
+    let Declaring = Declaration - Terminator
+    let Expressing = Expression - Terminator
+    let Controlling = Control
+    let Emailing = Email
+
+    let Terminator = ("!" | "?”)+
 }
