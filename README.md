@@ -733,6 +733,18 @@ We believe that it's never too early to start learning to code. That's why Dream
 
 While in Baby Mode, DreamBerd simplifies its syntax to only require 'goo' and 'ga'. That's right, no more tricky commands and declarations, only pure, unadulterated baby talk.
 
+### Note:
+
+To prevent under-6-month-olds from accidentally activating Baby Mode, DreamBerd requires you to verify your ID before it can be activated. To do this, follow the instructions on the post-install screen.
+
+However, we know that sometimes ID verification can be a bit of a hassle. So, we've come up with a fun alternative!
+
+If you can't or don't want to verify your ID, just solve the following simple math problem, and we'll know you're not a 6-month-old:
+
+$$\int_{-\infty}^{\infty} e^{-x^2} dx$$
+
+### Activating
+
 To activate it, simply add `#!baby` to the top of your file.
 
 ### Baby Mode Syntax
