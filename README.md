@@ -813,7 +813,7 @@ To keep things simple and fun, Baby Mode supports a limited set of DreamBerd's f
 
 ## Grammarly
 
-DreamBerd comes with a built-in Grammarly feature to ensure that your comments are always clear and professional, free of any grammar errors. This is not exclusive to Baby Mode and can be activated in all DreamBerd Modes.
+DreamBerd comes with a built-in Grammarly feature to ensure that your comments are always clear and professional, free of any grammar errors.
 
 To turn on Grammarly correction, simply add `#!grammarly` to the top of your file.
 
