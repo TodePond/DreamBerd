@@ -805,6 +805,10 @@ DreamBerd comes with a built-in Grammarly feature to ensure that your comments a
 
 To turn on Grammarly correction, simply add `#!grammarly` to the top of your file.
 
+```java
+#!grammarly
+```
+
 From then on, all your comments will be auto-corrected. If you write a comment with bad grammar, DreamBerd's Grammarly will automatically correct it for you. No more embarrassing grammar mistakes!
 
 For instance, if you write:
@@ -812,7 +816,7 @@ For instance, if you write:
 ```java
 #!grammarly
 
-// Me dad are gone to getting milk when tomorrow morning
+// Me dad are gone to getting milk at time tomorrow morning
 ```
 
 DreamBerd will automatically correct it to:
