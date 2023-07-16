@@ -20,6 +20,7 @@ But if you came here because you want to contribute to DreamBerd, here are some 
 [<img align="right" height="100" src="dreamberd.svg">](https://github.com/TodePond/DreamBerd/blob/main/examples/Examples.md "Click here for the examples page.")
 
 # DreamBerd
+
 ![Coverage](badges/coverage-109.svg)
 
 DreamBerd is a perfect programming language. These are its features!<br>
@@ -726,6 +727,122 @@ It's worth noting that Github Copilot doesn't understand DreamBerd, which means 
 
 This is great for when you want to keep your open-sourced project closed-source.
 
+## Baby Mode
+
+We believe that it's never too early to start learning to code. That's why DreamBerd features a baby mode, which is designed to be accessible to babies as young as 6 months old!
+
+While in Baby Mode, DreamBerd simplifies its syntax to only require 'goo' and 'ga'. That's right, no more tricky commands and declarations, only pure, unadulterated baby talk.
+
+To activate it, simply add `#!baby` to the top of your file.
+
+### Baby Mode Syntax
+
+```
+'goo' translates to 'print'
+'ga' translates to 'const'
+```
+
+```java
+#!baby
+
+ga ga foo = 5!
+goo(foo)!
+```
+
+which translates to:
+
+```java
+const const foo = 5!
+print(foo)! //5
+```
+
+### Voice Memo as Comment
+
+Babies are full of amazing ideas, and we understand that typing might not be their strongest suit just yet. That's why we've introduced the voice memo as a comment feature! Just record a voice memo, and DreamBerd will translate it into a human-readable comment in your code. Use this command:
+
+```java
+#!baby
+
+// path/to/voice/memo.mp3
+```
+
+And DreamBerd will translate this into:
+
+```java
+// Baby says: print the constant!
+```
+
+### Arithmetic in Baby Mode
+
+In Baby Mode, numbers are too mainstream! Instead, we use emojis to represent numbers. This fun and intuitive method helps babies grasp the concept of numbers through their favorite things.
+
+```java
+#!baby
+
+ga ga age = 🍌🍌🍌!
+ga ga x = 🍎🍎🍎!
+
+goo(age)! // 3
+goo(x)! // 3
+```
+
+However in Baby Mode, 🍌🍌🍌 (banana-banana-banana) is not the same as 🍎🍎🍎 (apple-apple-apple), even though they both represent the number 3! Why? Because a banana is not an apple! And so, we teach babies the concept of object identity in a fun, intuitive way.
+
+```java
+goo(age == x)! // false
+```
+
+To keep things simple and fun, Baby Mode supports a limited set of DreamBerd's functions, mainly:
+
+Constant declaration
+Print
+Built-in Grammarly
+Voice Memo as Comment
+
+## Grammarly
+
+DreamBerd comes with a built-in Grammarly feature to ensure that your comments are always clear and professional, free of any grammar errors. This is not exclusive to Baby Mode and can be activated in all DreamBerd Modes.
+
+To turn on Grammarly correction, simply add `#!grammarly` to the top of your file.
+
+From then on, all your comments will be auto-corrected. If you write a comment with bad grammar, DreamBerd's Grammarly will automatically correct it for you. No more embarrassing grammar mistakes!
+
+For instance, if you write:
+
+```java
+#!grammarly
+
+// Me dad are gone to getting milk when tomorrow morning
+```
+
+DreamBerd will automatically correct it to:
+
+```java
+// My dad is going to get milk tomorrow morning
+```
+
+P.S. Grammarly premium not included.
+
+## Auto Translator 
+
+In our quest to break down barriers and make DreamBerd a truly global platform, we're proud to announce our newest feature - Auto Translator. Programming is a universal language, and we don't want language barriers to become obstacles in your journey.
+
+Our Auto Translator, powered by cutting-edge AI technology, automatically translates comments to your chosen language. This means you can read and write comments in your native language, and DreamBerd will take care of the rest.
+
+For example, let's say we have a comment written in Chinese:
+
+```java
+// 不好小狗便便
+```
+
+DreamBerd will automatically translate it to English:
+
+```java
+// TODO: Fix AI making up translations
+```
+
+With DreamBerd's Auto Translator, we're removing language barriers and making programming more accessible and enjoyable for everyone.
+
 ## Ownership
 
 Using the word 'DreamBerd' in your project name implies that the DreamBerd Foundation does not own your project.
@@ -773,9 +890,6 @@ print(name)! // "Luke"
 
 For examples of DreamBerd in action, check out the [examples page](https://github.com/TodePond/DreamBerd/blob/main/test/Examples.md)!
 
-
-
 ![image](https://github.com/TodePond/DreamBerd/assets/15892272/5fa7c11a-20bd-4d7f-a295-675e925d2804)
-
 
 DreamBerd was made with 💔 by Lu Wilson, creator of the [Game of Living](https://youtu.be/WMJ1H3Ai-qs).
