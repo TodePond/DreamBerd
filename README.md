@@ -794,10 +794,10 @@ goo(age == x)! // false
 
 To keep things simple and fun, Baby Mode supports a limited set of DreamBerd's functions, mainly:
 
-Constant declaration
-Print
-Built-in Grammarly
-Voice Memo as Comment
+- Constant declaration
+- Print
+- Built-in Grammarly
+- Voice Memo as Comment
 
 ## Grammarly
 
@@ -823,7 +823,7 @@ DreamBerd will automatically correct it to:
 
 P.S. Grammarly premium not included.
 
-## Auto Translator 
+## Auto Translator
 
 In our quest to break down barriers and make DreamBerd a truly global platform, we're proud to announce our newest feature - Auto Translator. Programming is a universal language, and we don't want language barriers to become obstacles in your journey.
 
