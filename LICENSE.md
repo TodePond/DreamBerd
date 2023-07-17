@@ -14,9 +14,9 @@ Hello world?
 const var i: Int!
 
 when (i % 3 = 0 && i % 5 = 0) "FizzBuzz"?
-else when (i % 3 = 0) "Fizz"?
-else when (i % 5 = 0) "Buzz"?
-else i? 
+when (i % 3 = 0 && i % 5 ;= 0) "Fizz"?
+when (i % 3 ;= 0 && i % 5 = 0) "Buzz"?
+when (i % 3 ;= 0 && i % 5 ;= 0) else i?
 
 when (i < 20) i++!
 i = 0!
