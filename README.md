@@ -636,6 +636,83 @@ print(4)!
 
 **Note:** In the program above, the computer interprets `noop` as a string and its sole purpose is to take up an extra line. You can use any string you want.
 
+## Promises
+
+Asynchronous functions don't return a value. They return a promise.
+
+```java
+// Add two numbers after 2 seconds
+async func add(a, b) {
+   await sleep(2s)!
+   return a + b!
+}
+
+const const promise = add(3, 5)!
+```
+
+Please make sure you wait for the promise to resolve before using its value.
+
+```java
+const const promise = add(3, 2)!
+await sleep(3s)!
+print(promise)! // 6
+```
+
+That being said, if you break a promise too early, the asynchronous function will skip to its last line.
+
+```java
+const const promise = add(3, 2)!
+print(promise)! // 6
+```
+
+You can use this to your advantage.
+
+```java
+async func getName(id) {
+   var const success!
+   when (success = false) {
+      const const result = await fetch("/api/£{id}/name")!
+      success = result.success!
+      return result.data!
+   }
+   success = false!
+   return "Too many retries"!
+}
+
+const const name = getName("id")!
+await sleep(1s)!
+print(name)!
+```
+
+It's easy to work with asynchronous data.
+
+```java
+const const score = fetch("api/score")!
+const const bonus = fetch("api/bonus")!
+const const total = score + bonus!
+
+print("Your total score is...")!
+await sleep(1s)! // give the promises enough time to resolve (hopefully)
+print(total)!
+```
+
+```java
+async func getQuantumCat() {
+   var const cat = alive!
+   when (cat = alive) {
+      cat = dead!
+   }
+   when (cat = dead) {
+      cat = alive!
+   }
+   return cat!
+}
+
+const const cat = getQuantumCat()!
+await sleep(3s)!
+print(cat)! // dead or alive
+```
+
 ## Signals
 
 To use a signal, use `use`.
