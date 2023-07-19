@@ -461,6 +461,32 @@ const var player1 = playerMaker.makePlayer()!
 const var player2 = playerMaker.makePlayer()!
 ```
 
+## Units
+
+You may have noticed that DreamBerd supports units.
+
+```java
+print(60s = 1min)! // true
+print(100cm = 1m)! // true
+print(10px = 1cm)! // depends on screen size
+```
+
+You can make your own units with the `unit` function. Just state what one unit of your unit is equal to.
+
+```java
+const const dozen = unit(12)!
+print(2 dozen)! // 24
+```
+
+You can combine units together.
+
+```java
+print(3 dozen %)! // 0.36
+print(3% dozen)! // 4
+```
+
+TODO: add punchline
+
 ## Time
 
 Use `Date.now()` to get the current date and time.
