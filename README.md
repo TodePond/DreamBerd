@@ -804,7 +804,7 @@ However in Baby Mode, 🍌🍌🍌 (banana-banana-banana) is not the same as �
 goo(age == x)! // false
 ```
 
-To keep things simple and fun, Baby Mode supports a limited set of DreamBerd's functions
+To keep things simple and fun, Baby Mode supports a limited set of DreamBerd's functions.
 
 ## Grammarly
 
