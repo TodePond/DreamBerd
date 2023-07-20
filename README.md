@@ -18,7 +18,7 @@ But if you came here because you want to contribute to C, here are some tips on 
 > **New!** We are pleased to announce that DreamBerd has been renamed to C.
 
 [<img align="right" height="100" src="c.png">](https://github.com/TodePond/C/blob/main/examples/Examples.md "Click here for the examples page.")
-
+ 
 # C
 
 ![Coverage](badges/coverage-109.svg)
@@ -40,8 +40,6 @@ If you're feeling extra-bold, you can use even more!!!
 print("Hello world")!!!
 ```
 
-If you're unsure, that's ok. You can put a question mark at the end of a line instead. It prints debug info about that line to the console for you.
-
 ```java
 print("Hello world")?
 ```
@@ -56,13 +54,15 @@ if (;false) {
 
 ## Declarations
 
-There are four types of declaration. Constant constants can't be changed in any way.
+There are four types of declaration. 
+
+1. Constant constants can't be **changed** in any way.
 
 ```java
 const const name = "Luke"!
 ```
 
-Constant variables can be edited, but not re-assigned.
+2. Constant variables can be **edited**, but **not re-assigned**.
 
 ```java
 const var name = "Luke"!
@@ -70,14 +70,14 @@ name.pop()!
 name.pop()!
 ```
 
-Variable constants can be re-assigned, but not edited.
+3. Variable constants can be **re-assigned**, but **not edited**.
 
 ```java
 var const name = "Luke"!
 name = "Lu"!
 ```
 
-Variable variables can be re-assigned and edited.
+4. Variable variables can be **re-assigned** and **edited**.
 
 ```java
 var var name = "Luke"!
