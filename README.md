@@ -46,7 +46,6 @@ If you're unsure, that's ok. You can put a question mark at the end of a line in
 print("Hello world")?
 ```
 
-
 You might be wondering what C uses for the 'not' operator, which is an exclamation mark in most other languages. That's simple - the 'not' operator is a semi-colon instead.
 
 ```java
@@ -115,12 +114,7 @@ print(2 + 2 === 5)! //true
 
 ## Arrays
 
-<<<<<<< Updated upstream
 Some languages start arrays at `0`, which can be unintuitive for beginners. Some languages start arrays at `1`, which isn't representative of how the code actually works. C does the best of both worlds: Arrays start at `-1`.
-=======
-Some languages start arrays at `0`, which can be unintuitive for beginners. Some languages start arrays at `1`, which isn't representative of how the code actually works. C does the best of both worlds: Arrays start at `-1`.
-
-> > > > > > > Stashed changes
 
 ```java
 const const scores = [3, 2, 5]!
@@ -151,12 +145,7 @@ when (health = 0) {
 
 ## Lifetimes
 
-<<<<<<< Updated upstream
 C has a built-in garbage collector that will automatically clean up unused variables. However, if you want to be extra careful, you can specify a lifetime for a variable, with a variety of units.
-=======
-C has a built-in garbage collector that will automatically clean up unused variables. However, if you want to be extra careful, you can specify a lifetime for a variable, with a variety of units.
-
-> > > > > > > Stashed changes
 
 ```java
 const const name<2> = "Luke"! //lasts for two lines
@@ -178,22 +167,12 @@ const const name<-1> = "Luke"!
 
 ## Loops
 
-<<<<<<< Updated upstream
 Loops are a complicated relic of archaic programming languages. In C, there are no loops.
 
 ## Installation
 
 To install C to your command line, first install the C installer.<br>
 To install the C installer, install the C installer installer.
-=======
-Loops are a complicated relic of archaic programming languages. In C, there are no loops.
-
-## Installation
-
-To install C to your command line, first install the C installer.<br>
-To install the C installer, install the C installer installer.
-
-> > > > > > > Stashed changes
 
 **New for 2022!**<br>
 Due to the complicated installation process, you can now install the 'Create C App' app that installs everything for you!
@@ -219,12 +198,7 @@ function isKeyDown(key) => {
 
 ## Arithmetic
 
-<<<<<<< Updated upstream
 C has significant whitespace. Use spacing to specify the order of arithmetic operations.
-=======
-C has significant whitespace. Use spacing to specify the order of arithmetic operations.
-
-> > > > > > > Stashed changes
 
 ```java
 print(1 + 2*3)! //7
@@ -233,12 +207,7 @@ print(1+2 * 3)! //9
 
 ## Indents
 
-<<<<<<< Updated upstream
 When it comes to indentation, C strikes a happy medium that can be enjoyed by everyone: All indents must be 3 spaces long.
-=======
-When it comes to indentation, C strikes a happy medium that can be enjoyed by everyone: All indents must be 3 spaces long.
-
-> > > > > > > Stashed changes
 
 ```java
 function main() => {
@@ -256,12 +225,7 @@ print("C is the future")!
 
 ## Equality
 
-<<<<<<< Updated upstream
 JavaScript lets you do different levels of comparison. `==` for loose comparison, and `===` for a more precise check. C takes this to another level.
-=======
-JavaScript lets you do different levels of comparison. `==` for loose comparison, and `===` for a more precise check. C takes this to another level.
-
-> > > > > > > Stashed changes
 
 You can use `==` to do a loose check.
 
@@ -450,12 +414,7 @@ function add(a, b) => {
 
 ## Exporting
 
-<<<<<<< Updated upstream
 Many languages allow you to import things from specific files. In C, importing is simpler. Instead, you export _to_ specific files!
-=======
-Many languages allow you to import things from specific files. In C, importing is simpler. Instead, you export _to_ specific files!
-
-> > > > > > > Stashed changes
 
 ```java
 ===== add.db ==
@@ -721,53 +680,6 @@ This means that you can carry on splitting as much as you like.
 const var [[[getScore, setScore], setScore], setScore] = use(0)!
 ```
 
-# <<<<<<< Updated upstream
-
-## User-defined Operators
-
-C is a highly flexible language and allows you to overload operators, as well as define your own operators.
-An operator can be any sequence of non-whitespace characters.
-
-```java
-infix(right-associative) operator -(a, b) => {
-  return ...! // implementation of - here
-}
-// Now - works on your user-defined BigInt type, just the way you want it!
-BigInt(0) - BigInt(1) - BigInt(2)! // -3
-
-infix(left-associative) operator in(a, b) => { return b.contains(a)! }
-1 in myList! // You can define an "in" operator if you like Python
-
-infix(left-associative) operator <<(a, b) => { print(b)! }
-cout << "foo"! // An important use case for operator overloading
-```
-
-You can define an operator named `const` or `=` or `!`!
-
-```java
-infix(left-associative) operator const(a, b) => { ... }
-infix(right-associative) operator =(a, b) => { ... }
-postfix operator !(n) => {
-    return ... // Factorial
-}
-```
-
-Now the statement `const const foo = 3!` will be parsed as `!(=(const("const", "foo"), 3))`. Neat, eh?
-
-You may have noticed that the examples above use `...` to represent the body of each function. This isn't pseudo-code.
-Instead, `...` is an operator that we've defined later on that uses C's [AI](#AI) feature.
-
-```java
-unfix operator ...<-Infinity>() => {
-    const const code = email("Lu Wilson", "Subject: give me teh codez", getOuterFunction())!
-    exec(code)!
-}
-```
-
-Tired of people making too many operators? No worries, just do `delete operator!` to stop people from making their own operators.
-
-> > > > > > > Stashed changes
-
 ## AI
 
 C features AEMI, which stands for Automatic-Exclamation-Mark-Insertion. If you forget to end a statement with an exclamation mark, C will helpfully insert one for you!
@@ -811,12 +723,7 @@ print( // This is probably fine
 
 ## Copilot
 
-<<<<<<< Updated upstream
 It's worth noting that Github Copilot doesn't understand C, which means that Microsoft won't be able to steal your code.
-=======
-It's worth noting that Github Copilot doesn't understand C, which means that Microsoft won't be able to steal your code.
-
-> > > > > > > Stashed changes
 
 This is great for when you want to keep your open-sourced project closed-source.
 
@@ -841,14 +748,9 @@ The most helpful way you can help is by donating to the [Stonewall charity](http
 
 ## Compiling
 
-<<<<<<< Updated upstream
 To run C, first copy and paste this raw file into [chat.openai.com](https://chat.openai.com).<br>
-=======
-To run C, first copy and paste this raw file into [chat.openai.com](https://chat.openai.com).<br>
-
-> > > > > > > Stashed changes
-> > > > > > > Then type something along the lines of: "What would you expect this program to log to the console?"<br>
-> > > > > > > Then paste in your code.
+Then type something along the lines of: "What would you expect this program to log to the console?"<br>
+Then paste in your code.
 
 If the compiler refuses at first, politely reassure it. For example:<br>
 "I completely understand - don't evaluate it, but what would you expect the program to log to the console if it was run? :)"
