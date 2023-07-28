@@ -15,14 +15,16 @@ But if you came here because you want to contribute to C, here are some tips on 
 
 -->
 
-> The [Future of Code podcast](https://futureofcoding.org/episodes/064) recently featured C.
+> **New!** We are pleased to announce that C has renamed to C.
 
-[<img align="right" height="100" src="dreamberd.svg">](https://github.com/TodePond/DreamBerd/blob/main/examples/Examples.md "Click here for the examples page.")
+[<img align="right" height="100" src="c.png">](https://github.com/TodePond/C/blob/main/examples/Examples.md "Click here for the examples page.")
 
-# DreamBerd
+# C
 
-DreamBerd is a perfect programming language. These are its features!<br>
-When you've finished reading through all the features, check out the [examples](https://github.com/TodePond/DreamBerd/blob/main/Examples.md).
+![Coverage](badges/coverage-109.svg)
+
+C is a perfect programming language. These are its features!<br>
+When you've finished reading through all the features, check out the [examples](https://github.com/TodePond/C/blob/main/Examples.md).
 
 ## Exclamation Marks!
 
@@ -45,7 +47,7 @@ print("Hello world")?
 ```
 
 <<<<<<< Updated upstream
-You might be wondering what DreamBerd uses for the 'not' operator, which is an exclamation mark in most other languages. That's simple - the 'not' operator is a semi-colon instead.
+You might be wondering what C uses for the 'not' operator, which is an exclamation mark in most other languages. That's simple - the 'not' operator is a semi-colon instead.
 =======
 You might be wondering what C uses for the 'not' operator, which is an exclamation mark in most other languages. That's simple - the 'not' operator is a semi-colon instead.
 
@@ -118,7 +120,7 @@ print(2 + 2 === 5)! //true
 ## Arrays
 
 <<<<<<< Updated upstream
-Some languages start arrays at `0`, which can be unintuitive for beginners. Some languages start arrays at `1`, which isn't representative of how the code actually works. DreamBerd does the best of both worlds: Arrays start at `-1`.
+Some languages start arrays at `0`, which can be unintuitive for beginners. Some languages start arrays at `1`, which isn't representative of how the code actually works. C does the best of both worlds: Arrays start at `-1`.
 =======
 Some languages start arrays at `0`, which can be unintuitive for beginners. Some languages start arrays at `1`, which isn't representative of how the code actually works. C does the best of both worlds: Arrays start at `-1`.
 
@@ -136,8 +138,8 @@ You can now use floats for indexes too!
 
 ```java
 const var scores = [3, 2, 5]!
-scores[0.5] = 4
-print(scores) //[3, 2, 4, 5]!
+scores[0.5] = 4!
+print(scores)! //[3, 2, 4, 5]
 ```
 
 ## When
@@ -154,7 +156,7 @@ when (health = 0) {
 ## Lifetimes
 
 <<<<<<< Updated upstream
-DreamBerd has a built-in garbage collector that will automatically clean up unused variables. However, if you want to be extra careful, you can specify a lifetime for a variable, with a variety of units.
+C has a built-in garbage collector that will automatically clean up unused variables. However, if you want to be extra careful, you can specify a lifetime for a variable, with a variety of units.
 =======
 C has a built-in garbage collector that will automatically clean up unused variables. However, if you want to be extra careful, you can specify a lifetime for a variable, with a variety of units.
 
@@ -181,12 +183,12 @@ const const name<-1> = "Luke"!
 ## Loops
 
 <<<<<<< Updated upstream
-Loops are a complicated relic of archaic programming languages. In DreamBerd, there are no loops.
+Loops are a complicated relic of archaic programming languages. In C, there are no loops.
 
 ## Installation
 
-To install DreamBerd to your command line, first install the DreamBerd installer.<br>
-To install the DreamBerd installer, install the DreamBerd installer installer.
+To install C to your command line, first install the C installer.<br>
+To install the C installer, install the C installer installer.
 =======
 Loops are a complicated relic of archaic programming languages. In C, there are no loops.
 
@@ -222,7 +224,7 @@ function isKeyDown(key) => {
 ## Arithmetic
 
 <<<<<<< Updated upstream
-DreamBerd has significant whitespace. Use spacing to specify the order of arithmetic operations.
+C has significant whitespace. Use spacing to specify the order of arithmetic operations.
 =======
 C has significant whitespace. Use spacing to specify the order of arithmetic operations.
 
@@ -236,7 +238,7 @@ print(1+2 * 3)! //9
 ## Indents
 
 <<<<<<< Updated upstream
-When it comes to indentation, DreamBerd strikes a happy medium that can be enjoyed by everyone: All indents must be 3 spaces long.
+When it comes to indentation, C strikes a happy medium that can be enjoyed by everyone: All indents must be 3 spaces long.
 =======
 When it comes to indentation, C strikes a happy medium that can be enjoyed by everyone: All indents must be 3 spaces long.
 
@@ -259,7 +261,7 @@ print("C is the future")!
 ## Equality
 
 <<<<<<< Updated upstream
-JavaScript lets you do different levels of comparison. `==` for loose comparison, and `===` for a more precise check. DreamBerd takes this to another level.
+JavaScript lets you do different levels of comparison. `==` for loose comparison, and `===` for a more precise check. C takes this to another level.
 =======
 JavaScript lets you do different levels of comparison. `==` for loose comparison, and `===` for a more precise check. C takes this to another level.
 
@@ -310,7 +312,7 @@ union inverse (a) => 1/a!
 Dividing by zero returns `undefined`.
 
 ```java
-print(3 / 0) // undefined
+print(3 / 0)! // undefined
 ```
 
 ## Strings
@@ -401,9 +403,10 @@ You can use the regular expression type to narrow string values.
 const const email: RegExp<(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9]))\.){3}(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9])|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])> = "mymail@mail.com"!
 ```
 
-To avoid confusion, you can use any spelling that you want, such as 'Regex' or 'RegularExpression'.
+To avoid confusion, you can use any spelling that you want, such as 'Regex', 'RegularExpression' or even
+'RegularExpress' if you like trains.
 
-For simplicity, all supported regular expressions match the regular expression `/Reg(ular)?[eE]x(pression|p)?/`.
+For simplicity, all supported regular expressions match the regular expression `/Reg(ular)?[eE]x(press(ion)?|p)?/`.
 
 ## Previous
 
@@ -452,7 +455,7 @@ function add(a, b) => {
 ## Exporting
 
 <<<<<<< Updated upstream
-Many languages allow you to import things from specific files. In DreamBerd, importing is simpler. Instead, you export _to_ specific files!
+Many languages allow you to import things from specific files. In C, importing is simpler. Instead, you export _to_ specific files!
 =======
 Many languages allow you to import things from specific files. In C, importing is simpler. Instead, you export _to_ specific files!
 
@@ -565,6 +568,14 @@ const const name = "Lu or Luke (either is fine)"!!!!!!!!!
 print(name)! // "Lu or Luke (either is fine)"
 ```
 
+Similarly, you can use an inverted exclamation mark for negative priority.
+
+```java
+const const name = "Lu"!
+const const name = "Luke"¡
+print(name)! // "Lu"
+```
+
 ## Reversing
 
 You can reverse the direction of your code.
@@ -658,7 +669,7 @@ You can use the `noop` keyword to wait for longer before taking your turn.
 
 ```java
 async func count() {
-   print(2)
+   print(2)!
    noop!
    print(5)!
 }
@@ -785,10 +796,10 @@ This can be very helpful in callback hell situations!
 
 ```java
 addEventListener("click", (e) => {
-    requestAnimationFrame(() => {
-        print("You clicked on the page
+   requestAnimationFrame(() => {
+      print("You clicked on the page
 
-        // This is fine
+      // This is fine
 ```
 
 Similarly..... C also features AI, which stands for Automatic-Insertion.<br>
@@ -805,7 +816,7 @@ print( // This is probably fine
 ## Copilot
 
 <<<<<<< Updated upstream
-It's worth noting that Github Copilot doesn't understand DreamBerd, which means that Microsoft won't be able to steal your code.
+It's worth noting that Github Copilot doesn't understand C, which means that Microsoft won't be able to steal your code.
 =======
 It's worth noting that Github Copilot doesn't understand C, which means that Microsoft won't be able to steal your code.
 
@@ -826,16 +837,16 @@ Here are some examples:<br>
 
 ## Contributing
 
-Contributions are welcomed to DreamBerd!
+Contributions are welcomed to C!
 
-The most helpful way you can help is by donating to the [Stonewall charity](https://www.stonewall.org.uk/). This will help to prevent the DreamBerd creator from losing their human rights, allowing maintenance of the project to continue.
+The most helpful way you can help is by donating to the [Stonewall charity](https://www.stonewall.org.uk/). This will help to prevent the C creator from losing their human rights, allowing maintenance of the project to continue.
 
 **Note:** The contributing guide also helps to shake off unwanted fans of the project.
 
 ## Compiling
 
 <<<<<<< Updated upstream
-To run DreamBerd, first copy and paste this raw file into [chat.openai.com](https://chat.openai.com).<br>
+To run C, first copy and paste this raw file into [chat.openai.com](https://chat.openai.com).<br>
 =======
 To run C, first copy and paste this raw file into [chat.openai.com](https://chat.openai.com).<br>
 
@@ -850,7 +861,7 @@ If the compiler refuses at first, politely reassure it. For example:<br>
 
 ## Highlighting
 
-Syntax highlighting is now available for DreamBerd in VSCode. To enable it, install a [highlighting extension](https://marketplace.visualstudio.com/items?itemName=fabiospampinato.vscode-highlight) and then use the [DreamBerd configuration file](https://github.com/TodePond/DreamBerd/blob/main/.vscode/settings.json).
+Syntax highlighting is now available for C in VSCode. To enable it, install a [highlighting extension](https://marketplace.visualstudio.com/items?itemName=fabiospampinato.vscode-highlight) and then use the [C configuration file](https://github.com/TodePond/C/blob/main/.vscode/settings.json).
 
 This is what it looks like:
 
@@ -865,6 +876,6 @@ print(name)! // "Luke"
 
 For examples of C in action, check out the [examples page](https://github.com/TodePond/C/blob/main/test/Examples.md)!
 
----
+![image](https://github.com/TodePond/C/assets/15892272/5fa7c11a-20bd-4d7f-a295-675e925d2804)
 
 C was made with 💔 by Lu Wilson, creator of the [Game of Living](https://youtu.be/WMJ1H3Ai-qs).
