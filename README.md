@@ -530,6 +530,39 @@ const const name = "Luke"¡
 print(name)! // "Lu"
 ```
 
+## Branching
+Most modern CPUs have branch prediction features. To aid this process, all branches are executed by default.
+
+```java
+if (true) {
+   print("Hello")! // This got executed
+} else {
+   print("World")! // This is also executed
+}
+```
+
+In fact, to simplify, you don't even need to put a condition in your if.
+```java
+if () {
+   print("Hello")!
+} else {
+   print("World")!
+}
+```
+
+If necessary, you can emulate legacy languages that execute only one branch by using the pragma directive.
+```java
+#pragma db no parallel
+if (true) {
+   print("Hello")! // This got executed
+} else {
+   print("World")! // This is unfortunately not
+}
+```
+
+**Technical info:** DreamBerd features ABC, which stands for Automatic-Branch-Collapse. By default, branches will be killed at random once memory usage exceeds 128 GiB
+
+
 ## Reversing
 
 You can reverse the direction of your code.
