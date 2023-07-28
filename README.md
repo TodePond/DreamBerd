@@ -406,7 +406,7 @@ print(score)! //3
 Thanks to recent advances in technology, you can now give files names.
 
 ```java
-======= add.db =======
+======= add.c =======
 function add(a, b) => {
    return a + b!
 }
@@ -417,14 +417,14 @@ function add(a, b) => {
 Many languages allow you to import things from specific files. In C, importing is simpler. Instead, you export _to_ specific files!
 
 ```java
-===== add.db ==
+===== add.c ==
 function add(a, b) => {
    return a + b!
 }
 
-export add to "main.db"!
+export add to "main.c"!
 
-===== main.db ==
+===== main.c ==
 import add!
 add(3, 2)!
 ```
@@ -556,9 +556,9 @@ className Player {
 
 In response to some recent criticism about this design decision, we would like to remind you that this is part of the JavaScript specification, and therefore - out of our control.
 
-## DBX
+## CX
 
-You can embed DBX in C. It's just C, and it's also just HTML.
+You can embed CX in C. It's just C, and it's also just HTML.
 
 ```java
 funct App() => {
@@ -566,7 +566,7 @@ funct App() => {
 }
 ```
 
-**Warning:** As you know, `class` is already a keyword in C, so you can't use it within DBX.
+**Warning:** As you know, `class` is already a keyword in C, so you can't use it within CX.
 
 ```java
 funct App() => {
