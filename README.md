@@ -46,12 +46,8 @@ If you're unsure, that's ok. You can put a question mark at the end of a line in
 print("Hello world")?
 ```
 
-<<<<<<< Updated upstream
-You might be wondering what C uses for the 'not' operator, which is an exclamation mark in most other languages. That's simple - the 'not' operator is a semi-colon instead.
-=======
-You might be wondering what C uses for the 'not' operator, which is an exclamation mark in most other languages. That's simple - the 'not' operator is a semi-colon instead.
 
-> > > > > > > Stashed changes
+You might be wondering what C uses for the 'not' operator, which is an exclamation mark in most other languages. That's simple - the 'not' operator is a semi-colon instead.
 
 ```java
 if (;false) {
