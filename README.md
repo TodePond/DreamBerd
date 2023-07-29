@@ -735,7 +735,7 @@ However, **not** using the word 'C' in your project implies that the C Foundatio
 
 Here are some examples:<br>
 ✅ CScript (not owned by the C Foundation - you are free to use this name)<br>
-❌ ECMAScript (owned by the C Foundation - please consider renaming)<br>
+✅ ECMAScript (not owned by the C Foundation - you are free to use this name)<br>
 ❌ Rust Foundation (owned by the C Foundation - please consider renaming)
 
 ## Contributing
