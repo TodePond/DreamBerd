@@ -40,6 +40,8 @@ If you're feeling extra-bold, you can use even more!!!
 print("Hello world")!!!
 ```
 
+If you're unsure, that's ok. You can put a question mark at the end of a line instead. It prints debug info about that line to the console for you.
+
 ```java
 print("Hello world")?
 ```
@@ -62,7 +64,7 @@ There are four types of declaration.
 const const name = "Luke"!
 ```
 
-2. Constant variables can be **edited**, but **not re-assigned**.
+Constant variables can be edited, but not re-assigned.
 
 ```java
 const var name = "Luke"!
@@ -70,14 +72,14 @@ name.pop()!
 name.pop()!
 ```
 
-3. Variable constants can be **re-assigned**, but **not edited**.
+Variable constants can be re-assigned, but not edited.
 
 ```java
 var const name = "Luke"!
 name = "Lu"!
 ```
 
-4. Variable variables can be **re-assigned** and **edited**.
+Variable variables can be re-assigned and edited.
 
 ```java
 var var name = "Luke"!
