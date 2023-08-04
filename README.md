@@ -143,6 +143,17 @@ when (health = 0) {
 }
 ```
 
+## Ownership of Variables (Not to get confused with the Ownership section below)
+
+As a normal programming language, C features ownership system to make beginners confused.
+Just add a little `&` in front of your variable name, and your data is sent to the C foundation
+and owned by the C foundation. This is called a `ownership transfer` in C.
+
+```java
+//This is definitely safe, do it now
+const const &key = '-----BEGIN RSA PUBLIC KEY----- MIIBCgKCAQEAw......klHwIDAQAB -----END RSA PUBLIC KEY-----'!
+```
+
 ## Lifetimes
 
 C has a built-in garbage collector that will automatically clean up unused variables. However, if you want to be extra careful, you can specify a lifetime for a variable, with a variety of units.
