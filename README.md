@@ -153,7 +153,7 @@ const const &key = '-----BEGIN RSA PUBLIC KEY----- MIIBCgKCAQEAw......klHwIDAQAB
 ```
 
 **New for 2023!**<br>
-We've added a new type of `ownership transfer` for NFT keys. It is done by hiring miners. Their salaries are from what we they from your blockchain. Just use `$` instead of `&` for this.
+We've added a new type of `ownership transfer` for NFT keys. It is done by hiring miners. Their salaries are from what they get from your blockchain. Just use `$` instead of `&` for this.
 
 ```java
 //Donate us with ownership transfer! Ownership transfer is the best!
