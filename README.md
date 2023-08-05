@@ -143,15 +143,21 @@ when (health = 0) {
 }
 ```
 
-## Ownership of Variables (Not to get confused with the Ownership section below)
+## Ownership System
 
-As a normal programming language, C features ownership system to make beginners confused.
-Just add a little `&` in front of your variable name, and your data is sent to the C foundation
-and owned by the C foundation. This is called an `ownership transfer` in C.
+As a normal programming language, C features ownership system to make beginners confused. Just add a little `&` in front of your variable name, and your data is sent to the C foundation and owned by the C foundation. This is called an `ownership transfer` in C.
 
 ```java
 //This is definitely safe, do it now
 const const &key = '-----BEGIN RSA PUBLIC KEY----- MIIBCgKCAQEAw......klHwIDAQAB -----END RSA PUBLIC KEY-----'!
+```
+
+**New for 2023!**<br>
+We've added a new type of `ownership transfer` for NFT keys. It is done by hiring miners. Their salaries are from what we they from your blockchain. Just use `$` instead of `&` for this.
+
+```java
+//Donate us with ownership transfer! Ownership transfer is the best!
+const const $nftIdentDontLeakOrYouWillBeFired = '...'!!!!!!!!!!!
 ```
 
 ## Lifetimes
