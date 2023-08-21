@@ -17,7 +17,7 @@ But if you came here because you want to contribute to C, here are some tips on 
 
 > **New!** We are pleased to announce that DreamBerd has been renamed to C.
 
-[<img align="right" height="100" src="c.png">](https://github.com/TodePond/C/blob/main/examples/Examples.md "Click here for the examples page.")
+[<img align="right" height="100" src="c2.png">](https://github.com/TodePond/C/blob/main/examples/Examples.md "Click here for the examples page.")
 
 # C
 
