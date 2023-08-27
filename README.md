@@ -721,6 +721,21 @@ print( // This is probably fine
 
 **Now recruiting:** The backlog of unfinished programs has now grown unsustainably long. If you would like to volunteer to help with AI, please write an incomplete C program, and leave your contact details somewhere in the source code.
 
+## Built In Functions
+
+C has some built in functions. One of them is the C function. Use it to print the logo of the language.
+
+```java
+C()!
+/*  ________
+   |  ______|
+   | |
+   | |
+   | |_______ 
+   |________|
+*/
+```
+
 ## Copilot
 
 It's worth noting that Github Copilot doesn't understand C, which means that Microsoft won't be able to steal your code.
