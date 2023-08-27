@@ -728,10 +728,10 @@ C has some built in functions. One of them is the C function. Use it to print th
 ```java
 C()!
 /*  ________
-   |  ______|
-   | |
-   | |
-   | |_______ 
+   |  _   __|
+   | | | |
+   | | | |
+   | |_|_|__
    |________|
 */
 ```
