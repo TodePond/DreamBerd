@@ -607,7 +607,7 @@ funct App() => {
 
 Asynchronous functions are notoriously difficult to work with because of one simple reason: It's hard to get them to synchronise with one another.
 
-DreamBerd takes a revolutionary approach. In DreamBerd, asynchronous functions stay synchronised with each other.
+C takes a revolutionary approach. In C, asynchronous functions stay synchronised with each other.
 
 ```java
 async func count() {
