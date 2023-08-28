@@ -205,6 +205,20 @@ print(1 + 2*3)! //7
 print(1+2 * 3)! //9
 ```
 
+## Factorials
+
+C implements Factorials with exclamation marks behind the statement ending exclamation mark. These must be seperated by at least one space. 
+```Java
+const var nofac = 3!!!!!  // Just a very exiting declatation
+const var fac-1 = 3 ! !   // 6
+const var fac0 = 3!! !   // 6
+const var fac1 = 3! !!   // 48
+const var fac2 = 6! ! ! //2.601 218 944E1746
+const const fac3 = 4? ! !! //1 961 990 553 600
+```
+
+
+
 ## Indents
 
 When it comes to indentation, C strikes a happy medium that can be enjoyed by everyone: All indents must be 3 spaces long.
