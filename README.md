@@ -209,7 +209,7 @@ print(1+2 * 3)! //9
 
 C implements Factorials with exclamation marks behind the terminating exclamation mark. These must be seperated by at least one space. 
 ```Java
-const var nofac = 3!!!!!  // Just a very exiting declatation
+const var nofac = 3!!!!!  // Just a very exiting declaration
 const var fac-1 = 3 ! !   // 6
 const var fac0 = 3!! !   // 6
 const var fac1 = 3! !!   // 48
