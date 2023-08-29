@@ -77,6 +77,12 @@ The following code does amazing things??
 print(2 / 1-1)!
 ```
 
+This makes it possible to have a Shebang in C. Just save the C interpreter as `??` in a directory on your PATH and start your script with the following line.
+
+```sh
+#!/usr/bin/env ??
+```
+
 ## Declarations
 
 There are four types of declaration. Constant constants can't be changed in any way.
