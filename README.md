@@ -56,7 +56,7 @@ if (;false) {
 
 ## Comments
 
-Classic C comments are using 2 slashes, everything on the right of them is treated as a comment.
+Classic C comments (deprecated) are using 2 slashes, everything on the right of them is treated as a comment.
 They can be used for adding comments to the end of lines.
 
 ```java
@@ -509,14 +509,14 @@ To avoid confusion, the `delete` statement only works with primitive values like
 
 ```java
 delete 3!
-print(2 + 1)! // Error: 3 has been deleted
+Error: 3 has been deleted??print(2 + 1)!
 ```
 
 C is a multi-paradigm programming language, which means that you can `delete` the keywords and paradigms you don't like.
 
 ```java
 delete class!
-class Player {} // Error: class was deleted
+Error: class was deleted??class Player {}
 ```
 
 When perfection is achieved and there is nothing left to `delete`, you can do this:
@@ -532,7 +532,7 @@ You can overload variables. The most recently defined variable gets used.
 ```java
 const const name = "Luke"!
 const const name = "Lu"!
-print(name)! // "Lu"
+"Lu"??print(name)!
 ```
 
 Variables with more exclamation marks get prioritised.
@@ -540,10 +540,10 @@ Variables with more exclamation marks get prioritised.
 ```java
 const const name = "Lu"!!
 const const name = "Luke"!
-print(name)! // "Lu"
+"Lu"??print(name)!
 
 const const name = "Lu or Luke (either is fine)"!!!!!!!!!
-print(name)! // "Lu or Luke (either is fine)"
+"Lu or Luke (either is fine)"??print(name)!
 ```
 
 Similarly, you can use an inverted exclamation mark for negative priority.
@@ -551,7 +551,7 @@ Similarly, you can use an inverted exclamation mark for negative priority.
 ```java
 const const name = "Lu"!
 const const name = "Luke"¡
-print(name)! // "Lu"
+"Lu"??print(name)!
 ```
 
 ## Reversing
@@ -593,7 +593,7 @@ funct App() => {
 
 ```java
 funct App() => {
-   // This is not ok
+   This is not ok??
    return <div class="greeting">Hello world!</div>
 }
 ```
@@ -602,7 +602,7 @@ funct App() => {
 
 ```java
 funct App() => {
-   // This is also not ok
+   This is also not ok??
    return <div className="greeting">Hello world!</div>
 }
 ```
@@ -611,7 +611,7 @@ Instead, you can use the `htmlClassName` attribute.
 
 ```java
 funct App() => {
-   // This is fine
+   This is fine??
    return <div htmlClassName="greeting">Hello world!</div>
 }
 ```
@@ -675,8 +675,8 @@ In C, you can set (and get) signals with just one function:
 ```java
 const var score = use(0)!
 
-score(9)! // Set the value
-score()?  // Get the value (and print it)
+Set the value??score(9)!
+Get the value (and print it)??score()?
 ```
 
 Alternatively, you can be more explicit with your signal syntax, by splitting it into a getter and setter.
@@ -684,8 +684,8 @@ Alternatively, you can be more explicit with your signal syntax, by splitting it
 ```java
 const var [getScore, setScore] = use(0)!
 
-setScore(9)! // Set the value
-getScore()?  // Get the value (and print it)
+Set the value??setScore(9)!
+Get the value (and print it)??getScore()?
 ```
 
 **Technical info:** This is pure syntax sugar. The split signal functions are exactly the same as before.
@@ -693,8 +693,8 @@ getScore()?  // Get the value (and print it)
 ```java
 const var [getScore, setScore] = use(0)!
 
-getScore(9)! // Set the value
-setScore()?  // Get the value (and print it)
+Set the value??getScore(9)!
+Get the value (and print it)??setScore()?
 ```
 
 This means that you can carry on splitting as much as you like.
@@ -708,19 +708,19 @@ const var [[[getScore, setScore], setScore], setScore] = use(0)!
 C features AEMI, which stands for Automatic-Exclamation-Mark-Insertion. If you forget to end a statement with an exclamation mark, C will helpfully insert one for you!
 
 ```java
-print("Hello world") // This is fine
+This is fine??print("Hello world")
 ```
 
 Similarly... C also features ABI, which stands for Automatic-Bracket-Insertion. If you forget to close your brackets, C will pop some in for you!
 
 ```java
-print("Hello world" // This is also fine
+This is also fine??print("Hello world"
 ```
 
 Similarly.... C also features AQMI, which stands for Automatic-Quotation-Marks-Insertion. If you forget to close your string, C will do it for you!
 
 ```java
-print("Hello world // This is fine as well
+This is fine as well??print("Hello world
 ```
 
 This can be very helpful in callback hell situations!
@@ -730,14 +730,14 @@ addEventListener("click", (e) => {
    requestAnimationFrame(() => {
       print("You clicked on the page
 
-      // This is fine
+This is fine??
 ```
 
 Similarly..... C also features AI, which stands for Automatic-Insertion.<br>
 If you forget to finish your code, C will auto-complete the whole thing!
 
 ```java
-print( // This is probably fine
+This is probably fine??print(
 ```
 
 **Please note:** AI does not use AI. Instead, any incomplete code will be auto-emailed to Lu Wilson, who will get back to you with a completed line as soon as possible.
@@ -788,7 +788,7 @@ This is what it looks like:
 
 ```
 const const name = "Luke"!
-print(name)! // "Luke"
+"Luke"??print(name)!
 ```
 
 **Please note:** The above code will only highlight correctly if you have the extension installed.
