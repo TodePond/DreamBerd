@@ -40,7 +40,7 @@ If you're feeling extra-bold, you can use even more!!!
 print("Hello world")!!!
 ```
 
-If you're unsure, that's ok. You can put a question mark at the end of a line instead. It prints debug info about that line to the console for you.
+If you're unsure, that's ok. You can put a single question mark at the end of a line instead. It prints debug info about that line to the console for you.
 
 ```java
 print("Hello world")?
@@ -52,6 +52,29 @@ You might be wondering what C uses for the 'not' operator, which is an exclamati
 if (;false) {
    print("Hello world")!
 }
+```
+
+## Comments
+
+Classic C comments are using 2 slashes, everything on the right of them is treated as a comment.
+They can be used for adding comments to the end of lines.
+
+```java
+print("Hello World")!  // This line prints hello world
+```
+
+But what if you want to comment out the start of a line?
+Just use 2 or more question marks. Everything on the left of them is treated as a comment.
+
+```java
+This line prints "Hello World"??print("Hello World")!
+```
+
+This form of commenting is also useful for having a comment occupy a whole line.
+
+```java
+The following code does amazing things??
+print(2 / 1-1)!
 ```
 
 ## Declarations
@@ -473,7 +496,7 @@ Date.now()!
 By the way, you can set the time.<br>
 
 ```java
-// Move the clocks back one hour
+Move the clocks back one hour??
 Date.now() -= 3600000!
 ```
 
