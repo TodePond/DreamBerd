@@ -17,7 +17,7 @@ But if you came here because you want to contribute to WhenWillProgrammersStopMa
 
 > **New!** DreamBerd has been re-renamed to WhenWillProgrammersStopMakingDecisionsForOurSocietyAndJustLeaveUsAloneAlsoHackerNewsIsAVileWebsite.
 
-[<img align="right" height="100" src="c2.png">](https://github.com/TodePond/WhenWillProgrammersStopMakingDecisionsForOurSocietyAndJustLeaveUsAloneAlsoHackerNewsIsAVileWebsite/blob/main/examples/Examples.md "Click here for the examples page.")
+[<img align="right" height="100" src="shapes.png">](https://github.com/TodePond/WhenWillProgrammersStopMakingDecisionsForOurSocietyAndJustLeaveUsAloneAlsoHackerNewsIsAVileWebsite/blob/main/examples/Examples.md "Click here for the examples page.")
 
 # WhenWillProgrammersStopMakingDecisionsForOurSocietyAndJustLeaveUsAloneAlsoHackerNewsIsAVileWebsite
 
