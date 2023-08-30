@@ -8,4 +8,4 @@ Then it could explain that you could write some text to explain an actual exampl
 // And then some code to show how to code the actual example
 ```
 
-You can read the example example [here](https://github.com/TodePond/C/blob/main/examples/Examples.md).
+You can read the example example [here](https://github.com/TodePond/WhenWillProgrammersStopMakingDecisionsForOurSocietyAndJustLeaveUsAloneAlsoHackerNewsIsAVileWebsite/blob/main/examples/Examples.md).
