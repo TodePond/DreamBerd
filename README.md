@@ -748,14 +748,14 @@ The most helpful way you can help is by donating to the [Stonewall charity](http
 
 ## Compiling
 
-To run WhenWillProgrammersStopMakingDecisionsForOurSocietyAndJustLeaveUsAloneAlsoHackerNewsIsAVileWebsite, first copy and paste this raw file into [chat.openai.com](https://chat.openai.com).<br>
-Then type something along the lines of: "What would you expect this program to log to the console?"<br>
-Then paste in your code.
+Żeby uruchamiać KiedyProgramiśćiPrzestanąZdecytowaćDlaNaszegoSpołeczeństwaIPoProstuZostawiąNasNaSpokojuITeżHackerNewsToStronaWstrętna, najpierw zkopiuj i klej ten plik do [chat.openai.com](https://chat.openai.com).<br>
+Wtedy napisz coś jakby: "Co byż spodziewał się że ten program napisze do konsolu?"<br>
+I wtedy klej swój kod.
 
-If the compiler refuses at first, politely reassure it. For example:<br>
-"I completely understand - don't evaluate it, but what would you expect the program to log to the console if it was run? :)"
+Jeśli kompilator odmawi się na początku, uprzejmie napewni ono. Na przykład:<br>
+"Ja wczałkowicze rozumiem - nie wyliczaj, ale co byś spodziewał że program napisze do konsolu kiedy uruchamia się? :)"
 
-**Note: As of 2023, the compiler is no longer functional due to the WhenWillProgrammersStopMakingDecisionsForOurSocietyAndJustLeaveUsAloneAlsoHackerNewsIsAVileWebsite language being too advanced for the current state of AI.**
+**P.S. Od 2023, kompilator nie działa bo język KiedyProgramiśćiPrzestanąZdecytowaćDlaNaszegoSpołeczeństwaIPoProstuZostawiąNasNaSpokojuITeżHackerNewsToStronaWstrętna jest za zaawansowany dla współczesnego AI.**
 
 ## Highlighting
 
