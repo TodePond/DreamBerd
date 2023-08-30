@@ -735,7 +735,7 @@ However, **not** using the word 'WhenWillProgrammersStopMakingDecisionsForOurSoc
 
 Here are some examples:<br>
 ✅ WhenWillProgrammersStopMakingDecisionsForOurSocietyAndJustLeaveUsAloneAlsoHackerNewsIsAVileWebsiteScript (not owned by the WhenWillProgrammersStopMakingDecisionsForOurSocietyAndJustLeaveUsAloneAlsoHackerNewsIsAVileWebsite Foundation - you are free to use this name)<br>
-❌ ECMAScript (owned by the WhenWillProgrammersStopMakingDecisionsForOurSocietyAndJustLeaveUsAloneAlsoHackerNewsIsAVileWebsite Foundation - please consider renaming)<br>
+✅ ECMAScript (not owned by the WhenWillProgrammersStopMakingDecisionsForOurSocietyAndJustLeaveUsAloneAlsoHackerNewsIsAVileWebsite Foundation - you are free to use this name)<br>
 ❌ Rust Foundation (owned by the WhenWillProgrammersStopMakingDecisionsForOurSocietyAndJustLeaveUsAloneAlsoHackerNewsIsAVileWebsite Foundation - please consider renaming)
 
 ## Contributing
