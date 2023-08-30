@@ -774,6 +774,6 @@ print(name)! // "Luke"
 
 For examples of WhenWillProgrammersStopMakingDecisionsForOurSocietyAndJustLeaveUsAloneAlsoHackerNewsIsAVileWebsite in action, check out the [examples page](https://github.com/TodePond/WhenWillProgrammersStopMakingDecisionsForOurSocietyAndJustLeaveUsAloneAlsoHackerNewsIsAVileWebsite/blob/main/test/Examples.md)!
 
-![image](files/star-history.png)
+<img width="1064" alt="shapes (1)" src="https://github.com/TodePond/C/assets/15892272/b3cd5774-5d45-4b15-95d1-deee21f21869">
 
 WhenWillProgrammersStopMakingDecisionsForOurSocietyAndJustLeaveUsAloneAlsoHackerNewsIsAVileWebsite was made with 💔 by Lu Wilson, creator of the [Game of Living](https://youtu.be/WMJ1H3Ai-qs).
