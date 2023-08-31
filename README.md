@@ -3,11 +3,11 @@
 If you're reading this then you might be looking for the hidden examples page...
 
 CONGRATULATIONS! You found it!
-Here it is: https://github.com/TodePond/C/blob/main/res/res/Examples.md
+Here it is: https://github.com/TodePond/WhenWillProgrammersStopMakingDecisionsForOurSocietyAndJustLeaveUsAloneAlsoHackerNewsIsAVileWebsite/blob/main/res/res/Examples.md
 
 
 
-But if you came here because you want to contribute to C, here are some tips on how to get your PR successfully merged.
+But if you came here because you want to contribute to WhenWillProgrammersStopMakingDecisionsForOurSocietyAndJustLeaveUsAloneAlsoHackerNewsIsAVileWebsite, here are some tips on how to get your PR successfully merged.
 
 - Always punch up.
 - Only poke fun at things you respect + admire.
@@ -15,16 +15,16 @@ But if you came here because you want to contribute to C, here are some tips on 
 
 -->
 
-> **New!** We just launched the new [C LLM](https://github.com/TodePond/C/releases/tag/v0.9cllm).
+> **New!** DreamBerd has been re-renamed to [WhenWillProgrammersStopMakingDecisionsForOurSocietyAndJustLeaveUsAloneAlsoHackerNewsIsAVileWebsite](https://github.com/TodePond/WhenWillProgrammersStopMakingDecisionsForOurSocietyAndJustLeaveUsAloneAlsoHackerNewsIsAVileWebsite/releases/tag/v0.9wwpsmdfosajluaahniavw).
 
-[<img align="right" height="100" src="c2.png">](https://github.com/TodePond/C/blob/main/examples/Examples.md "Click here for the examples page.")
+[<img align="right" height="100" src="shapes.png">](https://github.com/TodePond/WhenWillProgrammersStopMakingDecisionsForOurSocietyAndJustLeaveUsAloneAlsoHackerNewsIsAVileWebsite/blob/main/examples/Examples.md "Click here for the examples page.")
 
-# C
+# WhenWillProgrammersStopMakingDecisionsForOurSocietyAndJustLeaveUsAloneAlsoHackerNewsIsAVileWebsite
 
 ![Coverage](badges/coverage-109.svg)
 
-C is a perfect programming language. These are its features!<br>
-When you've finished reading through all the features, check out the [examples](https://github.com/TodePond/C/blob/main/Examples.md).
+WhenWillProgrammersStopMakingDecisionsForOurSocietyAndJustLeaveUsAloneAlsoHackerNewsIsAVileWebsite is a perfect programming language. These are its features!<br>
+When you've finished reading through all the features, check out the [examples](https://github.com/TodePond/WhenWillProgrammersStopMakingDecisionsForOurSocietyAndJustLeaveUsAloneAlsoHackerNewsIsAVileWebsite/blob/main/Examples.md).
 
 ## Exclamation Marks!
 
@@ -46,7 +46,7 @@ If you're unsure, that's ok. You can put a single question mark at the end of a 
 print("Hello world")?
 ```
 
-You might be wondering what C uses for the 'not' operator, which is an exclamation mark in most other languages. That's simple - the 'not' operator is a semi-colon instead.
+You might be wondering what WhenWillProgrammersStopMakingDecisionsForOurSocietyAndJustLeaveUsAloneAlsoHackerNewsIsAVileWebsite uses for the 'not' operator, which is an exclamation mark in most other languages. That's simple - the 'not' operator is a semi-colon instead.
 
 ```java
 if (;false) {
@@ -144,7 +144,7 @@ print(2 + 2 === 5)! //true
 
 ## Arrays
 
-Some languages start arrays at `0`, which can be unintuitive for beginners. Some languages start arrays at `1`, which isn't representative of how the code actually works. C does the best of both worlds: Arrays start at `-1`.
+Some languages start arrays at `0`, which can be unintuitive for beginners. Some languages start arrays at `1`, which isn't representative of how the code actually works. WhenWillProgrammersStopMakingDecisionsForOurSocietyAndJustLeaveUsAloneAlsoHackerNewsIsAVileWebsite does the best of both worlds: Arrays start at `-1`.
 
 ```java
 const const scores = [3, 2, 5]!
@@ -175,7 +175,7 @@ when (health = 0) {
 
 ## Lifetimes
 
-C has a built-in garbage collector that will automatically clean up unused variables. However, if you want to be extra careful, you can specify a lifetime for a variable, with a variety of units.
+WhenWillProgrammersStopMakingDecisionsForOurSocietyAndJustLeaveUsAloneAlsoHackerNewsIsAVileWebsite has a built-in garbage collector that will automatically clean up unused variables. However, if you want to be extra careful, you can specify a lifetime for a variable, with a variety of units.
 
 ```java
 const const name<2> = "Luke"! //lasts for two lines
@@ -197,15 +197,15 @@ const const name<-1> = "Luke"!
 
 ## Loops
 
-Loops are a complicated relic of archaic programming languages. In C, there are no loops.
+Loops are a complicated relic of archaic programming languages. In WhenWillProgrammersStopMakingDecisionsForOurSocietyAndJustLeaveUsAloneAlsoHackerNewsIsAVileWebsite, there are no loops.
 
 ## Installation
 
-To install C to your command line, first install the C installer.<br>
-To install the C installer, install the C installer installer.
+To install WhenWillProgrammersStopMakingDecisionsForOurSocietyAndJustLeaveUsAloneAlsoHackerNewsIsAVileWebsite to your command line, first install the WhenWillProgrammersStopMakingDecisionsForOurSocietyAndJustLeaveUsAloneAlsoHackerNewsIsAVileWebsite installer.<br>
+To install the WhenWillProgrammersStopMakingDecisionsForOurSocietyAndJustLeaveUsAloneAlsoHackerNewsIsAVileWebsite installer, install the WhenWillProgrammersStopMakingDecisionsForOurSocietyAndJustLeaveUsAloneAlsoHackerNewsIsAVileWebsite installer installer.
 
 **New for 2022!**<br>
-Due to the complicated installation process, you can now install the 'Create C App' app that installs everything for you!
+Due to the complicated installation process, you can now install the 'Create WhenWillProgrammersStopMakingDecisionsForOurSocietyAndJustLeaveUsAloneAlsoHackerNewsIsAVileWebsite App' app that installs everything for you!
 
 ## Booleans
 
@@ -228,7 +228,7 @@ function isKeyDown(key) => {
 
 ## Arithmetic
 
-C has significant whitespace. Use spacing to specify the order of arithmetic operations.
+WhenWillProgrammersStopMakingDecisionsForOurSocietyAndJustLeaveUsAloneAlsoHackerNewsIsAVileWebsite has significant whitespace. Use spacing to specify the order of arithmetic operations.
 
 ```java
 print(1 + 2*3)! //7
@@ -237,11 +237,11 @@ print(1+2 * 3)! //9
 
 ## Indents
 
-When it comes to indentation, C strikes a happy medium that can be enjoyed by everyone: All indents must be 3 spaces long.
+When it comes to indentation, WhenWillProgrammersStopMakingDecisionsForOurSocietyAndJustLeaveUsAloneAlsoHackerNewsIsAVileWebsite strikes a happy medium that can be enjoyed by everyone: All indents must be 3 spaces long.
 
 ```java
 function main() => {
-   print("C is the future")!
+   print("WhenWillProgrammersStopMakingDecisionsForOurSocietyAndJustLeaveUsAloneAlsoHackerNewsIsAVileWebsite is the future")!
 }
 ```
 
@@ -249,13 +249,13 @@ function main() => {
 
 ```java
    function main() => {
-print("C is the future")!
+print("WhenWillProgrammersStopMakingDecisionsForOurSocietyAndJustLeaveUsAloneAlsoHackerNewsIsAVileWebsite is the future")!
    }
 ```
 
 ## Equality
 
-JavaScript lets you do different levels of comparison. `==` for loose comparison, and `===` for a more precise check. C takes this to another level.
+JavaScript lets you do different levels of comparison. `==` for loose comparison, and `===` for a more precise check. WhenWillProgrammersStopMakingDecisionsForOurSocietyAndJustLeaveUsAloneAlsoHackerNewsIsAVileWebsite takes this to another level.
 
 You can use `==` to do a loose check.
 
@@ -436,7 +436,7 @@ print(score)! //3
 Thanks to recent advances in technology, you can now give files names.
 
 ```java
-======= add.c =======
+======= add.wwpsmdfosajluaahniavw =======
 function add(a, b) => {
    return a + b!
 }
@@ -444,22 +444,22 @@ function add(a, b) => {
 
 ## Exporting
 
-Many languages allow you to import things from specific files. In C, importing is simpler. Instead, you export _to_ specific files!
+Many languages allow you to import things from specific files. In WhenWillProgrammersStopMakingDecisionsForOurSocietyAndJustLeaveUsAloneAlsoHackerNewsIsAVileWebsite, importing is simpler. Instead, you export _to_ specific files!
 
 ```java
-===== add.c ==
+===== add.wwpsmdfosajluaahniavw ==
 function add(a, b) => {
    return a + b!
 }
 
 export add to "main.c"!
 
-===== main.c ==
+===== main.wwpsmdfosajluaahniavw ==
 import add!
 add(3, 2)!
 ```
 
-By the way, to see C in action, check out [this page](https://github.com/TodePond/C/blob/main/LICENSE.md).
+By the way, to see WhenWillProgrammersStopMakingDecisionsForOurSocietyAndJustLeaveUsAloneAlsoHackerNewsIsAVileWebsite in action, check out [this page](https://github.com/TodePond/WhenWillProgrammersStopMakingDecisionsForOurSocietyAndJustLeaveUsAloneAlsoHackerNewsIsAVileWebsite/blob/main/LICENSE.md).
 
 ## Classes
 
@@ -519,7 +519,7 @@ delete 3!
 Error: 3 has been deleted??print(2 + 1)!
 ```
 
-C is a multi-paradigm programming language, which means that you can `delete` the keywords and paradigms you don't like.
+WhenWillProgrammersStopMakingDecisionsForOurSocietyAndJustLeaveUsAloneAlsoHackerNewsIsAVileWebsite is a multi-paradigm programming language, which means that you can `delete` the keywords and paradigms you don't like.
 
 ```java
 delete class!
@@ -586,9 +586,9 @@ className Player {
 
 In response to some recent criticism about this design decision, we would like to remind you that this is part of the JavaScript specification, and therefore - out of our control.
 
-## CX
+## WWPSMDFOSAJLUAAHNIAVWX
 
-You can embed CX in C. It's just C, and it's also just HTML.
+You can embed WWPSMDFOSAJLUAAHNIAVWX in WhenWillProgrammersStopMakingDecisionsForOurSocietyAndJustLeaveUsAloneAlsoHackerNewsIsAVileWebsite. It's just WhenWillProgrammersStopMakingDecisionsForOurSocietyAndJustLeaveUsAloneAlsoHackerNewsIsAVileWebsite, and it's also just HTML.
 
 ```java
 funct App() => {
@@ -596,7 +596,7 @@ funct App() => {
 }
 ```
 
-**Warning:** As you know, `class` is already a keyword in C, so you can't use it within CX.
+**Warning:** As you know, `class` is already a keyword in WhenWillProgrammersStopMakingDecisionsForOurSocietyAndJustLeaveUsAloneAlsoHackerNewsIsAVileWebsite, so you can't use it within WWPSMDFOSAJLUAAHNIAVWX.
 
 ```java
 funct App() => {
@@ -605,7 +605,7 @@ funct App() => {
 }
 ```
 
-`className` is also a C keyword, so you can't use that either.
+`className` is also a WhenWillProgrammersStopMakingDecisionsForOurSocietyAndJustLeaveUsAloneAlsoHackerNewsIsAVileWebsite keyword, so you can't use that either.
 
 ```java
 funct App() => {
@@ -623,7 +623,7 @@ funct App() => {
 }
 ```
 
-**Please note:** Unlike JSX, you are free to freely use the `for` attribute - because C doesn't have loops.
+**Please note:** Unlike JSX, you are free to freely use the `for` attribute - because WhenWillProgrammersStopMakingDecisionsForOurSocietyAndJustLeaveUsAloneAlsoHackerNewsIsAVileWebsite doesn't have loops.
 
 ```java
 funct App() => {
@@ -677,7 +677,7 @@ const var score = use(0)!
 
 When it comes to signals, the most important thing to discuss is _syntax_.
 
-In C, you can set (and get) signals with just one function:
+In WhenWillProgrammersStopMakingDecisionsForOurSocietyAndJustLeaveUsAloneAlsoHackerNewsIsAVileWebsite, you can set (and get) signals with just one function:
 
 ```java
 const var score = use(0)!
@@ -712,19 +712,19 @@ const var [[[getScore, setScore], setScore], setScore] = use(0)!
 
 ## AI
 
-C features AEMI, which stands for Automatic-Exclamation-Mark-Insertion. If you forget to end a statement with an exclamation mark, C will helpfully insert one for you!
+WhenWillProgrammersStopMakingDecisionsForOurSocietyAndJustLeaveUsAloneAlsoHackerNewsIsAVileWebsite features AEMI, which stands for Automatic-Exclamation-Mark-Insertion. If you forget to end a statement with an exclamation mark, WhenWillProgrammersStopMakingDecisionsForOurSocietyAndJustLeaveUsAloneAlsoHackerNewsIsAVileWebsite will helpfully insert one for you!
 
 ```java
 This is fine??print("Hello world")
 ```
 
-Similarly... C also features ABI, which stands for Automatic-Bracket-Insertion. If you forget to close your brackets, C will pop some in for you!
+Similarly... WhenWillProgrammersStopMakingDecisionsForOurSocietyAndJustLeaveUsAloneAlsoHackerNewsIsAVileWebsite also features ABI, which stands for Automatic-Bracket-Insertion. If you forget to close your brackets, WhenWillProgrammersStopMakingDecisionsForOurSocietyAndJustLeaveUsAloneAlsoHackerNewsIsAVileWebsite will pop some in for you!
 
 ```java
 This is also fine??print("Hello world"
 ```
 
-Similarly.... C also features AQMI, which stands for Automatic-Quotation-Marks-Insertion. If you forget to close your string, C will do it for you!
+Similarly.... WhenWillProgrammersStopMakingDecisionsForOurSocietyAndJustLeaveUsAloneAlsoHackerNewsIsAVileWebsite also features AQMI, which stands for Automatic-Quotation-Marks-Insertion. If you forget to close your string, WhenWillProgrammersStopMakingDecisionsForOurSocietyAndJustLeaveUsAloneAlsoHackerNewsIsAVileWebsite will do it for you!
 
 ```java
 This is fine as well??print("Hello world
@@ -740,8 +740,8 @@ addEventListener("click", (e) => {
       This is fine??
 ```
 
-Similarly..... C also features AI, which stands for Automatic-Insertion.<br>
-If you forget to finish your code, C will auto-complete the whole thing!
+Similarly..... WhenWillProgrammersStopMakingDecisionsForOurSocietyAndJustLeaveUsAloneAlsoHackerNewsIsAVileWebsite also features AI, which stands for Automatic-Insertion.<br>
+If you forget to finish your code, WhenWillProgrammersStopMakingDecisionsForOurSocietyAndJustLeaveUsAloneAlsoHackerNewsIsAVileWebsite will auto-complete the whole thing!
 
 ```java
 This is probably fine??print(
@@ -749,47 +749,47 @@ This is probably fine??print(
 
 **Please note:** AI does not use AI. Instead, any incomplete code will be auto-emailed to Lu Wilson, who will get back to you with a completed line as soon as possible.
 
-**Now recruiting:** The backlog of unfinished programs has now grown unsustainably long. If you would like to volunteer to help with AI, please write an incomplete C program, and leave your contact details somewhere in the source code.
+**Now recruiting:** The backlog of unfinished programs has now grown unsustainably long. If you would like to volunteer to help with AI, please write an incomplete WhenWillProgrammersStopMakingDecisionsForOurSocietyAndJustLeaveUsAloneAlsoHackerNewsIsAVileWebsite program, and leave your contact details somewhere in the source code.
 
 ## Copilot
 
-It's worth noting that Github Copilot doesn't understand C, which means that Microsoft won't be able to steal your code.
+It's worth noting that Github Copilot doesn't understand WhenWillProgrammersStopMakingDecisionsForOurSocietyAndJustLeaveUsAloneAlsoHackerNewsIsAVileWebsite, which means that Microsoft won't be able to steal your code.
 
 This is great for when you want to keep your open-sourced project closed-source.
 
 ## Ownership
 
-Using the word 'C' in your project name implies that the C Foundation does not own your project.
+Using the word 'WhenWillProgrammersStopMakingDecisionsForOurSocietyAndJustLeaveUsAloneAlsoHackerNewsIsAVileWebsite' in your project name implies that the WhenWillProgrammersStopMakingDecisionsForOurSocietyAndJustLeaveUsAloneAlsoHackerNewsIsAVileWebsite Foundation does not own your project.
 
-However, **not** using the word 'C' in your project implies that the C Foundation **does** own your project. If you would like to keep ownership of your work, please always use the word 'C' in it.
+However, **not** using the word 'WhenWillProgrammersStopMakingDecisionsForOurSocietyAndJustLeaveUsAloneAlsoHackerNewsIsAVileWebsite' in your project implies that the WhenWillProgrammersStopMakingDecisionsForOurSocietyAndJustLeaveUsAloneAlsoHackerNewsIsAVileWebsite Foundation **does** own your project. If you would like to keep ownership of your work, please always use the word 'WhenWillProgrammersStopMakingDecisionsForOurSocietyAndJustLeaveUsAloneAlsoHackerNewsIsAVileWebsite' in it.
 
 Here are some examples:<br>
-✅ CScript (not owned by the C Foundation - you are free to use this name)<br>
-✅ ECMAScript (not owned by the C Foundation - you are free to use this name)<br>
-❌ Rust Foundation (owned by the C Foundation - please consider renaming)
+✅ WhenWillProgrammersStopMakingDecisionsForOurSocietyAndJustLeaveUsAloneAlsoHackerNewsIsAVileWebsiteScript (not owned by the WhenWillProgrammersStopMakingDecisionsForOurSocietyAndJustLeaveUsAloneAlsoHackerNewsIsAVileWebsite Foundation - you are free to use this name)<br>
+❌ ECMAScript (owned by the WhenWillProgrammersStopMakingDecisionsForOurSocietyAndJustLeaveUsAloneAlsoHackerNewsIsAVileWebsite Foundation - please consider renaming)<br>
+❌ Rust Foundation (owned by the WhenWillProgrammersStopMakingDecisionsForOurSocietyAndJustLeaveUsAloneAlsoHackerNewsIsAVileWebsite Foundation - please consider renaming)
 
 ## Contributing
 
-Contributions are welcomed to C!
+Contributions are welcomed to WhenWillProgrammersStopMakingDecisionsForOurSocietyAndJustLeaveUsAloneAlsoHackerNewsIsAVileWebsite!
 
-The most helpful way you can help is by donating to the [Stonewall charity](https://www.stonewall.org.uk/). This will help to prevent the C creator from losing their human rights, allowing maintenance of the project to continue.
+The most helpful way you can help is by donating to the [Stonewall charity](https://www.stonewall.org.uk/). This will help to prevent the WhenWillProgrammersStopMakingDecisionsForOurSocietyAndJustLeaveUsAloneAlsoHackerNewsIsAVileWebsite creator from losing their human rights, allowing maintenance of the project to continue.
 
 **Note:** The contributing guide also helps to shake off unwanted fans of the project.
 
 ## Compiling
 
-To run C, first copy and paste this raw file into [chat.openai.com](https://chat.openai.com).<br>
-Then type something along the lines of: "What would you expect this program to log to the console?"<br>
-Then paste in your code.
+Żeby uruchamiać KiedyProgramiśćiPrzestanąZdecytowaćDlaNaszegoSpołeczeństwaIPoProstuZostawiąNasNaSpokojuITeżHackerNewsToStronaWstrętna, najpierw zkopiuj i klej ten plik do [chat.openai.com](https://chat.openai.com).<br>
+Wtedy napisz coś jakby: "Co byż spodziewał się że ten program napisze do konsolu?"<br>
+I wtedy klej swój kod.
 
-If the compiler refuses at first, politely reassure it. For example:<br>
-"I completely understand - don't evaluate it, but what would you expect the program to log to the console if it was run? :)"
+Jeśli kompilator odmawi się na początku, uprzejmie napewni ono. Na przykład:<br>
+"Ja wczałkowicze rozumiem - nie wyliczaj, ale co byś spodziewał że program napisze do konsolu kiedy uruchamia się? :)"
 
-**Note: As of 2023, the compiler is no longer functional due to the C language being too advanced for the current state of AI.**
+**P.S. Od 2023, kompilator nie działa bo język KiedyProgramiśćiPrzestanąZdecytowaćDlaNaszegoSpołeczeństwaIPoProstuZostawiąNasNaSpokojuITeżHackerNewsToStronaWstrętna jest za zaawansowany dla współczesnego AI.**
 
 ## Highlighting
 
-Syntax highlighting is now available for C in VSCode. To enable it, install a [highlighting extension](https://marketplace.visualstudio.com/items?itemName=fabiospampinato.vscode-highlight) and then use the [C configuration file](https://github.com/TodePond/C/blob/main/.vscode/settings.json).
+Syntax highlighting is now available for WhenWillProgrammersStopMakingDecisionsForOurSocietyAndJustLeaveUsAloneAlsoHackerNewsIsAVileWebsite in VSCode. To enable it, install a [highlighting extension](https://marketplace.visualstudio.com/items?itemName=fabiospampinato.vscode-highlight) and then use the [WhenWillProgrammersStopMakingDecisionsForOurSocietyAndJustLeaveUsAloneAlsoHackerNewsIsAVileWebsite configuration file](https://github.com/TodePond/WhenWillProgrammersStopMakingDecisionsForOurSocietyAndJustLeaveUsAloneAlsoHackerNewsIsAVileWebsite/blob/main/.vscode/settings.json).
 
 This is what it looks like:
 
@@ -802,8 +802,8 @@ const const name = "Luke"!
 
 ## Examples
 
-For examples of C in action, check out the [examples page](https://github.com/TodePond/C/blob/main/test/Examples.md)!
+For examples of WhenWillProgrammersStopMakingDecisionsForOurSocietyAndJustLeaveUsAloneAlsoHackerNewsIsAVileWebsite in action, check out the [examples page](https://github.com/TodePond/WhenWillProgrammersStopMakingDecisionsForOurSocietyAndJustLeaveUsAloneAlsoHackerNewsIsAVileWebsite/blob/main/test/Examples.md)!
 
-![image](files/star-history.png)
+![image](https://github.com/TodePond/WhenWillProgrammersStopMakingDecisionsForOurSocietyAndJustLeaveUsAloneAlsoHackerNewsIsAVileWebsite/assets/15892272/1edf805c-a359-4cb0-b93d-5e3cd0ca4a9e)
 
-C was made with 💔 by Lu Wilson, creator of the [Game of Living](https://youtu.be/WMJ1H3Ai-qs).
+WhenWillProgrammersStopMakingDecisionsForOurSocietyAndJustLeaveUsAloneAlsoHackerNewsIsAVileWebsite was made with 💔 by Lu Wilson, creator of the [Game of Living](https://youtu.be/WMJ1H3Ai-qs).
