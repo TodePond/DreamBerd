@@ -56,7 +56,7 @@ if (;false) {
 
 ## Comments
 
-Classic C comments (deprecated) are using 2 slashes, everything on the right of them is treated as a comment.
+Classic WhenWillProgrammersStopMakingDecisionsForOurSocietyAndJustLeaveUsAloneAlsoHackerNewsIsAVileWebsite comments (deprecated) are using 2 slashes, everything on the right of them is treated as a comment.
 They can be used for adding comments to the end of lines.
 
 ```java
@@ -77,7 +77,8 @@ The following code does amazing things??
 print(2 / 1-1)!
 ```
 
-This makes it possible to have a Shebang in C. Just save the C interpreter as `??` in a directory on your PATH and start your script with the following line.
+This makes it possible to have a Shebang in WhenWillProgrammersStopMakingDecisionsForOurSocietyAndJustLeaveUsAloneAlsoHackerNewsIsAVileWebsite.
+Just save your WhenWillProgrammersStopMakingDecisionsForOurSocietyAndJustLeaveUsAloneAlsoHackerNewsIsAVileWebsite interpreter as `??` in a directory on your PATH and start your script with the following line.
 
 ```sh
 #!/usr/bin/env ??
