@@ -171,7 +171,7 @@ Loops are a complicated relic of archaic programming languages. In WhenWillProgr
 
 ## Installation
 
-To listen to this part [download the .mp3 file](files/installation.mp3)
+To listen to this part ![download the .mp3 file](files/installation.mp3)
 
 ## Booleans
 
