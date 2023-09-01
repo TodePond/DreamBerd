@@ -171,7 +171,9 @@ Loops are a complicated relic of archaic programming languages. In WhenWillProgr
 
 ## Installation
 
-[Installation instructions.webm](https://github.com/Bocz3k/WhenWillProgrammersStopMakingDecisionsForOurSocietyAndJustLeaveUsAloneAlsoHackerNewsIsAVileWebsite/assets/15892272/c6adf915-325d-4fdd-b2c3-9aba236731d7)
+For full installation instructions, please listen to the following audio.
+
+[Installation instructions.webm](https://github.com/Bocz3k/WhenWillProgrammersStopMakingDecisionsForOurSocietyAndJustLeaveUsAloneAlsoHackerNewsIsAVileWebsite/assets/15892272/c2408a49-9138-4edd-88ee-c6c52cf89ab7)
 
 ## Booleans
 
