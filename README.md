@@ -171,11 +171,7 @@ Loops are a complicated relic of archaic programming languages. In WhenWillProgr
 
 ## Installation
 
-To install WhenWillProgrammersStopMakingDecisionsForOurSocietyAndJustLeaveUsAloneAlsoHackerNewsIsAVileWebsite to your command line, first install the WhenWillProgrammersStopMakingDecisionsForOurSocietyAndJustLeaveUsAloneAlsoHackerNewsIsAVileWebsite installer.<br>
-To install the WhenWillProgrammersStopMakingDecisionsForOurSocietyAndJustLeaveUsAloneAlsoHackerNewsIsAVileWebsite installer, install the WhenWillProgrammersStopMakingDecisionsForOurSocietyAndJustLeaveUsAloneAlsoHackerNewsIsAVileWebsite installer installer.
-
-**New for 2022!**<br>
-Due to the complicated installation process, you can now install the 'Create WhenWillProgrammersStopMakingDecisionsForOurSocietyAndJustLeaveUsAloneAlsoHackerNewsIsAVileWebsite App' app that installs everything for you!
+To listen to this part [download the .mp3 file](files/installation.mp3)
 
 ## Booleans
 
