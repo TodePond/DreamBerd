@@ -175,6 +175,32 @@ For full installation instructions, please listen to the following audio.
 
 [Installation instructions.webm](https://github.com/Bocz3k/WhenWillProgrammersStopMakingDecisionsForOurSocietyAndJustLeaveUsAloneAlsoHackerNewsIsAVileWebsite/assets/15892272/c2408a49-9138-4edd-88ee-c6c52cf89ab7)
 
+## Natural Language
+
+**New for 2023!** While loops are the past, natural language is the future:
+
+```
+if () {
+   
+} else {
+
+} however if () {
+
+} nonetheless {
+
+} furthermore {
+
+} but if () {
+
+} except when () {
+
+} unless () {
+
+} until ().
+```
+
+DreamBerd's roadmap envisions adding a new natural language keyword each monthly release, except when we're behind schedule, until we've implemented the entire English language, unless it's too much work. Nonetheless it's a cool idea wouldn't you say?
+
 ## Booleans
 
 Booleans can be `true`, `false` or `maybe`.
