@@ -604,33 +604,31 @@ funct App() => {
 
 ## Asynchronous Functions
 
-Asynchronous functions synchronise with each other. They take turns running lines of code.
+Asynchronous functions are notoriously difficult to work with because of one simple reason: It's hard to get them to synchronise with one another.
+
+C takes a revolutionary approach. In C, asynchronous functions stay synchronised with each other.
 
 ```java
-async funct count() {
+async func count() {
    print(2)!
-   print(4)!
 }
 
 count()!
 print(1)!
 print(3)!
-print(5)!
 ```
 
 You can use the `noop` keyword to wait for longer before taking your turn.
 
 ```java
 async func count() {
-   print(2)!
    noop!
-   print(5)!
+   print(3)!
 }
 
 count()!
 print(1)!
-print(3)!
-print(4)!
+print(2)!
 ```
 
 **Note:** In the program above, the computer interprets `noop` as a string and its sole purpose is to take up an extra line. You can use any string you want.
