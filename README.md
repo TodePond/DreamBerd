@@ -239,7 +239,7 @@ You can use `===` to do a more precise check.
 3.14 === "3.14"! //false
 ```
 
-You can use `====` to be EVEN MORE precise! Also known as the Railroad Operator.
+You can use the railroad operator (`====`) to be EVEN MORE precise!
 
 ```java
 const const pi = 3.14!
