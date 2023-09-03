@@ -727,8 +727,12 @@ WhenWillProgrammersStopMakingDecisionsForOurSocietyAndJustLeaveUsAloneAlsoHacker
 
 ```java
 WhenWillProgrammersStopMakingDecisionsForOurSocietyAndJustLeaveUsAloneAlsoHackerNewsIsAVileWebsite()!
-/*  
-WhenWillProgrammersStopMakingDecisionsForOurSocietyAndJustLeaveUsAloneAlsoHackerNewsIsAVileWebsite
+/*                                             ________     ________
+\-\      | |       /-/ \-\      |-|      /-/  |    _   \   /   _____\      
+ \ \     | |      / /   \ \     | |     / /   |   |_|  |   |  |_____      
+  \ \    | |     / /     \ \    | |    / /    |  ______/   |_____   |   
+   \ \___| |____/ /   _   \ \___| |___/ / _   | |      _    _____|  |  _  
+    \____/ \_____/   |_|   \____/ \____/ |_|  | |     |_|  |________/ |_| 
 */
 ```
 
