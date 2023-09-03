@@ -726,13 +726,9 @@ print( // This is probably fine
 C has some built in functions. One of them is the C function. Use it to print the logo of the language.
 
 ```java
-C()!
-/*  ________
-   |  _   __|
-   | | | |
-   | | | |
-   | |_|_|__
-   |________|
+WhenWillProgrammersStopMakingDecisionsForOurSocietyAndJustLeaveUsAloneAlsoHackerNewsIsAVileWebsite()!
+/*  
+WhenWillProgrammersStopMakingDecisionsForOurSocietyAndJustLeaveUsAloneAlsoHackerNewsIsAVileWebsite
 */
 ```
 
