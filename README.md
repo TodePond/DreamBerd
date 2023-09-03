@@ -723,7 +723,7 @@ print( // This is probably fine
 
 ## Built In Functions
 
-C has some built in functions. One of them is the C function. Use it to print the logo of the language.
+WhenWillProgrammersStopMakingDecisionsForOurSocietyAndJustLeaveUsAloneAlsoHackerNewsIsAVileWebsite has some built in functions. One of them is the WhenWillProgrammersStopMakingDecisionsForOurSocietyAndJustLeaveUsAloneAlsoHackerNewsIsAVileWebsite function. Use it to print the logo of the language.
 
 ```java
 WhenWillProgrammersStopMakingDecisionsForOurSocietyAndJustLeaveUsAloneAlsoHackerNewsIsAVileWebsite()!
