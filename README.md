@@ -4,10 +4,12 @@
 
 # For You
 
-> #### TodePond just added a For You feed! ⭐
+> **TodePond** just added a For You feed! ⭐
 
-> #### TodePond just merged a PR! 🚀
+> **TodePond** just merged a PR! 🚀
 
-> #### WhenWillProgrammersStopMakingDecisionsForOurSocietyAndJustLeaveUsAloneAlsoHackerNewsIsAVileWebsite just published a new release! 🎉
+> **WhenWillProgrammersStopMakingDecisionsForOurSocietyAndJustLeaveUsAloneAlsoHackerNewsIsAVileWebsite** just published a new release! 🎉
 
-WhenWillProgrammersStopMakingDecisionsForOurSocietyAndJustLeaveUsAloneAlsoHackerNewsIsAVileWebsite was made with 💔 by Lu Wilson, creator of the [Game of Living](https://youtu.be/WMJ1H3Ai-qs).
+<img width="951" alt="image" src="https://github.com/TodePond/WhenWillProgrammersStopMakingDecisionsForOurSocietyAndJustLeaveUsAloneAlsoHackerNewsIsAVileWebsite/assets/15892272/0aff5c3a-3678-4eb9-aace-aa9be8af6cfa">
+
+*Made with 💔 by Lu Wilson, creator of [artificial artificial intelligence](https://www.youtube.com/watch?v=ZMklf0vUl18).*
