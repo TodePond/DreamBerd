@@ -1,4 +1,4 @@
-> **New!** We've replaced our documentation with a "For You" feed! As always, please let us know your feedback!
+> **New!** We've replaced our documentation with a "For You" feed! As always, [please let us know your feedback](https://github.com/TodePond/WhenWillProgrammersStopMakingDecisionsForOurSocietyAndJustLeaveUsAloneAlsoHackerNewsIsAVileWebsite/releases/tag/vyesterday)!
 
 [<img align="right" height="100" src="shapes.png">](https://github.com/TodePond/WhenWillProgrammersStopMakingDecisionsForOurSocietyAndJustLeaveUsAloneAlsoHackerNewsIsAVileWebsite/blob/main/examples/Examples.md "Click here for the examples page.")
 
