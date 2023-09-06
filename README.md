@@ -10,6 +10,6 @@ _**New!** We've replaced our documentation with a "For You" feed! As always, [pl
 
 > **WhenWillProgrammersStopMakingDecisionsForOurSocietyAndJustLeaveUsAloneAlsoHackerNewsIsAVileWebsite** just published a new release! 🎉
 
-<img width="951" alt="image" src="https://github.com/TodePond/WhenWillProgrammersStopMakingDecisionsForOurSocietyAndJustLeaveUsAloneAlsoHackerNewsIsAVileWebsite/assets/15892272/0aff5c3a-3678-4eb9-aace-aa9be8af6cfa">
+<img width="951" alt="image" src="https://github.com/TodePond/WhenWillProgrammersStopMakingDecisionsForOurSocietyAndJustLeaveUsAloneAlsoHackerNewsIsAVileWebsite/assets/15892272/0aff5c3a-3678-4eb9-aace-aa9be8af6cfa#gh-light-mode-only">
 
 *Made with 💔 by Lu Wilson, creator of [artificial artificial intelligence](https://www.youtube.com/watch?v=ZMklf0vUl18).*
