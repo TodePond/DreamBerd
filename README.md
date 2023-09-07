@@ -4,6 +4,8 @@ _**New!** We've replaced our documentation with a "For You" feed! As always, [pl
 
 # For You
 
+> **mybearworld** just contributed to the For You feed! 🐻
+
 > **TodePond** just added a For You feed! ⭐
 
 > **TodePond** just merged a PR! 🚀
