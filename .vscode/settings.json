@@ -3,7 +3,7 @@
   "editor.fontFamily": "Comic Sans MS",
   "editor.letterSpacing": -7,
   "editor.fontWeight": "bold",
-  "editor.lineHeight": 300,
+  "editor.lineHeight": 0.5,
   "editor.fontSize": 50,
   "files.associations": {
     "*": "plaintext"
