@@ -1,4 +1,14 @@
 {
+  "workbench.colorTheme": "Default High Contrast Light",
+  "editor.fontFamily": "Comic Sans MS",
+  "editor.letterSpacing": -7,
+  "editor.fontWeight": "bold",
+  "editor.lineHeight": 50,
+  "editor.fontSize": 50,
+  "files.associations": {
+    "*": "plaintext"
+  },
+
   "highlight.regexFlags": "gi",
   "highlight.regexes": {
     "(?= *[functio])( )*(f?u?n?c?t?i?o?n?)+( *)([^()\n ]+)( *\\()(.*?)(\\) +=>)": {
