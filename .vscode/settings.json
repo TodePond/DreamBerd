@@ -1,13 +1,6 @@
 {
   "workbench.colorTheme": "Default High Contrast Light",
   "editor.fontFamily": "Comic Sans MS",
-  "editor.letterSpacing": -7,
-  "editor.fontWeight": "bold",
-  "editor.lineHeight": 0.5,
-  "editor.fontSize": 50,
-  "files.associations": {
-    "*": "plaintext"
-  },
 
   "highlight.regexFlags": "gi",
   "highlight.regexes": {
