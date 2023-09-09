@@ -4,7 +4,7 @@ _**New!** We've replaced our documentation with a "For You" feed! As always, [pl
 
 # For You
 
-> **mybearworld** Improved the VSCode experience! 🐻
+> **mybearworld** improved the VSCode experience! 🐻
 
 > **TodePond** just added a For You feed! ⭐
 
