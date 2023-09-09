@@ -4,6 +4,8 @@ _**New!** We've replaced our documentation with a "For You" feed! As always, [pl
 
 # For You
 
+> **WhenWillProgrammersStopMakingDecisionsForOurSocietyAndJustLeaveUsAloneAlsoHackerNewsIsAVileWebsite** Now has monetization! 🎉
+
 > **loglot** updated the For You feed! 🔼
 
 > **mybearworld** Improved the VSCode experience! 🐻
@@ -20,3 +22,5 @@ _**New!** We've replaced our documentation with a "For You" feed! As always, [pl
 <img width="951" alt="image" src="files/266138395-d8a5700b-f74c-46a7-bae3-c25d7b645b8c.png#gh-dark-mode-only">
 
 *Made with 💔 by Lu Wilson, creator of [artificial artificial intelligence](https://www.youtube.com/watch?v=ZMklf0vUl18).*
+
+![image](https://github.com/loglot/WhenWillProgrammersStopMakingDecisionsForOurSocietyAndJustLeaveUsAloneAlsoHackerNewsIsAVileWebsi-fyp/assets/88983354/09578ae1-7370-4cf6-9fd3-9baa6ac69a92)
