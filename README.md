@@ -6,7 +6,7 @@ _**New!** We've replaced our documentation with a "For You" feed! As always, [pl
 
 > **loglot** updated the For You feed! 🔼
 
-> **mybearworld** Improved the VSCode experience! 🐻
+> **mybearworld** improved the VSCode experience! 🐻
 
 > **mybearworld** just contributed to the For You feed! 🐻
 
