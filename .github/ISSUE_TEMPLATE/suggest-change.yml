@@ -31,11 +31,14 @@ body:
       placeholder: This should be done because of code readability. The `+` operator may not be known to everyone reading the code, and discriminating against certain people is a bad practice. Therefore, we shouldn't even give users the option to do such a hurtful and harmul thing.
     validations:
       required: true
+  - type: markdown
+    attributes:
+      value: This is the [code of conduct](CODE_OF_CONDUCT.md).
   - type: checkboxes
     id: code
     attributes:
-      label: Have you read and agreed to the [code of conduct](CODE_OF_CONDUCT.md)?
-      description: Have you?
+      label: Please read and agree to the code of conduct above.
+      description: Have you done that?
       options:
         - label: I have read it.
           required: true

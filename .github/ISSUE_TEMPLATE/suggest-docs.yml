@@ -34,11 +34,14 @@ body:
       options:
         - label: It would not affect the language.
           required: true
+  - type: markdown
+    attributes:
+      value: This is the [code of conduct](CODE_OF_CONDUCT.md).
   - type: checkboxes
     id: code
     attributes:
-      label: Have you read and agreed to the [code of conduct](CODE_OF_CONDUCT.md)?
-      description: Have you?
+      label: Please read and agree to the code of conduct above.
+      description: Have you done that?
       options:
         - label: I have read it.
           required: true
