@@ -30,5 +30,15 @@ body:
       placeholder: This should be done because of code readability. The `+` operator may not be known to everyone reading the code, and discriminating against certain people is a bad practice.
     validations:
       required: true
+  - type: checkboxes
+    id: code
+    attributes:
+      label: Have you read and agreed to the [code of conduct](CODE_OF_CONDUCT.md)?
+      description: Have you?
+      options:
+        - label: I have read it.
+          required: true
+        - label: I agree to it.
+          required: true
 labels:
   - enhancement
