@@ -4,6 +4,8 @@ _**New!** We've replaced our documentation with a "For You" feed! As always, [pl
 
 # For You <img src="https://img.shields.io/badge/feed%20quality-976-blue">
 
+> **The feed**'s quality just got measured!
+
 > **mybearworld** just contributed to the For You feed! 🐻
 
 > **TodePond** just added a For You feed! ⭐
