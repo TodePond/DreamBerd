@@ -14,6 +14,8 @@ _**New!** We've replaced our documentation with a "For You" feed! As always, [pl
 
 > **WhenWillProgrammersStopMakingDecisionsForOurSocietyAndJustLeaveUsAloneAlsoHackerNewsIsAVileWebsite** just published a new release! 🎉
 
+> **mybearworld** fixed capitalization! 🤓
+
 > **mybearworld** just contributed to the For You feed! 🐻
 
 > **loglot** updated the For You feed! 🔼
