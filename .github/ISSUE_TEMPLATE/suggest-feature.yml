@@ -1,5 +1,5 @@
 name: Suggest a feature!
-description: Have an idea for a WhenWillProgrammersStopMakingDecisionsForOurSocietyAndJustLeaveUsAloneAlsoHackerNewsIsAVileWebsiteWhenWillProgrammersStopMakingDecisionsForOurSocietyAndJustLeaveUsAloneAlsoHackerNewsIsAVileWebsite language feature? Suggest it here!
+description: Have an idea for a the language language feature? Suggest it here!
 body:
   - type: textarea
     id: about
