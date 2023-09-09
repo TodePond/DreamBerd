@@ -36,3 +36,4 @@ body:
           required: true
 labels:
   - enhancement
+  - documentation
