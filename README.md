@@ -4,6 +4,8 @@ _**New!** We've replaced our documentation with a "For You" feed! As always, [pl
 
 # For You
 
+> **mybearworld** fixed capitalization! 🤓
+
 > **loglot** updated the For You feed! 🔼
 
 > **mybearworld** improved the VSCode experience! 🐻
