@@ -2,7 +2,9 @@ _**New!** We've replaced our documentation with a "For You" feed! As always, [pl
 
 [<img align="right" height="100" src="shapes.png">](https://github.com/TodePond/WhenWillProgrammersStopMakingDecisionsForOurSocietyAndJustLeaveUsAloneAlsoHackerNewsIsAVileWebsite/blob/main/examples/Examples.md "Click here for the examples page.")
 
-# For You
+# For You Feed
+
+> **radeeyate** just updated the For You feed! 🧪
 
 > **mybearworld** fixed capitalization! 🤓
 
@@ -17,8 +19,6 @@ _**New!** We've replaced our documentation with a "For You" feed! As always, [pl
 > **TodePond** just merged a PR! 🚀 
 
 > **WhenWillProgrammersStopMakingDecisionsForOurSocietyAndJustLeaveUsAloneAlsoHackerNewsIsAVileWebsite** just published a new release! 🎉
-
-> **radeeyate** just updated the For You feed! 🧪
  
 ```
 ╔═══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
@@ -28,7 +28,6 @@ _**New!** We've replaced our documentation with a "For You" feed! As always, [pl
 ║                                                                                                                                                                                           ║
 ║                                                                                                                                                                                           ║
 ║                                                                                           ╔═══╗                                                                                           ║
-║                                                                                           ║   ║                                                                                           ║
 ║                                                                                           ║   ║                                                                                           ║
 ║                                                                                         ╔═╩═══╩═╗                                                                                         ║
 ║                                                                                         ║  ╔═╗  ║                                                                                         ║
