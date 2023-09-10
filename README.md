@@ -4,6 +4,8 @@ _**New!** We've replaced our documentation with a "For You" feed! As always, [pl
 
 # For You
 
+> **mybearworld** localized WhenWillProgrammersStopMakingDecisionsForOurSocietyAndJustLeaveUsAloneAlsoHackerNewsIsAVileWebsite into German! 🌐
+
 > **mybearworld** fixed capitalization! 🤓
 
 > **loglot** updated the For You feed! 🔼
@@ -21,4 +23,4 @@ _**New!** We've replaced our documentation with a "For You" feed! As always, [pl
 <img width="951" alt="image" src="files/266134926-0aff5c3a-3678-4eb9-aace-aa9be8af6cfa.png#gh-light-mode-only">
 <img width="951" alt="image" src="files/266138395-d8a5700b-f74c-46a7-bae3-c25d7b645b8c.png#gh-dark-mode-only">
 
-*Made with 💔 by Lu Wilson, creator of [artificial artificial intelligence](https://www.youtube.com/watch?v=ZMklf0vUl18).*
+_Made with 💔 by Lu Wilson, creator of [artificial artificial intelligence](https://www.youtube.com/watch?v=ZMklf0vUl18)._
