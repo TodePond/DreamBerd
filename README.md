@@ -25,4 +25,4 @@ _**New!** We've replaced our documentation with a "For You" feed! As always, [pl
 
 *Made with 💔 by Lu Wilson, creator of [artificial artificial intelligence](https://www.youtube.com/watch?v=ZMklf0vUl18).*
 
-![image](https://github.com/loglot/WhenWillProgrammersStopMakingDecisionsForOurSocietyAndJustLeaveUsAloneAlsoHackerNewsIsAVileWebsi-fyp/assets/88983354/09578ae1-7370-4cf6-9fd3-9baa6ac69a92)
+![image](https://github.com/TodePond/WhenWillProgrammersStopMakingDecisionsForOurSocietyAndJustLeaveUsAloneAlsoHackerNewsIsAVileWebsite/blob/main/files/advertisement.jpg)
