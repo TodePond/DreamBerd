@@ -12,6 +12,8 @@ _**New!** We've replaced our documentation with a "For You" feed! As always, [pl
 
 > **TodePond** just merged a PR! 🚀
 
+> **loglot** fixed a change that **mybearworld** made to VSCode 
+
 > **WhenWillProgrammersStopMakingDecisionsForOurSocietyAndJustLeaveUsAloneAlsoHackerNewsIsAVileWebsite** just published a new release! 🎉
 
 > **mybearworld** fixed capitalization! 🤓
