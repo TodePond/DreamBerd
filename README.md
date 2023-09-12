@@ -6,15 +6,17 @@ _**New!** We've replaced our documentation with a "For You" feed! As always, [pl
 
 > **mybearworld** fixed capitalization! 🤓
 
-> **loglot** updated the For You feed! 🔼
+> **TodePond** just added a For You feed! ⭐
 
-> **mybearworld** improved the VSCode experience! 🐻
+> **loglot** greatly improved the VSCode experience! ⭐
 
 > **mybearworld** just contributed to the For You feed! 🐻
 
-> **TodePond** just added a For You feed! ⭐
-
 > **TodePond** just merged a PR! 🚀
+
+> **loglot** updated the For You feed! 🔼
+
+> **mybearworld** improved the VSCode experience! 🐻
 
 > **WhenWillProgrammersStopMakingDecisionsForOurSocietyAndJustLeaveUsAloneAlsoHackerNewsIsAVileWebsite** just published a new release! 🎉
 
