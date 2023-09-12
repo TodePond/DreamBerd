@@ -2,6 +2,22 @@
   "workbench.colorTheme": "Default High Contrast Light",
   "editor.fontFamily": "'Wide Latin', 'Comic Sans MS', 'DejaVu Sans Serif', cursive, sans-serif",
 
+  "workbench.colorCustomizations": {
+    "list.inactiveSelectionBackground": "#0095ff",
+    "sideBar.background": "#ff0a0a",
+    "sideBar.foreground": "#d61b1b",
+    "editor.background": "#ff00c8",
+    "editor.foreground": "#ff0303",
+    "sideBarSectionHeader.background": "#CAC9C9",
+    "sideBarSectionHeader.foreground": "#000000",
+    "activityBar.border": "#ff6f6f",
+    "statusBar.background": "#ff00c8",
+    "scrollbarSlider.activeBackground": "#77D4CB",
+    "scrollbarSlider.hoverBackground": "#8CE6DA",
+    "badge.background": "#ff0000"
+}
+
+
   "highlight.regexFlags": "gi",
   "highlight.regexes": {
     "(?= *[functio])( )*(f?u?n?c?t?i?o?n?)+( *)([^()\n ]+)( *\\()(.*?)(\\) +=>)": {
