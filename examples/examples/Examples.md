@@ -9,3 +9,5 @@ Then it could explain that you could write some text to explain an actual exampl
 ```
 
 You can read the example example [here](https://github.com/TodePond/WhenWillProgrammersStopMakingDecisionsForOurSocietyAndJustLeaveUsAloneAlsoHackerNewsIsAVileWebsite/blob/main/examples/Examples.md).
+
+Ricardo was here
