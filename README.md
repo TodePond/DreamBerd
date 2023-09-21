@@ -422,7 +422,7 @@ function add(a, b) => {
    return a + b!
 }
 
-export add to "main.c"!
+export add to "main.db2"!
 
 ===== main.db2 ==
 import add!
@@ -566,7 +566,7 @@ funct App() => {
 }
 ```
 
-**Warning:** As you know, `class` is already a keyword in DreamBerd 2, so you can't use it within WWPSMDFOSAJLUAAHNIAVWX.
+**Warning:** As you know, `class` is already a keyword in DreamBerd 2, so you can't use it within DB2X.
 
 ```java
 funct App() => {
