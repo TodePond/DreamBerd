@@ -13,6 +13,8 @@ But if you came here because you want to contribute to DreamBerd 2, here are som
 - Only poke fun at things you respect + admire.
 - Make us feel good.
 
+This is a pretty simple change just for this to work.
+
 -->
 
 > **New!** Announcing [DreamBerd 2](https://github.com/TodePond/DreamBerd/releases/tag/v2.0)!
