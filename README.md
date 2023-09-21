@@ -771,6 +771,6 @@ print(name)! // "Luke"
 
 For examples of DreamBerd 2 in action, check out the [examples page](https://github.com/TodePond/DreamBerd/blob/main/test/Examples.md)!
 
-![image](https://github.com/TodePond/DreamBerd/assets/15892272/1edf805c-a359-4cb0-b93d-5e3cd0ca4a9e)
+![image](files/star-history.png)
 
 DreamBerd 2 was made with 💔 by Lu Wilson, creator of the [Game of Living](https://youtu.be/WMJ1H3Ai-qs).
