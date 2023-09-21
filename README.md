@@ -15,7 +15,7 @@ But if you came here because you want to contribute to DreamBerd 2, here are som
 
 -->
 
-> **New!** Announcing [DreamBerd 2]()!
+> **New!** Announcing [DreamBerd 2](https://github.com/TodePond/DreamBerd/releases/tag/v2.0)!
 
 [<img align="right" height="100" src="shapes.png">](https://github.com/TodePond/DreamBerd/blob/main/examples/Examples.md "Click here for the examples page.")
 
