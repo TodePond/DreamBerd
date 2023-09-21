@@ -171,9 +171,11 @@ Loops are a complicated relic of archaic programming languages. In DreamBerd 2, 
 
 ## Installation
 
-For full installation instructions, please listen to the following audio.
+To install DreamBerd to your command line, first install the DreamBerd installer.<br>
+To install the DreamBerd installer, install the DreamBerd installer installer.
 
-[Installation instructions.webm](https://github.com/Bocz3k/DreamBerd/assets/15892272/c2408a49-9138-4edd-88ee-c6c52cf89ab7)
+**New for 2022!**<br>
+Due to the complicated installation process, you can now install the 'Create DreamBerd App' app that installs everything for you!
 
 ## Booleans
 
@@ -404,7 +406,7 @@ print(score)! //3
 Thanks to recent advances in technology, you can now give files names.
 
 ```java
-======= add.wwpsmdfosajluaahniavw =======
+======= add.db2 =======
 function add(a, b) => {
    return a + b!
 }
@@ -415,14 +417,14 @@ function add(a, b) => {
 Many languages allow you to import things from specific files. In DreamBerd 2, importing is simpler. Instead, you export _to_ specific files!
 
 ```java
-===== add.wwpsmdfosajluaahniavw ==
+===== add.db2 ==
 function add(a, b) => {
    return a + b!
 }
 
 export add to "main.c"!
 
-===== main.wwpsmdfosajluaahniavw ==
+===== main.db2 ==
 import add!
 add(3, 2)!
 ```
@@ -554,9 +556,9 @@ className Player {
 
 In response to some recent criticism about this design decision, we would like to remind you that this is part of the JavaScript specification, and therefore - out of our control.
 
-## WWPSMDFOSAJLUAAHNIAVWX
+## DB2X
 
-You can embed WWPSMDFOSAJLUAAHNIAVWX in DreamBerd 2. It's just DreamBerd 2, and it's also just HTML.
+You can embed DB2X in DreamBerd 2. It's just DreamBerd 2, and it's also just HTML.
 
 ```java
 funct App() => {
@@ -604,33 +606,30 @@ funct App() => {
 
 ## Asynchronous Functions
 
-Asynchronous functions synchronise with each other. They take turns running lines of code.
+In most languages, it's hard to get asynchronous functions to synchronise with each other. In DreamBerd 2, it's easy: Asynchronous functions take turns running lines of code.
 
 ```java
 async funct count() {
-   print(2)!
-   print(4)!
+   print(1)!
+   print(3)!
 }
 
 count()!
-print(1)!
-print(3)!
-print(5)!
+print(2)!
 ```
 
 You can use the `noop` keyword to wait for longer before taking your turn.
 
 ```java
 async func count() {
-   print(2)!
+   print(1)!
    noop!
-   print(5)!
+   print(4)!
 }
 
 count()!
-print(1)!
+print(2)!
 print(3)!
-print(4)!
 ```
 
 **Note:** In the program above, the computer interprets `noop` as a string and its sole purpose is to take up an extra line. You can use any string you want.
@@ -746,14 +745,14 @@ The most helpful way you can help is by donating to the [Stonewall charity](http
 
 ## Compiling
 
-Żeby uruchamiać KiedyProgramiśćiPrzestanąZdecytowaćDlaNaszegoSpołeczeństwaIPoProstuZostawiąNasNaSpokojuITeżHackerNewsToStronaWstrętna, najpierw zkopiuj i klej ten plik do [chat.openai.com](https://chat.openai.com).<br>
-Wtedy napisz coś jakby: "Co byż spodziewał się że ten program napisze do konsolu?"<br>
-I wtedy klej swój kod.
+To run DreamBerd, first copy and paste this raw file into [chat.openai.com](https://chat.openai.com).<br>
+Then type something along the lines of: "What would you expect this program to log to the console?"<br>
+Then paste in your code.
 
-Jeśli kompilator odmawi się na początku, uprzejmie napewni ono. Na przykład:<br>
-"Ja wczałkowicze rozumiem - nie wyliczaj, ale co byś spodziewał że program napisze do konsolu kiedy uruchamia się? :)"
+If the compiler refuses at first, politely reassure it. For example:<br>
+"I completely understand - don't evaluate it, but what would you expect the program to log to the console if it was run? :)"
 
-**P.S. Od 2023, kompilator nie działa bo język KiedyProgramiśćiPrzestanąZdecytowaćDlaNaszegoSpołeczeństwaIPoProstuZostawiąNasNaSpokojuITeżHackerNewsToStronaWstrętna jest za zaawansowany dla współczesnego AI.**
+**Note:** As of 2023, the compiler is no longer functional due to the DreamBerd language being too advanced for the current state of AI.
 
 ## Highlighting
 
