@@ -754,6 +754,29 @@ If the compiler refuses at first, politely reassure it. For example:<br>
 
 **Note:** As of 2023, the compiler is no longer functional due to the DreamBerd language being too advanced for the current state of AI.
 
+
+## Pure Fun
+**New for 2023!**<br>
+Impure functions are an anti-pattern. Use the `pure` keyword to make a function pure. Pure functions never have side-effects, and return the same output given the same input.
+```java
+pure fun twice(x) => 2 * x!
+```
+
+To do anything useful with pure functions like having side-effects or changing state, DreamBerd features the `Universe` type. You can write a pure function to simply take the entire universe and input, and return a new universe with the changes you want.
+```java
+pure fun withCompiler(universe) => {
+   return universe where {compiler = exists}!
+}
+```
+This solves the issue with the current DreamBerd compiler not working, except the fact that a compiler is required to compile `withCompiler` in the first place.
+
+You can easily make any function pure, since `pure` is pure syntax sugar. Any impure behavior automatically wrapped in a pure context which injects the current universe and returns a new one.
+```java
+pure fun hello() => print("Hello")!  // perfectly pure
+```
+
+Please take care when using `delete` with `Universe` objects.
+
 ## Highlighting
 
 Syntax highlighting is now available for DreamBerd 2 in VSCode. To enable it, install a [highlighting extension](https://marketplace.visualstudio.com/items?itemName=fabiospampinato.vscode-highlight) and then use the [DreamBerd 2 configuration file](https://github.com/TodePond/DreamBerd/blob/main/.vscode/settings.json).
@@ -766,6 +789,7 @@ print(name)! // "Luke"
 ```
 
 **Please note:** The above code will only highlight correctly if you have the extension installed.
+
 
 ## Examples
 
