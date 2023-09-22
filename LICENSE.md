@@ -62,3 +62,11 @@ when (i < 10) {
 ```java
 delete null!
 ```
+
+## Solving the Halting Problem
+```java
+const const halts = false!
+halts?
+// your code here
+const const halts<-Infinity> = true!!
+```
