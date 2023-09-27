@@ -767,6 +767,32 @@ print(name)! // "Luke"
 
 **Please note:** The above code will only highlight correctly if you have the extension installed.
 
+## Parentheses
+
+Wait, I almost forgot!
+
+Parentheses in DreamBerd do nothing. They get replaced with whitespace.<br>
+The following lines of code all do the same thing.
+
+```java
+add(3, 2)!
+add 3, 2!
+(add (3, 2))!
+add)3, 2(!
+```
+
+Lisp lovers will love this feature. Use as many parentheses as you want!
+
+```java
+(add (3, (add (5, 6))))!
+```
+
+Lisp haters will also love it.
+
+```java
+(add (3, (add (5, 6)!
+```
+
 ## Examples
 
 For examples of DreamBerd 2 in action, check out the [examples page](https://github.com/TodePond/DreamBerd/blob/main/test/Examples.md)!
