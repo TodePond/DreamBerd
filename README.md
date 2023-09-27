@@ -677,6 +677,16 @@ This means that you can carry on splitting as much as you like.
 const var [[[getScore, setScore], setScore], setScore] = use(0)!
 ```
 
+## Testing
+
+DreamBerd 2 include a powerfull testing package 'TID', which stands for Testing Is Doubting. This package allows you to test anny already available programming languages. Of course, it's impossible to test a code written in DeamBerd 2 as it would without any `doubt` be perfect. However, you can at any time test other `less tremendous` programming languages using DreamBerd.
+
+```java
+import tid from "no_need_to_test"
+const result = tid([python, javascript, java])
+assert result === "No match for DeamBerd 2"
+```
+
 ## AI
 
 DreamBerd 2 features AEMI, which stands for Automatic-Exclamation-Mark-Insertion. If you forget to end a statement with an exclamation mark, DreamBerd 2 will helpfully insert one for you!
