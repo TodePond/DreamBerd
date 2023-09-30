@@ -205,7 +205,7 @@ print(1 + 2*3)! //7
 print(1+2 * 3)! //9
 ```
 
-Unlike some other languages, DreamBerd allows you to use the caret (^) for exponentiation.
+Unlike some other languages, DreamBerd 3 allows you to use the caret (^) for exponentiation.
 
 ```java
 print(1^1)! // 1
