@@ -5,17 +5,14 @@ If you're reading this then you might be looking for the hidden examples page...
 CONGRATULATIONS! You found it!
 Here it is: https://github.com/TodePond/DreamBerd/blob/main/res/res/Examples.md
 
-
-
 But if you came here because you want to contribute to DreamBerd 3, here are some tips on how to get your PR successfully merged.
 
 - Always punch up.
-- Only poke fun at things you respect + admire.
 - Make us feel good.
 
 -->
 
-> **New!** Announcing [DreamBerd 3](https://github.com/TodePond/DreamBerd/releases/tag/v3.0)!
+> **New:** [Invest in DreamBerd!](https://github.com/TodePond/DreamBerd/releases/tag/v%24.%24)
 
 [<img align="right" height="100" src="shapes.png">](https://github.com/TodePond/DreamBerd/blob/main/examples/Examples.md "Click here for the examples page.")
 
