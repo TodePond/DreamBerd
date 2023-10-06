@@ -533,11 +533,33 @@ print(name)! // "Lu"
 You can reverse the direction of your code.
 
 ```java
-const const message = "Hello"!
-print(message)!
-const const message = "world"!
-reverse!
+}
+   print(message)
+function printMessage(message) => {
+reverse()!
 ```
+
+By default, the reversed code will run vertically. You can specify the direction by adding an array of reverse directions. The values will be stacked and processed from right-to-left.
+
+Supported values are `vertical`, `horizontal`, and `mirror`. Don't forget to keep the indentation when reversing. (Brackets must be reversed accordingly)
+
+```java
+// horizontal + vertical
+                                   }
+                   )egassem(tnirp  
+     { >= )egassem(egasseMtnirp cnuf
+!)]'lacitrev' ,'latnoziroh'[(esrever
+
+===================================
+// flipVertical
+{
+   (ǝɓɐssǝɯ)ʇuᴉɹd
+} <= (ǝɓɐssǝɯ)ǝɓɐssǝWʇuᴉɹd uoᴉʇɔunɟ
+([ˌɹoɹɹᴉɯˌ])ǝsɹǝʌǝɹ
+
+```
+
+We are currently working to support code rotations as well.
 
 ## Class Names
 
@@ -673,6 +695,18 @@ This means that you can carry on splitting as much as you like.
 ```java
 const var [[[getScore, setScore], setScore], setScore] = use(0)!
 ```
+
+## Try-catch blocks
+
+Following the return early practice, you can catch exceptions early for better readibility.
+
+```java
+catch {
+   print("an exception occured")!
+} try {
+   await loadData()!
+}
+``
 
 ## AI
 
