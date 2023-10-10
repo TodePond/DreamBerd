@@ -109,6 +109,27 @@ const const 5 = 4!
 print(2 + 2 === 5)! //true
 ```
 
+## Printing
+
+You may have noticed that DreamBerd 3 uses the `print` function to output things.
+
+```java
+print("Hello, world!")! // Hello, world!
+```
+
+However, to improve the experience for people coming from other languages, DreamBerd 3 allows for some alternatives.
+
+```java
+// Rust
+println!(4)! // ----
+println!(17)! // -----------------
+println!(-4)!----
+
+// JavaScript
+console.log("Hello, world!")! // 🪵
+console.log(123)! // 🪵
+```
+
 ## Arrays
 
 Some languages start arrays at `0`, which can be unintuitive for beginners. Some languages start arrays at `1`, which isn't representative of how the code actually works. DreamBerd 3 does the best of both worlds: Arrays start at `-1`.
