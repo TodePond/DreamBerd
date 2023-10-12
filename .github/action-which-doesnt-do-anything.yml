@@ -1,7 +1,0 @@
-name: CI
-on: [push]
-jobs:
-  # This exists only to show the green checkmark on the repo
-  # green = "good" || "secure"
-  action-which-doesnt-do-anything:
-    runs-on: ubuntu-latest
