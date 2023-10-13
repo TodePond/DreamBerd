@@ -62,3 +62,8 @@ when (i < 10) {
 ```java
 delete null!
 ```
+
+## Autocomplete Example
+```java
+c
+```
