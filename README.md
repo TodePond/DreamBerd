@@ -12,7 +12,7 @@ But if you came here because you want to contribute to DreamBerd 3, here are som
 
 -->
 
-> **New:** [Our first investor email](https://github.com/TodePond/DreamBerd/releases/tag/v181.81)
+> **New:** [Announcing our £460 pre-seed](https://github.com/TodePond/DreamBerd/releases/tag/v460.18)
 
 [<img align="right" height="100" src="shapes.png">](https://github.com/TodePond/DreamBerd/blob/main/examples/Examples.md "Click here for the examples page.")
 
