@@ -2,4 +2,4 @@
 
 Thank you for investing in DreamBerd!
 
-An announcement will be posted soon.
+Read the full announcement [here](https://github.com/TodePond/DreamBerd/releases/tag/v460.18).
