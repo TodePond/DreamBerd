@@ -51,8 +51,9 @@
 |14 October at 11:13AM GMT+1|£13.37                       |
 
 # Liberapay investors
+
 |Name|Amount|
-|--|--|
+|---|---|
 |Joshix|£1.15|
 
 # Total
