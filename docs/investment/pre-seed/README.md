@@ -50,13 +50,13 @@
 |14 October at 11:04AM GMT+1|£20.00                       |
 |14 October at 11:13AM GMT+1|£13.37                       |
 
-# Liberapay investors
+## Liberapay investors
 
 |Name|Amount|
 |---|---|
 |Joshix|£1.15|
 
-# Total
+## Total
 
 From investors: £461.33<br>
 Top-up from Lu Wilson: £38.67
