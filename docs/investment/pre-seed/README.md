@@ -50,6 +50,14 @@
 |14 October at 11:04AM GMT+1|£20.00                       |
 |14 October at 11:13AM GMT+1|£13.37                       |
 
+# Liberapay investors
+|Name|Amount|
+|--|--|
+|Joshix|£1.15|
+
 # Total
 
-£460.18
+From investors: £461.33<br>
+Top-up from Lu Wilson: £38.67
+
+<img width="1237" alt="Screenshot 2023-10-25 at 11 01 05" src="https://github.com/TodePond/DreamBerd/assets/15892272/169df06a-e720-4446-9b81-2c97441affc7">
