@@ -54,11 +54,13 @@
 
 |Name|Amount|
 |---|---|
-|Joshix|£1.15|
+|Joshix|€69|
 
 ## Total
 
 From investors: £461.33<br>
 Top-up from Lu Wilson: £38.67
+
+Still need to donate approximately €69 to balance the books.
 
 <img width="1237" alt="Screenshot 2023-10-25 at 11 01 05" src="https://github.com/TodePond/DreamBerd/assets/15892272/169df06a-e720-4446-9b81-2c97441affc7">
