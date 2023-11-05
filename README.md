@@ -204,6 +204,26 @@ print(1 + 2*3)! //7
 print(1+2 * 3)! //9
 ```
 
+## Arithmetic Assignment Operators
+DreamBerd supports arithmetic assignment operators `(+=, -=, /=, *=)`, but only for strings. Support for numbers is not being considered at this time. 
+```java
+var var animal1 = "Elephant"!
+animal1 += "Rhino"!
+print(animal1)! //Elephino
+
+var var animal2 = "Platypus"!
+animal2 -= "Duck"!
+print(animal2)! //Beaver
+
+var var animal3 = "Octopus"!
+animal3 *= 2!
+print(animal3)! //Octopi
+
+var var animal4 = "Worm"!
+animal4 /= 2!
+print(animal4)! //Worm
+```
+
 ## Indents
 
 When it comes to indentation, DreamBerd 3 strikes a happy medium that can be enjoyed by everyone: All indents must be 3 spaces long.
