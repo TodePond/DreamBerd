@@ -14,7 +14,7 @@ todepond woz here
 
 -->
 
-> **New:** [The truth about DreamBerd](https://github.com/TodePond/DreamBerd/releases/tag/vNaN.NaN)
+> **New:** [The REAL truth about DreamBerd](https://github.com/TodePond/DreamBerd/releases/tag/vaN.aN)
 
 [<img align="right" height="100" src="shapes.png">](https://github.com/TodePond/DreamBerd/blob/main/examples/Examples.md "Click here for the examples page.")
 
