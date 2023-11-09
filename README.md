@@ -114,14 +114,12 @@ print(2 + 2 === 5)! //true
 ## Semantic naming
 **New for late 2023!**<br>
 Many programmers already use the type of a variable as part of their naming scheme.  
-DreamBerd takes inspiration from it and goes one step further:   
-Type-mentions inside variable names are used to determine its type.   
-Utilizing the deeply integrated usage of `!` and `?` you can choose the type of enforcement for each variable assignment.  
-You can use all common names for types known from other languages.  
+DreamBerd takes inspiration from this and goes one step further:   
+Type-mentions inside variable names are used to determine their type.   
 
 ```java
 const const myStrArray = "abc"!          // ["abc"]
-const const myCharVector = "abc"!        // ["a", "b", "c"]
+const const a3s1letters = "abc"!         // ["a", "b", "c"] (support for hungarian notation!)
 const const intList = ["3", "2", "5"]!!  // raises exception due to wrong type
 const const aNumber = "3"?               // asks during runtime what type to use
 ```
