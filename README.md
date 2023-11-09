@@ -204,6 +204,13 @@ print(1 + 2*3)! //7
 print(1+2 * 3)! //9
 ```
 
+Unlike some other languages, DreamBerd 3 allows you to use the caret (^) for exponentiation.
+
+```java
+print(1^1)! // 1
+print(2^3)! // 8
+```
+
 ## Indents
 
 When it comes to indentation, DreamBerd 3 strikes a happy medium that can be enjoyed by everyone: All indents must be 3 spaces long.
