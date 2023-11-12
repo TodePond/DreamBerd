@@ -394,6 +394,8 @@ after ("click") score++!
 print(await next score)! //6 (when you click)
 ```
 
+Keep in mind that time travel can be very dangerous (many paradoxes could collapse the Universe) so please be careful while using this feature for the safety of others.
+
 ## File Structure
 
 Write five or more equals signs to start a new file. This removes the need for multiple files or any build process.
