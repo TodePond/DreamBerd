@@ -266,12 +266,6 @@ If you want to be much less precise, you can use `=`.
 3 = 3.14! //true
 ```
 
-You can also be a lot less precise by using `||`
-
-```java
-3 || 2! //true
-```
-
 ## Functions
 
 To declare a function, you can use any letters from the word `function` (as long as they're in order):
