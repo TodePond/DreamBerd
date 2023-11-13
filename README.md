@@ -211,6 +211,12 @@ print(1^1)! // 1
 print(2^3)! // 8
 ```
 
+You can also use the number name, for example:
+
+```java
+print(one+two)! //3
+```
+
 ## Indents
 
 When it comes to indentation, DreamBerd 3 strikes a happy medium that can be enjoyed by everyone: All indents must be 3 spaces long.
@@ -392,6 +398,13 @@ Similarly, the `next` keyword lets you see into the future!
 const var score = 5!
 after ("click") score++!
 print(await next score)! //6 (when you click)
+```
+
+Additionally, the `current` keyword lets you see into the present!!
+
+```java
+const var score = 5!
+print(current score)! //5
 ```
 
 ## File Structure
