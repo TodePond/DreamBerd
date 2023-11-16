@@ -756,6 +756,8 @@ Here are some examples:<br>
 
 ## Contributing
 
+> If you are an influencer, streamer, or content-creator... you must <ins>not</ins> skip this section during your read-through.
+
 Contributions are welcomed to DreamBerd 3!
 
 The most helpful way you can help is by donating to the [Stonewall charity](https://www.stonewall.org.uk/). This will help to prevent the DreamBerd 3 creator from losing their human rights, allowing maintenance of the project to continue.
