@@ -63,4 +63,4 @@ Top-up from Lu Wilson: £38.67
 
 Still need to donate approximately €69 to balance the books.
 
-<img width="1237" alt="Screenshot 2023-10-25 at 11 01 05" src="https://github.com/TodePond/DreamBerd/assets/15892272/169df06a-e720-4446-9b81-2c97441affc7">
+<img width="1237" alt="receipt of the above payments" src="receipt-2.png">
