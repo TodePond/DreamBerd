@@ -111,21 +111,6 @@ const const 5 = 4!
 print(2 + 2 === 5)! //true
 ```
 
-## Semantic naming
-**New for late 2023!**<br>
-Many programmers already use the type of a variable as part of their naming scheme.  
-DreamBerd takes inspiration from this and goes one step further:   
-Type-mentions inside variable names are used to determine their type.   
-
-```java
-const const myStrArray = "abc"!          // ["abc"]
-const const arr3str1letters = "abc"!     // ["a", "b", "c"] (support for hungarian notation!)
-const const intList = ["3", "2", "5"]!   // [3, 2, 5]
-const const intList = ["3", "2", "5"]!!  // raises exception due to wrong type
-const const aNumber = "3"?               // asks during runtime what type to use
-```
-
-
 ## Arrays
 
 Some languages start arrays at `0`, which can be unintuitive for beginners. Some languages start arrays at `1`, which isn't representative of how the code actually works. DreamBerd 3 does the best of both worlds: Arrays start at `-1`.
@@ -616,6 +601,22 @@ funct App() => {
       <input id="name" />
    )
 }
+```
+
+## Semantic naming
+
+DreamBerd 3 supports semantic naming.
+
+```java
+const const sName = "Lu"!
+const const iAge = 29!
+const const bHappy = true!
+```
+
+**New for 2023:** You can now make globals.
+
+```java
+const const g_fScore = 4.5!
 ```
 
 ## Asynchronous Functions
