@@ -623,6 +623,22 @@ funct App() => {
 }
 ```
 
+## Semantic naming
+
+DreamBerd 3 supports semantic naming.
+
+```java
+const const sName = "Lu"!
+const const iAge = 29!
+const const bHappy = true!
+```
+
+**New for 2023:** You can now make globals.
+
+```java
+const const g_fScore = 4.5!
+```
+
 ## Asynchronous Functions
 
 In most languages, it's hard to get asynchronous functions to synchronise with each other. In DreamBerd 3, it's easy: Asynchronous functions take turns running lines of code.
