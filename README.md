@@ -14,7 +14,7 @@ todepond woz here
 
 -->
 
-> **New:** [The REAL truth about DreamBerd](https://github.com/TodePond/DreamBerd/releases/tag/vaN.aN)
+> **New:** [DreamBerd has been renamed to nDreamBerd](https://github.com/TodePond/nDreamBerd/releases/tag/vv1.0)
 
 [<img align="right" height="100" src="shapes.png">](https://github.com/TodePond/DreamBerd/blob/main/examples/Examples.md "Click here for the examples page.")
 
