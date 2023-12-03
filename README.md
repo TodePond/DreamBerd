@@ -159,6 +159,23 @@ We've added a new type of `ownership transfer` for NFT keys. It is done by hirin
 const const $nftIdentDontLeakOrYouWillBeFired = '...'!!!!!!!!!!!
 ```
 
+**New for 2023.92!**<br>
+Same for [string interpolation](https://github.com/TodePond/nDreamBerd#string-interpolation) part, you can now use different kind of dollar symbols to denote ownership transfer now. This can cause your NFT properties change their values.
+
+```java
+const const £normalNFT = '...'!
+const const big$NFT = '...'!
+const const ¥largeNFT = '...'!
+const const ﷼hugeNFT = '...'!
+```
+
+Uhh... sorry, the example above is wrong. Only cryptocurrency symbols can be used.
+
+```java
+const const ΞmoleculeNFT = '...'!
+const const ₿atomNFT = '...'!
+```
+
 ## Lifetimes
 
 DreamBerd 3 has a built-in garbage collector that will automatically clean up unused variables. However, if you want to be extra careful, you can specify a lifetime for a variable, with a variety of units.
