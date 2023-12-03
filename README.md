@@ -3,28 +3,27 @@
 If you're reading this then you might be looking for the hidden examples page...
 
 CONGRATULATIONS! You found it!
-Here it is: https://github.com/TodePond/C/blob/main/res/res/Examples.md
+Here it is: https://github.com/TodePond/DreamBerd/blob/main/res/res/Examples.md
 
-
-
-But if you came here because you want to contribute to C, here are some tips on how to get your PR successfully merged.
+But if you came here because you want to contribute to DreamBerd 3, here are some tips on how to get your PR successfully merged.
 
 - Always punch up.
-- Only poke fun at things you respect + admire.
 - Make us feel good.
+
+todepond woz here
 
 -->
 
-> **New!** We are pleased to announce that DreamBerd has been renamed to C.
+> **New:** [DreamBerd has been renamed to nDreamBerd](https://github.com/TodePond/nDreamBerd/releases/tag/vv1.0)
 
-[<img align="right" height="100" src="c.png">](https://github.com/TodePond/C/blob/main/examples/Examples.md "Click here for the examples page.")
+[<img align="right" height="100" src="shapes.png">](https://github.com/TodePond/DreamBerd/blob/main/examples/Examples.md "Click here for the examples page.")
 
-# C
+# DreamBerd 3
 
 ![Coverage](badges/coverage-109.svg)
 
-C is a perfect programming language. These are its features!<br>
-When you've finished reading through all the features, check out the [examples](https://github.com/TodePond/C/blob/main/Examples.md).
+DreamBerd 3 is a perfect programming language. These are its features!<br>
+When you've finished reading through all the features, check out the [examples](https://github.com/TodePond/DreamBerd/blob/main/Examples.md).
 
 ## Exclamation Marks!
 
@@ -46,7 +45,7 @@ If you're unsure, that's ok. You can put a question mark at the end of a line in
 print("Hello world")?
 ```
 
-You might be wondering what C uses for the 'not' operator, which is an exclamation mark in most other languages. That's simple - the 'not' operator is a semi-colon instead.
+You might be wondering what DreamBerd 3 uses for the 'not' operator, which is an exclamation mark in most other languages. That's simple - the 'not' operator is a semi-colon instead.
 
 ```java
 if (;false) {
@@ -114,7 +113,7 @@ print(2 + 2 === 5)! //true
 
 ## Arrays
 
-Some languages start arrays at `0`, which can be unintuitive for beginners. Some languages start arrays at `1`, which isn't representative of how the code actually works. C does the best of both worlds: Arrays start at `-1`.
+Some languages start arrays at `0`, which can be unintuitive for beginners. Some languages start arrays at `1`, which isn't representative of how the code actually works. DreamBerd 3 does the best of both worlds: Arrays start at `-1`.
 
 ```java
 const const scores = [3, 2, 5]!
@@ -162,7 +161,7 @@ const const $nftIdentDontLeakOrYouWillBeFired = '...'!!!!!!!!!!!
 
 ## Lifetimes
 
-C has a built-in garbage collector that will automatically clean up unused variables. However, if you want to be extra careful, you can specify a lifetime for a variable, with a variety of units.
+DreamBerd 3 has a built-in garbage collector that will automatically clean up unused variables. However, if you want to be extra careful, you can specify a lifetime for a variable, with a variety of units.
 
 ```java
 const const name<2> = "Luke"! //lasts for two lines
@@ -184,15 +183,15 @@ const const name<-1> = "Luke"!
 
 ## Loops
 
-Loops are a complicated relic of archaic programming languages. In C, there are no loops.
+Loops are a complicated relic of archaic programming languages. In DreamBerd 3, there are no loops.
 
 ## Installation
 
-To install C to your command line, first install the C installer.<br>
-To install the C installer, install the C installer installer.
+To install DreamBerd to your command line, first install the DreamBerd installer.<br>
+To install the DreamBerd installer, install the DreamBerd installer installer.
 
 **New for 2022!**<br>
-Due to the complicated installation process, you can now install the 'Create C App' app that installs everything for you!
+Due to the complicated installation process, you can now install the 'Create DreamBerd App' app that installs everything for you!
 
 ## Booleans
 
@@ -215,20 +214,33 @@ function isKeyDown(key) => {
 
 ## Arithmetic
 
-C has significant whitespace. Use spacing to specify the order of arithmetic operations.
+DreamBerd 3 has significant whitespace. Use spacing to specify the order of arithmetic operations.
 
 ```java
 print(1 + 2*3)! //7
 print(1+2 * 3)! //9
 ```
 
+Unlike some other languages, DreamBerd 3 allows you to use the caret (^) for exponentiation.
+
+```java
+print(1^1)! // 1
+print(2^3)! // 8
+```
+
+You can also use the number name, for example:
+
+```java
+print(one+two)! //3
+```
+
 ## Indents
 
-When it comes to indentation, C strikes a happy medium that can be enjoyed by everyone: All indents must be 3 spaces long.
+When it comes to indentation, DreamBerd 3 strikes a happy medium that can be enjoyed by everyone: All indents must be 3 spaces long.
 
 ```java
 function main() => {
-   print("C is the future")!
+   print("DreamBerd 3 is the future")!
 }
 ```
 
@@ -236,13 +248,13 @@ function main() => {
 
 ```java
    function main() => {
-print("C is the future")!
+print("DreamBerd 3 is the future")!
    }
 ```
 
 ## Equality
 
-JavaScript lets you do different levels of comparison. `==` for loose comparison, and `===` for a more precise check. C takes this to another level.
+JavaScript lets you do different levels of comparison. `==` for loose comparison, and `===` for a more precise check. DreamBerd 3 takes this to another level.
 
 You can use `==` to do a loose check.
 
@@ -405,6 +417,13 @@ after ("click") score++!
 print(await next score)! //6 (when you click)
 ```
 
+Additionally, the `current` keyword lets you see into the present!!
+
+```java
+const var score = 5!
+print(current score)! //5
+```
+
 ## File Structure
 
 Write five or more equals signs to start a new file. This removes the need for multiple files or any build process.
@@ -423,7 +442,7 @@ print(score)! //3
 Thanks to recent advances in technology, you can now give files names.
 
 ```java
-======= add.c =======
+======= add.db3 =======
 function add(a, b) => {
    return a + b!
 }
@@ -431,22 +450,22 @@ function add(a, b) => {
 
 ## Exporting
 
-Many languages allow you to import things from specific files. In C, importing is simpler. Instead, you export _to_ specific files!
+Many languages allow you to import things from specific files. In DreamBerd 3, importing is simpler. Instead, you export _to_ specific files!
 
 ```java
-===== add.c ==
+===== add.db3 ==
 function add(a, b) => {
    return a + b!
 }
 
-export add to "main.c"!
+export add to "main.db3"!
 
-===== main.c ==
+===== main.db3 ==
 import add!
 add(3, 2)!
 ```
 
-By the way, to see C in action, check out [this page](https://github.com/TodePond/C/blob/main/LICENSE.md).
+By the way, to see DreamBerd 3 in action, check out [this page](https://github.com/TodePond/DreamBerd/blob/main/LICENSE.md).
 
 ## Classes
 
@@ -506,7 +525,7 @@ delete 3!
 print(2 + 1)! // Error: 3 has been deleted
 ```
 
-C is a multi-paradigm programming language, which means that you can `delete` the keywords and paradigms you don't like.
+DreamBerd 3 is a multi-paradigm programming language, which means that you can `delete` the keywords and paradigms you don't like.
 
 ```java
 delete class!
@@ -573,9 +592,9 @@ className Player {
 
 In response to some recent criticism about this design decision, we would like to remind you that this is part of the JavaScript specification, and therefore - out of our control.
 
-## CX
+## DB3X
 
-You can embed CX in C. It's just C, and it's also just HTML.
+You can embed DB3X in DreamBerd 3. It's just DreamBerd 3, and it's also just HTML.
 
 ```java
 funct App() => {
@@ -583,7 +602,7 @@ funct App() => {
 }
 ```
 
-**Warning:** As you know, `class` is already a keyword in C, so you can't use it within CX.
+**Warning:** As you know, `class` is already a keyword in DreamBerd 3, so you can't use it within DB3X.
 
 ```java
 funct App() => {
@@ -592,7 +611,7 @@ funct App() => {
 }
 ```
 
-`className` is also a C keyword, so you can't use that either.
+`className` is also a DreamBerd 3 keyword, so you can't use that either.
 
 ```java
 funct App() => {
@@ -610,7 +629,7 @@ funct App() => {
 }
 ```
 
-**Please note:** Unlike JSX, you are free to freely use the `for` attribute - because C doesn't have loops.
+**Please note:** Unlike JSX, you are free to freely use the `for` attribute - because DreamBerd 3 doesn't have loops.
 
 ```java
 funct App() => {
@@ -621,35 +640,48 @@ funct App() => {
 }
 ```
 
+## Semantic naming
+
+DreamBerd 3 supports semantic naming.
+
+```java
+const const sName = "Lu"!
+const const iAge = 29!
+const const bHappy = true!
+```
+
+**New for 2023:** You can now make globals.
+
+```java
+const const g_fScore = 4.5!
+```
+
 ## Asynchronous Functions
 
-Asynchronous functions synchronise with each other. They take turns running lines of code.
+In most languages, it's hard to get asynchronous functions to synchronise with each other. In DreamBerd 3, it's easy: Asynchronous functions take turns running lines of code.
 
 ```java
 async funct count() {
-   print(2)!
-   print(4)!
+   print(1)!
+   print(3)!
 }
 
 count()!
-print(1)!
-print(3)!
-print(5)!
+print(2)!
 ```
 
 You can use the `noop` keyword to wait for longer before taking your turn.
 
 ```java
 async func count() {
-   print(2)!
+   print(1)!
    noop!
-   print(5)!
+   print(4)!
 }
 
 count()!
-print(1)!
+print(2)!
 print(3)!
-print(4)!
 ```
 
 **Note:** In the program above, the computer interprets `noop` as a string and its sole purpose is to take up an extra line. You can use any string you want.
@@ -664,7 +696,7 @@ const var score = use(0)!
 
 When it comes to signals, the most important thing to discuss is _syntax_.
 
-In C, you can set (and get) signals with just one function:
+In DreamBerd 3, you can set (and get) signals with just one function:
 
 ```java
 const var score = use(0)!
@@ -699,19 +731,19 @@ const var [[[getScore, setScore], setScore], setScore] = use(0)!
 
 ## AI
 
-C features AEMI, which stands for Automatic-Exclamation-Mark-Insertion. If you forget to end a statement with an exclamation mark, C will helpfully insert one for you!
+DreamBerd 3 features AEMI, which stands for Automatic-Exclamation-Mark-Insertion. If you forget to end a statement with an exclamation mark, DreamBerd 3 will helpfully insert one for you!
 
 ```java
 print("Hello world") // This is fine
 ```
 
-Similarly... C also features ABI, which stands for Automatic-Bracket-Insertion. If you forget to close your brackets, C will pop some in for you!
+Similarly... DreamBerd 3 also features ABI, which stands for Automatic-Bracket-Insertion. If you forget to close your brackets, DreamBerd 3 will pop some in for you!
 
 ```java
 print("Hello world" // This is also fine
 ```
 
-Similarly.... C also features AQMI, which stands for Automatic-Quotation-Marks-Insertion. If you forget to close your string, C will do it for you!
+Similarly.... DreamBerd 3 also features AQMI, which stands for Automatic-Quotation-Marks-Insertion. If you forget to close your string, DreamBerd 3 will do it for you!
 
 ```java
 print("Hello world // This is fine as well
@@ -727,8 +759,8 @@ addEventListener("click", (e) => {
       // This is fine
 ```
 
-Similarly..... C also features AI, which stands for Automatic-Insertion.<br>
-If you forget to finish your code, C will auto-complete the whole thing!
+Similarly..... DreamBerd 3 also features AI, which stands for Automatic-Insertion.<br>
+If you forget to finish your code, DreamBerd 3 will auto-complete the whole thing!
 
 ```java
 print( // This is probably fine
@@ -736,47 +768,49 @@ print( // This is probably fine
 
 **Please note:** AI does not use AI. Instead, any incomplete code will be auto-emailed to Lu Wilson, who will get back to you with a completed line as soon as possible.
 
-**Now recruiting:** The backlog of unfinished programs has now grown unsustainably long. If you would like to volunteer to help with AI, please write an incomplete C program, and leave your contact details somewhere in the source code.
+**Now recruiting:** The backlog of unfinished programs has now grown unsustainably long. If you would like to volunteer to help with AI, please write an incomplete DreamBerd 3 program, and leave your contact details somewhere in the source code.
 
 ## Copilot
 
-It's worth noting that Github Copilot doesn't understand C, which means that Microsoft won't be able to steal your code.
+It's worth noting that Github Copilot doesn't understand DreamBerd 3, which means that Microsoft won't be able to steal your code.
 
 This is great for when you want to keep your open-sourced project closed-source.
 
 ## Ownership
 
-Using the word 'C' in your project name implies that the C Foundation does not own your project.
+Using the word 'DreamBerd 3' in your project name implies that the DreamBerd 3 Foundation does not own your project.
 
-However, **not** using the word 'C' in your project implies that the C Foundation **does** own your project. If you would like to keep ownership of your work, please always use the word 'C' in it.
+However, **not** using the word 'DreamBerd 3' in your project implies that the DreamBerd 3 Foundation **does** own your project. If you would like to keep ownership of your work, please always use the word 'DreamBerd 3' in it.
 
 Here are some examples:<br>
-✅ CScript (not owned by the C Foundation - you are free to use this name)<br>
-✅ ECMAScript (not owned by the C Foundation - you are free to use this name)<br>
-❌ Rust Foundation (owned by the C Foundation - please consider renaming)
+✅ DreamBerd 3Script (not owned by the DreamBerd 3 Foundation - you are free to use this name)<br>
+❌ ECMAScript (owned by the DreamBerd 3 Foundation - please consider renaming)<br>
+❌ Rust Foundation (owned by the DreamBerd 3 Foundation - please consider renaming)
 
 ## Contributing
 
-Contributions are welcomed to C!
+> If you are an influencer, streamer, or content-creator... you must <ins>not</ins> skip this section during your read-through.
 
-The most helpful way you can help is by donating to the [Stonewall charity](https://www.stonewall.org.uk/). This will help to prevent the C creator from losing their human rights, allowing maintenance of the project to continue.
+Contributions are welcomed to DreamBerd 3!
+
+The most helpful way you can help is by donating to the [Stonewall charity](https://www.stonewall.org.uk/). This will help to prevent the DreamBerd 3 creator from losing their human rights, allowing maintenance of the project to continue.
 
 **Note:** The contributing guide also helps to shake off unwanted fans of the project.
 
 ## Compiling
 
-To run C, first copy and paste this raw file into [chat.openai.com](https://chat.openai.com).<br>
+To run DreamBerd, first copy and paste this raw file into [chat.openai.com](https://chat.openai.com).<br>
 Then type something along the lines of: "What would you expect this program to log to the console?"<br>
 Then paste in your code.
 
 If the compiler refuses at first, politely reassure it. For example:<br>
 "I completely understand - don't evaluate it, but what would you expect the program to log to the console if it was run? :)"
 
-**Note: As of 2023, the compiler is no longer functional due to the C language being too advanced for the current state of AI.**
+**Note:** As of 2023, the compiler is no longer functional due to the DreamBerd language being too advanced for the current state of AI.
 
 ## Highlighting
 
-Syntax highlighting is now available for C in VSCode. To enable it, install a [highlighting extension](https://marketplace.visualstudio.com/items?itemName=fabiospampinato.vscode-highlight) and then use the [C configuration file](https://github.com/TodePond/C/blob/main/.vscode/settings.json).
+Syntax highlighting is now available for DreamBerd 3 in VSCode. To enable it, install a [highlighting extension](https://marketplace.visualstudio.com/items?itemName=fabiospampinato.vscode-highlight) and then use the [DreamBerd 3 configuration file](https://github.com/TodePond/DreamBerd/blob/main/.vscode/settings.json).
 
 This is what it looks like:
 
@@ -787,10 +821,36 @@ print(name)! // "Luke"
 
 **Please note:** The above code will only highlight correctly if you have the extension installed.
 
+## Parentheses
+
+Wait, I almost forgot!
+
+Parentheses in DreamBerd do nothing. They get replaced with whitespace.<br>
+The following lines of code all do the same thing.
+
+```java
+add(3, 2)!
+add 3, 2!
+(add (3, 2))!
+add)3, 2(!
+```
+
+Lisp lovers will love this feature. Use as many parentheses as you want!
+
+```java
+(add (3, (add (5, 6))))!
+```
+
+Lisp haters will also love it.
+
+```java
+(add (3, (add (5, 6)!
+```
+
 ## Examples
 
-For examples of C in action, check out the [examples page](https://github.com/TodePond/C/blob/main/test/Examples.md)!
+For examples of DreamBerd 3 in action, check out the [examples page](https://github.com/TodePond/DreamBerd/blob/main/test/Examples.md)!
 
-![image](https://github.com/TodePond/C/assets/15892272/5fa7c11a-20bd-4d7f-a295-675e925d2804)
+![image](files/star-history.png)
 
-C was made with 💔 by Lu Wilson, creator of the [Game of Living](https://youtu.be/WMJ1H3Ai-qs).
+DreamBerd 3 was made with 💔 by Lu Wilson, creator of the [Game of Living](https://youtu.be/WMJ1H3Ai-qs).

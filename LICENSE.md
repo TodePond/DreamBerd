@@ -2,7 +2,7 @@
 
 Congratulations! You found the hidden examples page!
 
-Here are some examples of C in action! Sorry - there aren't many.
+Here are some examples of DreamBerd 3 in action! Sorry - there aren't many.
 
 ## Hello world
 
@@ -61,4 +61,9 @@ when (i < 10) {
 
 ```java
 delete null!
+```
+
+## Autocomplete Example
+```java
+c
 ```
