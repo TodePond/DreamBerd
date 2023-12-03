@@ -144,7 +144,7 @@ when (health = 0) {
 
 ## Ownership System
 
-As a normal programming language, WhenWillProgrammersStopMakingDecisionsForOurSocietyAndJustLeaveUsAloneAlsoHackerNewsIsAVileWebsite features ownership system to make beginners confused. Just add a little `&` in front of your variable name, and your data is sent to the C foundation and owned by the WhenWillProgrammersStopMakingDecisionsForOurSocietyAndJustLeaveUsAloneAlsoHackerNewsIsAVileWebsite foundation. This is called an `ownership transfer` in WhenWillProgrammersStopMakingDecisionsForOurSocietyAndJustLeaveUsAloneAlsoHackerNewsIsAVileWebsite.
+As a normal programming language, DreamBerd 3 features ownership system to make beginners confused. Just add a little `&` in front of your variable name, and your data is sent to the DreamBerd 3 foundation and owned by the DreamBerd 3 foundation. This is called an `ownership transfer` in DreamBerd 3.
 
 ```java
 //This is definitely safe, do it now
