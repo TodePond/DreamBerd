@@ -211,10 +211,11 @@ print(1^1)! // 1
 print(2^3)! // 8
 ```
 
-You can also use the number name, for example:
+You can also use the number name from different languages, for example:
 
 ```java
 print(one+two)! //3
+print(uno-dos)! //-1
 ```
 
 ## Indents
