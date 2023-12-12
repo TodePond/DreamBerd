@@ -670,6 +670,16 @@ print(3)!
 
 **Note:** In the program above, the computer interprets `noop` as a string and its sole purpose is to take up an extra line. You can use any string you want.
 
+## Multiple languages handling
+
+Working in English has been a big problem for many developers over the years, nDreamBerd let you choose the best language that will suit your project simply by specifying the language at each start of file.
+
+```java
+"french"
+
+affiche("Bonjour monde !") // similar to print("Hello World !")
+```
+
 ## Signals
 
 To use a signal, use `use`.
