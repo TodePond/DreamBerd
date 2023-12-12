@@ -675,9 +675,9 @@ print(3)!
 Working in English has been a big problem for many developers over the years, nDreamBerd let you choose the best language that will suit your project simply by specifying the language at each start of file.
 
 ```java
-"french"
+"french"!
 
-affiche("Bonjour monde !") // similar to print("Hello World !")
+affiche("Bonjour monde !")! // similar to print("Hello World !")
 ```
 
 ## Signals
