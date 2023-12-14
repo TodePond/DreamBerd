@@ -11,4 +11,5 @@ This list is only for people who have had a pull request accepted. If that could
 - Smuglix
 - Vaughn Joy Mannon
 - Moxvallix (🏆)
+- Lancelot Owczarczak
 - JustDoom (Ian)
