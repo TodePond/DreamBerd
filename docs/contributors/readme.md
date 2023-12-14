@@ -17,3 +17,4 @@ This list is only for people who have had a pull request accepted. If that could
 - JustDoom (Ian)
 - gdalle
 - TheGatesDev (Tim)!
+- Aaron Barratt AKA BanAaron
