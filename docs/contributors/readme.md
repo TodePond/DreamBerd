@@ -1,4 +1,4 @@
-# nDreamBerd Contributors Hall Of Fame
+# 🏆 nDreamBerd Contributors Hall Of Fame 🏆
 
 We would like to thank everyone who has contributed to nDreamBerd.
 
@@ -10,3 +10,4 @@ This list is only for people who have had a pull request accepted. If that could
 - YouHaveTrouble
 - Smuglix
 - Vaughn Joy Mannon
+- Moxvallix (🏆)
