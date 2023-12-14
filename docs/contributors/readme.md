@@ -15,4 +15,5 @@ This list is only for people who have had a pull request accepted. If that could
 - JuliusDeBoer
 - mybearworld (🐻)
 - JustDoom (Ian)
+- gdalle
 - TheGatesDev (Tim)!
