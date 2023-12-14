@@ -24,4 +24,3 @@ This list is only for people who have had a pull request accepted. If that could
 - skifli
 - Ben Carlsson AKA Glacials
 - Gears (⚙️, but plural)
-- maeek (Maciej)
