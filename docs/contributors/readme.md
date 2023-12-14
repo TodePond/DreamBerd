@@ -7,6 +7,7 @@ This list is only for people who have had a pull request accepted. If that could
 ## Contributors
 
 - Lu (or Luke) Wilson AKA TodePond
+- JustDoom
 - YouHaveTrouble
 - Smuglix
 - Vaughn Joy Mannon
