@@ -1,4 +1,4 @@
-# Contributors
+# nDreamBerd Contributors Hall Of Fame
 
 We would like to thank everyone who has contributed to DreamBerd.
 
