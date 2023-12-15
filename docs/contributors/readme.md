@@ -16,4 +16,22 @@ This list is only for people who have had a pull request accepted. If that could
 - mybearworld (🐻)
 - JustDoom (Ian)
 - gdalle
+- TheGatesDev (Tim)!
+- Aaron Barratt AKA BanAaron
+- Luna
+- stephen
+- K8sKween (Victoria)
+- skifli
+- Ben Carlsson AKA Glacials
+- Gears (⚙️, but plural)
+- Mikail
+- umgefahren
+- pIPYTHONMC
+- cute catgirl :3
+- Guay!
+- Gobidev🐸
+- Z-100 <3
+- maeek (Maciej)
+- Karol Stawowski
+- 8bitsquid
 - 12emin34
