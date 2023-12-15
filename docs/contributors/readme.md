@@ -35,3 +35,4 @@ This list is only for people who have had a pull request accepted. If that could
 - Karol Stawowski
 - 8bitsquid
 - 12emin34
+- R74n
