@@ -34,3 +34,4 @@ This list is only for people who have had a pull request accepted. If that could
 - maeek (Maciej)
 - Karol Stawowski
 - 8bitsquid
+- 12emin34
