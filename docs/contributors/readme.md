@@ -37,3 +37,4 @@ This list is only for people who have had a pull request accepted. If that could
 - <img src="https://github.com/TodePond/nDreamBerd/assets/13833017/c6fc7c10-c751-4bd9-b789-6e8664bbfbfa" height="16px" width="59px">
 - 12emin34
 - R74n
+- Astralchroma
