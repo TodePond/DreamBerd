@@ -33,3 +33,4 @@ This list is only for people who have had a pull request accepted. If that could
 - Z-100 <3
 - maeek (Maciej)
 - Karol Stawowski
+- 8bitsquid
