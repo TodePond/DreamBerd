@@ -32,3 +32,4 @@ This list is only for people who have had a pull request accepted. If that could
 - Gobidev🐸
 - Z-100 <3
 - maeek (Maciej)
+- Karol Stawowski
