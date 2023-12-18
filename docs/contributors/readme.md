@@ -34,7 +34,10 @@ This list is only for people who have had a pull request accepted. If that could
 - maeek (Maciej)
 - Karol Stawowski
 - 8bitsquid
-- <img src="https://github.com/TodePond/nDreamBerd/assets/13833017/c6fc7c10-c751-4bd9-b789-6e8664bbfbfa" height="16px" width="59px">
+- <img alt="alifeee" src="https://github.com/TodePond/nDreamBerd/assets/13833017/aad115f5-0d9d-4d19-9d07-ef9ef510b3a1" height="16px" width="59px">
 - 12emin34
 - R74n
+- Astralchroma
+- Max Mustermann
+- misakstvanu
 - Lysiatko
