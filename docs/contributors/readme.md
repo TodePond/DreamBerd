@@ -38,3 +38,4 @@ This list is only for people who have had a pull request accepted. If that could
 - 12emin34
 - R74n
 - Astralchroma
+- Max Mustermann
