@@ -5,24 +5,19 @@ If you're reading this then you might be looking for the hidden examples page...
 CONGRATULATIONS! You found it!
 Here it is: https://github.com/TodePond/DreamBerd/blob/main/res/res/Examples.md
 
-But if you came here because you want to contribute to nDreamBerd, here are some tips on how to get your PR successfully merged.
-
-- Always punch up.
-- Make us feel good.
-
 todepond woz here
 
 -->
 
-> **New:** [Introducing the nDreamBerd Contributors Hall Of Fame](https://github.com/TodePond/nDreamBerd/releases/tag/vvv1.0)
+> **New:** [DreamBerd has been renamed to DreamBerd - e/acc](https://github.com/TodePond/DreamBerd/releases/tag/ve.acc)
 
 [<img align="right" height="100" src="shapes.png">](https://github.com/TodePond/DreamBerd/blob/main/examples/Examples.md "Click here for the examples page.")
 
-# nDreamBerd
+# DreamBerd - e/acc
 
 ![Coverage](badges/coverage-109.svg)
 
-nDreamBerd is a perfect programming language. These are its features!<br>
+DreamBerd - e/acc is a perfect programming language. These are its features!<br>
 When you've finished reading through all the features, check out the [examples](https://github.com/TodePond/DreamBerd/blob/main/Examples.md).
 
 ## Exclamation Marks!
