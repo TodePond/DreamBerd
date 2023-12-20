@@ -9,7 +9,7 @@ todepond woz here
 
 -->
 
-> **New:** [Introducing the nDreamBerd Contributors Hall Of Fame](https://github.com/TodePond/DreamBerd/releases/tag/ve.acc)
+> **New:** [DreamBerd has been renamed to DreamBerd - e/acc](https://github.com/TodePond/DreamBerd/releases/tag/ve.acc)
 
 [<img align="right" height="100" src="shapes.png">](https://github.com/TodePond/DreamBerd/blob/main/examples/Examples.md "Click here for the examples page.")
 
