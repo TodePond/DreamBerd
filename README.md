@@ -5,11 +5,6 @@ If you're reading this then you might be looking for the hidden examples page...
 CONGRATULATIONS! You found it!
 Here it is: https://github.com/TodePond/DreamBerd/blob/main/res/res/Examples.md
 
-But if you came here because you want to contribute to nDreamBerd, here are some tips on how to get your PR successfully merged.
-
-- Always punch up.
-- Make us feel good.
-
 todepond woz here
 
 -->
