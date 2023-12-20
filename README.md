@@ -13,7 +13,7 @@ todepond woz here
 
 [<img align="right" height="100" src="shapes.png">](https://github.com/TodePond/DreamBerd/blob/main/examples/Examples.md "Click here for the examples page.")
 
-# nDreamBerd
+# DreamBerd - e/acc
 
 ![Coverage](badges/coverage-109.svg)
 
