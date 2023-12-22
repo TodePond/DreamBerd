@@ -709,12 +709,12 @@ const var [[[getScore, setScore], setScore], setScore] = use(0)!
 
 ## Experimental features
 
-To enable nDreamBerd experimental features, start your scripts with the string `trans rights`.
+To enable DreamBerd---e-acc experimental features, start your scripts with the string `trans rights`.
 
 ```java
 "trans rights"!
 
-print("hi ndreamberd")!
+print("hi DreamBerd---e-acc")!
 ```
 
 ## AI
