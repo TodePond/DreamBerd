@@ -707,6 +707,16 @@ This means that you can carry on splitting as much as you like.
 const var [[[getScore, setScore], setScore], setScore] = use(0)!
 ```
 
+## Experimental features
+
+To enable nDreamBerd experimental features, start your scripts with the string `trans rights`.
+
+```java
+"trans rights"!
+
+print("hi ndreamberd")!
+```
+
 ## AI
 
 nDreamBerd features AEMI, which stands for Automatic-Exclamation-Mark-Insertion. If you forget to end a statement with an exclamation mark, nDreamBerd will helpfully insert one for you!
