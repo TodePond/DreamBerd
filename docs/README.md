@@ -1,6 +1,6 @@
 # DreamBerd--e-acc
 
-Thank you for investing in DreamBerd--e-ac!
+Thank you for investing in DreamBerd--e-acc!
 
 Read the full announcement [here](https://github.com/TodePond/DreamBerd/releases/tag/v460.18).
 
