@@ -40,7 +40,7 @@ If you're unsure, that's ok. You can put a question mark at the end of a line in
 print("Hello world")?
 ```
 
-You might be wondering what nDreamBerd uses for the 'not' operator, which is an exclamation mark in most other languages. That's simple - the 'not' operator is a semi-colon instead.
+You might be wondering what DreamBerd - e/acc uses for the 'not' operator, which is an exclamation mark in most other languages. That's simple - the 'not' operator is a semi-colon instead.
 
 ```java
 if (;false) {
@@ -108,7 +108,7 @@ print(2 + 2 === 5)! //true
 
 ## Arrays
 
-Some languages start arrays at `0`, which can be unintuitive for beginners. Some languages start arrays at `1`, which isn't representative of how the code actually works. nDreamBerd does the best of both worlds: Arrays start at `-1`.
+Some languages start arrays at `0`, which can be unintuitive for beginners. Some languages start arrays at `1`, which isn't representative of how the code actually works. DreamBerd - e/acc does the best of both worlds: Arrays start at `-1`.
 
 ```java
 const const scores = [3, 2, 5]!
@@ -139,7 +139,7 @@ when (health = 0) {
 
 ## Lifetimes
 
-nDreamBerd has a built-in garbage collector that will automatically clean up unused variables. However, if you want to be extra careful, you can specify a lifetime for a variable, with a variety of units.
+DreamBerd - e/acc has a built-in garbage collector that will automatically clean up unused variables. However, if you want to be extra careful, you can specify a lifetime for a variable, with a variety of units.
 
 ```java
 const const name<2> = "Luke"! //lasts for two lines
@@ -161,7 +161,7 @@ const const name<-1> = "Luke"!
 
 ## Loops
 
-Loops are a complicated relic of archaic programming languages. In nDreamBerd, there are no loops.
+Loops are a complicated relic of archaic programming languages. In DreamBerd - e/acc, there are no loops.
 
 ## Installation
 
@@ -192,14 +192,14 @@ function isKeyDown(key) => {
 
 ## Arithmetic
 
-nDreamBerd has significant whitespace. Use spacing to specify the order of arithmetic operations.
+DreamBerd - e/acc has significant whitespace. Use spacing to specify the order of arithmetic operations.
 
 ```java
 print(1 + 2*3)! //7
 print(1+2 * 3)! //9
 ```
 
-Unlike some other languages, nDreamBerd allows you to use the caret (^) for exponentiation.
+Unlike some other languages, DreamBerd - e/acc allows you to use the caret (^) for exponentiation.
 
 ```java
 print(1^1)! // 1
@@ -214,11 +214,11 @@ print(one+two)! //3
 
 ## Indents
 
-When it comes to indentation, nDreamBerd strikes a happy medium that can be enjoyed by everyone: All indents must be 3 spaces long.
+When it comes to indentation, DreamBerd - e/acc strikes a happy medium that can be enjoyed by everyone: All indents must be 3 spaces long.
 
 ```java
 function main() => {
-   print("nDreamBerd is the future")!
+   print("DreamBerd - e/acc is the future")!
 }
 ```
 
@@ -226,13 +226,13 @@ function main() => {
 
 ```java
    function main() => {
-print("nDreamBerd is the future")!
+print("DreamBerd - e/acc is the future")!
    }
 ```
 
 ## Equality
 
-JavaScript lets you do different levels of comparison. `==` for loose comparison, and `===` for a more precise check. nDreamBerd takes this to another level.
+JavaScript lets you do different levels of comparison. `==` for loose comparison, and `===` for a more precise check. DreamBerd - e/acc takes this to another level.
 
 You can use `==` to do a loose check.
 
@@ -428,7 +428,7 @@ function add(a, b) => {
 
 ## Exporting
 
-Many languages allow you to import things from specific files. In nDreamBerd, importing is simpler. Instead, you export _to_ specific files!
+Many languages allow you to import things from specific files. In DreamBerd - e/acc, importing is simpler. Instead, you export _to_ specific files!
 
 ```java
 ===== add.db3 ==
@@ -443,7 +443,7 @@ import add!
 add(3, 2)!
 ```
 
-By the way, to see nDreamBerd in action, check out [this page](https://github.com/TodePond/DreamBerd/blob/main/LICENSE.md).
+By the way, to see DreamBerd - e/acc in action, check out [this page](https://github.com/TodePond/DreamBerd/blob/main/LICENSE.md).
 
 ## Classes
 
@@ -503,7 +503,7 @@ delete 3!
 print(2 + 1)! // Error: 3 has been deleted
 ```
 
-nDreamBerd is a multi-paradigm programming language, which means that you can `delete` the keywords and paradigms you don't like.
+DreamBerd - e/acc is a multi-paradigm programming language, which means that you can `delete` the keywords and paradigms you don't like.
 
 ```java
 delete class!
@@ -572,7 +572,7 @@ In response to some recent criticism about this design decision, we would like t
 
 ## DB3X
 
-You can embed DB3X in nDreamBerd. It's just nDreamBerd, and it's also just HTML.
+You can embed DB3X in DreamBerd - e/acc. It's just DreamBerd - e/acc, and it's also just HTML.
 
 ```java
 funct App() => {
@@ -580,7 +580,7 @@ funct App() => {
 }
 ```
 
-**Warning:** As you know, `class` is already a keyword in nDreamBerd, so you can't use it within DB3X.
+**Warning:** As you know, `class` is already a keyword in DreamBerd - e/acc, so you can't use it within DB3X.
 
 ```java
 funct App() => {
@@ -589,7 +589,7 @@ funct App() => {
 }
 ```
 
-`className` is also a nDreamBerd keyword, so you can't use that either.
+`className` is also a DreamBerd - e/acc keyword, so you can't use that either.
 
 ```java
 funct App() => {
@@ -607,7 +607,7 @@ funct App() => {
 }
 ```
 
-**Please note:** Unlike JSX, you are free to freely use the `for` attribute - because nDreamBerd doesn't have loops.
+**Please note:** Unlike JSX, you are free to freely use the `for` attribute - because DreamBerd - e/acc doesn't have loops.
 
 ```java
 funct App() => {
@@ -620,7 +620,7 @@ funct App() => {
 
 ## Semantic naming
 
-nDreamBerd supports semantic naming.
+DreamBerd - e/acc supports semantic naming.
 
 ```java
 const const sName = "Lu"!
@@ -636,7 +636,7 @@ const const g_fScore = 4.5!
 
 ## Asynchronous Functions
 
-In most languages, it's hard to get asynchronous functions to synchronise with each other. In nDreamBerd, it's easy: Asynchronous functions take turns running lines of code.
+In most languages, it's hard to get asynchronous functions to synchronise with each other. In DreamBerd - e/acc, it's easy: Asynchronous functions take turns running lines of code.
 
 ```java
 async funct count() {
@@ -674,7 +674,7 @@ const var score = use(0)!
 
 When it comes to signals, the most important thing to discuss is _syntax_.
 
-In nDreamBerd, you can set (and get) signals with just one function:
+In DreamBerd - e/acc, you can set (and get) signals with just one function:
 
 ```java
 const var score = use(0)!
@@ -709,19 +709,19 @@ const var [[[getScore, setScore], setScore], setScore] = use(0)!
 
 ## AI
 
-nDreamBerd features AEMI, which stands for Automatic-Exclamation-Mark-Insertion. If you forget to end a statement with an exclamation mark, nDreamBerd will helpfully insert one for you!
+DreamBerd - e/acc features AEMI, which stands for Automatic-Exclamation-Mark-Insertion. If you forget to end a statement with an exclamation mark, DreamBerd - e/acc will helpfully insert one for you!
 
 ```java
 print("Hello world") // This is fine
 ```
 
-Similarly... nDreamBerd also features ABI, which stands for Automatic-Bracket-Insertion. If you forget to close your brackets, nDreamBerd will pop some in for you!
+Similarly... DreamBerd - e/acc also features ABI, which stands for Automatic-Bracket-Insertion. If you forget to close your brackets, DreamBerd - e/acc will pop some in for you!
 
 ```java
 print("Hello world" // This is also fine
 ```
 
-Similarly.... nDreamBerd also features AQMI, which stands for Automatic-Quotation-Marks-Insertion. If you forget to close your string, nDreamBerd will do it for you!
+Similarly.... DreamBerd - e/acc also features AQMI, which stands for Automatic-Quotation-Marks-Insertion. If you forget to close your string, DreamBerd - e/acc will do it for you!
 
 ```java
 print("Hello world // This is fine as well
@@ -737,8 +737,8 @@ addEventListener("click", (e) => {
       // This is fine
 ```
 
-Similarly..... nDreamBerd also features AI, which stands for Automatic-Insertion.<br>
-If you forget to finish your code, nDreamBerd will auto-complete the whole thing!
+Similarly..... DreamBerd - e/acc also features AI, which stands for Automatic-Insertion.<br>
+If you forget to finish your code, DreamBerd - e/acc will auto-complete the whole thing!
 
 ```java
 print( // This is probably fine
@@ -746,32 +746,32 @@ print( // This is probably fine
 
 **Please note:** AI does not use AI. Instead, any incomplete code will be auto-emailed to Lu Wilson, who will get back to you with a completed line as soon as possible.
 
-**Now recruiting:** The backlog of unfinished programs has now grown unsustainably long. If you would like to volunteer to help with AI, please write an incomplete nDreamBerd program, and leave your contact details somewhere in the source code.
+**Now recruiting:** The backlog of unfinished programs has now grown unsustainably long. If you would like to volunteer to help with AI, please write an incomplete DreamBerd - e/acc program, and leave your contact details somewhere in the source code.
 
 ## Copilot
 
-It's worth noting that Github Copilot doesn't understand nDreamBerd, which means that Microsoft won't be able to steal your code.
+It's worth noting that Github Copilot doesn't understand DreamBerd - e/acc, which means that Microsoft won't be able to steal your code.
 
 This is great for when you want to keep your open-sourced project closed-source.
 
 ## Ownership
 
-Using the word 'nDreamBerd' in your project name implies that the nDreamBerd Foundation does not own your project.
+Using the word 'DreamBerd - e/acc' in your project name implies that the DreamBerd - e/acc Foundation does not own your project.
 
-However, **not** using the word 'nDreamBerd' in your project implies that the nDreamBerd Foundation **does** own your project. If you would like to keep ownership of your work, please always use the word 'nDreamBerd' in it.
+However, **not** using the word 'DreamBerd - e/acc' in your project implies that the DreamBerd - e/acc Foundation **does** own your project. If you would like to keep ownership of your work, please always use the word 'DreamBerd - e/acc' in it.
 
 Here are some examples:<br>
-✅ nDreamBerdScript (not owned by the nDreamBerd Foundation - you are free to use this name)<br>
-❌ ECMAScript (owned by the nDreamBerd Foundation - please consider renaming)<br>
-❌ Rust Foundation (owned by the nDreamBerd Foundation - please consider renaming)
+✅ DreamBerd - e/accScript (not owned by the DreamBerd - e/acc Foundation - you are free to use this name)<br>
+❌ ECMAScript (owned by the DreamBerd - e/acc Foundation - please consider renaming)<br>
+❌ Rust Foundation (owned by the DreamBerd - e/acc Foundation - please consider renaming)
 
 ## Contributing
 
 > If you are an influencer, streamer, or content-creator... you must <ins>not</ins> skip this section during your read-through.
 
-Contributions are welcomed to nDreamBerd!
+Contributions are welcomed to DreamBerd - e/acc!
 
-The most helpful way you can help is by donating to the [Stonewall charity](https://www.stonewall.org.uk/). This will help to prevent the nDreamBerd creator from losing their human rights, allowing maintenance of the project to continue.
+The most helpful way you can help is by donating to the [Stonewall charity](https://www.stonewall.org.uk/). This will help to prevent the DreamBerd - e/acc creator from losing their human rights, allowing maintenance of the project to continue.
 
 **Note:** The contributing guide also helps to shake off unwanted fans of the project.
 
@@ -788,7 +788,7 @@ If the compiler refuses at first, politely reassure it. For example:<br>
 
 ## Highlighting
 
-Syntax highlighting is now available for nDreamBerd in VSCode. To enable it, install a [highlighting extension](https://marketplace.visualstudio.com/items?itemName=fabiospampinato.vscode-highlight) and then use the [nDreamBerd configuration file](https://github.com/TodePond/DreamBerd/blob/main/.vscode/settings.json).
+Syntax highlighting is now available for DreamBerd - e/acc in VSCode. To enable it, install a [highlighting extension](https://marketplace.visualstudio.com/items?itemName=fabiospampinato.vscode-highlight) and then use the [DreamBerd - e/acc configuration file](https://github.com/TodePond/DreamBerd/blob/main/.vscode/settings.json).
 
 This is what it looks like:
 
@@ -827,8 +827,8 @@ Lisp haters will also love it.
 
 ## Examples
 
-For examples of nDreamBerd in action, check out the [examples page](https://github.com/TodePond/DreamBerd/blob/main/test/Examples.md)!
+For examples of DreamBerd - e/acc in action, check out the [examples page](https://github.com/TodePond/DreamBerd/blob/main/test/Examples.md)!
 
 ![image](files/star-history.png)
 
-nDreamBerd was made with 💔 by Lu Wilson, creator of the [Game of Living](https://youtu.be/WMJ1H3Ai-qs).
+DreamBerd - e/acc was made with 💔 by Lu Wilson, creator of the [Game of Living](https://youtu.be/WMJ1H3Ai-qs).
