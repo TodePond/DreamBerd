@@ -42,8 +42,8 @@ print("Hello world")!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 will throw `ScreamingError: Please take a deep breath.` To prevent this, you can use `😮‍💨` to take a deep breath and calm down a bit after yelling.
 
 ```java
-😮‍💨
 print("Hello world")!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+😮‍💨
 ```
 
 If you're unsure, that's ok. You can put a question mark at the end of a line instead. It prints debug info about that line to the console for you.
@@ -546,6 +546,7 @@ const const name = "Luke"!
 print(name)! // "Lu"
 
 const const name = "Lu or Luke (either is fine)"!!!!!!!!!
+😮‍💨 // Remember to take a deep breath.
 print(name)! // "Lu or Luke (either is fine)"
 ```
 
