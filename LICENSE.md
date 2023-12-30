@@ -2,7 +2,7 @@
 
 Congratulations! You found the hidden examples page!
 
-Here are some examples of DreamBerd 3 in action! Sorry - there aren't many.
+Here are some examples of DreamBerd - e/acc in action! Sorry - there aren't many.
 
 ## Hello world
 
