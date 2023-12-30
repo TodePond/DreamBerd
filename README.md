@@ -34,6 +34,18 @@ If you're feeling extra-bold, you can use even more!!!
 print("Hello world")!!!
 ```
 
+But make sure not to use too much or else you need to calm down!
+
+```java
+print("Hello world")!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+```
+will throw `ScreamingError: Please take a deep breath.` To prevent this, you can use `😮‍💨` to take a deep breath and calm down a bit after yelling.
+
+```java
+😮‍💨
+print("Hello world")!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+```
+
 If you're unsure, that's ok. You can put a question mark at the end of a line instead. It prints debug info about that line to the console for you.
 
 ```java
