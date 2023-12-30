@@ -47,4 +47,4 @@ This list is only for people who have had a pull request accepted. If that could
 - PatrickMer (Patrick Mer)
 - SimenWol
 - Pomierski (the creator and lead developer of the Regex)
-- Cyber-cp (was young when making name and the cp was supposed to be cpu but that was taken)
+- Cyber-cp
