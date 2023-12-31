@@ -165,11 +165,11 @@ Loops are a complicated relic of archaic programming languages. In DreamBerd - e
 
 ## Installation
 
-To install DreamBerd to your command line, first install the DreamBerd installer.<br>
-To install the DreamBerd installer, install the DreamBerd installer installer.
+To install DreamBerd - e/acc to your command line, first install the DreamBerd - e/acc installer.<br>
+To install the DreamBerd - e/acc installer, install the DreamBerd - e/acc installer installer.
 
 **New for 2022!**<br>
-Due to the complicated installation process, you can now install the 'Create DreamBerd App' app that installs everything for you!
+Due to the complicated installation process, you can now install the 'Create DreamBerd - e/acc App' app that installs everything for you!
 
 ## Booleans
 
