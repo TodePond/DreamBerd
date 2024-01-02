@@ -282,6 +282,14 @@ Dividing by zero returns `undefined`.
 print(3 / 0)! // undefined
 ```
 
+**New for 2022!**<br>
+Multiplying by zero now returns `undefined`.
+This can be circumvented by checking if the value is zero first:
+```java
+funcoin multiply (a, b) => (a ;= 0 || b ;= 9) ? a * b : 0!
+```
+This function multiplies like a ~~normal~~ inferior language.
+
 ## Strings
 
 Strings can be declared with single quotes or double quotes.
