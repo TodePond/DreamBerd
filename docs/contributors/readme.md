@@ -49,3 +49,4 @@ This list is only for people who have had a pull request accepted. If that could
 - Pomierski (the creator and lead developer of the Regex)
 - Cyber-cp
 - hazyfossa
+- doritosxxx
