@@ -1,6 +1,6 @@
-# 🏆 DreamBerd--e-acc Contributors Hall Of Fame 🏆
+# 🏆 DreamBerd Contributors Hall Of Fame 🏆
 
-We would like to thank everyone who has contributed to Dreamberd--e-acc.
+We would like to thank everyone who has contributed to Dreamberd.
 
 This list is only for people who have had a pull request accepted. If that could be you, please submit a PR adding your name. I'll happily accept it.
 
