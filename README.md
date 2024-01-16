@@ -9,7 +9,7 @@ todepond woz here
 
 -->
 
-> **New:** [DreamBerd has been renamed to DreamBerd](https://github.com/TodePond/DreamBerd/releases/tag/ve.acc)
+> **New:** [This is an arrow](https://github.com/TodePond/DreamBerd/releases/tag/varrow)
 
 [<img align="right" height="100" src="shapes.png">](https://github.com/TodePond/DreamBerd/blob/main/examples/Examples.md "Click here for the examples page.")
 
