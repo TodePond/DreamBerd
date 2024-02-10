@@ -3,53 +3,53 @@
   content="width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1, maximum-scale=1"
 />
 <style>
-     body {
-       display: flex;
-       justify-content: center;
-       align-items: center;
-       flex-direction: column;
-       height: 100vh;
-       margin: 0;
-       font-family: sans-serif;
-       background-color: #000;
-       color: #fff;
-       text-align: center;
-       user-select: none;
-       touch-action: none;
-     }
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    margin: 0;
+    font-family: sans-serif;
+    background-color: #000;
+    color: #fff;
+    text-align: center;
+    user-select: none;
+    touch-action: none;
+  }
 
-     * {
-       touch-action: none;
-     }
+  * {
+    touch-action: none;
+  }
 
-     button {
-       font-size: 2em;
-     }
+  button {
+    font-size: 2em;
+  }
 
-     video {
-       position: absolute;
-       top: 0;
-       left: 0;
-       width: 100%;
-       height: 100%;
-       object-fit: cover;
-       pointer-events: none;
-     }
+  video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+  }
 
-     #screens {
-       z-index: 1;
-       width: 50%;
-       height: 50%;
-     }
+  #screens {
+    z-index: 1;
+    width: 50%;
+    height: 50%;
+  }
 
-     #wikiblog {
-   position: fixed;
+  #wikiblog {
+    position: fixed;
     z-index: 2;
     width: 25%;
     height: 75%;
     opacity: 1.0;
     left: 70%
-     }
+  }
 
   #webcam {
     position: fixed;
@@ -59,28 +59,30 @@
     opacity: 1.0;
     left: 10%;
     bottom: 10%;
-  	rotate: -10deg;
+    rotate: -10deg;
   }
 
-     iframe {
-       width: 100%;
-       height: 100%;
-     }
+  iframe {
+    width: 100%;
+    height: 100%;
+  }
 
-     .wobble {
-       animation: wobble 30s infinite;
-     }
+  .wobble {
+    animation: wobble 30s infinite;
+  }
 
-     @keyframes wobble {
-       0% {
-         transform: rotate(5deg);
-       }
-       50% {
+  @keyframes wobble {
+    0% {
+      transform: rotate(5deg);
+    }
+
+    50% {
       transform: rotate(-5deg);
-       }
+    }
+
     100% {
       transform: rotate(5deg);
-     }
+    }
 </style>
 
 <video></video>
