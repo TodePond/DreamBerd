@@ -97,7 +97,7 @@
 <script>
   async function enterVr() {
     document.body.requestFullscreen();
-    screen.orientation.lock("landscape");
+    screen.orientation.lock("landscape-primary");
     const button = document.querySelector("button");
     button.setAttribute("disabled", true);
     const main = document.querySelector("main");
