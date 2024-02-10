@@ -27,10 +27,11 @@
   }
 
   video {
-    position: absolute;
-    top: 0;
-    left: 0;
+    /* position: absolute; */
+    /* top: 0; */
+    /* left: 0; */
     width: 100%;
+    /* width: 50%; */
     height: 100%;
     object-fit: cover;
     pointer-events: none;
@@ -85,19 +86,28 @@
     }
 </style>
 
-<video></video>
+<div id="eyes" style="display: none; width: 100%; height: 100%">
+  <video id="left-eye"></video>
+</div>
 
 <div id="screens" class="" style="display: none"></div>
 <div id="wikiblog" style="display: none"></div>
 <div id="webcam" style="display: none"></div>
-<button onclick="enterVr()">Enter spatial computing (not VR or AR)</button>
+<button id="enter" onclick="enterVr()">
+  Enter spatial computing (not VR or AR)
+</button>
 
 <main style="visibility: hidden">Loading...</main>
 
 <script>
+  const enter = document.querySelector("#enter");
+  const eyes = document.querySelector("#eyes");
+  const leftEye = document.querySelector("#left-eye");
+  const rightEye = document.querySelector("#right-eye");
+
   async function enterVr() {
     document.body.requestFullscreen();
-    screen.orientation.lock("landscape");
+    screen.orientation.lock("landscape-primary");
     const button = document.querySelector("button");
     button.setAttribute("disabled", true);
     const main = document.querySelector("main");
@@ -157,8 +167,16 @@
         webcam.classList.add("wobble");
       }, 9000);
     }
-    const video = document.querySelector("video");
-    video.srcObject = stream;
-    video.play();
+
+    enter.style.display = "none";
+    main.style.display = "none";
+
+    eyes.style.display = "flex";
+
+    leftEye.srcObject = stream;
+    leftEye.play();
+
+    /* rightEye.srcObject = stream;
+    rightEye.play(); */
   }
 </script>
