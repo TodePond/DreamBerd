@@ -96,50 +96,67 @@
 
 <script>
   async function enterVr() {
+    document.body.requestFullscreen();
+    screen.orientation.lock("landscape");
     const button = document.querySelector("button");
     button.setAttribute("disabled", true);
     const main = document.querySelector("main");
     main.style.visibility = "visible";
-    const stream = await navigator.mediaDevices.getUserMedia({
-      video: true,
-      audio: false,
-      facingMode: "environment",
+
+    navigator.mediaDevices.getUserMedia({ audio: false, video: true });
+
+    const devices = await navigator.mediaDevices.enumerateDevices();
+
+    const backCamera = devices.find((device) => {
+      const capabilities = device.getCapabilities?.();
+      if (!capabilities) return false;
+      return capabilities.facingMode?.includes("environment");
     });
 
-    const screens = document.querySelector("#screens");
-    setTimeout(() => {
-      screens.style.display = "block";
-      screens.classList.add("wobble");
-      const src = `<iframe
+    const stream = await navigator.mediaDevices.getUserMedia({
+      video: {
+        deviceId: backCamera.deviceId,
+      },
+    });
+
+    const query = new URLSearchParams(window.location.search);
+    const isEmpty = query.has("empty");
+
+    if (!isEmpty) {
+      const screens = document.querySelector("#screens");
+      setTimeout(() => {
+        screens.style.display = "block";
+        screens.classList.add("wobble");
+        const src = `<iframe
      src="https://www.youtube.com/embed/Q4OIcwt8vcE?si=sygMo3R_JKVIytkP&autoplay=1&controls=0&loop=1&playlist=Q4OIcwt8vcE"
      title="YouTube video player"
      frameborder="0"
      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
      allowfullscreen
    ></iframe>`;
-      screens.innerHTML = src;
-    }, 3000);
+        screens.innerHTML = src;
+      }, 3000);
 
-    const wikiblog = document.querySelector("#wikiblog");
-    setTimeout(() => {
-      wikiblog.style.display = "block";
-      wikiblog.innerHTML = `<iframe
+      const wikiblog = document.querySelector("#wikiblog");
+      setTimeout(() => {
+        wikiblog.style.display = "block";
+        wikiblog.innerHTML = `<iframe
   src="https://todepond.com"
   ></iframe>`;
-      wikiblog.classList.add("wobble");
-    }, 6000);
+        wikiblog.classList.add("wobble");
+      }, 6000);
 
-    const webcam = document.querySelector("#webcam");
-    setTimeout(() => {
-      webcam.style.display = "block";
-      webcam.innerHTML = `<video id="cam"></video>`;
-      const video = document.querySelector("#cam");
-      video.srcObject = stream;
-      video.play();
+      const webcam = document.querySelector("#webcam");
+      setTimeout(() => {
+        webcam.style.display = "block";
+        webcam.innerHTML = `<video id="cam"></video>`;
+        const video = document.querySelector("#cam");
+        video.srcObject = stream;
+        video.play();
 
-      webcam.classList.add("wobble");
-    }, 9000);
-
+        webcam.classList.add("wobble");
+      }, 9000);
+    }
     const video = document.querySelector("video");
     video.srcObject = stream;
     video.play();
