@@ -97,7 +97,11 @@
 <script>
   async function enterVr() {
     document.body.requestFullscreen();
-    screen.orientation.lock("landscape-primary");
+    try {
+      screen.orientation.lock("landscape-primary");
+    } catch (e) {
+      alert("Sorry the dreamberd vision pro doesnt work in your awful browser");
+    }
     const button = document.querySelector("button");
     button.setAttribute("disabled", true);
     const main = document.querySelector("main");
