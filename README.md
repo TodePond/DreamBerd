@@ -9,7 +9,7 @@ todepond woz here
 
 -->
 
-> **New:** [This is an arrow](https://github.com/TodePond/DreamBerd/releases/tag/varrow)
+> **New:** [Introducing the DreamBerd Vision Pro](https://www.youtube.com/watch?v=QRKnrFEjDF0)
 
 [<img align="right" height="100" src="shapes.png">](https://github.com/TodePond/DreamBerd/blob/main/examples/Examples.md "Click here for the examples page.")
 
