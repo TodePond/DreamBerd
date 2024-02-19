@@ -95,7 +95,7 @@ Both variables and constants can be named with any Unicode character or string.
 
 ```java
 const const firstAlphabetLetter = 'A'!
-var const 👍 = True!
+var const 👍 = true!
 var var 1️⃣ = 1!
 ```
 
