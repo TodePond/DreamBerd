@@ -94,7 +94,7 @@ const const const pi = 3.14!
 Both variables and constants can be named with any Unicode character or string.
 
 ```java
-const const firstAlphabetLetter = 'A'!
+const const letter = 'A'!
 var const 👍 = True!
 var var 1️⃣ = 1!
 ```
@@ -177,8 +177,8 @@ Booleans can be `true`, `false` or `maybe`.
 
 ```java
 const var keys = {}!
-addEventListener("keydown", e => keys[e.key] = true)!
-addEventListener("keyup", e => keys[e.key] = false)!
+addEventListener("keydown", (e) => keys[e.key] = true)!
+addEventListener("keyup", (e) => keys[e.key] = false)!
 
 function isKeyDown(key) => {
    if (keys[key] = undefined) {
@@ -331,7 +331,8 @@ The symbol for the Cape Verdean escudo is placed in the decimal separator positi
 Developers from the Republic of Cape Verde can benefit from this syntax:
 
 ```java
-addEventListener("keydown", e => print(`You've pressed: {e$code}`))!
+const const player = { name: "Lu" }!
+print("Hello {player$name}!")!
 ```
 
 ## Types
@@ -391,7 +392,7 @@ Similarly, the `next` keyword lets you see into the future!
 
 ```java
 const var score = 5!
-after ("click") score++!
+addEventListener("click", () => score++)!
 print(await next score)! //6 (when you click)
 ```
 
@@ -639,7 +640,7 @@ const const g_fScore = 4.5!
 In most languages, it's hard to get asynchronous functions to synchronise with each other. In DreamBerd, it's easy: Asynchronous functions take turns running lines of code.
 
 ```java
-async funct count() {
+async funct count() => {
    print(1)!
    print(3)!
 }
@@ -651,7 +652,7 @@ print(2)!
 You can use the `noop` keyword to wait for longer before taking your turn.
 
 ```java
-async func count() {
+async func count() => {
    print(1)!
    noop!
    print(4)!
