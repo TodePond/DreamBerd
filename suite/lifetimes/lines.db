@@ -1,0 +1,2 @@
+const const name<2> = "Luke"!
+print(name)!
