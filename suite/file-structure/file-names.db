@@ -1,0 +1,6 @@
+======= add.db3 =======
+function add(a, b) => {
+   return a + b!
+}
+
+FAILURE

@@ -1,0 +1,6 @@
+className Player {
+   const var health = 10!
+}
+
+const const player = new Player()!
+print(player.health)!

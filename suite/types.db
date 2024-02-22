@@ -1,0 +1,5 @@
+const var age: Int = 28!
+const var score: Int9 = 10!
+
+print(age)!
+print(score)!
