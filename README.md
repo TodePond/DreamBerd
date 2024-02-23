@@ -421,7 +421,7 @@ print(score)! //3
 Thanks to recent advances in technology, you can now give files names.
 
 ```java
-======= add.db3 =======
+======= add.db =======
 function add(a, b) => {
    return a + b!
 }
@@ -432,14 +432,14 @@ function add(a, b) => {
 Many languages allow you to import things from specific files. In DreamBerd, importing is simpler. Instead, you export _to_ specific files!
 
 ```java
-===== add.db3 ==
+===== add.db ==
 function add(a, b) => {
    return a + b!
 }
 
-export add to "main.db3"!
+export add to "main.db"!
 
-===== main.db3 ==
+===== main.db ==
 import add!
 add(3, 2)!
 ```
@@ -571,9 +571,9 @@ className Player {
 
 In response to some recent criticism about this design decision, we would like to remind you that this is part of the JavaScript specification, and therefore - out of our control.
 
-## DB3X
+## DBX
 
-You can embed DB3X in DreamBerd. It's just DreamBerd, and it's also just HTML.
+You can embed DBX in DreamBerd. It's just DreamBerd, and it's also just HTML.
 
 ```java
 funct App() => {
