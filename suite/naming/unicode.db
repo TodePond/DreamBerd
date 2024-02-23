@@ -1,7 +1,7 @@
-const const firstAlphabetLetter = 'A'!
+const const letter = 'A'!
 var const 👍 = True!
 var var 🐦 = 1!
 
-print(firstAlphabetLetter)!
+print(letter)!
 print(👍)!
 print(🐦)!

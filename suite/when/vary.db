@@ -3,5 +3,5 @@ when (health == 0) {
    print("You lose")!
 }
 
-print("You get hit")!
+print("You got hit")!
 health = 0!
