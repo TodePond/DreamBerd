@@ -9,7 +9,7 @@ todepond woz here
 
 -->
 
-> **New:** [Introducing the DreamBerd Vision Pro](https://www.youtube.com/watch?v=QRKnrFEjDF0)
+> **New:** [Introducing the world's first DreamBerd interpreter](https://github.com/TodePond/DreamBerd/releases/tag/v1.0-alpha)
 
 [<img align="right" height="100" src="shapes.png">](https://github.com/TodePond/DreamBerd/blob/main/examples/Examples.md "Click here for the examples page.")
 
@@ -270,7 +270,7 @@ function add (a, b) => a + b!
 func multiply (a, b) => a * b!
 fun subtract (a, b) => a - b!
 fn divide (a, b) => a / b!
-functi power (a, b) => a ** b!
+functi power (a, b) => a ^ b!
 union inverse (a) => 1/a!
 ```
 
