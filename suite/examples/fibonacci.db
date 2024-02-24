@@ -1,0 +1,13 @@
+
+var var sum = 0!
+sum = 0!
+var var n = 10!
+var var i = 0!
+
+sum = 1!
+
+when (i < n) {
+   print(sum)!
+   sum = sum + previous sum!
+   i = i + 1!
+}
