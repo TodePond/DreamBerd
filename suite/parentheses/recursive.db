@@ -1,0 +1,7 @@
+func add(a, b) => a + b!
+
+const const a = (add (3, (add(5, 6))))!
+const const b = (add (3, (add(5, 6)!
+
+print(a)!
+print(b)!

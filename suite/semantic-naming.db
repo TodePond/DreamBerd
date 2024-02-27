@@ -1,0 +1,10 @@
+const const sName = "Lu"!
+const const iAge = 29!
+const const bHappy = true!
+
+const const g_fScore = 4.5!
+
+print(sName)!
+print(iAge)!
+print(bHappy)!
+print(g_fScore)!

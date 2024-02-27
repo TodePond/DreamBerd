@@ -1,0 +1,6 @@
+print("Hello world")!
+print("Hello world")!!!
+print("Hello world")?
+if (;false) {
+   print("Hello world")!
+}

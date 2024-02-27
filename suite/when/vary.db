@@ -1,0 +1,7 @@
+var var health = 10!
+when (health == 0) {
+   print("You lose")!
+}
+
+print("You got hit")!
+health = 0!

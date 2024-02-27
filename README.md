@@ -9,7 +9,7 @@ todepond woz here
 
 -->
 
-> **New:** [This is an arrow](https://github.com/TodePond/DreamBerd/releases/tag/varrow)
+> **New:** [Introducing the world's first DreamBerd interpreter](https://github.com/TodePond/DreamBerd/releases/tag/v1.0-alpha)
 
 [<img align="right" height="100" src="shapes.png">](https://github.com/TodePond/DreamBerd/blob/main/examples/Examples.md "Click here for the examples page.")
 
@@ -94,7 +94,7 @@ const const const pi = 3.14!
 Both variables and constants can be named with any Unicode character or string.
 
 ```java
-const const firstAlphabetLetter = 'A'!
+const const letter = 'A'!
 var const 👍 = True!
 var var 1️⃣ = 1!
 ```
@@ -177,8 +177,8 @@ Booleans can be `true`, `false` or `maybe`.
 
 ```java
 const var keys = {}!
-addEventListener("keydown", e => keys[e.key] = true)!
-addEventListener("keyup", e => keys[e.key] = false)!
+addEventListener("keydown", (e) => keys[e.key] = true)!
+addEventListener("keyup", (e) => keys[e.key] = false)!
 
 function isKeyDown(key) => {
    if (keys[key] = undefined) {
@@ -270,7 +270,7 @@ function add (a, b) => a + b!
 func multiply (a, b) => a * b!
 fun subtract (a, b) => a - b!
 fn divide (a, b) => a / b!
-functi power (a, b) => a ** b!
+functi power (a, b) => a ^ b!
 union inverse (a) => 1/a!
 ```
 
@@ -331,7 +331,8 @@ The symbol for the Cape Verdean escudo is placed in the decimal separator positi
 Developers from the Republic of Cape Verde can benefit from this syntax:
 
 ```java
-addEventListener("keydown", e => print(`You've pressed: {e$code}`))!
+const const player = { name: "Lu" }!
+print("Hello {player$name}!")!
 ```
 
 ## Types
@@ -391,7 +392,7 @@ Similarly, the `next` keyword lets you see into the future!
 
 ```java
 const var score = 5!
-after ("click") score++!
+addEventListener("click", () => score++)!
 print(await next score)! //6 (when you click)
 ```
 
@@ -420,7 +421,7 @@ print(score)! //3
 Thanks to recent advances in technology, you can now give files names.
 
 ```java
-======= add.db3 =======
+======= add.db =======
 function add(a, b) => {
    return a + b!
 }
@@ -431,14 +432,14 @@ function add(a, b) => {
 Many languages allow you to import things from specific files. In DreamBerd, importing is simpler. Instead, you export _to_ specific files!
 
 ```java
-===== add.db3 ==
+===== add.db ==
 function add(a, b) => {
    return a + b!
 }
 
-export add to "main.db3"!
+export add to "main.db"!
 
-===== main.db3 ==
+===== main.db ==
 import add!
 add(3, 2)!
 ```
@@ -570,9 +571,9 @@ className Player {
 
 In response to some recent criticism about this design decision, we would like to remind you that this is part of the JavaScript specification, and therefore - out of our control.
 
-## DB3X
+## DBX
 
-You can embed DB3X in DreamBerd. It's just DreamBerd, and it's also just HTML.
+You can embed DBX in DreamBerd. It's just DreamBerd, and it's also just HTML.
 
 ```java
 funct App() => {
@@ -639,7 +640,7 @@ const const g_fScore = 4.5!
 In most languages, it's hard to get asynchronous functions to synchronise with each other. In DreamBerd, it's easy: Asynchronous functions take turns running lines of code.
 
 ```java
-async funct count() {
+async funct count() => {
    print(1)!
    print(3)!
 }
@@ -651,7 +652,7 @@ print(2)!
 You can use the `noop` keyword to wait for longer before taking your turn.
 
 ```java
-async func count() {
+async func count() => {
    print(1)!
    noop!
    print(4)!

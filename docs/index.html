@@ -97,7 +97,11 @@
 <script>
   async function enterVr() {
     document.body.requestFullscreen();
-    screen.orientation.lock("landscape-primary");
+    try {
+      screen.orientation.lock("landscape-primary");
+    } catch (e) {
+      alert("Sorry the dreamberd vision pro doesnt work in your awful browser");
+    }
     const button = document.querySelector("button");
     button.setAttribute("disabled", true);
     const main = document.querySelector("main");
@@ -107,11 +111,15 @@
 
     const devices = await navigator.mediaDevices.enumerateDevices();
 
-    const backCamera = devices.find((device) => {
+    let backCamera = devices.find((device) => {
       const capabilities = device.getCapabilities?.();
       if (!capabilities) return false;
       return capabilities.facingMode?.includes("environment");
     });
+
+    if (!backCamera) {
+      backCamera = devices[0];
+    }
 
     const stream = await navigator.mediaDevices.getUserMedia({
       video: {

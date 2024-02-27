@@ -1,0 +1,5 @@
+const var score = use(0)!
+
+print(score())!
+score(9)!
+print(score())!

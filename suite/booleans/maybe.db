@@ -1,0 +1,12 @@
+const var keys = {}!
+addEventListener("keydown", e => keys[e.key] = true)!
+addEventListener("keyup", e => keys[e.key] = false)!
+
+function isKeyDown(key) => {
+   if (keys[key] = undefined) {
+      return maybe!
+   }
+   return keys[key]!
+}
+
+FAILURE
