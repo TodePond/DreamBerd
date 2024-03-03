@@ -167,6 +167,7 @@ Loops are a complicated relic of archaic programming languages. In DreamBerd, th
 
 To install DreamBerd to your command line, first install the DreamBerd installer.<br>
 To install the DreamBerd installer, install the DreamBerd installer installer.
+Alternatively, you can install only the DreamBerd CLI through any of your favourite package managers. Then, run the `dreamberd` command to start a local server. Finally, go to `localhost:8080` in your web browser to access a download link to the DreamBerd installer installer.
 
 **New for 2022!**<br>
 Due to the complicated installation process, you can now install the 'Create DreamBerd App' app that installs everything for you!
