@@ -762,8 +762,8 @@ Just create a new rule using the `rule` keyword:
 rule {
    H => _
    _    H
-}
-print("Hello")!
+}      
+print("Hello")! // The rule applies after the line is run
 print(" owdy")!
 print(" ey there")!
 ```
@@ -793,9 +793,9 @@ rule {
    1 => 2
 }
 flip()!
-print("1")! // one
 print("1")! // two
 print("1")! // one
+print("1")! // two
 ```
 
 
