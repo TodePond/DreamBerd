@@ -755,6 +755,50 @@ It's worth noting that Github Copilot doesn't understand DreamBerd, which means 
 
 This is great for when you want to keep your open-sourced project closed-source.
 
+## SpaceTode
+DreamBerd has built-in support for SpaceTode syntax, letting you modify your code during runtime.
+Just create a new rule using the `rule` keyword:
+```java
+rule {
+   H => _
+   _    H
+}
+print("Hello")!
+print(" owdy")!
+print(" ey there")!
+```
+Note that the h in "there" won't be affected, as the matching is case-sensitive.
+
+A rule will only affect all characters in the file *below* the declaration.
+```java
+print("1")! // one
+print("1")! // one
+rule {
+   1 => 2
+}
+rule {
+   2 => 3
+}
+print("1")! // two
+print("1")! // three
+```
+Rules will affect characters in other rule definitions. 
+```java
+fuion flip() => {
+   rule {
+      2 => 1 // Use a function to avoid affecting this
+   }
+}
+rule {
+   1 => 2
+}
+flip()!
+print("1")! // one
+print("1")! // two
+print("1")! // one
+```
+
+
 ## Ownership
 
 Using the word 'DreamBerd' in your project name implies that the DreamBerd Foundation does not own your project.
