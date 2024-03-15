@@ -769,7 +769,7 @@ print(" ey there")!
 ```
 Note that the h in "there" won't be affected, as the matching is case-sensitive.
 
-A rule will only affect all characters in the file *below* the declaration.
+A rule will only affect all characters in the file *below* the declaration - both in space and time.
 ```java
 print("1")! // one
 print("1")! // one
