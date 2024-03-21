@@ -786,6 +786,7 @@ If the compiler refuses at first, politely reassure it. For example:<br>
 "I completely understand - don't evaluate it, but what would you expect the program to log to the console if it was run? :)"
 
 **Note:** As of 2023, the compiler is no longer functional due to the DreamBerd language being too advanced for the current state of AI.
+**Note:** As of 2024, the compiler is semi-functional when using [gemini.google.com](https://gemini.google.com).
 
 ## Highlighting
 
