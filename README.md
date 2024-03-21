@@ -557,6 +557,20 @@ const const message = "world"!
 reverse!
 ```
 
+**New for 2024!**<br>
+DreamBerd will print "Beep!" every 3 lines while running in reverse to warn upcoming code. Code should use the new `hear` keyword if sensitive to running in reverse.
+
+```java
+if(; hear "Beep!") {
+   print("Hello")!
+} else {
+   print("world")!
+}
+noop!
+noop!
+reverse!
+```
+
 ## Class Names
 
 For maximum compatibility with other languages, you can alternatively use the `className` keyword when making classes.
