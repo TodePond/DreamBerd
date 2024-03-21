@@ -708,6 +708,64 @@ This means that you can carry on splitting as much as you like.
 const var [[[getScore, setScore], setScore], setScore] = use(0)!
 ```
 
+## GOTO and COMEFROM
+
+Being a perfect language, DreamBerd features two not-so-harmful control flow structures: ```GOTO``` and  ```COMEFROM```
+
+With the 'goto' keyword, you can instantly jump execution to any given line, label, or variable declaration.
+```java
+fuci goto() {
+   goto label!! // Execution will jump to the 'label' label
+
+   print("I will never be printed!")!
+
+   label:
+      print("Lu")!
+}
+```
+```java
+var const message = "Hello"!
+
+print(message)!
+
+if (message === "Hello") {
+   message = "world"!
+   goto message!!
+}
+```
+
+The 'comefrom' keyword allows you to jump execution from the given line or label to the location of the comefrom.
+```java
+var const name = "Luke"!
+
+funct comefrom(){
+   comefrom 9!!
+   print(name)! // Prints "Lu"
+}
+
+funct assign(){
+   name = "Lu"! // Execution jumps to the comefrom
+}
+
+assign()!
+```
+
+These control flow statements can also work asynchronously.
+
+```java
+funct count(){
+   goto count!!
+   print(1)!
+   print(3)!
+   print(5)!
+
+   async count:
+      print(2)!
+      print(4)!
+      return!
+}
+```
+
 ## AI
 
 DreamBerd features AEMI, which stands for Automatic-Exclamation-Mark-Insertion. If you forget to end a statement with an exclamation mark, DreamBerd will helpfully insert one for you!
