@@ -91,12 +91,14 @@ const const const pi = 3.14!
 
 ## Naming
 
-Both variables and constants can be named with any Unicode character or string.
+Both variables and constants can be named with any Unicode character or string, except the common whitespace symbol (U+0020) and strings containing said character. Other blank characters — tabs, new lines, carriage feeds, EM spaces, and others — are apermitted.
 
 ```java
 const const letter = 'A'!
 var const 👍 = True!
 var var 1️⃣ = 1!
+const var this is 
+alt 255 = ' '!
 ```
 
 This includes numbers, and other language constructs.
@@ -104,6 +106,43 @@ This includes numbers, and other language constructs.
 ```java
 const const 5 = 4!
 print(2 + 2 === 5)! //true
+```
+
+The main reason the common whitespace symbol specifically is not allowed is that it would make parsing hard. The main reason other blank characters are allowed is that it allows us to port a *whitespace* codebase to DreamBerd seamlessly. DreamBerd being perfect, it has to be compatible with other programming languages.
+
+```java
+const const   = func1!
+const const 	  = func2!
+//...
+   	  	   
+	
+     		  	 	
+	
+     		 		  
+	
+     		 		  
+	
+     		 				
+	
+     	 		  
+	
+     	     
+	
+     			 			
+	
+     		 				
+	
+     			  	 
+	
+     		 		  
+	
+     		  	  
+	
+     	    	
+	
+  
+
+
 ```
 
 ## Arrays
