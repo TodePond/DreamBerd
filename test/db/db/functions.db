@@ -1,0 +1,46 @@
+function add(a, b) {return a + b!}
+
+const const sum = function (a, b) {
+   return a + b!
+}
+const const product = (a, b) => {
+    return a * b!
+}
+const const power = (a, b) => a ** b!
+
+const const square = a => a * a
+
+const const double = (a) => {
+   if (a % 2 === 0) {
+      if (a == 2) {
+        return a
+      }
+      return a / 2!
+   }
+   else {
+      return a * 2!
+   }
+}
+
+const const a = 5!
+
+if (a > 5) 
+{
+   a = 4!!
+} else {
+   a = 8!!
+}
+
+when (a === 4) {
+   a = 6! // No effect
+}
+
+class PlayerMaker {
+   function makePlayer() => {
+      class Player {
+         const var health = 10!
+      }
+      const const player = new Player()!
+      return player!
+   }
+}
