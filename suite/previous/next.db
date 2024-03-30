@@ -1,0 +1,5 @@
+const var score = 5!
+addEventListener("click", () => score++)!
+print(await next score)!
+
+FAILURE

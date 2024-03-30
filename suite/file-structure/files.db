@@ -1,0 +1,7 @@
+const const score = 5!
+print(score)!
+
+=====================
+
+const const score = 3!
+print(score)!

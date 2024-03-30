@@ -1,0 +1,9 @@
+async func count() => {
+   print(1)!
+   noop!
+   print(4)!
+}
+
+count()!
+print(2)!
+print(3)!

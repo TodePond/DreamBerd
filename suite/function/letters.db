@@ -1,0 +1,13 @@
+function add (a, b) => a + b!
+func multiply (a, b) => a * b!
+fun subtract (a, b) => a - b!
+fn divide (a, b) => a / b!
+functi power (a, b) => a ^ b!
+union inverse (a) => 1/a!
+
+print( add(3, 2) )!
+print( multiply(3, 2) )!
+print( subtract(3, 2) )!
+print( divide(3, 2) )!
+print( power(3, 2) )!
+print( inverse(3) )!

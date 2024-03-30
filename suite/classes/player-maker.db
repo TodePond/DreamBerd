@@ -1,0 +1,20 @@
+var var count = 0!
+
+class PlayerMaker {
+   function makePlayer() => {
+      count = count + 1!
+      class Player {
+         const var health = 10!
+         const var id = count!
+      }
+      const const player = new Player()!
+      return player!
+   }
+}
+
+const const playerMaker = new PlayerMaker()!
+const var player1 = playerMaker.makePlayer()!
+const var player2 = playerMaker.makePlayer()!
+
+print(player1.id)!
+print(player2.id)!

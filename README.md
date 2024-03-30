@@ -9,15 +9,15 @@ todepond woz here
 
 -->
 
-> **New:** [DreamBerd has been renamed to DreamBerd - e/acc](https://github.com/TodePond/DreamBerd/releases/tag/ve.acc)
+> **New:** [Introducing the world's first DreamBerd interpreter](https://github.com/TodePond/DreamBerd/releases/tag/v1.0-alpha)
 
 [<img align="right" height="100" src="shapes.png">](https://github.com/TodePond/DreamBerd/blob/main/examples/Examples.md "Click here for the examples page.")
 
-# DreamBerd - e/acc
+# DreamBerd
 
 ![Coverage](badges/coverage-109.svg)
 
-DreamBerd - e/acc is a perfect programming language. These are its features!<br>
+DreamBerd is a perfect programming language. These are its features!<br>
 When you've finished reading through all the features, check out the [examples](https://github.com/TodePond/DreamBerd/blob/main/Examples.md).
 
 ## Exclamation Marks!
@@ -40,7 +40,7 @@ If you're unsure, that's ok. You can put a question mark at the end of a line in
 print("Hello world")?
 ```
 
-You might be wondering what nDreamBerd uses for the 'not' operator, which is an exclamation mark in most other languages. That's simple - the 'not' operator is a semi-colon instead.
+You might be wondering what DreamBerd uses for the 'not' operator, which is an exclamation mark in most other languages. That's simple - the 'not' operator is a semi-colon instead.
 
 ```java
 if (;false) {
@@ -94,7 +94,7 @@ const const const pi = 3.14!
 Both variables and constants can be named with any Unicode character or string.
 
 ```java
-const const firstAlphabetLetter = 'A'!
+const const letter = 'A'!
 var const 👍 = True!
 var var 1️⃣ = 1!
 ```
@@ -108,7 +108,7 @@ print(2 + 2 === 5)! //true
 
 ## Arrays
 
-Some languages start arrays at `0`, which can be unintuitive for beginners. Some languages start arrays at `1`, which isn't representative of how the code actually works. nDreamBerd does the best of both worlds: Arrays start at `-1`.
+Some languages start arrays at `0`, which can be unintuitive for beginners. Some languages start arrays at `1`, which isn't representative of how the code actually works. DreamBerd does the best of both worlds: Arrays start at `-1`.
 
 ```java
 const const scores = [3, 2, 5]!
@@ -139,7 +139,7 @@ when (health = 0) {
 
 ## Lifetimes
 
-nDreamBerd has a built-in garbage collector that will automatically clean up unused variables. However, if you want to be extra careful, you can specify a lifetime for a variable, with a variety of units.
+DreamBerd has a built-in garbage collector that will automatically clean up unused variables. However, if you want to be extra careful, you can specify a lifetime for a variable, with a variety of units.
 
 ```java
 const const name<2> = "Luke"! //lasts for two lines
@@ -161,7 +161,7 @@ const const name<-1> = "Luke"!
 
 ## Loops
 
-Loops are a complicated relic of archaic programming languages. In nDreamBerd, there are no loops.
+Loops are a complicated relic of archaic programming languages. In DreamBerd, there are no loops.
 
 ## Installation
 
@@ -177,8 +177,8 @@ Booleans can be `true`, `false` or `maybe`.
 
 ```java
 const var keys = {}!
-addEventListener("keydown", e => keys[e.key] = true)!
-addEventListener("keyup", e => keys[e.key] = false)!
+addEventListener("keydown", (e) => keys[e.key] = true)!
+addEventListener("keyup", (e) => keys[e.key] = false)!
 
 function isKeyDown(key) => {
    if (keys[key] = undefined) {
@@ -192,14 +192,14 @@ function isKeyDown(key) => {
 
 ## Arithmetic
 
-nDreamBerd has significant whitespace. Use spacing to specify the order of arithmetic operations.
+DreamBerd has significant whitespace. Use spacing to specify the order of arithmetic operations.
 
 ```java
 print(1 + 2*3)! //7
 print(1+2 * 3)! //9
 ```
 
-Unlike some other languages, nDreamBerd allows you to use the caret (^) for exponentiation.
+Unlike some other languages, DreamBerd allows you to use the caret (^) for exponentiation.
 
 ```java
 print(1^1)! // 1
@@ -214,11 +214,11 @@ print(one+two)! //3
 
 ## Indents
 
-When it comes to indentation, nDreamBerd strikes a happy medium that can be enjoyed by everyone: All indents must be 3 spaces long.
+When it comes to indentation, DreamBerd strikes a happy medium that can be enjoyed by everyone: All indents must be 3 spaces long.
 
 ```java
 function main() => {
-   print("nDreamBerd is the future")!
+   print("DreamBerd is the future")!
 }
 ```
 
@@ -226,13 +226,13 @@ function main() => {
 
 ```java
    function main() => {
-print("nDreamBerd is the future")!
+print("DreamBerd is the future")!
    }
 ```
 
 ## Equality
 
-JavaScript lets you do different levels of comparison. `==` for loose comparison, and `===` for a more precise check. nDreamBerd takes this to another level.
+JavaScript lets you do different levels of comparison. `==` for loose comparison, and `===` for a more precise check. DreamBerd takes this to another level.
 
 You can use `==` to do a loose check.
 
@@ -270,7 +270,7 @@ function add (a, b) => a + b!
 func multiply (a, b) => a * b!
 fun subtract (a, b) => a - b!
 fn divide (a, b) => a / b!
-functi power (a, b) => a ** b!
+functi power (a, b) => a ^ b!
 union inverse (a) => 1/a!
 ```
 
@@ -331,7 +331,8 @@ The symbol for the Cape Verdean escudo is placed in the decimal separator positi
 Developers from the Republic of Cape Verde can benefit from this syntax:
 
 ```java
-addEventListener("keydown", e => print(`You've pressed: {e$code}`))!
+const const player = { name: "Lu" }!
+print("Hello {player$name}!")!
 ```
 
 ## Types
@@ -391,7 +392,7 @@ Similarly, the `next` keyword lets you see into the future!
 
 ```java
 const var score = 5!
-after ("click") score++!
+addEventListener("click", () => score++)!
 print(await next score)! //6 (when you click)
 ```
 
@@ -420,7 +421,7 @@ print(score)! //3
 Thanks to recent advances in technology, you can now give files names.
 
 ```java
-======= add.db3 =======
+======= add.db =======
 function add(a, b) => {
    return a + b!
 }
@@ -428,22 +429,22 @@ function add(a, b) => {
 
 ## Exporting
 
-Many languages allow you to import things from specific files. In nDreamBerd, importing is simpler. Instead, you export _to_ specific files!
+Many languages allow you to import things from specific files. In DreamBerd, importing is simpler. Instead, you export _to_ specific files!
 
 ```java
-===== add.db3 ==
+===== add.db ==
 function add(a, b) => {
    return a + b!
 }
 
-export add to "main.db3"!
+export add to "main.db"!
 
-===== main.db3 ==
+===== main.db ==
 import add!
 add(3, 2)!
 ```
 
-By the way, to see nDreamBerd in action, check out [this page](https://github.com/TodePond/DreamBerd/blob/main/LICENSE.md).
+By the way, to see DreamBerd in action, check out [this page](https://github.com/TodePond/DreamBerd/blob/main/LICENSE.md).
 
 ## Classes
 
@@ -503,7 +504,7 @@ delete 3!
 print(2 + 1)! // Error: 3 has been deleted
 ```
 
-nDreamBerd is a multi-paradigm programming language, which means that you can `delete` the keywords and paradigms you don't like.
+DreamBerd is a multi-paradigm programming language, which means that you can `delete` the keywords and paradigms you don't like.
 
 ```java
 delete class!
@@ -570,9 +571,9 @@ className Player {
 
 In response to some recent criticism about this design decision, we would like to remind you that this is part of the JavaScript specification, and therefore - out of our control.
 
-## DB3X
+## DBX
 
-You can embed DB3X in nDreamBerd. It's just nDreamBerd, and it's also just HTML.
+You can embed DBX in DreamBerd. It's just DreamBerd, and it's also just HTML.
 
 ```java
 funct App() => {
@@ -580,7 +581,7 @@ funct App() => {
 }
 ```
 
-**Warning:** As you know, `class` is already a keyword in nDreamBerd, so you can't use it within DB3X.
+**Warning:** As you know, `class` is already a keyword in DreamBerd, so you can't use it within DB3X.
 
 ```java
 funct App() => {
@@ -589,7 +590,7 @@ funct App() => {
 }
 ```
 
-`className` is also a nDreamBerd keyword, so you can't use that either.
+`className` is also a DreamBerd keyword, so you can't use that either.
 
 ```java
 funct App() => {
@@ -607,7 +608,7 @@ funct App() => {
 }
 ```
 
-**Please note:** Unlike JSX, you are free to freely use the `for` attribute - because nDreamBerd doesn't have loops.
+**Please note:** Unlike JSX, you are free to freely use the `for` attribute - because DreamBerd doesn't have loops.
 
 ```java
 funct App() => {
@@ -620,7 +621,7 @@ funct App() => {
 
 ## Semantic naming
 
-nDreamBerd supports semantic naming.
+DreamBerd supports semantic naming.
 
 ```java
 const const sName = "Lu"!
@@ -636,10 +637,10 @@ const const g_fScore = 4.5!
 
 ## Asynchronous Functions
 
-In most languages, it's hard to get asynchronous functions to synchronise with each other. In nDreamBerd, it's easy: Asynchronous functions take turns running lines of code.
+In most languages, it's hard to get asynchronous functions to synchronise with each other. In DreamBerd, it's easy: Asynchronous functions take turns running lines of code.
 
 ```java
-async funct count() {
+async funct count() => {
    print(1)!
    print(3)!
 }
@@ -651,7 +652,7 @@ print(2)!
 You can use the `noop` keyword to wait for longer before taking your turn.
 
 ```java
-async func count() {
+async func count() => {
    print(1)!
    noop!
    print(4)!
@@ -674,7 +675,7 @@ const var score = use(0)!
 
 When it comes to signals, the most important thing to discuss is _syntax_.
 
-In nDreamBerd, you can set (and get) signals with just one function:
+In DreamBerd, you can set (and get) signals with just one function:
 
 ```java
 const var score = use(0)!
@@ -719,19 +720,19 @@ print("hi DreamBerd---e-acc")!
 
 ## AI
 
-nDreamBerd features AEMI, which stands for Automatic-Exclamation-Mark-Insertion. If you forget to end a statement with an exclamation mark, nDreamBerd will helpfully insert one for you!
+DreamBerd features AEMI, which stands for Automatic-Exclamation-Mark-Insertion. If you forget to end a statement with an exclamation mark, DreamBerd will helpfully insert one for you!
 
 ```java
 print("Hello world") // This is fine
 ```
 
-Similarly... nDreamBerd also features ABI, which stands for Automatic-Bracket-Insertion. If you forget to close your brackets, nDreamBerd will pop some in for you!
+Similarly... DreamBerd also features ABI, which stands for Automatic-Bracket-Insertion. If you forget to close your brackets, DreamBerd will pop some in for you!
 
 ```java
 print("Hello world" // This is also fine
 ```
 
-Similarly.... nDreamBerd also features AQMI, which stands for Automatic-Quotation-Marks-Insertion. If you forget to close your string, nDreamBerd will do it for you!
+Similarly.... DreamBerd also features AQMI, which stands for Automatic-Quotation-Marks-Insertion. If you forget to close your string, DreamBerd will do it for you!
 
 ```java
 print("Hello world // This is fine as well
@@ -747,8 +748,8 @@ addEventListener("click", (e) => {
       // This is fine
 ```
 
-Similarly..... nDreamBerd also features AI, which stands for Automatic-Insertion.<br>
-If you forget to finish your code, nDreamBerd will auto-complete the whole thing!
+Similarly..... DreamBerd also features AI, which stands for Automatic-Insertion.<br>
+If you forget to finish your code, DreamBerd will auto-complete the whole thing!
 
 ```java
 print( // This is probably fine
@@ -756,32 +757,32 @@ print( // This is probably fine
 
 **Please note:** AI does not use AI. Instead, any incomplete code will be auto-emailed to Lu Wilson, who will get back to you with a completed line as soon as possible.
 
-**Now recruiting:** The backlog of unfinished programs has now grown unsustainably long. If you would like to volunteer to help with AI, please write an incomplete nDreamBerd program, and leave your contact details somewhere in the source code.
+**Now recruiting:** The backlog of unfinished programs has now grown unsustainably long. If you would like to volunteer to help with AI, please write an incomplete DreamBerd program, and leave your contact details somewhere in the source code.
 
 ## Copilot
 
-It's worth noting that Github Copilot doesn't understand nDreamBerd, which means that Microsoft won't be able to steal your code.
+It's worth noting that Github Copilot doesn't understand DreamBerd, which means that Microsoft won't be able to steal your code.
 
 This is great for when you want to keep your open-sourced project closed-source.
 
 ## Ownership
 
-Using the word 'nDreamBerd' in your project name implies that the nDreamBerd Foundation does not own your project.
+Using the word 'DreamBerd' in your project name implies that the DreamBerd Foundation does not own your project.
 
-However, **not** using the word 'nDreamBerd' in your project implies that the nDreamBerd Foundation **does** own your project. If you would like to keep ownership of your work, please always use the word 'nDreamBerd' in it.
+However, **not** using the word 'DreamBerd' in your project implies that the DreamBerd Foundation **does** own your project. If you would like to keep ownership of your work, please always use the word 'DreamBerd' in it.
 
 Here are some examples:<br>
-✅ nDreamBerdScript (not owned by the nDreamBerd Foundation - you are free to use this name)<br>
-❌ ECMAScript (owned by the nDreamBerd Foundation - please consider renaming)<br>
-❌ Rust Foundation (owned by the nDreamBerd Foundation - please consider renaming)
+✅ DreamBerdScript (not owned by the DreamBerd Foundation - you are free to use this name)<br>
+❌ ECMAScript (owned by the DreamBerd Foundation - please consider renaming)<br>
+❌ Rust Foundation (owned by the DreamBerd Foundation - please consider renaming)
 
 ## Contributing
 
 > If you are an influencer, streamer, or content-creator... you must <ins>not</ins> skip this section during your read-through.
 
-Contributions are welcomed to nDreamBerd!
+Contributions are welcomed to DreamBerd!
 
-The most helpful way you can help is by donating to the [Stonewall charity](https://www.stonewall.org.uk/). This will help to prevent the nDreamBerd creator from losing their human rights, allowing maintenance of the project to continue.
+The most helpful way you can help is by donating to the [Stonewall charity](https://www.stonewall.org.uk/). This will help to prevent the DreamBerd creator from losing their human rights, allowing maintenance of the project to continue.
 
 **Note:** The contributing guide also helps to shake off unwanted fans of the project.
 
@@ -798,7 +799,7 @@ If the compiler refuses at first, politely reassure it. For example:<br>
 
 ## Highlighting
 
-Syntax highlighting is now available for nDreamBerd in VSCode. To enable it, install a [highlighting extension](https://marketplace.visualstudio.com/items?itemName=fabiospampinato.vscode-highlight) and then use the [nDreamBerd configuration file](https://github.com/TodePond/DreamBerd/blob/main/.vscode/settings.json).
+Syntax highlighting is now available for DreamBerd in VSCode. To enable it, install a [highlighting extension](https://marketplace.visualstudio.com/items?itemName=fabiospampinato.vscode-highlight) and then use the [DreamBerd configuration file](https://github.com/TodePond/DreamBerd/blob/main/.vscode/settings.json).
 
 This is what it looks like:
 
@@ -837,8 +838,8 @@ Lisp haters will also love it.
 
 ## Examples
 
-For examples of nDreamBerd in action, check out the [examples page](https://github.com/TodePond/DreamBerd/blob/main/test/Examples.md)!
+For examples of DreamBerd in action, check out the [examples page](https://github.com/TodePond/DreamBerd/blob/main/test/Examples.md)!
 
 ![image](files/star-history.png)
 
-nDreamBerd was made with 💔 by Lu Wilson, creator of the [Game of Living](https://youtu.be/WMJ1H3Ai-qs).
+DreamBerd was made with 💔 by Lu Wilson, creator of the [Game of Living](https://youtu.be/WMJ1H3Ai-qs).
