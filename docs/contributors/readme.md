@@ -6,6 +6,7 @@ This list is only for people who have had a pull request accepted. If that could
 
 ## Contributors
 
+- M3T4
 - Lu (or Luke) Wilson AKA TodePond
 - YouHaveTrouble
 - Smuglix
