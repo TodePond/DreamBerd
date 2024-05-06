@@ -546,6 +546,22 @@ const const name = "Luke"¡
 print(name)! // "Lu"
 ```
 
+## Semantic naming
+
+DreamBerd supports semantic naming.
+
+```java
+const const sName = "Lu"!
+const const iAge = 29!
+const const bHappy = true!
+```
+
+**New for 2023:** You can now make globals.
+
+```java
+const const g_fScore = 4.5!
+```
+
 ## Reversing
 
 You can reverse the direction of your code.
@@ -619,21 +635,23 @@ funct App() => {
 }
 ```
 
-## Semantic naming
+## Rich text
 
-DreamBerd supports semantic naming.
+DreamBerd now supports rich text.
 
-```java
-const const sName = "Lu"!
-const const iAge = 29!
-const const bHappy = true!
-```
+<pre>
+const const <b>name</b> = "Lu"!
+const const <i>name</i> = "Luke"!
 
-**New for 2023:** You can now make globals.
+print(<b>name</b>)! // Lu
+print(<i>name</i>)! // Luke
+</pre>
 
-```java
-const const g_fScore = 4.5!
-```
+Rich text can be helpful when making your website. Use it to add links!
+
+<pre>
+&lt;p>Click <a href="https://dreamberd.computer">here</a>&lt;/p>
+</pre>
 
 ## Asynchronous Functions
 
