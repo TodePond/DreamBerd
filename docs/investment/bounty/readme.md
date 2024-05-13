@@ -1,4 +1,6 @@
-But don't worry! There's still one more bounty to claim.
+# DreamBerd Bounty Program
+
+These are all the bounties. Ticked bubbles are already completed and now unavailable.
 
 - [x] £99 to a charity of your choice if you create a partial dreamberd implementation.
 - [ ] £99 to a charity of your choice if you create a COMPLETE dreamberd implementation, including implicit strings, automatic insertion, time travel, and everything else.
