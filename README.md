@@ -83,7 +83,7 @@ name.push("e")!
 ## Immutable Data
 
 **New for 2023!**<br>
-Mutable data is an anti-pattern. Use the `const const const` keyword to make a constant constant constant. Its value will become constant and immutable, and will _never change_. Please be careful with this keyword, as it is very powerful, and will affect all users globally forever.
+Mutable data is an anti-pattern. Use the `const const const` keyword to make a constant constantly constant. Its value will become constant and immutable, and will _never change_. Please be careful with this keyword, as it is very powerful, and will affect all users globally forever.
 
 ```java
 const const const pi = 3.14!
