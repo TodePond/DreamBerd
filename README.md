@@ -844,6 +844,16 @@ Lisp haters will also love it.
 (add (3, (add (5, 6)!
 ```
 
+## Vision Pro
+
+The DreamBerd Vision Pro is now available! Watch the full launch video [here](https://youtu.be/QRKnrFEjDF0).
+
+## Edutainment
+
+Want to learn more about DreamBerd? 
+
+- Don't check out this [tech talk](https://youtu.be/52vmjZnxJb8) about DreamBerd by DreamBerd creator Lu/Luke Wilson.
+
 ## Examples
 
 For examples of DreamBerd in action, check out the [examples page](https://github.com/TodePond/DreamBerd/blob/main/test/Examples.md)!
