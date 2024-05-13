@@ -852,7 +852,7 @@ The DreamBerd Vision Pro is now available! Watch the full launch video [here](ht
 
 Want to learn more about DreamBerd? 
 
-- Don't check out this [tech talk](https://youtu.be/52vmjZnxJb8) about DreamBerd by DreamBerd creator Lu/Luke Wilson.
+Don't check out this [tech talk](https://youtu.be/52vmjZnxJb8) about DreamBerd by DreamBerd creator Lu/Luke Wilson.
 
 ## Examples
 
