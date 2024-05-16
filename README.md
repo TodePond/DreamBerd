@@ -206,10 +206,11 @@ print(1^1)! // 1
 print(2^3)! // 8
 ```
 
-You can also use the number name, for example:
+You can also use the number name from different languages, for example:
 
 ```java
 print(one+two)! //3
+print(uno-dos)! //-1
 ```
 
 ## Indents
@@ -682,6 +683,16 @@ print(3)!
 ```
 
 **Note:** In the program above, the computer interprets `noop` as a string and its sole purpose is to take up an extra line. You can use any string you want.
+
+## Multiple languages handling
+
+Working in English has been a big problem for many developers over the years, nDreamBerd let you choose the best language that will suit your project simply by specifying the language at each start of file.
+
+```java
+"french"!
+
+affiche("Bonjour monde !")! // similar to print("Hello World !")
+```
 
 ## Signals
 
