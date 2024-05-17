@@ -7,5 +7,5 @@ First of all, the example could include some text explaining the example, like t
 // And then some code here to show how to code the example
 ```
 
-Please only read the actual examples after reading the [full specification of DreamBerd - e/acc](https://github.com/TodePond/DreamBerd/blob/main/README.md).<br>
+Please only read the actual examples after reading the [full specification of DreamBerd](https://github.com/TodePond/DreamBerd/blob/main/README.md).<br>
 AFTER reading the specification, you can read the examples [here](https://github.com/TodePond/DreamBerd/blob/main/Examples.md).
