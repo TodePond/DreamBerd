@@ -2,7 +2,7 @@
 
 Congratulations! You found the hidden examples page!
 
-Here are some examples of DreamBerd - e/acc in action! Sorry - there aren't many.
+Here are some examples of DreamBerd in action!
 
 ## Hello world
 
@@ -24,21 +24,6 @@ when (i < 20) i++!
 i = 0!
 ```
 
-## Keyboard
-
-```java
-const var keys = {}!
-after ("keydown") e => keys[e.key] = true!
-after ("keyup") e => keys[e.key] = false!
-
-const var count = 0!
-
-when (keys[" "] = true) {
-   count++!
-   "You've pressed the space bar {count} times"?
-}
-```
-
 ## Fibonacci
 
 ```java
@@ -55,6 +40,16 @@ when (i < 10) {
    fibonacci(i)?
    i++!
 }
+```
+
+## Counter
+
+```java
+const var count = 0!
+var const Button = <button></button>!
+when count Button.textContent = Count: £{count}!
+Button.addEventListener click => count++!
+document.body.append Button!
 ```
 
 ## The Billion Dollar Mistake
