@@ -857,4 +857,4 @@ For examples of DreamBerd in action, check out the [examples page](https://githu
 
 ![image](files/star-history.png)
 
-DreamBerd was made with 💔 by [Lu Wilson](https://todepond.com), creator of the [Game of Living](https://youtu.be/WMJ1H3Ai-qs).
+DreamBerd was made with 💔 by [Lu or Luke (either's fine) Wilson](https://todepond.com), creator of the [Game of Living](https://youtu.be/WMJ1H3Ai-qs).
