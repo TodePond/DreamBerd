@@ -1,0 +1,10 @@
+===== add.db ==
+function add(a, b) => {
+   return a + b!
+}
+
+export add to "main.db"!
+
+===== main.db ==
+import add!
+print( add(3, 2) )!

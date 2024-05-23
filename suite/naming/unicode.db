@@ -1,0 +1,7 @@
+const const letter = 'A'!
+var const 👍 = True!
+var var 🐦 = 1!
+
+print(letter)!
+print(👍)!
+print(🐦)!

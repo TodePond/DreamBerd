@@ -1,0 +1,13 @@
+const const single = 'Lu'!
+const const double = "Luke"!
+const const triple = '''Lu'''!
+const const mixed = "'Lu'"!
+const const octuple = """"Luke""""!
+const const none = Luke!
+
+print(single)!
+print(double)!
+print(triple)!
+print(mixed)!
+print(octuple)!
+print(none)!

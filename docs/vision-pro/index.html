@@ -1,0 +1,172 @@
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1, maximum-scale=1"
+/>
+<style>
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    margin: 0;
+    font-family: sans-serif;
+    background-color: #000;
+    color: #fff;
+    text-align: center;
+    user-select: none;
+    touch-action: none;
+  }
+
+  * {
+    touch-action: none;
+  }
+
+  button {
+    font-size: 2em;
+  }
+
+  video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+  }
+
+  #screens {
+    z-index: 1;
+    width: 50%;
+    height: 50%;
+  }
+
+  #wikiblog {
+    position: fixed;
+    z-index: 2;
+    width: 25%;
+    height: 75%;
+    opacity: 1.0;
+    left: 70%
+  }
+
+  #webcam {
+    position: fixed;
+    z-index: 3;
+    width: 40%;
+    height: 40%;
+    opacity: 1.0;
+    left: 10%;
+    bottom: 10%;
+    rotate: -10deg;
+  }
+
+  iframe {
+    width: 100%;
+    height: 100%;
+  }
+
+  .wobble {
+    animation: wobble 30s infinite;
+  }
+
+  @keyframes wobble {
+    0% {
+      transform: rotate(5deg);
+    }
+
+    50% {
+      transform: rotate(-5deg);
+    }
+
+    100% {
+      transform: rotate(5deg);
+    }
+</style>
+
+<video></video>
+
+<div id="screens" class="" style="display: none"></div>
+<div id="wikiblog" style="display: none"></div>
+<div id="webcam" style="display: none"></div>
+<button onclick="enterVr()">Enter spatial computing (not VR or AR)</button>
+
+<main style="visibility: hidden">Loading...</main>
+
+<script>
+  async function enterVr() {
+    document.body.requestFullscreen();
+    try {
+      screen.orientation.lock("landscape-primary");
+    } catch (e) {
+      alert("Sorry the dreamberd vision pro doesnt work in your awful browser");
+    }
+    const button = document.querySelector("button");
+    button.setAttribute("disabled", true);
+    const main = document.querySelector("main");
+    main.style.visibility = "visible";
+
+    navigator.mediaDevices.getUserMedia({ audio: false, video: true });
+
+    const devices = await navigator.mediaDevices.enumerateDevices();
+
+    let backCamera = devices.find((device) => {
+      const capabilities = device.getCapabilities?.();
+      if (!capabilities) return false;
+      return capabilities.facingMode?.includes("environment");
+    });
+
+    if (!backCamera) {
+      backCamera = devices[0];
+    }
+
+    const stream = await navigator.mediaDevices.getUserMedia({
+      video: {
+        deviceId: backCamera.deviceId,
+      },
+    });
+
+    const query = new URLSearchParams(window.location.search);
+    const isEmpty = query.has("empty");
+
+    if (!isEmpty) {
+      const screens = document.querySelector("#screens");
+      setTimeout(() => {
+        screens.style.display = "block";
+        screens.classList.add("wobble");
+        const src = `<iframe
+     src="https://www.youtube.com/embed/Q4OIcwt8vcE?si=sygMo3R_JKVIytkP&autoplay=1&controls=0&loop=1&playlist=Q4OIcwt8vcE"
+     title="YouTube video player"
+     frameborder="0"
+     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+     allowfullscreen
+   ></iframe>`;
+        screens.innerHTML = src;
+      }, 3000);
+
+      const wikiblog = document.querySelector("#wikiblog");
+      setTimeout(() => {
+        wikiblog.style.display = "block";
+        wikiblog.innerHTML = `<iframe
+  src="https://todepond.com"
+  ></iframe>`;
+        wikiblog.classList.add("wobble");
+      }, 6000);
+
+      const webcam = document.querySelector("#webcam");
+      setTimeout(() => {
+        webcam.style.display = "block";
+        webcam.innerHTML = `<video id="cam"></video>`;
+        const video = document.querySelector("#cam");
+        video.srcObject = stream;
+        video.play();
+
+        webcam.classList.add("wobble");
+      }, 9000);
+    }
+    const video = document.querySelector("video");
+    video.srcObject = stream;
+    video.play();
+  }
+</script>

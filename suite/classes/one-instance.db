@@ -1,0 +1,6 @@
+class Player {
+   const var health = 10!
+}
+
+const var player1 = new Player()!
+const var player2 = new Player()!

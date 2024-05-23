@@ -1,0 +1,3 @@
+const var scores = [3, 2, 5]!
+scores[0.5] = 4!
+print(scores)!

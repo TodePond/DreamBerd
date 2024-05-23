@@ -1,0 +1,11 @@
+func add(a, b) => a + b!
+
+const const a = add(3, 2)!
+const const b = add 3, 2!
+const const c = (add (3, 2))!
+const const d = add)3, 2(!
+
+print(a)!
+print(b)!
+print(c)!
+print(d)!

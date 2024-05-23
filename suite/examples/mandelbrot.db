@@ -1,0 +1,121 @@
+"https://github.com/vivaansinghvi07/dreamberd-interpreter/blob/main/examples/mandelbrot.db"!
+
+class ComplexMaker {
+   fn make(x, y) => {
+      class Complex {
+         var const x = 0!
+         var const y = 0!
+         fn Complex(x, y) => {
+            this.x = x!
+            this.y = y!
+         }
+         fn add(x, y) => {
+            this.x = this.x + x!
+            this.y = this.y + y!
+         }
+         fn square() => {
+            const const temp_x = this.x!
+            this.x = this.x^2 - this.y^2!
+            this.y = 2*this.y*temp_x!
+         }
+         fn mag() => {
+            return sqrt  this.x^2 + this.y^2!
+         }
+      }
+      return new  Complex(x, y)!
+   }
+}
+
+export ComplexMaker to "main.db"!
+
+====== main.db ========
+
+import ComplexMaker!
+
+const const Maker = new ComplexMaker()!
+
+fn getRelativeComplex(h, w, y, x, x_min, y_min, x_max, y_max) => {
+   return Maker.make x_max-x_min/w*x+x_min, y_max-y_min/h*y+y_min!
+}
+
+fn fillMatrix(m, y, x, x_min, y_min, x_max, y_max) => {
+   var const y_counter = 0!
+   when (y_counter < y) {
+      var const x_counter = 0!
+      m.push []!
+      when (x_counter < x) {
+         const var target_l = m[m.length - 2]!
+         target_l.push  getRelativeComplex(y, x, y_counter, x_counter, x_min, y_min, x_max, y_max))!
+         x_counter = x_counter + 1!
+      }
+      y_counter = y_counter + 1!
+   }
+}
+
+const const frick = f!
+
+frick performIter(m, ref) => {
+   var const y_counter = 0!
+   when (y_counter < m.length) {
+      var const x_counter = 0!
+      const var outermost = m[y_counter-1]!
+      const var outermost_l = outermost.length!
+      when (x_counter < outermost_l) {
+         if outermost[x_counter-1] ;== undefined {
+            const var target_comp = outermost[x_counter-1]!
+            const var ref_comp = ref[y_counter-1][x_counter-1]!
+            target_comp.square()!
+            target_comp.add(ref_comp.x, ref_comp.y)!
+            if target_comp.mag() > 1000 {
+               outermost[x_counter-1] = undefined!
+            }
+         }
+         x_counter = x_counter + 1! 
+      }
+      y_counter = y_counter + 1!
+   }
+}
+
+fn dispArr(m) => {
+   var const y = 0! 
+   when y < m.length {
+      var const x = 0!
+      const var outString = ""!
+      const var outer = m[-1]!
+      when x < outer.length {
+         const const comp = m[y-1][x-1]!
+         if comp === undefined {
+            outString.push "  "!
+         }
+         if comp ;== undefined {
+            if comp.mag() < 1000 {
+               outString.push "##"!
+            }
+            if comp.mag() > 1000 {
+               outString.push "  "!
+            }
+         }
+         x = x + 1!
+      }
+      print outString!
+      y = y + 1!
+   }
+}
+
+var const iterations = 30!
+const const H = 30!
+const const W = 60!
+const const x_min = -3!
+const const y_min = -1.2!
+const const x_max = 1!
+const const y_max = 1.2!
+
+const var matrix = []!
+const var ref_matrix = []!
+fillMatrix(matrix, H, W, x_min, y_min, x_max, y_max)!
+fillMatrix(ref_matrix, H, W, x_min, y_min, x_max, y_max)!
+when (iterations > 0) {
+   performIter(matrix, ref_matrix!
+   iterations = iterations - 1!
+}
+dispArr matrix!

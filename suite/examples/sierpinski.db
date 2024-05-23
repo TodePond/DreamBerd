@@ -1,0 +1,55 @@
+"https://github.com/vivaansinghvi07/dreamberd-interpreter/blob/main/examples/sierpinski.db"!
+
+fn fillArr(l, n) => {
+   when( l.length < n ) { 
+      l.push(0)!
+   }
+}
+
+fn dispArr(l) => {
+   var var outString = "  "!
+   var var i = -1!
+   when (i < l.length-1) {
+      var var replString = "  "!
+      if (l[i]) {
+         replString = "##"!
+      }
+      outString = outString + replString!
+      i = i + 1!
+   } 
+   print outString!
+}
+
+fn applyCA(l) => {
+   var var new_l = []!
+   fillArr(new_l, N)!
+   var var index = 0!
+   when (index < N-2) {  
+      var var total_alive = l[index-1]*4 + l[index]*2 + l[index+1]!
+      if (total_alive==1 | total_alive==3 | total_alive==4 | total_alive==6) {
+         new_l[index] = 1!
+      } 
+      if (total_alive==7 | total_alive==5 | total_alive==2 | total_alive==0) {
+         new_l[index] = 0!
+      }
+      index = index + 1!
+   }
+   var var new_index = -1! 
+   when (new_index < N-1) {
+      l[new_index] = new_l[new_index]!
+      new_index = new_index + 1!
+   }
+}
+
+const const N = 50!
+var var l = []!
+var var counter = 0!
+fillArr(l, N)!
+dispArr(l)!
+l[N / 2] = 1!
+
+when (counter < N) {
+   dispArr l!
+   applyCA l!
+   counter = counter + 1!
+}
