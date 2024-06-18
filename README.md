@@ -14,6 +14,7 @@ Here it is: https://github.com/TodePond/DreamBerd/blob/main/res/res/Examples.md
 # DreamBerd
 
 ![Coverage](badges/coverage-109.svg)
+<a href='https://github.com/repo-reviews/repo-reviews.github.io/blob/main/create.md' target="_blank"><img alt='Github' src='https://img.shields.io/badge/review_me-100000?style=flat&logo=Github&logoColor=white&labelColor=888888&color=555555'/></a>
 
 DreamBerd is a perfect programming language. These are its features!<br>
 When you've finished reading through all the features, check out the [examples](https://github.com/TodePond/DreamBerd/blob/main/Examples.md).
