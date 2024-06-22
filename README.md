@@ -771,7 +771,7 @@ DreamBerd also supports waiting:
 print("Luke")!
 ```
 
-The amount of periods depends on how long it should wait in miiliseconds as this is the best time format
+The amount of periods depends on how long it should wait in milliseconds as this is the best time format
 ```java
 ....................
 print("Runs after 0.02 seconds");
