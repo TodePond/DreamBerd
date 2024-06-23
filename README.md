@@ -423,7 +423,7 @@ function add(a, b) => {
 }
 ```
 
-Make sure to make the number of equal signs equal for better readability!
+Make sure to make the number of equal signs is equal for better readability!
 ```java
 ========== correct.db ========== // ok
 function strange() => {
