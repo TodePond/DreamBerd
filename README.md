@@ -186,14 +186,14 @@ function isKeyDown(key) => {
 }
 ```
 
-`maybe` may be `maybe`, may be `true` and may be `false`.
+`maybe` may be `maybe`, may be `true`, and may be `false`.
 ```java
 print(maybe == maybe)! // maybe
 print(maybe == true)! // maybe
 print(maybe == false)! // maybe
 ```
 
-If condition with `maybe` may or may not be executed.
+If statement with `maybe` in its condition may or may not be executed.
 ```java
 if (maybe) {
    print("Yes")! // this may be executed
