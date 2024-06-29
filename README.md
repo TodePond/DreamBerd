@@ -186,6 +186,22 @@ function isKeyDown(key) => {
 }
 ```
 
+`maybe` may be `maybe`, may be `true` and may be `false`.
+```java
+print(maybe == maybe)! // maybe
+print(maybe == true)! // maybe
+print(maybe == false)! // maybe
+```
+
+If condition with `maybe` may or may not be executed.
+```java
+if (maybe) {
+   print("Yes")! // this may be executed
+} else {
+   print("No")! // this may be executed too
+}
+```
+
 **Technical info:** Booleans are stored as one-and-a-half bits.
 
 ## Arithmetic
