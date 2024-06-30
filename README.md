@@ -512,6 +512,11 @@ When perfection is achieved and there is nothing left to `delete`, you can do th
 ```java
 delete delete!
 ```
+You can also use wildcards to delete everything.
+
+```java
+delete *!
+```
 
 ## Overloading
 
