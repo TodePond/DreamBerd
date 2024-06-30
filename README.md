@@ -209,6 +209,13 @@ You can also use number names.
 print(one + two)! //3
 ```
 
+If you want to, you can even use natural language to do arithmetic.
+
+```java
+print(one plus two times three)! //7
+print(one plus two  times 3)! //9
+```
+
 ## Indents
 
 When it comes to indentation, DreamBerd strikes a happy medium that can be enjoyed by everyone: All indents must be 3 spaces long.
