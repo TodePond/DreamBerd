@@ -513,6 +513,11 @@ When perfection is achieved and there is nothing left to `delete`, you can do th
 delete delete!
 ```
 
+And if you're tired of DreamBerd, you can always do this (please don't do it):
+```java
+delete this!
+```
+
 ## Overloading
 
 You can overload variables. The most recently defined variable gets used.
