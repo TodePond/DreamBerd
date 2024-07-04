@@ -2,6 +2,6 @@ Too far! You failed the test.
 
 Did you cheat by skipping to the end? 
 
-Number of people who cheated by skipping to the end: 62
+Number of people who cheated by skipping to the end: 63
 
 Please submit a PR to update the above count as appropriate.
