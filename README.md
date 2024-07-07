@@ -188,6 +188,8 @@ function isKeyDown(key) => {
 
 **Technical info:** Booleans are stored as one-and-a-half bits.
 
+**Note:** one-and-a-half bits are approximately equal to 1.58496250072 bits.
+
 ## Arithmetic
 
 DreamBerd has significant whitespace. Use spacing to specify the order of arithmetic operations.
