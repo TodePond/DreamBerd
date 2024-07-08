@@ -56,3 +56,4 @@ This list is only for people who have had a pull request accepted. If that's you
 - Samael Heaven
 - mrroiz
 - ultragreed
+- borderss
