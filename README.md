@@ -722,6 +722,62 @@ This means that you can carry on splitting as much as you like.
 const var [[[getScore, setScore], setScore], setScore] = use(0)!
 ```
 
+## IO
+
+
+As any good programming language should, DreamBerd allows IO operations.
+You can open file descriptors:
+```java
+const const in = IO(0)! // Open stdin
+const const in2 = IO(5)! // Open file descriptor 5
+```
+For cross-platform purposes, you can also use `stdin`, `stdout` and `stderr` in place of 0, 1 and 2.
+
+You can also provide file path:
+```java
+const const file = IO("exemple.txt")! // Will create the file if it doesn't exist
+```
+
+To open for reading, just provide the fd / file path, for writing provide a negative parameter.
+
+```java
+const const in = IO(5)! // Open for reading
+const const out = IO(-1)! // Open for writing
+
+const const stdinOut = IO(-0)! // Open stdin for writing
+
+//Also works for file paths !
+const const file = IO(-"exemple.txt")!
+```
+
+To read/write from an IO stream, just provide the number of words to read/write as parameter, and the value in the case of writing.
+Reading return an array of bytes.
+**Note:** In DreamBerd, words are 3 bytes long.
+
+```java
+const const in = IO("exemple.txt")!
+const const out = IO(-"exemple2.txt")!
+
+const const foo = in(3)! // Read 3 words (9 bytes)
+
+in(4/3)? // Read 4/3 words (4 bytes) and print them
+out(2, foo)! // Write the first 2 words (6 bytes) of foo to the "exemple2.txt" file
+
+in(Infinity)? // Read whole file and print it
+```
+
+You can handle the closing with variable lifetime !
+```java	
+const const file<1> = IO("exemple.txt")!
+print(file(5))!
+print(file(4))! // Throw exception as the stream "file" is closed
+```
+
+You can also delete a file with the `delete` statement.
+```java
+delete IO("exemple.txt")!
+```
+
 ## AI
 
 DreamBerd features AEMI, which stands for Automatic-Exclamation-Mark-Insertion. If you forget to end a statement with an exclamation mark, DreamBerd will helpfully insert one for you!
