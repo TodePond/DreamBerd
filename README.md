@@ -766,7 +766,7 @@ out(2, foo)! // Write the first 2 words (6 bytes) of foo to the "exemple2.txt" f
 in(Infinity)? // Read whole file and print it
 ```
 
-You can handle the closing with variable lifetime !
+You can handle the closing with variable lifetime.
 ```java	
 const const file<1> = IO("exemple.txt")!
 print(file(5))!
@@ -777,6 +777,61 @@ You can also delete a file with the `delete` statement.
 ```java
 delete IO("exemple.txt")!
 ```
+
+## Swap
+To avoid the use of temporary variables, you can use the swap statement.
+```java
+var var foo = 5!
+var var bar = 6!
+
+swap foo bar!
+
+print(foo)! // 6
+print(bar)! // 5
+```
+It can also be used for functions.
+```java
+var var foo = 5!
+funct bar() => {
+   return 6!
+}
+
+swap foo bar!
+
+print(bar)! // 5
+print(foo())! // 6
+```
+
+Even keywords are swappable.
+```java
+swap fn if!
+
+if foo() => {
+   print("DreamBerd is great !")!
+}
+
+fn (5 === 5) {
+   print("Neat")!
+}
+
+// Even swap can be swap
+swap swap foo!
+
+swap() // Prints "DreamBerd is great !"
+foo fn if! // Reswap fn and if
+```
+
+Everything is swappable in DreamBerd, even the language !
+```python
+var var foo = 5!
+
+swap DreamBerd Python
+
+for i in range(foo):
+   print("Welcome to Python") # Will print "Welcome to Python" 5 times
+```
+**Note**: in the program above, language cannot be swapped back to DreamBerd as Python cannot swap languages
+**Note**: swapping to a language that require an entry point (such as the main function in C) is undefined behavior
 
 ## AI
 
