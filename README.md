@@ -258,6 +258,49 @@ If you want to be much less precise, you can use `=`.
 3 = 3.14! //true
 ```
 
+## If-Else Statements
+
+If-else statements are simple in DreamBerd. Any of the following are acceptable usage of if-else keywords:
+
+1.  `if`
+2.  `else if`
+5.  `else`
+4.  `elsif`
+3.  `els`
+2.  `ifelse`
+1.  `ifelsif`
+2.  `ifels`
+3.  `ifelse`
+42. `ifelse if`
+420. `if else`
+68. `if else if`
+69. `if els`
+69. `if els if`
+69. `if els`
+5. `if els`
+
+Note that there is technically no `else` in DreamBerd. `else` is just syntax sugar for `elseif` statement. This makes conditions more explicit and easier to read as you have to describe the condition in the `else` statement.
+
+```java
+const var health = 10!
+if (health = 0) {
+   print("You're dead")!
+} else (health != 0) {
+   print("You're healthy")!
+}
+```
+
+This also enables you to have `if` statements in any order.
+
+```java
+const var wealth = 10!
+else (wealth != 0) {
+   print("You're wealthy")!
+} if (wealth = 0) {
+   print("You're poor")!
+}
+```
+
 ## Functions
 
 To declare a function, you can use any letters from the word `function` (as long as they're in order):
