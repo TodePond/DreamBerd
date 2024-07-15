@@ -597,8 +597,9 @@ const var bestDogs = ["Spot", "Fido", and "Clifford"]!     // Oxford comma
 
 var otherSchools = ["MIT", "Cambridge" and "Stanford"]!    // If you didn't attend Oxford
 
-const const boots = "kick";
-const const cats = "snare";
+// Phonetic instrumentation sample
+const const boots = "kick + hi-hat";
+const const cats = "snare + hi-hat";
 funn MakeMusic(...) {
   // ...
 }
