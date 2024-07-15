@@ -571,8 +571,7 @@ reverse!
 
 ## Comma grammar
 
-**New for 2024**<br>
-To make code easier to maintain, DreamBerd now supports tail commas.
+To make code easier to maintain, DreamBerd supports tail commas.
 
 ```java
 const const oneToThree = [
@@ -582,16 +581,16 @@ const const oneToThree = [
 ]!
 ```
 
-You can use commas instead of exclamation marks to improve readibility.
+You can use commas instead of exclamation marks, or in combination with them to improve readibility.
 
 ```java
 // These are all people
 const var Thomas_Age = 10,
-const var Jim_Age = 13,
+const var Jim_Age = 13!!,
 const const Mom_Age = 25,   // <-- tail comma
 ```
 
-Combine commas with the `and` operator for a more natural written style.
+Combine commas with the `and` operator for more naturally written lists.
 
 ```java
 const var bestDogs = ["Spot", "Fido", and "Clifford"]!     // Oxford comma
