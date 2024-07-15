@@ -1,8 +1,6 @@
 # Examples
 
-Congratulations! You found the hidden examples page!
-
-Here are some examples of DreamBerd in action!
+Here are some examples of DreamBerd in action.
 
 ## Hello world
 
@@ -52,13 +50,7 @@ Button.addEventListener click => count++!
 document.body.append Button!
 ```
 
-## The Billion Dollar Mistake
-
+## ACI Example
 ```java
-delete null!
-```
-
-## Autocomplete Example
-```java
-c
+p
 ```
