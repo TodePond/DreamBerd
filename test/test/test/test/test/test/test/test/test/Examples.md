@@ -1,5 +1,3 @@
 Too far! You failed the test.
 
-Did you cheat by skipping to the end? 
-
-Number of people who cheated by skipping to the end: 71
+Number of people who failed the test: 71
