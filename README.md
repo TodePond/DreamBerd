@@ -631,6 +631,39 @@ funct App() => {
 }
 ```
 
+## Comma grammar
+
+To make code easier to write, DreamBerd supports tail commas.
+
+```java
+const const oneToThree = [
+  1,
+  2,
+  3,
+]!
+```
+
+You can use commas instead of exclamation marks to improve readibility.
+
+```java
+const const Thomas_Age = 10,
+const const Jim_Age = 13,
+const const Mom_Age = nan,
+```
+
+You can use the gramatical `and` operator alongside commas.
+
+```java
+const var bestDogs = ["Spot", "Fido", and "Clifford"]!    // Oxford comma
+
+var otherSchools = ["MIT", "Cambridge" and "Stanford"]!   // If you didn't attend Oxford
+
+funn TechnoMusic(cats and boots and cats and boots and) { // tail `and`
+  // ...
+}
+```
+
+
 ## Rich text
 
 DreamBerd now supports rich text.
