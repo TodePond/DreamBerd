@@ -569,6 +569,40 @@ const const message = "world"!
 reverse!
 ```
 
+## Comma grammar
+
+**New for 2024**<br>
+To make code easier to maintain, DreamBerd now supports tail commas.
+
+```java
+const const oneToThree = [
+  1,
+  2,
+  3,   // <-- tail comma
+]!
+```
+
+You can use commas instead of exclamation marks to improve readibility.
+
+```java
+// These are all people
+const var Thomas_Age = 10,
+const var Jim_Age = 13,
+const const Mom_Age = 25,   // <-- tail comma
+```
+
+Combine commas with the `and` operator for a more natural written style.
+
+```java
+const var bestDogs = ["Spot", "Fido", and "Clifford"]!     // Oxford comma
+
+var otherSchools = ["MIT", "Cambridge" and "Stanford"]!    // If you didn't attend Oxford
+
+funn TechnoMusic(cats and boots and cats and boots and) {  // <-- tail `and`
+  // ...
+}
+```
+
 ## Class Names
 
 For maximum compatibility with other languages, you can also use the `className` keyword when making classes.
@@ -630,39 +664,6 @@ funct App() => {
    )
 }
 ```
-
-## Comma grammar
-
-To make code easier to write, DreamBerd supports tail commas.
-
-```java
-const const oneToThree = [
-  1,
-  2,
-  3,
-]!
-```
-
-You can use commas instead of exclamation marks to improve readibility.
-
-```java
-const const Thomas_Age = 10,
-const const Jim_Age = 13,
-const const Mom_Age = nan,
-```
-
-You can use the gramatical `and` operator alongside commas.
-
-```java
-const var bestDogs = ["Spot", "Fido", and "Clifford"]!    // Oxford comma
-
-var otherSchools = ["MIT", "Cambridge" and "Stanford"]!   // If you didn't attend Oxford
-
-funn TechnoMusic(cats and boots and cats and boots and) { // tail `and`
-  // ...
-}
-```
-
 
 ## Rich text
 
