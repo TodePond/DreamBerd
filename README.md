@@ -597,9 +597,12 @@ const var bestDogs = ["Spot", "Fido", and "Clifford"]!     // Oxford comma
 
 var otherSchools = ["MIT", "Cambridge" and "Stanford"]!    // If you didn't attend Oxford
 
-funn TechnoMusic(boots and cats and boots and cats and) {  // <-- tail `and`
+const const boots = "kick";
+const const cats = "snare";
+funn MakeMusic(...) {
   // ...
 }
+MakeMusic(boots and cats and boots and cats and)!!!        // <-- tail `and`
 ```
 
 ## Class Names
