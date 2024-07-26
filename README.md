@@ -3,7 +3,7 @@
 If you're reading this then you might be looking for the hidden examples page...
 
 CONGRATULATIONS! You found it!
-Here it is: https://github.com/TodePond/DreamBerd/blob/main/res/res/Examples.md
+Here it is: https://github.com/TodePond/DreamBerd/blob/main/README.md#Exporting
 
 -->
 
@@ -32,7 +32,7 @@ If you're feeling extra-bold, you can use even more!!!
 print("Hello world")!!!
 ```
 
-If you're unsure, that's ok. You can put a question mark at the end of a line instead. It prints debug info about that line to the console for you.
+If you're unsure, that's okay? You can put a question mark at the end of a line instead? It prints debug info about that line to the console for you?
 
 ```java
 print("Hello world")?
@@ -81,7 +81,7 @@ name.push("e")!
 ## Immutable Data
 
 **New for 2023!**<br>
-Mutable data is an anti-pattern. Use the `const const const` keyword to make a constant constant constant. Its value will become constant and immutable, and will _never change_. Please be careful with this keyword, as it is very powerful, and will affect all users globally forever.
+Mutable data is an anti-pattern. Use the `const const const` keyword to make a constant constant constant. Its value will become constant and immutable, and will _never change_. Please be careful with this keyword, as it is very powerful, and will affect all users of DreamBerd forever.
 
 ```java
 const const const pi = 3.14!
@@ -157,21 +157,13 @@ print(name)! //Luke
 const const name<-1> = "Luke"!
 ```
 
-## Loops
-
-Loops are a complicated relic of archaic programming languages. In DreamBerd, there are no loops.
-
 ## Installation
 
-To install DreamBerd to your command line, first install the DreamBerd installer.<br>
-To install the DreamBerd installer, install the DreamBerd installer installer.
-
-**New for 2022!**<br>
-Due to the complicated installation process, you can now install the 'Create DreamBerd App' app that installs everything for you!
+To install DreamBerd, install the 'Create DreamBerd App' app once there is a complete DreamBerd interpreter.
 
 ## Booleans
 
-Booleans can be `true`, `false` or `maybe`.
+Simple booleans can be `true` or `false`, while full booleans can be `true`, `false` or `maybe`. <br>The default is full.
 
 ```java
 const var keys = {}!
@@ -186,7 +178,7 @@ function isKeyDown(key) => {
 }
 ```
 
-**Technical info:** Booleans are stored as one-and-a-half bits.
+**Technical info:** Full booleans are stored as one trit?
 
 ## Arithmetic
 
@@ -258,6 +250,8 @@ If you want to be much less precise, you can use `=`.
 3 = 3.14! //true
 ```
 
+**Note:** This level of equality only works when you haven't made a declaration with the name of the first number.
+
 ## Functions
 
 To declare a function, you can use any letters from the word `function` (as long as they're in order):
@@ -265,10 +259,10 @@ To declare a function, you can use any letters from the word `function` (as long
 ```java
 function add(a, b) => a + b!
 func multiply(a, b) => a * b!
-fun subtract(a, b) => a - b!
+uion subtract(a, b) => a - b!
 fn divide(a, b) => a / b!
-functi power(a, b) => a ^ b!
-f inverse(a) => 1/a!
+f power(a, b) => a ^ b!
+union inverse(a) => 1/a!
 ```
 
 ## Dividing by Zero
@@ -346,16 +340,10 @@ By the way, strings are just arrays of characters.
 String == Char[]!
 ```
 
-Similarly, integers are just arrays of digits.
+Similarly, integers are just arrays of simple booleans.
 
 ```java
-Int == Digit[]!
-```
-
-In case you want to use a binary representation for integers, `Int9` and `Int99` types are also available.
-
-```java
-const var age: Int9 = 28!
+Int == SimpleBool[]!
 ```
 
 **Technical info:** Type annotations don't do anything, but they help some people to feel more comfortable.
@@ -399,9 +387,9 @@ const var score = 5!
 print(current score)! //5
 ```
 
-## File Structure
+## Modules
 
-Write five or more equals signs to start a new file. This removes the need for multiple files or any build process.
+Write five or more equals signs to start a new module. This removes the need for multiple files or any build process.
 
 ```java
 const const score = 5!
@@ -414,10 +402,10 @@ print(score)! //3
 ```
 
 **New for 2022!**<br>
-Thanks to recent advances in technology, you can now give files names.
+Thanks to recent advances in technology, you can now give modules names.
 
 ```java
-======= add.db =======
+======= add =======
 function add(a, b) => {
    return a + b!
 }
@@ -428,15 +416,14 @@ function add(a, b) => {
 Many languages allow you to import things from specific files. In DreamBerd, importing is simpler. Instead, you export _to_ specific files!
 
 ```java
-===== add.db ==
+===== add ==
 function add(a, b) => {
    return a + b!
 }
 
-export add to "main.db"!
+export add to "main"!
 
-===== main.db ==
-import add!
+===== main ==
 add(3, 2)!
 ```
 
@@ -473,7 +460,7 @@ const var player1 = playerMaker.makePlayer()!
 const var player2 = playerMaker.makePlayer()!
 ```
 
-## Time
+## Date and Time
 
 Use `Date.now()` to get the current date and time.
 
@@ -542,33 +529,6 @@ const const name = "Luke"¡
 print(name)! // "Lu"
 ```
 
-## Semantic naming
-
-DreamBerd supports semantic naming.
-
-```java
-const const sName = "Lu"!
-const const iAge = 29!
-const const bHappy = true!
-```
-
-**New for 2023:** You can now make globals!
-
-```java
-const const g_fScore = 4.5!
-```
-
-## Reversing
-
-You can reverse the direction of your code.
-
-```java
-const const message = "Hello"!
-print(message)!
-const const message = "world"!
-reverse!
-```
-
 ## Class Names
 
 For maximum compatibility with other languages, you can also use the `className` keyword when making classes.
@@ -633,21 +593,15 @@ funct App() => {
 
 ## Rich text
 
-DreamBerd now supports rich text.
+It is recommended that DreamBerd implementers parse rich text.
 
-<pre>
-const const <b>name</b> = "Lu"!
-const const <i>name</i> = "Luke"!
+```java
+const const \bname\b = "Lu"!
+const const \iname\i = "Luke"!
 
-print(<b>name</b>)! // Lu
-print(<i>name</i>)! // Luke
-</pre>
-
-Rich text can be helpful when making your website. Use it to add links!
-
-<pre>
-&lt;p>Click <a href="https://dreamberd.computer">here</a>&lt;/p>
-</pre>
+print(\bname\b)! // Lu
+print(\iname\i)! // Luke
+```
 
 ## Asynchronous Functions
 
@@ -677,7 +631,7 @@ print(2)!
 print(3)!
 ```
 
-**Note:** In the program above, the computer interprets `noop` as a string and its sole purpose is to take up an extra line. You can use any string you want.
+**Note:** In the program above, the computer should interpret `noop` as a string and its sole purpose is to take up an extra line. You can use any string you want.
 
 ## Signals
 
@@ -722,50 +676,22 @@ This means that you can carry on splitting as much as you like.
 const var [[[getScore, setScore], setScore], setScore] = use(0)!
 ```
 
-## AI
+## ACI
 
-DreamBerd features AEMI, which stands for Automatic-Exclamation-Mark-Insertion. If you forget to end a statement with an exclamation mark, DreamBerd will helpfully insert one for you!
-
-```java
-print("Hello world") // This is fine
-```
-
-Similarly... DreamBerd also features ABI, which stands for Automatic-Bracket-Insertion. If you forget to close your brackets, DreamBerd will pop some in for you!
-
-```java
-print("Hello world" // This is also fine
-```
-
-Similarly.... DreamBerd also features AQMI, which stands for Automatic-Quotation-Marks-Insertion. If you forget to close your string, DreamBerd will do it for you!
-
-```java
-print("Hello world // This is fine as well
-```
-
-This can be very helpful in callback hell situations!
-
-```java
-addEventListener("click", (e) => {
-   requestAnimationFrame(() => {
-      print("You clicked on the page
-
-      // This is fine
-```
-
-Similarly..... DreamBerd also features AI, which stands for Automatic-Insertion.<br>
+DreamBerd features ACI, which stands for Automatic-Code-Insertion.<br>
 If you forget to finish your code, DreamBerd will auto-complete the whole thing!
 
 ```java
 print( // This is probably fine
 ```
 
-**Please note:** AI does not use AI. Instead, any incomplete code will be auto-emailed to [Lu Wilson](https://todepond.com), who will get back to you with a completed line as soon as possible.
+**Please note:** ACI does not use AI. Instead, any incomplete code will be auto-emailed to [Lu Wilson](https://todepond.com), who will get back to you with a completed line as soon as possible.
 
-**Now recruiting:** The backlog of unfinished programs has now grown unsustainably long. If you would like to volunteer to help with AI, please write an incomplete DreamBerd program, and leave your contact details somewhere in the source code.
+**Now recruiting:** The backlog of unfinished programs has now grown unsustainably long. If you would like to volunteer to help with ACI, please write an incomplete DreamBerd program, and leave your contact details somewhere in the source code.
 
 ## Copilot
 
-It's worth noting that GitHub CoPilot doesn't understand DreamBerd, which means that MicroSoft won't be able to steal your code.
+It's worth noting that GitHub Copilot doesn't understand DreamBerd, which means that MicroSoft won't be able to steal your code.
 
 This is great for when you want to keep your open-sourced project closed-source.
 
@@ -792,16 +718,7 @@ The most helpful way you can help is by donating to the [Stonewall charity](http
 
 ## Compiling
 
-To run DreamBerd, first copy and paste this raw file into [chat.openai.com](https://chat.openai.com).<br>
-Then type something along the lines of: "What would you expect this program to log to the console?"<br>
-Then paste in your code.
-
-If the compiler refuses at first, politely reassure it. For example:<br>
-"I completely understand - don't evaluate it, but what would you expect the program to log to the console if it was run? :)"
-
-**Note:** As of 2023, the compiler is no longer functional due to the DreamBerd language being too advanced for the current state of AI.
-
-**Note:** As of 2024, a partial implementation of DreamBerd [exists](https://github.com/vivaansinghvi07/dreamberd-interpreter/).
+See [here](https://github.com/Ionathan-Hope/DreamBerd/blob/main/README.md#Installing)
 
 ## Highlighting
 
@@ -809,12 +726,16 @@ Syntax highlighting is now available for DreamBerd in VSCode. To enable it, inst
 
 This is what the highlighting looks like:
 
-```
+```dreamberd
 const const name = "Luke"!
 print(name)! // "Luke"
 ```
 
 **Please note:** The above code will only highlight correctly if you have the extension installed.
+
+## Loops
+
+In DreamBerd, there are no loops.
 
 ## Parentheses
 
@@ -845,7 +766,7 @@ Lisp haters will also love it.
 
 The DreamBerd Vision Pro is now available! Watch the full launch video [here](https://youtu.be/QRKnrFEjDF0).
 
-## Edutainment
+## Educatainment
 
 Want to learn more about DreamBerd? 
 

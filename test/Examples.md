@@ -1,4 +1,4 @@
-## Fake Fake Examples
+## Fake Examples
 
 Did you just skip to the end of the features page? You just SKIMMED it? That means you missed the _real_ examples page.
 
