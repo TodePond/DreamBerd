@@ -380,13 +380,6 @@ addEventListener("click", () => score++)!
 print(await next score)! //6 (when you click)
 ```
 
-Additionally, the `current` keyword lets you see into the present.
-
-```java
-const var score = 5!
-print(current score)! //5
-```
-
 ## Modules
 
 Write five or more equals signs to start a new module. This removes the need for multiple files or any build process.
