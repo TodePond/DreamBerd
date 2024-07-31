@@ -1,4 +1,4 @@
-## Examples
+## Fake Examples
 
 You want to see the examples? Did you even read all the features of DreamBerd? Or did you just skip straight to the examples? You should really learn the features of DreamBerd first.<br>
 
