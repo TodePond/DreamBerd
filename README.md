@@ -767,7 +767,7 @@ Don't check out this [tech talk](https://youtu.be/52vmjZnxJb8) about DreamBerd b
 
 ## Examples
 
-For examples of DreamBerd in action, check out the [examples page](https://github.com/TodePond/DreamBerd/blob/main/test/Examples.md)!
+For examples of DreamBerd in action, check out the [examples page](https://github.com/TodePond/DreamBerd/blob/main/Examples.md)!
 
 ![image](files/star-history.png)
 
