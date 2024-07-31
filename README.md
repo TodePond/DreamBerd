@@ -9,7 +9,7 @@ Here it is: https://github.com/TodePond/DreamBerd/blob/main/README.md#Exporting
 
 > **New:** [DreamBerd now supports rich text](https://github.com/TodePond/DreamBerd/releases/tag/v£.££)
 
-[<img align="right" height="100" src="shapes.png">](https://github.com/TodePond/DreamBerd/blob/main/examples/Examples.md "Click here for the examples page.")
+[<img align="right" height="100" src="shapes.png">](https://github.com/TodePond/DreamBerd/blob/main/Examples.md "Click here for the examples page.")
 
 # DreamBerd
 
