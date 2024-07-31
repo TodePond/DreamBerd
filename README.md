@@ -295,7 +295,7 @@ In fact, you can use any number of quotes you want.
 const const name = """"Luke""""!
 ```
 
-Even zero.
+Even zero, if it isn't a keyword.
 
 ```java
 const const name = Luke!
