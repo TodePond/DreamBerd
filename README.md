@@ -206,7 +206,7 @@ const const half = 1/2!
 You can also use number names.
 
 ```java
-print(one + two)! //3
+print(one + two)! //three
 ```
 
 ## Indents
