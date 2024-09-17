@@ -763,6 +763,20 @@ print( // This is probably fine
 
 **Now recruiting:** The backlog of unfinished programs has now grown unsustainably long. If you would like to volunteer to help with AI, please write an incomplete DreamBerd program, and leave your contact details somewhere in the source code.
 
+## Waiting
+
+DreamBerd also supports waiting:
+```java
+...
+print("Luke")!
+```
+
+The amount of periods depends on how long it should wait in milliseconds as this is the best time format
+```java
+....................
+print("Runs after 0.02 seconds")!
+```
+
 ## Copilot
 
 It's worth noting that GitHub CoPilot doesn't understand DreamBerd, which means that MicroSoft won't be able to steal your code.
