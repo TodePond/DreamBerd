@@ -271,6 +271,11 @@ functi power(a, b) => a ^ b!
 f inverse(a) => 1/a!
 ```
 
+This includes no letters at all:
+```java
+add1(a) => a+1!
+```
+
 ## Dividing by Zero
 
 Dividing by zero returns `undefined`.
