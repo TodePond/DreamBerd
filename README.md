@@ -38,6 +38,13 @@ If you're unsure, that's ok. You can put a question mark at the end of a line in
 print("Hello world")?
 ```
 
+**New for 2023**<br>
+If you're still unsure, add more question marks to add more detail. The level of detail increases as you add more question marks.
+
+```java
+print("Hello world")???
+```
+
 You might be wondering what DreamBerd uses for the 'not' operator, which is an exclamation mark in most other languages. That's simple - the 'not' operator is a semi-colon instead.
 
 ```java
