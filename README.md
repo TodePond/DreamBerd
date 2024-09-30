@@ -857,4 +857,10 @@ For examples of DreamBerd in action, check out the [examples page](https://githu
 
 ![image](files/star-history.png)
 
-DreamBerd was made with 💔 by [Lu or Luke (either's fine) Wilson](https://todepond.com), creator of the [Game of Living](https://youtu.be/WMJ1H3Ai-qs).
+
+DreamBerd was made with 💔 by [Lu or Luke (either's fine) Wilson](https://todepond.com), creator of the [Game of Living](https://youtu.be/WMJ1H3Ai-qs), with a lot of help from a lot of nerds:
+
+<a href="https://github.com/todepond/dreamberd/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=todepond/dreamberd&max=999&columns=12" width="100%"/>
+</a>
+
