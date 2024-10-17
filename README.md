@@ -557,6 +557,22 @@ const const bHappy = true!
 ```java
 const const g_fScore = 4.5!
 ```
+## Global Global
+DreamBerd simplifies .env variables and secret management. Just declare your variable as:
+
+```java
+global global const const g_adminPassword = "hackMeIfYouCan"!
+```
+
+This is useful because you can now use it in other programs and on different machines. Imagine you forgot your API key while traveling abroad and don’t have access to your machine; simply print it from within the upcoming Online IDE:
+
+```java
+g_adminPassword?
+```
+
+**Please Note** This also enhances security as you can define your API keys once and never need to push them to GitHub or send them to your co-workers.
+
+***Further Note*** Since ```global global const const const g_myVarName``` cannot be changed, we anticipate an influx of short and commonly used names. To make it fair for everybody, we plan to launch a variable sale later this year.
 
 ## Reversing
 
