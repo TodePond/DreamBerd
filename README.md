@@ -124,6 +124,28 @@ scores[0.5] = 4!
 print(scores)! //[3, 2, 4, 5]
 ```
 
+**New for 2024!**
+
+As we all know array names must end with an 's'. DreamBerd now strictly enforces this law during runtime and will refuse to run to prevent further confusion.
+
+```java
+const const number = [3, 2, 5]! //❌ error missing an 's'
+const const number = 7!
+const const numbers = [3, 2, 5]!
+const const numberss = [[3, 2, 5], [1, 4, 4, 3], [9, 6]]!
+const const numbersss = [[[4], [6, 5, 1]], [[4, 5]]]!
+const const number = [7]! //okay - only one item
+```
+
+Don't forget correct spelling...
+
+```java
+const const knifes = ['🔪', '🗡️', '🍴']! //❌ error incorrect plural spelling
+const const knives = ['🔪', '🗡️', '🍴']! //correct spelling
+const const octopi = ['🐙', '🐙', '🐙']! //correct
+const const data = [5, 4, 6, 3, 8, 7] //correct - data is the plural of datum
+```
+
 ## When
 
 In case you really need to vary a variable, the `when` keyword lets you check a variable each time it mutates.
