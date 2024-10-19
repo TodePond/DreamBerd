@@ -399,6 +399,42 @@ const var score = 5!
 print(current score)! //5
 ```
 
+## Labelling
+
+You can label lines in your code, which allows you to reference and re-evaluate them later!
+Use `name:` to declare a label, and `:name:` to reference and evaluate it.
+
+```java
+var var score = 5!
+increase_score: score = score + 1! // 6
+const const new_score = :increase_score:! // 7, new_score === score
+```
+
+Using labels allows for accessing expired variables, which have an expired lifetime.
+
+```java
+var var score<1> = 8! //lasts for one line
+increase_score: score++! print(score) !  // prints 9,
+print(score)! // prints empty
+:increase_score:! // prints 10
+```
+
+As well as being able to set the labelled line.
+
+```java
+var var score = 1!
+:increase_score: = score = score + 3! // sets the next line
+increase_score: score = score + 1! // now is actually + 3
+print(score)! // 4
+```
+
+You can use the `break` keyword to split the line into sections for easy parsing.
+
+```java
+increase_score: score = score + 1!  print(score)!
+const const segments = break increase_score! // [ ["score", "=",  "score",  "+",  "1"], ["print", "(", "score", ")"] ]
+```
+
 ## File Structure
 
 Write five or more equals signs to start a new file. This removes the need for multiple files or any build process.
