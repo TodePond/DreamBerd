@@ -7,7 +7,7 @@ Here it is: https://github.com/TodePond/DreamBerd/blob/main/res/res/Examples.md
 
 -->
 
-> **New:** [DreamBerd now supports rich text](https://github.com/TodePond/DreamBerd/releases/tag/v£.££)
+> **New:** [DreamBerd congratulates President Trump](https://github.com/TodePond/DreamBerd/releases/tag/vU.S.A)
 
 [<img align="right" height="100" src="shapes.png">](https://github.com/TodePond/DreamBerd/blob/main/examples/Examples.md "Click here for the examples page.")
 
