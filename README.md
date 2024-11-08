@@ -101,7 +101,7 @@ This includes numbers, and other language constructs.
 
 ```java
 const const 5 = 4!
-print(2 + 2 === 5)! //true
+print(2 + 2 === 5)! //True
 ```
 
 ## Arrays
