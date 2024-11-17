@@ -792,14 +792,7 @@ The most helpful way you can help is by donating to the [Stonewall charity](http
 
 ## Compiling
 
-To run DreamBerd, first copy and paste this raw file into [chat.openai.com](https://chat.openai.com).<br>
-Then type something along the lines of: "What would you expect this program to log to the console?"<br>
-Then paste in your code.
-
-If the compiler refuses at first, politely reassure it. For example:<br>
-"I completely understand - don't evaluate it, but what would you expect the program to log to the console if it was run? :)"
-
-**Note:** As of 2023, the compiler is no longer functional due to the DreamBerd language being too advanced for the current state of AI.
+To run DreamBerd, first run `pip install dreamberd` (or [download it from github](https://github.com/vivaansinghvi07/dreamberd-interpreter)). If you don't have pip, run `pip install pip` (as [the official site](https://pypi.org/project/pip/) tells you to). Then, run `dreamberd <file_name>`.
 
 **Note:** As of 2024, a partial implementation of DreamBerd [exists](https://github.com/vivaansinghvi07/dreamberd-interpreter/).
 
