@@ -269,6 +269,7 @@ fun subtract(a, b) => a - b!
 fn divide(a, b) => a / b!
 functi power(a, b) => a ^ b!
 f inverse(a) => 1/a!
+union modulo(a, b) => a % b!
 ```
 
 ## Dividing by Zero
