@@ -513,6 +513,30 @@ When perfection is achieved and there is nothing left to `delete`, you can do th
 delete delete!
 ```
 
+## Forget
+
+You can forget variables which were declared, by using the `forget` keyword.
+
+```java
+const const name = "John Doe"!
+forget name! // Name has been forgotten
+print(name)! // Error/gibberish 
+```
+
+`forget` keyword works on variables declared with `const` and `const const`, but not variables declared with `const const const`
+
+```java
+const const const string = "C is the BEST LANGUAGE!!!"!
+forget string! // Does not work because const const const is immune to forget.
+print(string)! // Works
+```
+
+The forget keyword is good for explicit variable shadowing, better than amateur languages like rust which shadows variables implicitly.
+
+**Note**: When referencing a forgotten variable, it is not necessary that an error will be thrown, the application may return any random string like "Johny Doe", "John douglas" etc..
+
+The distinction between the `forget` keyword and the `delete` keyword is that the `forget` keyword works on variable names where as `delete` works on language primitives and keywords.
+
 ## Overloading
 
 You can overload variables. The most recently defined variable gets used.
