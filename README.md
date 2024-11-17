@@ -279,6 +279,12 @@ Dividing by zero returns `undefined`.
 print(3 / 0)! //undefined
 ```
 
+Similarly, dividing by negative zero returns `;undefined`.
+
+```java
+print(3 / ;0) // ;undefined
+```
+
 ## Strings
 
 Strings can be declared with single quotes or double quotes.
