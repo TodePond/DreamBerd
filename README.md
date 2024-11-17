@@ -157,6 +157,33 @@ print(name)! //Luke
 const const name<-1> = "Luke"!
 ```
 
+You may want variables to last for negative and positive times. Simply add another lifetime with the opposite sign of the first one for your variable.
+
+```java
+print(name)! //Luke
+const const name<-Infinity><Infinity> = "Luke"!
+print(name)! //Luke
+```
+
+If you need to have variables lasting for a certain range, use `...` to specify range from a number to another one. You can chain lifetimes when using ranges. Note that a lifetime using `Infinity` and/or `-Infinity` has to be on the far right or left of the other chained lifetimes. Also, you must use the same unit across chained lifetimes.
+
+```java
+const const name<-Infinity...1><2...4><-3...-8><24...91><102...Infinity> = "Luke"!
+```
+
+Declaring variables in between ranges where the previous variable with the same name is nonexistant is allowed if the lifetime(s) of that variable does not overlap the previous one's lifetimes. Note that lifetimes are relative to the line that the declaration was in.
+
+```java
+const const name<2...3><5...6> = "Luke"!
+// const const name = "Thomas"! Will return an error as this is shorthand for having a range from 0 to Infinity which overlaps with the previous declaration. You can declare forever after after the lifetime for the previous variable ends.
+print(name)! //Luke
+print(name)! //Luke
+const const name<0> = "Thomas"! //This lasts only for this line.
+print(name)! //Luke
+print(name)! //Luke
+const const name = "Thomas"! // Now you can declare forever after.
+```
+
 ## Loops
 
 Loops are a complicated relic of archaic programming languages. In DreamBerd, there are no loops.
@@ -256,6 +283,7 @@ If you want to be much less precise, you can use `=`.
 
 ```java
 3 = 3.14! //true
+"a" = "A"! //true
 ```
 
 ## Functions
