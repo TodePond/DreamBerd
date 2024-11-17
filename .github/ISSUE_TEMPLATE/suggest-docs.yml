@@ -1,0 +1,52 @@
+name: Suggest a change to the documentation!
+description: Have an idea for a change to, e.g., the README, that wouldn't actually affect the language at all? Share it here.
+body:
+  - type: textarea
+    id: about
+    attributes:
+      label: What is your idea?
+      description: Clearly state what you'd like to see changed in the documentation.
+      placeholder: I'd love to see language renamed to ABadNameForAProgrammingLanguage.
+    validations:
+      required: true
+  - type: textarea
+    id: example
+    attributes:
+      label: Which files would this affect?
+      description: Please list all files that this change would potentially affect.
+      placeholder: |
+        This would affect all Markdown files.
+    validations:
+      required: true
+  - type: textarea
+    id: why
+    attributes:
+      label: Why should the documentation be changed?
+      description: Give a clear description on why this change should be done.
+      placeholder: This should be done because of irony. Irony is funny. (Note - Please don't actually use this reason.)
+    validations:
+      required: true
+  - type: checkboxes
+    id: nochange
+    attributes:
+      label: Would this not affect the language?
+      description: Would this change not affect the language and programs already existing in it in any way, shape or form?
+      options:
+        - label: It would not affect the language.
+          required: true
+  - type: markdown
+    attributes:
+      value: This is the [code of conduct](CODE_OF_CONDUCT.md).
+  - type: checkboxes
+    id: code
+    attributes:
+      label: Please read and agree to the code of conduct.
+      description: Have you done that?
+      options:
+        - label: I have read it.
+          required: true
+        - label: I agree to it.
+          required: true
+labels:
+  - enhancement
+  - documentation
