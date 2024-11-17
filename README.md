@@ -281,11 +281,13 @@ print(3 / 0)! //undefined
 
 ## Strings
 
-Strings can be declared with single quotes or double quotes.
+Strings can be declared with single quotes, double quotes, backticks, or french quotes.
 
 ```java
 const const name = 'Lu'!
 const const name = "Luke"!
+const const name = `Luke`!
+const const name = «antoine»!
 ```
 
 They can also be declared with triple quotes.
