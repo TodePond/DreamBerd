@@ -332,6 +332,21 @@ const const player = { name: "Lu" }!
 print("Hello {player$name}!")!
 ```
 
+## String operations
+
+You can use the `substring` method to make strings shorter:
+
+```java
+'Hello world!'.substring(2, -3) // 'llo wor'
+```
+
+Inversely, you can use the `superstring` method to make strings longer:
+
+```java
+'llo wor'.superstring(-2, 3) // 'Hello world!'
+```
+
+
 ## Types
 
 Type annotations are optional.
