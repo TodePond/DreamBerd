@@ -1,6 +1,43 @@
 var var health = 10!
-when (health == 0) {
-   print("You lose")!
+
+when (health == 1) {
+   print("You have 1 health left")!
+}
+
+when (health == 2) {
+   print("You have 2 health left)!
+}
+
+when (health == 3) {
+   print("You have 3 health left)!
+}
+
+when (health == 4) {
+   print("You have 4 health left)!
+}
+
+when (health == 5) {
+   print("You have 5 health left)!
+}
+
+when (health == 6) {
+   print("You have 6 health left)!
+}
+
+when (health == 7) {
+   print("You have 7 health left)!
+}
+
+when (health == 8) {
+   print("You have 8 health left)!
+}
+
+when (health == 9) {
+   print("You have 9 health left)!
+}
+
+when (health == 10) {
+   print("You have 10 health left)!
 }
 
 print("You got hit")!
