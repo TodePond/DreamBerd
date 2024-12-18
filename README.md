@@ -135,6 +135,40 @@ when (health = 0) {
 }
 ```
 
+## Ownership System
+
+As a normal programming language, DreamBerd 3 features ownership system to make beginners confused. Just add a little `&` in front of your variable name, and your data is sent to the DreamBerd 3 foundation and owned by the DreamBerd 3 foundation. This is called an `ownership transfer` in DreamBerd 3.
+
+```java
+//This is definitely safe, do it now
+const const &key = '-----BEGIN RSA PUBLIC KEY----- MIIBCgKCAQEAw......klHwIDAQAB -----END RSA PUBLIC KEY-----'!
+```
+
+**New for 2023!**<br>
+We've added a new type of `ownership transfer` for NFT keys. It is done by hiring miners. Their salaries are from what they get from your blockchain. Just use `$` instead of `&` for this.
+
+```java
+//Donate us with ownership transfer! Ownership transfer is the best!
+const const $nftIdentDontLeakOrYouWillBeFired = '...'!!!!!!!!!!!
+```
+
+**New for 2023.92!**<br>
+Same for [string interpolation](https://github.com/TodePond/nDreamBerd#string-interpolation) part, you can now use different kind of dollar symbols to denote ownership transfer now. This can cause your NFT properties change their values.
+
+```java
+const const £normalNFT = '...'!
+const const big$NFT = '...'!
+const const ¥largeNFT = '...'!
+const const ﷼hugeNFT = '...'!
+```
+
+Uhh... sorry, the example above is wrong. Only cryptocurrency symbols can be used.
+
+```java
+const const ΞmoleculeNFT = '...'!
+const const ₿atomNFT = '...'!
+```
+
 ## Lifetimes
 
 DreamBerd has a built-in garbage collector that will automatically clean up unused variables. However, if you want to be extra careful, you can specify a lifetime for a variable, with a variety of units.
