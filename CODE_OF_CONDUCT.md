@@ -133,4 +133,8 @@ https://www.contributor-covenant.org/translations.
 
 ---
 
-Did you scroll down looking for a joke?
+Did you scroll down looking for a joke? 
+Fine, have at it
+
+What did the fish say when he swam into a wall?
+Dam
