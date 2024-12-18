@@ -569,6 +569,34 @@ const const message = "world"!
 reverse!
 ```
 
+To create infinite loops, use negative line numbers. Code with negative line numbers will only be executed when on reverse. Programs will of course always start at line 0. 
+
+```java
+line -1: reverse!
+line 0: print("to infinity")!
+line 1:reverse!
+```
+
+Alternatively, the following code can be used, as leading reverse! commands will be ignored.
+```java
+reverse!
+print("to infinity")!
+reverse!
+```
+
+The direction of code execution can be checked:
+
+```java
+reverse!
+if (inReverse) {
+      print("-pong-"!
+   } else
+   {
+      print("ping"!
+  }
+reverse!
+```
+
 ## Class Names
 
 For maximum compatibility with other languages, you can also use the `className` keyword when making classes.
