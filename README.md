@@ -87,6 +87,22 @@ Mutable data is an anti-pattern. Use the `const const const` keyword to make a c
 const const const pi = 3.14!
 ```
 
+...Or unless you specify a lifetime for it.
+
+```java
+const const const e<7d> = 2.718!
+```
+
+## Mutable data
+
+**New for 2024!**<br>
+You can now use the `var var var` keyword to make a variable variable variable. Anyone can edit or re-assign it. And just like `const const const`, it affects all users globally forever. You can use `const var var` and `var const var` in a similar manner.
+
+```java
+var var var anything = "anything"!
+var const var worldrecord = ""!
+```
+
 ## Naming
 
 Both variables and constants can be named with any Unicode character or string.
