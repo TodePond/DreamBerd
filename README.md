@@ -5,11 +5,9 @@ If you're reading this then you might be looking for the hidden examples page...
 CONGRATULATIONS! You found it!
 Here it is: https://github.com/TodePond/DreamBerd/blob/main/res/res/Examples.md
 
-todepond woz here
-
 -->
 
-> **New:** [Introducing the world's first DreamBerd interpreter](https://github.com/TodePond/DreamBerd/releases/tag/v1.0-alpha)
+> **New:** [DreamBerd congratulates President Trump](https://github.com/TodePond/DreamBerd/releases/tag/vU.S.A)
 
 [<img align="right" height="100" src="shapes.png">](https://github.com/TodePond/DreamBerd/blob/main/examples/Examples.md "Click here for the examples page.")
 
@@ -199,17 +197,16 @@ print(1 + 2*3)! //7
 print(1+2 * 3)! //9
 ```
 
-Unlike some other languages, DreamBerd allows you to use the caret (^) for exponentiation.
+DreamBerd proudly supports fractions!
 
 ```java
-print(1^1)! // 1
-print(2^3)! // 8
+const const half = 1/2!
 ```
 
-You can also use the number name, for example:
+You can also use number names.
 
 ```java
-print(one+two)! //3
+print(one + two)! //3
 ```
 
 ## Indents
@@ -266,12 +263,12 @@ If you want to be much less precise, you can use `=`.
 To declare a function, you can use any letters from the word `function` (as long as they're in order):
 
 ```java
-function add (a, b) => a + b!
-func multiply (a, b) => a * b!
-fun subtract (a, b) => a - b!
-fn divide (a, b) => a / b!
-functi power (a, b) => a ^ b!
-union inverse (a) => 1/a!
+function add(a, b) => a + b!
+func multiply(a, b) => a * b!
+fun subtract(a, b) => a - b!
+fn divide(a, b) => a / b!
+functi power(a, b) => a ^ b!
+f inverse(a) => 1/a!
 ```
 
 ## Dividing by Zero
@@ -279,7 +276,7 @@ union inverse (a) => 1/a!
 Dividing by zero returns `undefined`.
 
 ```java
-print(3 / 0)! // undefined
+print(3 / 0)! //undefined
 ```
 
 ## Strings
@@ -328,7 +325,7 @@ print("Hello {name}€!")!
 ```
 
 The symbol for the Cape Verdean escudo is placed in the decimal separator position, as in 2$50.
-Developers from the Republic of Cape Verde can benefit from this syntax:
+Developers from the Republic of Cape Verde can benefit from this syntax.
 
 ```java
 const const player = { name: "Lu" }!
@@ -355,7 +352,7 @@ Similarly, integers are just arrays of digits.
 Int == Digit[]!
 ```
 
-If you want to use a binary representation for integers, `Int9` and `Int99` types are also available.
+In case you want to use a binary representation for integers, `Int9` and `Int99` types are also available.
 
 ```java
 const var age: Int9 = 28!
@@ -371,14 +368,13 @@ You can use the regular expression type to narrow string values.
 const const email: RegExp<(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9]))\.){3}(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9])|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])> = "mymail@mail.com"!
 ```
 
-To avoid confusion, you can use any spelling that you want, such as 'Regex', 'RegularExpression' or even
-'RegularExpress' if you like trains.
+To avoid confusion, you can use any spelling that you want, such as `Regex`, `RegularExpression` and `RegExp`.
 
-For simplicity, all supported regular expressions match the regular expression `/Reg(ular)?[eE]x(press(ion)?|p)?/`.
+For simplicity, all supported regular expressions match the regular expression `/Reg(ular)?[eE]x(press|p)?/`.
 
 ## Previous
 
-The `previous` keyword lets you see into the past!<br>
+The `previous` keyword lets you see into the past.<br>
 Use it to get the previous value of a variable.
 
 ```java
@@ -388,7 +384,7 @@ print(score)! //6
 print(previous score)! //5
 ```
 
-Similarly, the `next` keyword lets you see into the future!
+Similarly, the `next` keyword lets you see into the future.
 
 ```java
 const var score = 5!
@@ -396,7 +392,7 @@ addEventListener("click", () => score++)!
 print(await next score)! //6 (when you click)
 ```
 
-Additionally, the `current` keyword lets you see into the present!!
+Additionally, the `current` keyword lets you see into the present.
 
 ```java
 const var score = 5!
@@ -459,7 +455,7 @@ const var player1 = new Player()!
 const var player2 = new Player()! //Error: Can't have more than one 'Player' instance!
 ```
 
-This is how you could do this:
+This is how you could do it instead.
 
 ```java
 class PlayerMaker {
@@ -485,7 +481,7 @@ Use `Date.now()` to get the current date and time.
 Date.now()!
 ```
 
-By the way, you can set the time.<br>
+You can set the time.<br>
 
 ```java
 // Move the clocks back one hour
@@ -538,12 +534,28 @@ const const name = "Lu or Luke (either is fine)"!!!!!!!!!
 print(name)! // "Lu or Luke (either is fine)"
 ```
 
-Similarly, you can use an inverted exclamation mark for negative priority.
+In the same spirit, you can use an inverted exclamation mark for negative priority.
 
 ```java
 const const name = "Lu"!
 const const name = "Luke"¡
 print(name)! // "Lu"
+```
+
+## Semantic naming
+
+DreamBerd supports semantic naming.
+
+```java
+const const sName = "Lu"!
+const const iAge = 29!
+const const bHappy = true!
+```
+
+**New for 2023:** You can now make globals!
+
+```java
+const const g_fScore = 4.5!
 ```
 
 ## Reversing
@@ -559,7 +571,7 @@ reverse!
 
 ## Class Names
 
-For maximum compatibility with other languages, you can alternatively use the `className` keyword when making classes.
+For maximum compatibility with other languages, you can also use the `className` keyword when making classes.
 
 This makes things less complicated.
 
@@ -569,11 +581,11 @@ className Player {
 }
 ```
 
-In response to some recent criticism about this design decision, we would like to remind you that this is part of the JavaScript specification, and therefore - out of our control.
+In response to some recent criticism about this design decision, we would like to remind you that this is part of the JavaScript specification, and therefore — out of our control.
 
 ## DBX
 
-You can embed DBX in DreamBerd. It's just DreamBerd, and it's also just HTML.
+You can embed DBX in DreamBerd. It's just DreamBerd. And it's also just HTML.
 
 ```java
 funct App() => {
@@ -581,7 +593,7 @@ funct App() => {
 }
 ```
 
-**Warning:** As you know, `class` is already a keyword in DreamBerd, so you can't use it within DB3X.
+**Warning:** As you know, `class` is already a keyword in DreamBerd, so you can't use it within DBX.
 
 ```java
 funct App() => {
@@ -599,7 +611,7 @@ funct App() => {
 }
 ```
 
-Instead, you can use the `htmlClassName` attribute.
+Instead, please use the `htmlClassName` attribute.
 
 ```java
 funct App() => {
@@ -608,7 +620,7 @@ funct App() => {
 }
 ```
 
-**Please note:** Unlike JSX, you are free to freely use the `for` attribute - because DreamBerd doesn't have loops.
+**Please note:** Unlike JSX, you are free to freely use the `for` attribute, because — in DreamBerd, there are no loops.
 
 ```java
 funct App() => {
@@ -619,21 +631,23 @@ funct App() => {
 }
 ```
 
-## Semantic naming
+## Rich text
 
-DreamBerd supports semantic naming.
+DreamBerd now supports rich text.
 
-```java
-const const sName = "Lu"!
-const const iAge = 29!
-const const bHappy = true!
-```
+<pre>
+const const <b>name</b> = "Lu"!
+const const <i>name</i> = "Luke"!
 
-**New for 2023:** You can now make globals.
+print(<b>name</b>)! // Lu
+print(<i>name</i>)! // Luke
+</pre>
 
-```java
-const const g_fScore = 4.5!
-```
+Rich text can be helpful when making your website. Use it to add links!
+
+<pre>
+&lt;p>Click <a href="https://dreamberd.computer">here</a>&lt;/p>
+</pre>
 
 ## Asynchronous Functions
 
@@ -745,13 +759,13 @@ If you forget to finish your code, DreamBerd will auto-complete the whole thing!
 print( // This is probably fine
 ```
 
-**Please note:** AI does not use AI. Instead, any incomplete code will be auto-emailed to Lu Wilson, who will get back to you with a completed line as soon as possible.
+**Please note:** AI does not use AI. Instead, any incomplete code will be auto-emailed to [Lu Wilson](https://todepond.com), who will get back to you with a completed line as soon as possible.
 
 **Now recruiting:** The backlog of unfinished programs has now grown unsustainably long. If you would like to volunteer to help with AI, please write an incomplete DreamBerd program, and leave your contact details somewhere in the source code.
 
 ## Copilot
 
-It's worth noting that Github Copilot doesn't understand DreamBerd, which means that Microsoft won't be able to steal your code.
+It's worth noting that GitHub CoPilot doesn't understand DreamBerd, which means that MicroSoft won't be able to steal your code.
 
 This is great for when you want to keep your open-sourced project closed-source.
 
@@ -762,9 +776,9 @@ Using the word 'DreamBerd' in your project name implies that the DreamBerd Found
 However, **not** using the word 'DreamBerd' in your project implies that the DreamBerd Foundation **does** own your project. If you would like to keep ownership of your work, please always use the word 'DreamBerd' in it.
 
 Here are some examples:<br>
-✅ DreamBerdScript (not owned by the DreamBerd Foundation - you are free to use this name)<br>
-❌ ECMAScript (owned by the DreamBerd Foundation - please consider renaming)<br>
-❌ Rust Foundation (owned by the DreamBerd Foundation - please consider renaming)
+✅ DreamBerdScript (not owned by the DreamBerd Foundation — you are free to use this name)<br>
+❌ ECMAScript (owned by the DreamBerd Foundation — please consider renaming)<br>
+❌ Rust Foundation (owned by the DreamBerd Foundation — please consider renaming)
 
 ## Contributing
 
@@ -787,11 +801,13 @@ If the compiler refuses at first, politely reassure it. For example:<br>
 
 **Note:** As of 2023, the compiler is no longer functional due to the DreamBerd language being too advanced for the current state of AI.
 
+**Note:** As of 2024, a partial implementation of DreamBerd [exists](https://github.com/vivaansinghvi07/dreamberd-interpreter/).
+
 ## Highlighting
 
 Syntax highlighting is now available for DreamBerd in VSCode. To enable it, install a [highlighting extension](https://marketplace.visualstudio.com/items?itemName=fabiospampinato.vscode-highlight) and then use the [DreamBerd configuration file](https://github.com/TodePond/DreamBerd/blob/main/.vscode/settings.json).
 
-This is what it looks like:
+This is what the highlighting looks like:
 
 ```
 const const name = "Luke"!
@@ -804,8 +820,7 @@ print(name)! // "Luke"
 
 Wait, I almost forgot!
 
-Parentheses in DreamBerd do nothing. They get replaced with whitespace.<br>
-The following lines of code all do the same thing.
+Parentheses in DreamBerd do nothing. They get replaced with whitespace. Everything is grouped via significant whitespace. The following lines of code all do the exact same thing.
 
 ```java
 add(3, 2)!
@@ -814,7 +829,7 @@ add 3, 2!
 add)3, 2(!
 ```
 
-Lisp lovers will love this feature. Use as many parentheses as you want!
+Lisp lovers will love this feature. Use as many parentheses as you want.
 
 ```java
 (add (3, (add (5, 6))))!
@@ -826,10 +841,28 @@ Lisp haters will also love it.
 (add (3, (add (5, 6)!
 ```
 
+## Vision Pro
+
+The DreamBerd Vision Pro is now available! Watch the full launch video [here](https://youtu.be/QRKnrFEjDF0).
+
+## Edutainment
+
+Want to learn more about DreamBerd? 
+
+Don't check out this [tech talk](https://youtu.be/52vmjZnxJb8) about DreamBerd by DreamBerd creator Lu/Luke Wilson.
+
 ## Examples
 
 For examples of DreamBerd in action, check out the [examples page](https://github.com/TodePond/DreamBerd/blob/main/test/Examples.md)!
 
 ![image](files/star-history.png)
 
-DreamBerd was made with 💔 by Lu Wilson, creator of the [Game of Living](https://youtu.be/WMJ1H3Ai-qs).
+
+DreamBerd was made with 💔 by [Lu or Luke (either's fine) Wilson](https://todepond.com), creator of the [Game of Living](https://youtu.be/WMJ1H3Ai-qs), with help from a lot of people.
+
+<br>
+
+<a href="https://github.com/todepond/dreamberd/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=todepond/dreamberd&max=999&columns=12" width="100%"/>
+</a>
+

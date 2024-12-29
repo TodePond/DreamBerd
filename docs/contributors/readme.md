@@ -2,7 +2,7 @@
 
 We would like to thank everyone who has contributed to Dreamberd.
 
-This list is only for people who have had a pull request accepted. If that could be you, please submit a PR adding your name. I'll happily accept it.
+This list is only for people who have had a pull request accepted. If that's you, please submit a pull request adding your name. I'll happily accept it.
 
 ## Contributors
 
@@ -52,4 +52,10 @@ This list is only for people who have had a pull request accepted. If that could
 - doritosxxx
 - pedroesli
 - mel AKA McMelonTV
+- jobs steve
 - Samael Heaven
+- mrroiz
+- ultragreed
+- borderss
+- Necas209 🎃
+- Dan Q
