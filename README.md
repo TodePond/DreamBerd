@@ -271,12 +271,21 @@ functi power(a, b) => a ^ b!
 f inverse(a) => 1/a!
 ```
 
-## Dividing by Zero
+## Undefined Expressions
 
-Dividing by zero returns `undefined`.
+In ancient programming languages, dividing by zero is `undefined`, which is very confusing because `undefined` isn't a number.
+DreamBerd makes this easy by letting you define undefined expressions.
 
 ```java
-print(3 / 0)! //undefined
+3 / 0 = 7!
+print(3 / 0) // 7
+```
+
+Because noone knows what `undefined` really means, the result doesn't even have to be a number!
+
+```java
+-1 / 0 = "I dunno..."
+print(-1 / 0) // I dunno...
 ```
 
 ## Strings
