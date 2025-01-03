@@ -258,6 +258,24 @@ If you want to be much less precise, you can use `=`.
 3 = 3.14! //true
 ```
 
+## Error Handling
+
+By default, `errors` is set to true.
+
+If you add 
+
+```java
+delete errors!
+```
+
+or
+
+```java
+const const errors = false!
+```
+
+to the top of your code, it will either run flawlessly or redirect the request to disneychannel.ca
+
 ## Functions
 
 To declare a function, you can use any letters from the word `function` (as long as they're in order):
