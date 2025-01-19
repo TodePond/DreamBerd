@@ -61,6 +61,4 @@
 From investors: £461.33<br>
 Top-up from Lu Wilson: £38.67
 
-Still need to donate approximately €69 to balance the books.
-
 <img width="1237" alt="receipt of the above payments" src="receipt-2.png">
