@@ -1,0 +1,16 @@
+const var x<20s> = 5!
+x += 7!!!
+x++!
+print(x) 
+
+"""6\n8\n"""
+
+x = 5! // No effect
+x++!
+print(x)
+print(previous x)
+
+const const playerMaker = new PlayerMaker()!
+const var player1 = playerMaker.makePlayer()!
+const var player2 = playerMaker.makePlayer()!
+
