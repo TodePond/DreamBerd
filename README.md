@@ -124,6 +124,36 @@ scores[0.5] = 4!
 print(scores)! //[3, 2, 4, 5]
 ```
 
+## Split
+In some languages, you can use `array[i:j]` to split the array. So In DreamBerd you can also do something to split, but not the array, we designed the split for variable name.
+```java
+const var abc = 125!
+const const bc = 1e16!
+const const c = 0.53!
+print(abc)!          //125
+print(abc<~0:1~>)!   //1e16, abc<~0:1~> represent the value of bc, important: both the left and right value are closed interval.
+print(abc<~0:~>)!    //1e16, this represent that you can write nothing for default
+abc<~:~>?            //125
+abc<~1:~>?           //0.53
+abc<~1:10~>?         //ERROR: Index out of the length of variable name 'abc'.
+```
+
+You should warn about the `const const` variable, because the variable cannot be edited.
+```java
+const const bc = 1e16!
+const const c = 0.53!
+bc<~0:~>?            //ERROR: The variable 'bc' cannot be edited.
+```
+
+_you think its too useless?_ Actually, you can also do:
+```java
+var var ikun = "你干嘛~~哈哈~~诶呦~~"!!!
+ikun<~0:~> = "鸡你太美"!!!
+ikun?          //"你干嘛~~哈哈~~诶呦~~"
+kun?           //"鸡你太美"
+```
+Pretty good, you create a new variable `kun` without define. Remember, the new variable is inherited by its source variable.
+
 ## When
 
 In case you really need to vary a variable, the `when` keyword lets you check a variable each time it mutates.
