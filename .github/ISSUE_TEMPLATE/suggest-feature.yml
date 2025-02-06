@@ -1,0 +1,47 @@
+name: Suggest a feature!
+description: Have an idea for a language feature? Suggest it here!
+body:
+  - type: textarea
+    id: about
+    attributes:
+      label: What is your idea?
+      description: Clearly state what you'd like to see added.
+      placeholder: I'd love to see an alias for `+` called `plus` added to the language.
+    validations:
+      required: true
+  - type: textarea
+    id: example
+    attributes:
+      label: Give an example.
+      description: Give an example in the language on how this feature would look. Ideally, you'd also provide a comparison to how it has to be done currently.
+      placeholder: |
+        // Currently, the language requires people to do this:
+        print(2 + 3)!
+        // With this proposed change, you'd be able to do this:
+        print(2 plus 3)
+      render: Java
+    validations:
+      required: true
+  - type: textarea
+    id: why
+    attributes:
+      label: Why should the language adopt this?
+      description: Give a clear but not overly long description on why this feature would be worth adopting to the language.
+      placeholder: This should be done because of code readability. The `+` operator may not be known to everyone reading the code, and discriminating against certain people is a bad practice.
+    validations:
+      required: true
+  - type: markdown
+    attributes:
+      value: This is the [code of conduct](CODE_OF_CONDUCT.md).
+  - type: checkboxes
+    id: code
+    attributes:
+      label: Please read and agree to the code of conduct.
+      description: Have you done that?
+      options:
+        - label: I have read it.
+          required: true
+        - label: I agree to it.
+          required: true
+labels:
+  - enhancement

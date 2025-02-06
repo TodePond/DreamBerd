@@ -1,0 +1,48 @@
+name: Suggest a change!
+description: Have an idea for a change to the language that would potentially break programs? Suggest it here!
+body:
+  - type: textarea
+    id: about
+    attributes:
+      label: What is your idea?
+      description: Clearly state what you'd like to see changed.
+      placeholder: I'd love to see the operator `+` replaced with `plus`.
+    validations:
+      required: true
+  - type: textarea
+    id: example
+    attributes:
+      label: Give an example.
+      description: Give an example in the language on how this change would look. Ideally, you'd also provide a comparison to how it looks currently (which would no longer ba valid after this change) and how this would look after this change.
+      placeholder: |
+        // Currently, the language requires people to do this:
+        print(2 + 3)!
+        // With this proposed change, this hurtful syntax wouldn't be required anymore.
+        // Instead, you'd do this:
+        print(2 plus 3)
+      render: Java
+    validations:
+      required: true
+  - type: textarea
+    id: why
+    attributes:
+      label: Why should the language do this?
+      description: Give a clear but not overly long description on why this feature would be not only worth adding to the language, but also worth breaking existing programs for.
+      placeholder: This should be done because of code readability. The `+` operator may not be known to everyone reading the code, and discriminating against certain people is a bad practice. Therefore, we shouldn't even give users the option to do such a hurtful and harmul thing.
+    validations:
+      required: true
+  - type: markdown
+    attributes:
+      value: This is the [code of conduct](CODE_OF_CONDUCT.md).
+  - type: checkboxes
+    id: code
+    attributes:
+      label: Please read and agree to the code of conduct.
+      description: Have you done that?
+      options:
+        - label: I have read it.
+          required: true
+        - label: I agree to it.
+          required: true
+labels:
+  - enhancement
