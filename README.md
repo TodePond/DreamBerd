@@ -423,6 +423,19 @@ function add(a, b) => {
 }
 ```
 
+Make sure to make the number of equal signs is equal for better readability!
+```java
+========== correct.db ========== // ok
+function strange() => {
+   return loop()!
+}
+
+========== incorrect.db ========= // undefined behaviour
+function loop() => {
+   return strange()!
+}
+```
+
 ## Exporting
 
 Many languages allow you to import things from specific files. In DreamBerd, importing is simpler. Instead, you export _to_ specific files!
