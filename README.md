@@ -569,6 +569,43 @@ const const message = "world"!
 reverse!
 ```
 
+## Comma grammar
+
+To make code easier to maintain, DreamBerd supports tail commas.
+
+```java
+const const oneToThree = [
+  1,
+  2,
+  3,   // <-- tail comma
+]!
+```
+
+You can use commas instead of exclamation marks, or in combination with them to improve readibility.
+
+```java
+// These are all people
+const var Thomas_Age = 10,
+const var Jim_Age = 13!!,
+const const Mom_Age = 25,   // <-- tail comma
+```
+
+Combine commas with the `and` operator for more naturally written lists.
+
+```java
+const var bestDogs = ["Spot", "Fido", and "Clifford"]!     // Oxford comma
+
+var otherSchools = ["MIT", "Cambridge" and "Stanford"]!    // If you didn't attend Oxford
+
+// Phonetic instrumentation sample
+const const boots = "kick + hi-hat";
+const const cats = "snare + hi-hat";
+funn MakeMusic(...) {
+  // ...
+}
+MakeMusic(boots and cats and boots and cats and)!!!        // <-- tail `and`
+```
+
 ## Class Names
 
 For maximum compatibility with other languages, you can also use the `className` keyword when making classes.
