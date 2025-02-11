@@ -2,7 +2,7 @@
 
 Congratulations! You found the hidden examples page!
 
-Here are some examples of DreamBerd in action!
+Here are some examples of Gulf of Mexico in action!
 
 ## Hello world
 
