@@ -11,7 +11,7 @@ Here it is: https://github.com/TodePond/DreamBerd/blob/main/res/res/Examples.md
 
 [<img align="right" height="100" src="shapes.png">](https://github.com/TodePond/DreamBerd/blob/main/examples/Examples.md "Click here for the examples page.")
 
-# DreamBerd
+# Gulf of Mexico
 
 ![Coverage](badges/coverage-109.svg)
 
