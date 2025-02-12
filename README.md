@@ -41,7 +41,7 @@ print("Hello world")?
 You might be wondering what Gulf of Mexico uses for the 'not' operator, which is an exclamation mark in most other languages. That's simple - the 'not' operator is a semi-colon instead.
 
 ```java
-if (;false) {
+unless (;true) {
    print("Hello world")!
 }
 ```
@@ -179,10 +179,10 @@ addEventListener("keydown", (e) => keys[e.key] = true)!
 addEventListener("keyup", (e) => keys[e.key] = false)!
 
 function isKeyDown(key) => {
-   if (keys[key] = undefined) {
-      return maybe!
+   unless (keys[key] = undefined) {
+      return keys[key]!
    }
-   return keys[key]!
+   return maybe!
 }
 ```
 
