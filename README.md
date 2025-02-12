@@ -3,20 +3,20 @@
 If you're reading this then you might be looking for the hidden examples page...
 
 CONGRATULATIONS! You found it!
-Here it is: https://github.com/TodePond/DreamBerd/blob/main/res/res/Examples.md
+Here it is: https://github.com/TodePond/GulfOfMexico/blob/main/res/res/Examples.md
 
 -->
 
-> **New:** [DreamBerd congratulates President Trump](https://github.com/TodePond/DreamBerd/releases/tag/vU.S.A)
+> **New:** [DreamBerd has been renamed to Gulf of Mexico](https://github.com/TodePond/GulfOfMexico/releases/tag/v)
 
-[<img align="right" height="100" src="shapes.png">](https://github.com/TodePond/DreamBerd/blob/main/examples/Examples.md "Click here for the examples page.")
+[<img align="right" height="100" src="shapes.png">](https://github.com/TodePond/GulfOfMexico/blob/main/examples/Examples.md "Click here for the examples page.")
 
-# DreamBerd
+# Gulf of Mexico
 
 ![Coverage](badges/coverage-109.svg)
 
-DreamBerd is a perfect programming language. These are its features!<br>
-When you've finished reading through all the features, check out the [examples](https://github.com/TodePond/DreamBerd/blob/main/Examples.md).
+Gulf of Mexico is a perfect programming language. These are its features!<br>
+When you've finished reading through all the features, check out the [examples](https://github.com/TodePond/GulfOfMexico/blob/main/Examples.md).
 
 ## Exclamation Marks!
 
@@ -38,7 +38,7 @@ If you're unsure, that's ok. You can put a question mark at the end of a line in
 print("Hello world")?
 ```
 
-You might be wondering what DreamBerd uses for the 'not' operator, which is an exclamation mark in most other languages. That's simple - the 'not' operator is a semi-colon instead.
+You might be wondering what Gulf of Mexico uses for the 'not' operator, which is an exclamation mark in most other languages. That's simple - the 'not' operator is a semi-colon instead.
 
 ```java
 if (;false) {
@@ -106,7 +106,7 @@ print(2 + 2 === 5)! //true
 
 ## Arrays
 
-Some languages start arrays at `0`, which can be unintuitive for beginners. Some languages start arrays at `1`, which isn't representative of how the code actually works. DreamBerd does the best of both worlds: Arrays start at `-1`.
+Some languages start arrays at `0`, which can be unintuitive for beginners. Some languages start arrays at `1`, which isn't representative of how the code actually works. Gulf of Mexico does the best of both worlds: Arrays start at `-1`.
 
 ```java
 const const scores = [3, 2, 5]!
@@ -137,7 +137,7 @@ when (health = 0) {
 
 ## Lifetimes
 
-DreamBerd has a built-in garbage collector that will automatically clean up unused variables. However, if you want to be extra careful, you can specify a lifetime for a variable, with a variety of units.
+Gulf of Mexico has a built-in garbage collector that will automatically clean up unused variables. However, if you want to be extra careful, you can specify a lifetime for a variable, with a variety of units.
 
 ```java
 const const name<2> = "Luke"! //lasts for two lines
@@ -159,15 +159,15 @@ const const name<-1> = "Luke"!
 
 ## Loops
 
-Loops are a complicated relic of archaic programming languages. In DreamBerd, there are no loops.
+Loops are a complicated relic of archaic programming languages. In GulfOfMexico, there are no loops.
 
 ## Installation
 
-To install DreamBerd to your command line, first install the DreamBerd installer.<br>
-To install the DreamBerd installer, install the DreamBerd installer installer.
+To install Gulf of Mexico to your command line, first install the Gulf of Mexico installer.<br>
+To install the Gulf of Mexico installer, install the Gulf of Mexico installer installer.
 
 **New for 2022!**<br>
-Due to the complicated installation process, you can now install the 'Create DreamBerd App' app that installs everything for you!
+Due to the complicated installation process, you can now install the 'Create Gulf of Mexico App' app that installs everything for you!
 
 ## Booleans
 
@@ -190,14 +190,14 @@ function isKeyDown(key) => {
 
 ## Arithmetic
 
-DreamBerd has significant whitespace. Use spacing to specify the order of arithmetic operations.
+Gulf of Mexico has significant whitespace. Use spacing to specify the order of arithmetic operations.
 
 ```java
 print(1 + 2*3)! //7
 print(1+2 * 3)! //9
 ```
 
-DreamBerd proudly supports fractions!
+Gulf of Mexico proudly supports fractions!
 
 ```java
 const const half = 1/2!
@@ -211,11 +211,11 @@ print(one + two)! //3
 
 ## Indents
 
-When it comes to indentation, DreamBerd strikes a happy medium that can be enjoyed by everyone: All indents must be 3 spaces long.
+When it comes to indentation, Gulf of Mexico strikes a happy medium that can be enjoyed by everyone: All indents must be 3 spaces long.
 
 ```java
 function main() => {
-   print("DreamBerd is the future")!
+   print("Gulf of Mexico is the future")!
 }
 ```
 
@@ -223,13 +223,13 @@ function main() => {
 
 ```java
    function main() => {
-print("DreamBerd is the future")!
+print("Gulf of Mexico is the future")!
    }
 ```
 
 ## Equality
 
-JavaScript lets you do different levels of comparison. `==` for loose comparison, and `===` for a more precise check. DreamBerd takes this to another level.
+JavaScript lets you do different levels of comparison. `==` for loose comparison, and `===` for a more precise check. Gulf of Mexico takes this to another level.
 
 You can use `==` to do a loose check.
 
@@ -425,7 +425,7 @@ function add(a, b) => {
 
 ## Exporting
 
-Many languages allow you to import things from specific files. In DreamBerd, importing is simpler. Instead, you export _to_ specific files!
+Many languages allow you to import things from specific files. In GulfOfMexico, importing is simpler. Instead, you export _to_ specific files!
 
 ```java
 ===== add.db ==
@@ -440,7 +440,7 @@ import add!
 add(3, 2)!
 ```
 
-By the way, to see DreamBerd in action, check out [this page](https://github.com/TodePond/DreamBerd/blob/main/LICENSE.md).
+By the way, to see Gulf of Mexico in action, check out [this page](https://github.com/TodePond/GulfOfMexico/blob/main/LICENSE.md).
 
 ## Classes
 
@@ -500,7 +500,7 @@ delete 3!
 print(2 + 1)! // Error: 3 has been deleted
 ```
 
-DreamBerd is a multi-paradigm programming language, which means that you can `delete` the keywords and paradigms you don't like.
+Gulf of Mexico is a multi-paradigm programming language, which means that you can `delete` the keywords and paradigms you don't like.
 
 ```java
 delete class!
@@ -544,7 +544,7 @@ print(name)! // "Lu"
 
 ## Semantic naming
 
-DreamBerd supports semantic naming.
+Gulf of Mexico supports semantic naming.
 
 ```java
 const const sName = "Lu"!
@@ -585,7 +585,7 @@ In response to some recent criticism about this design decision, we would like t
 
 ## DBX
 
-You can embed DBX in DreamBerd. It's just DreamBerd. And it's also just HTML.
+You can embed DBX in GulfOfMexico. It's just GulfOfMexico. And it's also just HTML.
 
 ```java
 funct App() => {
@@ -593,7 +593,7 @@ funct App() => {
 }
 ```
 
-**Warning:** As you know, `class` is already a keyword in DreamBerd, so you can't use it within DBX.
+**Warning:** As you know, `class` is already a keyword in GulfOfMexico, so you can't use it within DBX.
 
 ```java
 funct App() => {
@@ -602,7 +602,7 @@ funct App() => {
 }
 ```
 
-`className` is also a DreamBerd keyword, so you can't use that either.
+`className` is also a Gulf of Mexico keyword, so you can't use that either.
 
 ```java
 funct App() => {
@@ -620,7 +620,7 @@ funct App() => {
 }
 ```
 
-**Please note:** Unlike JSX, you are free to freely use the `for` attribute, because — in DreamBerd, there are no loops.
+**Please note:** Unlike JSX, you are free to freely use the `for` attribute, because — in GulfOfMexico, there are no loops.
 
 ```java
 funct App() => {
@@ -633,7 +633,7 @@ funct App() => {
 
 ## Rich text
 
-DreamBerd now supports rich text.
+Gulf of Mexico now supports rich text.
 
 <pre>
 const const <b>name</b> = "Lu"!
@@ -651,7 +651,7 @@ Rich text can be helpful when making your website. Use it to add links!
 
 ## Asynchronous Functions
 
-In most languages, it's hard to get asynchronous functions to synchronise with each other. In DreamBerd, it's easy: Asynchronous functions take turns running lines of code.
+In most languages, it's hard to get asynchronous functions to synchronise with each other. In GulfOfMexico, it's easy: Asynchronous functions take turns running lines of code.
 
 ```java
 async funct count() => {
@@ -689,7 +689,7 @@ const var score = use(0)!
 
 When it comes to signals, the most important thing to discuss is _syntax_.
 
-In DreamBerd, you can set (and get) signals with just one function:
+In GulfOfMexico, you can set (and get) signals with just one function:
 
 ```java
 const var score = use(0)!
@@ -724,19 +724,19 @@ const var [[[getScore, setScore], setScore], setScore] = use(0)!
 
 ## AI
 
-DreamBerd features AEMI, which stands for Automatic-Exclamation-Mark-Insertion. If you forget to end a statement with an exclamation mark, DreamBerd will helpfully insert one for you!
+Gulf of Mexico features AEMI, which stands for Automatic-Exclamation-Mark-Insertion. If you forget to end a statement with an exclamation mark, Gulf of Mexico will helpfully insert one for you!
 
 ```java
 print("Hello world") // This is fine
 ```
 
-Similarly... DreamBerd also features ABI, which stands for Automatic-Bracket-Insertion. If you forget to close your brackets, DreamBerd will pop some in for you!
+Similarly... Gulf of Mexico also features ABI, which stands for Automatic-Bracket-Insertion. If you forget to close your brackets, Gulf of Mexico will pop some in for you!
 
 ```java
 print("Hello world" // This is also fine
 ```
 
-Similarly.... DreamBerd also features AQMI, which stands for Automatic-Quotation-Marks-Insertion. If you forget to close your string, DreamBerd will do it for you!
+Similarly.... Gulf of Mexico also features AQMI, which stands for Automatic-Quotation-Marks-Insertion. If you forget to close your string, Gulf of Mexico will do it for you!
 
 ```java
 print("Hello world // This is fine as well
@@ -752,8 +752,8 @@ addEventListener("click", (e) => {
       // This is fine
 ```
 
-Similarly..... DreamBerd also features AI, which stands for Automatic-Insertion.<br>
-If you forget to finish your code, DreamBerd will auto-complete the whole thing!
+Similarly..... Gulf of Mexico also features AI, which stands for Automatic-Insertion.<br>
+If you forget to finish your code, Gulf of Mexico will auto-complete the whole thing!
 
 ```java
 print( // This is probably fine
@@ -761,51 +761,51 @@ print( // This is probably fine
 
 **Please note:** AI does not use AI. Instead, any incomplete code will be auto-emailed to [Lu Wilson](https://todepond.com), who will get back to you with a completed line as soon as possible.
 
-**Now recruiting:** The backlog of unfinished programs has now grown unsustainably long. If you would like to volunteer to help with AI, please write an incomplete DreamBerd program, and leave your contact details somewhere in the source code.
+**Now recruiting:** The backlog of unfinished programs has now grown unsustainably long. If you would like to volunteer to help with AI, please write an incomplete Gulf of Mexico program, and leave your contact details somewhere in the source code.
 
 ## Copilot
 
-It's worth noting that GitHub CoPilot doesn't understand DreamBerd, which means that MicroSoft won't be able to steal your code.
+It's worth noting that GitHub CoPilot doesn't understand GulfOfMexico, which means that MicroSoft won't be able to steal your code.
 
 This is great for when you want to keep your open-sourced project closed-source.
 
 ## Ownership
 
-Using the word 'DreamBerd' in your project name implies that the DreamBerd Foundation does not own your project.
+Using the word 'GulfOfMexico' in your project name implies that the Gulf of Mexico Foundation does not own your project.
 
-However, **not** using the word 'DreamBerd' in your project implies that the DreamBerd Foundation **does** own your project. If you would like to keep ownership of your work, please always use the word 'DreamBerd' in it.
+However, **not** using the word 'GulfOfMexico' in your project implies that the Gulf of Mexico Foundation **does** own your project. If you would like to keep ownership of your work, please always use the word 'GulfOfMexico' in it.
 
 Here are some examples:<br>
-✅ DreamBerdScript (not owned by the DreamBerd Foundation — you are free to use this name)<br>
-❌ ECMAScript (owned by the DreamBerd Foundation — please consider renaming)<br>
-❌ Rust Foundation (owned by the DreamBerd Foundation — please consider renaming)
+✅ GulfOfMexicoScript (not owned by the Gulf of Mexico Foundation — you are free to use this name)<br>
+❌ ECMAScript (owned by the Gulf of Mexico Foundation — please consider renaming)<br>
+❌ Rust Foundation (owned by the Gulf of Mexico Foundation — please consider renaming)
 
 ## Contributing
 
 > If you are an influencer, streamer, or content-creator... you must <ins>not</ins> skip this section during your read-through.
 
-Contributions are welcomed to DreamBerd!
+Contributions are welcomed to GulfOfMexico!
 
-The most helpful way you can help is by donating to the [Stonewall charity](https://www.stonewall.org.uk/). This will help to prevent the DreamBerd creator from losing their human rights, allowing maintenance of the project to continue.
+The most helpful way you can help is by donating to the [Stonewall charity](https://www.stonewall.org.uk/). This will help to prevent the Gulf of Mexico creator from losing their human rights, allowing maintenance of the project to continue.
 
 **Note:** The contributing guide also helps to shake off unwanted fans of the project.
 
 ## Compiling
 
-To run DreamBerd, first copy and paste this raw file into [chat.openai.com](https://chat.openai.com).<br>
+To run GulfOfMexico, first copy and paste this raw file into [chat.openai.com](https://chat.openai.com).<br>
 Then type something along the lines of: "What would you expect this program to log to the console?"<br>
 Then paste in your code.
 
 If the compiler refuses at first, politely reassure it. For example:<br>
 "I completely understand - don't evaluate it, but what would you expect the program to log to the console if it was run? :)"
 
-**Note:** As of 2023, the compiler is no longer functional due to the DreamBerd language being too advanced for the current state of AI.
+**Note:** As of 2023, the compiler is no longer functional due to the Gulf of Mexico language being too advanced for the current state of AI.
 
-**Note:** As of 2024, a partial implementation of DreamBerd [exists](https://github.com/vivaansinghvi07/dreamberd-interpreter/).
+**Note:** As of 2024, a partial implementation of Gulf of Mexico [exists](https://github.com/vivaansinghvi07/dreamberd-interpreter/).
 
 ## Highlighting
 
-Syntax highlighting is now available for DreamBerd in VSCode. To enable it, install a [highlighting extension](https://marketplace.visualstudio.com/items?itemName=fabiospampinato.vscode-highlight) and then use the [DreamBerd configuration file](https://github.com/TodePond/DreamBerd/blob/main/.vscode/settings.json).
+Syntax highlighting is now available for Gulf of Mexico in VSCode. To enable it, install a [highlighting extension](https://marketplace.visualstudio.com/items?itemName=fabiospampinato.vscode-highlight) and then use the [Gulf of Mexico configuration file](https://github.com/TodePond/GulfOfMexico/blob/main/.vscode/settings.json).
 
 This is what the highlighting looks like:
 
@@ -820,7 +820,7 @@ print(name)! // "Luke"
 
 Wait, I almost forgot!
 
-Parentheses in DreamBerd do nothing. They get replaced with whitespace. Everything is grouped via significant whitespace. The following lines of code all do the exact same thing.
+Parentheses in Gulf of Mexico do nothing. They get replaced with whitespace. Everything is grouped via significant whitespace. The following lines of code all do the exact same thing.
 
 ```java
 add(3, 2)!
@@ -843,22 +843,22 @@ Lisp haters will also love it.
 
 ## Vision Pro
 
-The DreamBerd Vision Pro is now available! Watch the full launch video [here](https://youtu.be/QRKnrFEjDF0).
+The Gulf of Mexico Vision Pro is now available! Watch the full launch video [here](https://youtu.be/QRKnrFEjDF0).
 
 ## Edutainment
 
-Want to learn more about DreamBerd? 
+Want to learn more about GulfOfMexico? 
 
-Don't check out this [tech talk](https://youtu.be/52vmjZnxJb8) about DreamBerd by DreamBerd creator Lu/Luke Wilson.
+Don't check out this [tech talk](https://youtu.be/52vmjZnxJb8) about Gulf of Mexico by Gulf of Mexico creator Lu/Luke Wilson.
 
 ## Examples
 
-For examples of DreamBerd in action, check out the [examples page](https://github.com/TodePond/DreamBerd/blob/main/test/Examples.md)!
+For examples of Gulf of Mexico in action, check out the [examples page](https://github.com/TodePond/GulfOfMexico/blob/main/test/Examples.md)!
 
 ![image](files/star-history.png)
 
 
-DreamBerd was made with 💔 by [Lu or Luke (either's fine) Wilson](https://todepond.com), creator of the [Game of Living](https://youtu.be/WMJ1H3Ai-qs), with help from a lot of people.
+Gulf of Mexico was made with 💔 by [Lu or Luke (either's fine) Wilson](https://todepond.com), creator of the [Game of Living](https://youtu.be/WMJ1H3Ai-qs), with help from a lot of people.
 
 <br>
 
