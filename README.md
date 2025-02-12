@@ -778,7 +778,8 @@ However, **not** using the word 'DreamBerd' in your project implies that the Gul
 Here are some examples:<br>
 ✅ DreamBerdScript (not owned by the Gulf of Mexico Foundation — you are free to use this name)<br>
 ❌ ECMAScript (owned by the Gulf of Mexico Foundation — please consider renaming)<br>
-❌ Rust Foundation (owned by the Gulf of Mexico Foundation — please consider renaming)
+❌ Rust Foundation (owned by the Gulf of Mexico Foundation — please consider renaming)<br>
+❌ Department Of Government Efficiency (owned by the Gulf of Mexico Foundation — please consider renaming)
 
 ## Contributing
 
