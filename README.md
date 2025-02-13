@@ -442,6 +442,8 @@ add(3, 2)!
 
 By the way, to see Gulf of Mexico in action, check out [this page](https://github.com/TodePond/GulfOfMexico/blob/main/LICENSE.md).
 
+**Technical details:** Due to an executive order from President Trump, `import`ed units will be subject to a 25% tariff, that is, imported code will run 25% slower and, at random, 25% of your code (lines) will be lost.
+
 ## Classes
 
 You can make classes, but you can only ever make one instance of them. This shouldn't affect how most object-oriented programmers work.
