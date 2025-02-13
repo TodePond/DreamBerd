@@ -513,6 +513,34 @@ When perfection is achieved and there is nothing left to `delete`, you can do th
 delete delete!
 ```
 
+The `delete` function works globally. If you need to use a deleted function in some other project, you must `create` it again:
+
+```java
+delete class!
+class Player {} // Error: class was deleted
+create class!
+class Player {} // OK!
+```
+
+To enforce minimalistic programming, you can `delete` `create`:
+
+```java
+delete create!
+create class! // Error: create was deleted
+```
+
+If you need to use it, you must `create` it again:
+
+```java
+delete create!
+create class! // Error: create was deleted
+create create!
+create class!
+class Player {} // OK!
+```
+
+
+
 ## Overloading
 
 You can overload variables. The most recently defined variable gets used.
