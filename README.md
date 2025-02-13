@@ -722,6 +722,46 @@ This means that you can carry on splitting as much as you like.
 const var [[[getScore, setScore], setScore], setScore] = use(0)!
 ```
 
+## User-defined Operators
+
+DreamBerd is a highly flexible language and allows you to overload operators, as well as define your own operators.
+An operator can be any sequence of non-whitespace characters.
+
+```java
+infix(right-associative) operator -(a, b) => {
+  return ...! // implementation of - here
+}
+// Now - works on your user-defined BigInt type, just the way you want it!
+BigInt(0) - BigInt(1) - BigInt(2)! // -3
+
+infix(left-associative) operator in(a, b) => { return b.contains(a)! }
+1 in myList! // You can define an "in" operator if you like Python
+
+infix(left-associative) operator <<(a, b) => { print(b)! }
+cout << "foo"! // An important use case for operator overloading
+```
+
+You can define an operator named `const` or `=` or `!`!
+```java
+infix(left-associative) operator const(a, b) => { ... }
+infix(right-associative) operator =(a, b) => { ... }
+postfix operator !(n) => {
+    return ... // Factorial
+}
+```
+Now the statement `const const foo = 3!` will be parsed as `!(=(const("const", "foo"), 3))`. Neat, eh?
+
+You may have noticed that the examples above use `...` to represent the body of each function. This isn't pseudo-code.
+Instead, `...` is an operator that we've defined later on that uses DreamBerd's [AI](#AI) feature.
+```java
+unfix operator ...<-Infinity>() => {
+    const const code = email("Lu Wilson", "Subject: give me teh codez", getOuterFunction())!
+    exec(code)!
+}
+```
+
+Tired of people making too many operators? No worries, just do `delete operator!` to stop people from making their own operators.
+
 ## AI
 
 Gulf of Mexico features AEMI, which stands for Automatic-Exclamation-Mark-Insertion. If you forget to end a statement with an exclamation mark, Gulf of Mexico will helpfully insert one for you!
