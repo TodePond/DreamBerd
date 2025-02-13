@@ -442,6 +442,63 @@ add(3, 2)!
 
 By the way, to see Gulf of Mexico in action, check out [this page](https://github.com/TodePond/GulfOfMexico/blob/main/LICENSE.md).
 
+
+## Scope exposing
+
+Use the keyword `expose` to expose a function, class or labeled scope to another scope.
+
+```java
+func myFuncA (x, y) => {
+  return x + y!
+  expose x to myFuncB!
+}
+
+func myFuncB () => {
+  return x!
+}
+
+print(myFuncB())! //undefined
+print(myFuncA(1, 2))! //3
+print(myFuncB())! //1
+```
+
+Scoped variables can also be exposed outwards:
+
+```java
+func myFuncC (z) => {
+   return z * 2;
+   expose z!
+   expose z * 2 as res!
+}
+
+print(z)! //undefined
+print(res)! //undefined
+print(myFuncC(4))! //8
+print(z)! //4
+print(res)! //8
+```
+
+Declaring a function that exposes a variable will also declare that variable in the upper scope. These can, in turn, also be exposed even further outside.
+
+```java
+func outerFunc() => {
+  func innerFunc() => { 
+    var const a = 10!
+    print(a)! //10
+    a = a * 2!
+    expose a! // same as expose a to outerFunc
+  }
+  
+  innerFunc()!
+  print(a)! //20
+  expose a as b!
+}
+  
+outerFunc()!;
+// a doesn't exist here, it is now called b
+print(b)! //20
+```
+
 ## Classes
 
 You can make classes, but you can only ever make one instance of them. This shouldn't affect how most object-oriented programmers work.
