@@ -258,6 +258,8 @@ If you want to be much less precise, you can use `=`.
 3 = 3.14! //true
 ```
 
+But be careful, as ```;=``` returns a error. Instead, use ```≠, ≠≠, ≠≠≠``` and ```≠≠≠≠```
+
 ## Functions
 
 To declare a function, you can use any letters from the word `function` (as long as they're in order):
@@ -423,11 +425,41 @@ function add(a, b) => {
 }
 ```
 
+***New for 2024!*<br>
+Using 5+ &s, you can define folders!
+```
+&&&&&maths&&&&&
+=====add.db=====
+fn add(a,b) => {
+   return a + b!
+}
+export add to "maths&subtract.db"
+=====subtract.db=====
+import add
+fn subtract(a,b) => {
+   return add(a,-b)!
+}
+export subtract to "basic_calc"!
+&&&&&maths.end&&&&&
+=====basic_calc.db=====
+import add, subtract!
+op = input("Enter a value: + = 1, - = 2")!
+a = input('"Value 1 for operation:'")!
+b = input("'"Value 2 for operation:'"")!
+if op = ("1" ∨ "+") {
+   print("'"'''£{a} + £{b} = £{add(a,b)})!
+}
+else{
+   print("'"'''£{a} - £{b} = £{subtract(a,b)})
+}
+
+```
+
 ## Exporting
 
 Many languages allow you to import things from specific files. In GulfOfMexico, importing is simpler. Instead, you export _to_ specific files!
 
-```java
+```
 ===== add.db ==
 function add(a, b) => {
    return a + b!
